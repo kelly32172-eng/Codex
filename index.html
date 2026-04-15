@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>抓周 MBTI 體驗版</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,14 +17,12 @@
       <header class="hero">
         <p class="hero__badge">三輪抓周 → 寶寶版 MBTI 報告</p>
         <h1>抓周 MBTI 互動體驗</h1>
-        <p class="hero__desc">
-          依照企劃書流程，完成三輪道具選擇並即時計算 MBTI。可直接在本機瀏覽器開啟測試。
-        </p>
+        <p class="hero__desc">依照三輪抓周流程，挑出最吸引寶寶的道具，快速看看目前的性格傾向。</p>
       </header>
 
       <section class="panel" id="selection-panel">
         <div class="progress-wrap">
-          <div class="progress-text" id="progress-text">Round 1 / 3｜興趣（感知世界方式）</div>
+          <div class="progress-text" id="progress-text">Round 1 / 3｜興趣（感知世界的方式）</div>
           <div class="progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
             <span id="progress-fill"></span>
           </div>
@@ -26,7 +30,7 @@
 
         <div class="round-title-wrap">
           <h2 id="round-title">第一輪：選一個最吸引寶寶的道具</h2>
-          <p id="round-subtitle">這一輪會影響偏好軸向，請直覺點選一個。</p>
+          <p id="round-subtitle">這一輪會看寶寶如何感知世界。</p>
         </div>
 
         <div id="cards" class="cards"></div>
@@ -47,12 +51,12 @@
 
         <div class="result-grid">
           <article>
-            <h3>教養建議</h3>
-            <ul id="tips-list"></ul>
+            <h3>本次抓周選擇</h3>
+            <ul id="selection-list"></ul>
           </article>
           <article>
-            <h3>適合發展方向</h3>
-            <ul id="paths-list"></ul>
+            <h3>軸向計分</h3>
+            <ul id="axis-list"></ul>
           </article>
         </div>
 
@@ -64,9 +68,7 @@
         <button id="restart-btn" class="btn" type="button">重新測一次</button>
       </section>
 
-      <footer class="disclaimer">
-        聲明：本結果僅作為抓周成長觀察參考，非醫療或心理診斷。
-      </footer>
+      <footer class="disclaimer">聲明：本結果僅作為抓周成長觀察參考，非醫療或心理診斷。</footer>
     </main>
 
     <script src="app.js"></script>

@@ -1,67 +1,183 @@
 const roundConfig = [
   {
     key: 'interest',
-    label: 'Round 1 / 3｜興趣（感知世界方式）',
+    label: 'Round 1 / 3｜興趣（感知世界的方式）',
     title: '第一輪：選一個最吸引寶寶的道具',
-    subtitle: '這一輪會影響偏好軸向，請直覺點選一個。'
+    subtitle: '看寶寶偏好如何感知與探索世界。'
   },
   {
     key: 'ability',
-    label: 'Round 2 / 3｜能力（處理問題方式）',
-    title: '第二輪：選一個代表寶寶能力偏好的道具',
-    subtitle: '此輪可作為同分時的第二優先判定。'
+    label: 'Round 2 / 3｜能力（如何處理問題）',
+    title: '第二輪：選一個最符合寶寶能力偏好的道具',
+    subtitle: '觀察寶寶傾向的處理方式與互動模式。'
   },
   {
     key: 'personality',
-    label: 'Round 3 / 3｜人格特質（成為怎樣的人）',
-    title: '第三輪：選一個最符合你想像人格的道具',
-    subtitle: '此輪同時有較高權重，並作為 tie-breaker。'
+    label: 'Round 3 / 3｜人格特質（會成為怎樣的人）',
+    title: '第三輪：選一個最貼近寶寶人格想像的道具',
+    subtitle: '最後一輪會呈現整體人格傾向。'
   }
 ];
 
 const props = [
-  { id: 'i1', round_type: 'interest', name_zh: '小鼓', meaning: '喜歡互動與表達', keyword: '外向能量', mbti_axis: 'EI', axis_value: 'E', weight: 1.0 },
-  { id: 'i2', round_type: 'interest', name_zh: '拼圖', meaning: '偏好安靜觀察', keyword: '內在探索', mbti_axis: 'EI', axis_value: 'I', weight: 1.0 },
-  { id: 'i3', round_type: 'interest', name_zh: '放大鏡', meaning: '重視細節與實際', keyword: '感官實證', mbti_axis: 'SN', axis_value: 'S', weight: 1.0 },
-  { id: 'i4', round_type: 'interest', name_zh: '星空卡', meaning: '喜歡想像與聯想', keyword: '抽象想像', mbti_axis: 'SN', axis_value: 'N', weight: 1.0 },
-
-  { id: 'a1', round_type: 'ability', name_zh: '積木尺規', meaning: '按步驟解題', keyword: '邏輯分析', mbti_axis: 'TF', axis_value: 'T', weight: 1.2 },
-  { id: 'a2', round_type: 'ability', name_zh: '故事娃娃', meaning: '先感受再判斷', keyword: '情感同理', mbti_axis: 'TF', axis_value: 'F', weight: 1.2 },
-  { id: 'a3', round_type: 'ability', name_zh: '收納盒', meaning: '喜歡有規律', keyword: '結構安排', mbti_axis: 'JP', axis_value: 'J', weight: 1.2 },
-  { id: 'a4', round_type: 'ability', name_zh: '探險包', meaning: '彈性應變', keyword: '隨機探索', mbti_axis: 'JP', axis_value: 'P', weight: 1.2 },
-
-  { id: 'p1', round_type: 'personality', name_zh: '麥克風', meaning: '主動連結人群', keyword: '熱情帶動', mbti_axis: 'EI', axis_value: 'E', weight: 1.3 },
-  { id: 'p2', round_type: 'personality', name_zh: '閱讀帳篷', meaning: '沉浸內在世界', keyword: '獨處充電', mbti_axis: 'EI', axis_value: 'I', weight: 1.3 },
-  { id: 'p3', round_type: 'personality', name_zh: '工具箱', meaning: '重事實與效率', keyword: '理性規劃', mbti_axis: 'TF', axis_value: 'T', weight: 1.3 },
-  { id: 'p4', round_type: 'personality', name_zh: '愛心貼紙', meaning: '重關係與感受', keyword: '溫暖關懷', mbti_axis: 'TF', axis_value: 'F', weight: 1.3 }
-];
-
-const mbtiProfiles = {
-  ENFP: {
-    title: '小小靈感探險家',
-    summary: '寶寶天生帶著好奇雷達，喜歡和人互動，也愛把新點子變成遊戲。',
-    tips: ['提供自由探索空間與安全邊界', '以故事方式引導規則', '多安排同儕互動活動'],
-    paths: ['感官探索遊戲', '音樂律動課', '角色扮演活動']
+  {
+    id: 'interest-book',
+    round_type: 'interest',
+    name_zh: '書本',
+    icon: '📘',
+    meaning: '被故事與知識內容吸引，喜歡透過閱讀探索世界',
+    traits: ['I', 'N', 'T', 'J']
   },
-  ISTJ: {
-    title: '穩定秩序小達人',
-    summary: '寶寶偏好可預期流程，對細節敏感，透過反覆練習建立安全感。',
-    tips: ['建立固定作息節奏', '新活動先示範再嘗試', '給予明確、簡短指令'],
-    paths: ['拼圖分類遊戲', '步驟型手作', '規律運動任務']
+  {
+    id: 'interest-palette',
+    round_type: 'interest',
+    name_zh: '調色盤',
+    icon: '🎨',
+    meaning: '被色彩與創作吸引，喜歡用畫面表達想法',
+    traits: ['I', 'N', 'F', 'P']
   },
-  INFJ: {
-    title: '細膩洞察小星星',
-    summary: '寶寶觀察力佳、感受細膩，能從小細節捕捉他人情緒。',
-    tips: ['尊重情緒需要，避免過度刺激', '用溫和提問引導表達', '透過繪本建立價值感'],
-    paths: ['情境故事遊戲', '美感創作活動', '安靜共讀時光']
+  {
+    id: 'interest-ball',
+    round_type: 'interest',
+    name_zh: '球',
+    icon: '⚽',
+    meaning: '被動態活動吸引，喜歡透過肢體與環境互動',
+    traits: ['E', 'S', 'T', 'P']
+  },
+  {
+    id: 'interest-piano',
+    round_type: 'interest',
+    name_zh: '鋼琴',
+    icon: '🎹',
+    meaning: '被聲音與節奏吸引，喜歡用音樂感受與表達',
+    traits: ['E', 'N', 'F', 'P']
+  },
+  {
+    id: 'interest-camera',
+    round_type: 'interest',
+    name_zh: '相機',
+    icon: '📷',
+    meaning: '被畫面與細節吸引，喜歡用視覺理解世界',
+    traits: ['I', 'S', 'F', 'J']
+  },
+  {
+    id: 'interest-airplane',
+    round_type: 'interest',
+    name_zh: '飛機',
+    icon: '✈️',
+    meaning: '被未知與新環境吸引，喜歡旅遊並探索世界',
+    traits: ['E', 'N', 'T', 'P']
+  },
+  {
+    id: 'ability-blocks',
+    round_type: 'ability',
+    name_zh: '積木',
+    icon: '🧱',
+    meaning: '透過空間建構與調整，打造理想的創作',
+    traits: ['I', 'S', 'F', 'J']
+  },
+  {
+    id: 'ability-mirror',
+    round_type: 'ability',
+    name_zh: '鏡子',
+    icon: '🪞',
+    meaning: '透過他人互動與情感連結，理解自己與世界',
+    traits: ['E', 'N', 'F', 'P']
+  },
+  {
+    id: 'ability-blackboard',
+    round_type: 'ability',
+    name_zh: '黑板',
+    icon: '🧮',
+    meaning: '規劃與整理資訊，透過系統化思考理解整體脈絡',
+    traits: ['I', 'N', 'T', 'J']
+  },
+  {
+    id: 'ability-microphone',
+    round_type: 'ability',
+    name_zh: '麥克風',
+    icon: '🎤',
+    meaning: '透過表達與互動帶動氣氛，享受回饋與交流',
+    traits: ['E', 'S', 'F', 'P']
+  },
+  {
+    id: 'ability-magnifier',
+    round_type: 'ability',
+    name_zh: '放大鏡',
+    icon: '🔍',
+    meaning: '觀察細節並動手探索，透過分析理解運作方式',
+    traits: ['I', 'S', 'T', 'P']
+  },
+  {
+    id: 'ability-calculator',
+    round_type: 'ability',
+    name_zh: '計算機',
+    icon: '🧾',
+    meaning: '按步驟解決問題，重視穩定與實作',
+    traits: ['I', 'S', 'T', 'J']
+  },
+  {
+    id: 'personality-heart',
+    round_type: 'personality',
+    name_zh: '愛心',
+    icon: '💖',
+    meaning: '善於關懷他人，重視情感交流與互動',
+    traits: ['E', 'N', 'F', 'P']
+  },
+  {
+    id: 'personality-crown',
+    round_type: 'personality',
+    name_zh: '皇冠',
+    icon: '👑',
+    meaning: '展現自信與領導風範，喜歡建立秩序',
+    traits: ['E', 'S', 'T', 'J']
+  },
+  {
+    id: 'personality-compass',
+    round_type: 'personality',
+    name_zh: '指南針',
+    icon: '🧭',
+    meaning: '傾向獨立思考與探索方向，依照自己的理解前進',
+    traits: ['I', 'N', 'T', 'P']
+  },
+  {
+    id: 'personality-sun',
+    round_type: 'personality',
+    name_zh: '太陽',
+    icon: '☀️',
+    meaning: '帶來正能量與感染力，讓周圍充滿快樂與活力',
+    traits: ['E', 'S', 'F', 'P']
+  },
+  {
+    id: 'personality-scale',
+    round_type: 'personality',
+    name_zh: '天秤',
+    icon: '⚖️',
+    meaning: '重視與判斷標準，傾向理性分析與平衡決策',
+    traits: ['I', 'N', 'T', 'J']
+  },
+  {
+    id: 'personality-key',
+    round_type: 'personality',
+    name_zh: '鑰匙',
+    icon: '🗝️',
+    meaning: '願意守護重要信念，能被依靠與交付責任',
+    traits: ['I', 'S', 'F', 'J']
   }
-};
+];
 
 const axisPairs = {
   EI: ['E', 'I'],
   SN: ['S', 'N'],
   TF: ['T', 'F'],
   JP: ['J', 'P']
+};
+
+const axisDesc = {
+  EI: '外向 E ↔ 內向 I',
+  SN: '感知 S ↔ 直覺 N',
+  TF: '思考 T ↔ 情感 F',
+  JP: '判斷 J ↔ 彈性 P'
 };
 
 const selectedByRound = {
@@ -86,8 +202,8 @@ const el = {
   mbtiType: document.querySelector('#mbti-type'),
   mbtiTitle: document.querySelector('#mbti-title'),
   mbtiSummary: document.querySelector('#mbti-summary'),
-  tipsList: document.querySelector('#tips-list'),
-  pathsList: document.querySelector('#paths-list'),
+  selectionList: document.querySelector('#selection-list'),
+  axisList: document.querySelector('#axis-list'),
   scoreDebug: document.querySelector('#score-debug'),
   restartBtn: document.querySelector('#restart-btn')
 };
@@ -112,9 +228,10 @@ function renderRound() {
     card.type = 'button';
     card.className = `card ${selected?.id === item.id ? 'selected' : ''}`;
     card.innerHTML = `
+      <span class="card__icon" aria-hidden="true">${item.icon}</span>
       <h3>${item.name_zh}</h3>
       <p>${item.meaning}</p>
-      <small>${item.keyword}｜加權 ${item.weight}</small>
+      <small>MBTI：${item.traits.join(' / ')}</small>
     `;
     card.addEventListener('click', () => {
       selectedByRound[round.key] = item;
@@ -124,7 +241,7 @@ function renderRound() {
   });
 
   el.selectedHint.textContent = selected
-    ? `目前已選：${selected.name_zh}（${selected.axis_value} +${selected.weight}）`
+    ? `目前已選：${selected.name_zh}（${selected.traits.join(' / ')}）`
     : '尚未選擇道具';
 
   el.prevBtn.disabled = currentRoundIndex === 0;
@@ -134,27 +251,28 @@ function renderRound() {
 function computeResult() {
   const score = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
-  // 依 round 加權累積
   roundConfig.forEach((round) => {
     const pick = selectedByRound[round.key];
     if (!pick) return;
-    score[pick.axis_value] += Number(pick.weight);
+    pick.traits.forEach((trait) => {
+      score[trait] += 1;
+    });
   });
 
-  const tieBreakerOrder = ['personality', 'ability'];
+  const tieBreakerOrder = ['personality', 'ability', 'interest'];
 
   function resolveAxis(axisCode) {
     const [left, right] = axisPairs[axisCode];
     if (score[left] > score[right]) return left;
     if (score[right] > score[left]) return right;
 
-    // 同分：先看第三輪，再看第二輪
     for (const roundKey of tieBreakerOrder) {
       const pick = selectedByRound[roundKey];
-      if (pick?.mbti_axis === axisCode) return pick.axis_value;
+      if (!pick) continue;
+      if (pick.traits.includes(left) && !pick.traits.includes(right)) return left;
+      if (pick.traits.includes(right) && !pick.traits.includes(left)) return right;
     }
 
-    // 仍同分，回傳 X 代表混合
     return 'X';
   }
 
@@ -166,42 +284,46 @@ function computeResult() {
 
 function renderResult() {
   const { mbti, score, letters } = computeResult();
-  const profile = mbtiProfiles[mbti];
+  const hasMixed = letters.includes('X');
 
   el.selectionPanel.classList.add('hidden');
   el.resultPanel.classList.remove('hidden');
 
-  if (letters.includes('X')) {
+  if (hasMixed) {
     el.mbtiType.textContent = mbti;
-    el.mbtiTitle.textContent = '混合型（可再觀察）';
-    el.mbtiSummary.textContent = '部分軸向同分，代表寶寶在不同情境可能展現不同特質，可在下一次抓周持續觀察。';
-    el.tipsList.innerHTML = '<li>重點放在日常互動觀察</li><li>多情境嘗試，看看偏好是否穩定</li>';
-    el.pathsList.innerHTML = '<li>跨領域探索活動</li><li>保留彈性、少貼標籤</li>';
+    el.mbtiTitle.textContent = '混合型（可持續觀察）';
+    el.mbtiSummary.textContent = '部份軸向同分，代表寶寶可能在不同情境展現不同偏好。';
   } else {
-    const fallback = {
-      title: '寶寶成長探索家',
-      summary: '這是寶寶目前偏好組合，會隨成長經驗持續調整。',
-      tips: ['先回應需求再引導規則', '觀察高投入時段安排活動'],
-      paths: ['感官遊戲', '親子共讀']
-    };
-    const useProfile = profile ?? fallback;
     el.mbtiType.textContent = mbti;
-    el.mbtiTitle.textContent = useProfile.title;
-    el.mbtiSummary.textContent = useProfile.summary;
-    el.tipsList.innerHTML = useProfile.tips.map((item) => `<li>${item}</li>`).join('');
-    el.pathsList.innerHTML = useProfile.paths.map((item) => `<li>${item}</li>`).join('');
+    el.mbtiTitle.textContent = '本次抓周 MBTI 傾向';
+    el.mbtiSummary.textContent = '依照你提供的 18 項道具定義進行三輪計分，結果可作為成長觀察參考。';
   }
+
+  el.selectionList.innerHTML = roundConfig
+    .map((round, index) => {
+      const selected = selectedByRound[round.key];
+      if (!selected) return `<li>第 ${index + 1} 輪：未選擇</li>`;
+      return `<li>第 ${index + 1} 輪：${selected.name_zh}（${selected.traits.join(' / ')}）</li>`;
+    })
+    .join('');
+
+  el.axisList.innerHTML = Object.keys(axisPairs)
+    .map((axisCode) => {
+      const [left, right] = axisPairs[axisCode];
+      return `<li>${axisDesc[axisCode]}：${left} ${score[left]} / ${right} ${score[right]}</li>`;
+    })
+    .join('');
 
   el.scoreDebug.textContent = JSON.stringify(
     {
       selected: {
-        round1: selectedByRound.interest?.name_zh,
-        round2: selectedByRound.ability?.name_zh,
-        round3: selectedByRound.personality?.name_zh
+        interest: selectedByRound.interest?.name_zh,
+        ability: selectedByRound.ability?.name_zh,
+        personality: selectedByRound.personality?.name_zh
       },
       score,
       resolved_mbti: mbti,
-      rule: '同分優先第三輪（personality）→ 第二輪（ability）→ X 混合型'
+      rule: '每輪道具提供 4 個 MBTI 字母各 +1；同分依序使用第三輪→第二輪→第一輪作為決勝'
     },
     null,
     2
