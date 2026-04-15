@@ -66,6 +66,34 @@ body {
   box-shadow: var(--shadow);
 }
 
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.35rem;
+  color: #645f81;
+  font-weight: 700;
+}
+
+.form-field span {
+  font-size: 0.95rem;
+}
+
+.form-field input,
+.form-field select {
+  border: 1px solid #dac9f9;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.64rem 0.7rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
 .progress-wrap {
   margin-bottom: 1rem;
 }
@@ -239,6 +267,31 @@ body {
 .mbti-title {
   margin-top: 0.3rem;
   font-weight: 800;
+}
+
+.growth-report {
+  margin: 1rem 0 1.2rem;
+  border: 1px solid #e7dffd;
+  border-radius: 18px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+  line-height: 1.85;
+}
+
+.growth-report h3 {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+  color: #6853bf;
+}
+
+.growth-report p {
+  margin: 0 0 0.9rem;
+  color: #4d4765;
+}
+
+.growth-report strong {
+  color: #6f5ac6;
 }
 
 .result-grid {
