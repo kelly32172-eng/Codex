@@ -211,9 +211,15 @@ button:hover {
 }
 
 .option.selected {
-  border-color: #ad75d8;
-  background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.92), 0 0 28px rgba(255, 255, 255, 0.85);
+  border-color: #c9a6da;
+  background: linear-gradient(135deg, #ffe2ef 0%, #d7e9ff 100%);
+  box-shadow: 0 0 0 2px rgba(255, 243, 250, 0.92), 0 0 28px rgba(186, 213, 255, 0.62);
+}
+
+.option.selected:hover {
+  background: linear-gradient(135deg, #ffe2ef 0%, #d7e9ff 100%);
+  border-color: #c9a6da;
+  box-shadow: 0 0 0 2px rgba(255, 243, 250, 0.95), 0 0 30px rgba(186, 213, 255, 0.68);
 }
 
 .actions {
