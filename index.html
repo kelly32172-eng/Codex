@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <button id="music-toggle" class="music-toggle" type="button" aria-label="切換背景音樂" aria-pressed="false">🔇</button>
     <audio
       id="bgm-audio"
       loop
@@ -22,9 +21,11 @@
       <h1>魔法星空抓周派對：預見寶貝的超能力宇宙！</h1>
 
       <section id="start-screen" class="card">
-        <p class="intro-copy">
-          「抓周」是寶寶滿週歲時最美好的傳統祝福，用來預測孩子未來的天賦與志向。我們將這份傳統結合現代 MBTI 心理學，透過「興趣、能力、特質」三階段的直覺挑選，帶您解碼寶貝獨一無二的 16 型人格天賦！現在，就跟著直覺幫寶寶挑選 3 件最吸引他的小禮物，獲得專屬的成長報告吧！
-        </p>
+        <div class="intro-copy">
+          <p>「抓周」是寶寶滿週歲時最美好的傳統祝福，用來預見孩子未來的天賦與潛能。</p>
+          <p>在這裡，我們將這份傳統結合現代 MBTI 心理學，透過「興趣、能力、特質」三階段的直覺挑選，帶您解碼寶貝獨一無二的 16 型人格天賦！</p>
+          <p>現在，就跟著直覺幫寶寶挑選 3 件最吸引他的小禮物，直接獲取專屬的成長圖卡與完整解析吧！</p>
+        </div>
         <label for="baby-name">寶寶小名
           <input id="baby-name" type="text" placeholder="請輸入寶寶小名" />
         </label>
@@ -45,7 +46,7 @@
             <option value="雙魚">雙魚</option>
           </select>
         </label>
-        <button id="start-btn">開始探索</button>
+        <button id="start-btn">開始測驗</button>
       </section>
 
       <section id="quiz-screen" class="card hidden">
@@ -61,41 +62,42 @@
 
       <section id="result-screen" class="card hidden">
         <article class="report-card">
-          <header class="report-header">
-            <h2 id="report-title"></h2>
+          <header class="hero-card" id="hero-card">
             <p id="report-subtitle" class="report-subtitle"></p>
-          </header>
-
-          <section class="identity-block">
+            <h2 id="report-title"></h2>
             <p id="mbti-result" class="mbti"></p>
             <p id="mbti-title" class="mbti-title"></p>
             <p id="base-info" class="base-info"></p>
-          </section>
+          </header>
 
-          <section class="chosen-items">
+          <section class="picked-items-panel">
             <h3>抓周印記</h3>
             <div id="picked-tags" class="tag-list"></div>
-            <ul id="picked-list" class="hidden"></ul>
-            <ul id="dimension-list" class="hidden"></ul>
           </section>
 
-          <section class="report-sections">
-            <div class="report-block">
-              <h4>✨ 先天天賦（基於能力道具的發揮）</h4>
-              <p id="talent-section"></p>
-            </div>
-            <div class="report-block">
-              <h4>💖 性格底色（基於特質道具的內在）</h4>
-              <p id="personality-section"></p>
-            </div>
-            <div class="report-block">
-              <h4>🌟 給寶貝的祝福（溫馨結語）</h4>
-              <p id="blessing-section"></p>
-            </div>
+          <section class="report-grid">
+            <article class="report-block">
+              <h4>MBTI 分析</h4>
+              <p id="analysis-section"></p>
+            </article>
+            <article class="report-block">
+              <h4>星座加成</h4>
+              <p id="zodiac-section"></p>
+            </article>
+            <article class="report-block">
+              <h4>未來職業參考</h4>
+              <p id="career-section"></p>
+            </article>
+            <article class="report-block">
+              <h4>爸媽教養建議</h4>
+              <p id="parenting-section"></p>
+            </article>
           </section>
 
           <p id="report-status" class="report-status"></p>
           <article id="deep-report" class="report hidden"></article>
+          <ul id="picked-list" class="hidden"></ul>
+          <ul id="dimension-list" class="hidden"></ul>
         </article>
 
         <button id="restart-btn">重新測驗</button>
