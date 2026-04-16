@@ -532,10 +532,21 @@ button:hover {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   body { font-size: 18px; }
-  .container { padding: 24px 10px 36px; }
+  .container { padding: 70px 10px 36px; }
+  h1 { font-size: 1.5rem; }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
   .card { padding: 22px 16px; }
+  .option { padding: 10px; }
+  .option h4 { font-size: 1rem; }
+  .option p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
   .actions { grid-template-columns: 1fr; }
   button { font-size: 22px; }
   .seal-list { grid-template-columns: 1fr; }
