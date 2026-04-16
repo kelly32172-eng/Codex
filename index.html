@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <button id="music-toggle" class="music-toggle" type="button" aria-label="切換背景音樂" aria-pressed="false">🔇</button>
+    <button id="music-toggle" class="music-toggle" type="button" aria-label="播放魔法音樂" aria-pressed="false">🎵 播放魔法音樂</button>
     <audio
       id="bgm-audio"
       loop
@@ -61,38 +61,44 @@
 
       <section id="result-screen" class="card hidden">
         <article class="report-card">
-          <header class="report-header">
-            <h2 id="report-title"></h2>
-            <p id="report-subtitle" class="report-subtitle"></p>
-          </header>
+          <div class="report-layout">
+            <section class="report-left">
+              <header class="report-header">
+                <h2 id="report-title"></h2>
+                <p id="report-subtitle" class="report-subtitle"></p>
+              </header>
 
-          <section class="identity-block">
-            <p id="mbti-result" class="mbti"></p>
-            <p id="mbti-title" class="mbti-title"></p>
-            <p id="base-info" class="base-info"></p>
-          </section>
+              <section class="identity-block">
+                <p id="mbti-result" class="mbti"></p>
+                <p id="mbti-title" class="mbti-title"></p>
+                <p id="base-info" class="base-info"></p>
+              </section>
 
-          <section class="chosen-items">
-            <h3>抓周印記</h3>
-            <div id="picked-tags" class="tag-list"></div>
-            <ul id="picked-list" class="hidden"></ul>
-            <ul id="dimension-list" class="hidden"></ul>
-          </section>
+              <section class="chosen-items">
+                <h3>抓周印記</h3>
+                <div id="picked-tags" class="tag-list"></div>
+                <ul id="picked-list" class="hidden"></ul>
+                <ul id="dimension-list" class="hidden"></ul>
+              </section>
+            </section>
 
-          <section class="report-sections">
-            <div class="report-block">
-              <h4>✨ 先天天賦（基於能力道具的發揮）</h4>
-              <p id="talent-section"></p>
-            </div>
-            <div class="report-block">
-              <h4>💖 性格底色（基於特質道具的內在）</h4>
-              <p id="personality-section"></p>
-            </div>
-            <div class="report-block">
-              <h4>🌟 給寶貝的祝福（溫馨結語）</h4>
-              <p id="blessing-section"></p>
-            </div>
-          </section>
+            <section class="report-right">
+              <section class="report-sections">
+                <div class="report-block">
+                  <h4>✨ 先天天賦</h4>
+                  <p id="talent-section"></p>
+                </div>
+                <div class="report-block">
+                  <h4>💖 性格底色</h4>
+                  <p id="personality-section"></p>
+                </div>
+                <div class="report-block">
+                  <h4>🌟 給爸爸媽媽的祝福</h4>
+                  <p id="blessing-section"></p>
+                </div>
+              </section>
+            </section>
+          </div>
 
           <p id="report-status" class="report-status"></p>
           <article id="deep-report" class="report hidden"></article>
