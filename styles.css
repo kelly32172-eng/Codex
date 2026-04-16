@@ -583,16 +583,33 @@ button:hover {
   }
   .card { padding: 22px 16px; }
   .option { padding: 10px; }
-  .option h4 { font-size: 1rem; }
+  .option h4 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
   .option p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.4;
+    color: #444;
+    margin-bottom: 10px;
   }
   .option-icon {
-    width: 54px;
-    height: 54px;
+    width: 35px;
+    height: 35px;
     margin: 0 auto;
-    font-size: 28px;
+    font-size: 20px;
+  }
+  .badge-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .explain-badge {
+    min-height: auto;
+    padding: 3px 6px;
+    font-size: 0.65rem;
   }
   .actions { grid-template-columns: 1fr; }
   button { font-size: 22px; }
