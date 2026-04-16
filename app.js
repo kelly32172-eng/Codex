@@ -127,7 +127,8 @@ function hideBgmAlert() {
 }
 
 async function startBgm() {
-  bgmAudio.volume = 0.5;
+  bgmAudio.volume = 0.35;
+  bgmAudio.playbackRate = 0.95;
   bgmAudio.muted = false;
 
   try {
