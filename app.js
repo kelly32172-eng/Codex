@@ -68,7 +68,7 @@ const roundLabel = document.getElementById('round-label');
 const roundTitle = document.getElementById('round-title');
 const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
-const bgmAudio = document.getElementById('bgm-audio');
+const bgmAudio = document.getElementById('bgMusic');
 
 const reportName = document.getElementById('report-name');
 const reportMbti = document.getElementById('report-mbti');
@@ -83,6 +83,13 @@ const dimensionGrid = document.getElementById('dimension-grid');
 
 function buildAvatarSVG(mbti, avatarConfig) {
   const { base, accent, mark } = avatarConfig;
+  const babyPersonaIcons = {
+    ENFP: '🧭', ENTP: '🔭', ESTP: '🪂', ESFP: '🎵',
+    ENFJ: '💞', ENTJ: '🧠', ESTJ: '📋', ESFJ: '🧸',
+    INFP: '🌈', INTP: '📚', INFJ: '🕊️', INTJ: '👓',
+    ISFP: '🎨', ISTP: '🛠️', ISFJ: '💗', ISTJ: '📖'
+  };
+  const accessory = babyPersonaIcons[mbti] || '✨';
   return `
     <svg viewBox="0 0 260 260" role="img" aria-label="${mbti} 寶寶插畫" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -98,6 +105,7 @@ function buildAvatarSVG(mbti, avatarConfig) {
       <circle cx="56" cy="70" r="30" fill="${accent}" opacity="0.85"/>
       <circle cx="205" cy="70" r="30" fill="${accent}" opacity="0.85"/>
       <text x="130" y="68" text-anchor="middle" font-size="38" fill="#694c84">${mark}</text>
+      <text x="130" y="134" text-anchor="middle" font-size="36">${accessory}</text>
       <text x="130" y="240" text-anchor="middle" font-size="30" font-family="Baloo 2">${mbti}</text>
     </svg>
   `;
@@ -111,7 +119,7 @@ document.getElementById('start-btn').addEventListener('click', async () => {
 
   try {
     bgmAudio.currentTime = 0;
-    await bgmAudio.play();
+    await document.getElementById('bgMusic').play();
   } catch {
     // 部分瀏覽器在特殊模式下仍可能阻擋播放。
   }
@@ -211,10 +219,11 @@ function showResult() {
   const babyName = babyNameInput.value.trim();
   const babyZodiac = babyZodiacInput.value.trim();
   const report = mbtiReports[mbti] || mbtiReports.ENFP;
+  const cuteTitle = report.title.replace(/^[A-Z]{4}\s*/, '');
 
   reportName.textContent = `${babyName} 的專屬結果圖卡`;
   reportMbti.textContent = mbti;
-  reportTitle.textContent = report.title;
+  reportTitle.textContent = `${mbti} ${cuteTitle}`;
   analysisText.textContent = report.analysis;
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;

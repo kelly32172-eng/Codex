@@ -16,55 +16,32 @@ body {
   font-family: "Baloo 2", "Kiwi Maru", "Quicksand", "Noto Sans TC", sans-serif;
   font-size: 20px;
   line-height: 1.7;
-  background: linear-gradient(135deg, #ffdee9, #e8dff5, #b5fffc);
+  background: linear-gradient(135deg, #FFDEE9 0%, #E8DFF5 50%, #B5FFFC 100%) !important;
+  position: relative;
   overflow-x: hidden;
 }
 
-body::before,
-body::after {
+body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(white, rgba(255, 255, 255, 0.3) 1.5px, transparent 20px),
+    radial-gradient(white, rgba(255, 255, 255, 0.2) 1px, transparent 15px);
+  background-size: 300px 300px, 200px 200px;
+  background-position: 0 0, 50px 50px;
   z-index: -1;
+  pointer-events: none;
+  animation: starsTwinkle 5s infinite linear;
 }
 
-body::before {
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  box-shadow:
-    4vw 8vh 0 #fff, 12vw 22vh 0 #fff, 20vw 14vh 0 #fff, 27vw 31vh 0 #fff, 33vw 9vh 0 #fff,
-    41vw 18vh 0 #fff, 48vw 30vh 0 #fff, 53vw 7vh 0 #fff, 61vw 25vh 0 #fff, 67vw 11vh 0 #fff,
-    72vw 34vh 0 #fff, 78vw 16vh 0 #fff, 84vw 27vh 0 #fff, 90vw 8vh 0 #fff, 95vw 20vh 0 #fff,
-    6vw 48vh 0 #fff, 13vw 60vh 0 #fff, 19vw 40vh 0 #fff, 28vw 55vh 0 #fff, 36vw 44vh 0 #fff,
-    42vw 63vh 0 #fff, 51vw 47vh 0 #fff, 58vw 57vh 0 #fff, 65vw 42vh 0 #fff, 71vw 54vh 0 #fff,
-    79vw 45vh 0 #fff, 86vw 60vh 0 #fff, 92vw 52vh 0 #fff, 98vw 41vh 0 #fff, 24vw 68vh 0 #fff,
-    8vw 82vh 0 #fff, 16vw 90vh 0 #fff, 22vw 76vh 0 #fff, 31vw 88vh 0 #fff, 39vw 79vh 0 #fff,
-    46vw 92vh 0 #fff, 55vw 84vh 0 #fff, 63vw 74vh 0 #fff, 70vw 89vh 0 #fff, 77vw 80vh 0 #fff,
-    85vw 94vh 0 #fff, 93vw 86vh 0 #fff;
-  opacity: 0.75;
-  animation: twinkle 2.8s ease-in-out infinite alternate;
-}
-
-body::after {
-  width: 2px;
-  height: 2px;
-  background: transparent;
-  box-shadow:
-    10vw 12vh 0 rgba(255, 255, 255, 0.9), 17vw 34vh 0 rgba(255, 255, 255, 0.9), 26vw 17vh 0 rgba(255, 255, 255, 0.9),
-    35vw 29vh 0 rgba(255, 255, 255, 0.9), 44vw 13vh 0 rgba(255, 255, 255, 0.9), 57vw 33vh 0 rgba(255, 255, 255, 0.9),
-    66vw 19vh 0 rgba(255, 255, 255, 0.9), 75vw 28vh 0 rgba(255, 255, 255, 0.9), 83vw 12vh 0 rgba(255, 255, 255, 0.9),
-    92vw 30vh 0 rgba(255, 255, 255, 0.9), 12vw 70vh 0 rgba(255, 255, 255, 0.9), 23vw 52vh 0 rgba(255, 255, 255, 0.9),
-    34vw 69vh 0 rgba(255, 255, 255, 0.9), 45vw 58vh 0 rgba(255, 255, 255, 0.9), 54vw 72vh 0 rgba(255, 255, 255, 0.9),
-    68vw 62vh 0 rgba(255, 255, 255, 0.9), 79vw 73vh 0 rgba(255, 255, 255, 0.9), 89vw 56vh 0 rgba(255, 255, 255, 0.9);
-  opacity: 0.6;
-  animation: twinkle 4s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-  0% { opacity: 0.2; transform: scale(0.95); }
-  100% { opacity: 0.95; transform: scale(1.05); }
+@keyframes starsTwinkle {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
 
 .container {
@@ -132,6 +109,16 @@ select {
   background: rgba(255, 255, 255, 0.8);
 }
 
+select {
+  appearance: none;
+  border-radius: 30px;
+  background-color: #fff8e6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath fill='%23c087b9' d='M12 16.5a1 1 0 0 1-.707-.293l-5-5a1 1 0 1 1 1.414-1.414L12 14.086l4.293-4.293a1 1 0 1 1 1.414 1.414l-5 5A1 1 0 0 1 12 16.5z'/%3E%3Ccircle cx='18' cy='7' r='3' fill='%23ffd8e8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 54px;
+}
+
 button,
 .option {
   border: none;
@@ -178,6 +165,7 @@ button:hover {
   margin: 0 0 8px;
   font-size: 28px;
   text-align: center;
+  color: #333333;
 }
 
 .option p {
@@ -208,8 +196,8 @@ button:hover {
 
 .option.selected {
   border-color: #ad75d8;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 0 0 2px rgba(173, 117, 216, 0.3), 0 12px 28px rgba(152, 109, 196, 0.3);
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.92), 0 0 28px rgba(255, 255, 255, 0.85);
 }
 
 .actions {
@@ -241,6 +229,16 @@ button:hover {
   padding: 18px;
   background: rgba(255, 255, 255, 0.68);
   border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.baby-visual-wrap {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.report-grid.two-columns {
+  grid-template-columns: 1fr 1fr;
 }
 
 #report-mbti {
