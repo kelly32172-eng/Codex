@@ -140,6 +140,20 @@ button:hover {
   transform: translateY(-3px);
 }
 
+.bgm-alert {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 242, 214, 0.9);
+  border: 1.5px solid rgba(238, 181, 126, 0.9);
+}
+
+.bgm-alert p {
+  margin: 0 0 10px;
+  color: #8a4f32;
+  font-size: 18px;
+}
+
 .grid {
   margin-top: 8px;
   display: grid;

@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <audio id="bgMusic" loop preload="none" src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_959db62da6.mp3"></audio>
+    <audio
+      id="bgMusic"
+      loop
+      preload="none"
+      src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_959db62da6.mp3"
+      data-fallback-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    ></audio>
 
     <main class="container">
       <h1>魔法星空抓周派對：預見寶貝的超能力宇宙！</h1>
@@ -44,6 +50,10 @@
         </label>
 
         <button id="start-btn" type="button">開始測驗</button>
+        <div id="bgm-alert" class="bgm-alert hidden" role="status" aria-live="polite">
+          <p id="bgm-alert-text">音樂尚未啟用</p>
+          <button id="bgm-retry-btn" type="button">點我開啟音樂</button>
+        </div>
       </section>
 
       <section id="quiz-screen" class="card hidden">
