@@ -1,5 +1,3 @@
-const API_KEY = '';
-
 const rounds = [
   {
     key: 'interest',
@@ -150,6 +148,24 @@ const rounds = [
 const picks = { interest: null, ability: null, personality: null };
 let roundIndex = 0;
 let currentResult = '';
+const mbtiTitles = {
+  ISTJ: '秩序小守護者',
+  ISFJ: '暖心小天使',
+  INFJ: '星光小洞察家',
+  INTJ: '未來小策士',
+  ISTP: '機智小工匠',
+  ISFP: '藝術小精靈',
+  INFP: '夢想小旅人',
+  INTP: '邏輯小發明家',
+  ESTP: '行動小冒險王',
+  ESFP: '舞台小太陽',
+  ENFP: '靈感小魔法師',
+  ENTP: '創意小探索家',
+  ESTJ: '領航小隊長',
+  ESFJ: '貼心小夥伴',
+  ENFJ: '鼓舞小引導者',
+  ENTJ: '遠見小指揮家'
+};
 
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
@@ -267,57 +283,22 @@ function showResult() {
     dimensionList.appendChild(li);
   });
 
-  reportStatus.textContent = '正在生成 500 字完整報告，請稍候...';
-  deepReport.textContent = '';
-
   quizScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
 
   generateFullReport();
 }
 
-async function generateFullReport() {
-  try {
-    const reportText = await fetchOpenAIReport({
-      name: babyNameInput.value.trim(),
-      zodiac: babyZodiacInput.value.trim(),
-      mbti: currentResult
-    });
-    deepReport.textContent = reportText;
-    reportStatus.textContent = '完整報告已生成：';
-  } catch (error) {
-    console.error(error);
-    reportStatus.textContent = '目前無法連線 OpenAI API，請確認 API_KEY 後再試一次。';
-  }
-}
+function generateFullReport() {
+  const name = babyNameInput.value.trim();
+  const zodiac = babyZodiacInput.value.trim();
+  const mbti = currentResult;
+  const mbtiTitle = mbtiTitles[mbti] || '宇宙小探險家';
 
-async function fetchOpenAIReport({ name, zodiac, mbti }) {
-  if (!API_KEY) {
-    throw new Error('請先填入 API_KEY');
-  }
+  const reportText = `親愛的 ${name}，恭喜你在這場魔法星空抓周派對中，展現出「${mbti}｜${mbtiTitle}」的獨特光芒！從這次三項選擇可以看見，你不只擁有 ${zodiac} 寶寶常見的敏銳直覺，也具備穩定而細膩的學習潛能。你會用自己的節奏觀察世界，對有興趣的事投入高度專注，一旦找到熱愛方向，就能累積驚人的成長能量。\n\n在日常互動中，你很可能同時具備好奇心與責任感：面對新環境時會先安靜感受、再勇敢嘗試；面對困難時，也能在鼓勵下逐步建立方法，越挫越有韌性。這份特質讓你在人際上既溫暖又有想法，能理解他人心情，也願意分享自己的點子，未來不論在學習、創作或團隊合作，都會是閃亮又可靠的存在。\n\n想讓你的天賦更自然開展，建議家人多提供「可自由探索、也有溫柔邊界」的成長空間：例如固定的陪伴閱讀時間、動手做的小任務、以及鼓勵表達感受的睡前對話。每一次被理解、被肯定、被耐心等待，都會讓你的自信星系更完整。請相信，你正在用最可愛也最堅定的方式，長成一顆有溫度、有智慧、能照亮他人的小宇宙。`;
 
-  const prompt = `請根據寶寶小名 ${name}、星座 ${zodiac}、結果 ${mbti} 撰寫 500 字溫馨報告。`;
-
-  const response = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${API_KEY}`
-    },
-    body: JSON.stringify({
-      model: 'gpt-4.1-mini',
-      input: prompt
-    })
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`OpenAI API error: ${response.status} ${text}`);
-  }
-
-  const data = await response.json();
-  const output = data.output_text || data.output?.[0]?.content?.[0]?.text;
-  return output || '已成功呼叫 API，但未取得可顯示文字。';
+  deepReport.textContent = reportText;
+  reportStatus.textContent = '完整報告如下：';
 }
 
 function resetAll() {
