@@ -179,11 +179,51 @@ const selectedText = document.getElementById('selected-text');
 const reportStatus = document.getElementById('report-status');
 const deepReport = document.getElementById('deep-report');
 
+const musicToggleBtn = document.getElementById('music-toggle');
+const bgmAudio = document.getElementById('bgm-audio');
+let userInteractedForAudio = false;
+
+function updateMusicButton(isPlaying) {
+  musicToggleBtn.textContent = isPlaying ? '🎵' : '🔇';
+  musicToggleBtn.setAttribute('aria-pressed', String(isPlaying));
+}
+
+function playBgm() {
+  userInteractedForAudio = true;
+  bgmAudio.play()
+    .then(() => {
+      updateMusicButton(true);
+    })
+    .catch(() => {
+      updateMusicButton(false);
+    });
+}
+
+function pauseBgm() {
+  bgmAudio.pause();
+  updateMusicButton(false);
+}
+
+musicToggleBtn.addEventListener('click', () => {
+  if (bgmAudio.paused) {
+    playBgm();
+    return;
+  }
+  pauseBgm();
+});
+
+updateMusicButton(false);
+
 document.getElementById('start-btn').addEventListener('click', () => {
   if (!babyNameInput.value.trim() || !babyZodiacInput.value.trim()) {
     alert('請先輸入寶寶小名與星座');
     return;
   }
+
+  if (!userInteractedForAudio || bgmAudio.paused) {
+    playBgm();
+  }
+
   startScreen.classList.add('hidden');
   quizScreen.classList.remove('hidden');
   renderRound();
