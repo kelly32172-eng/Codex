@@ -1,5 +1,3 @@
-const API_KEY = '';
-
 const rounds = [
   {
     key: 'interest',
@@ -96,50 +94,8 @@ document.getElementById('restart-btn').addEventListener('click', () => {
   document.getElementById('base-info').textContent = '';
   selectedText.textContent = '';
   document.getElementById('deep-report').textContent = '';
-  document.getElementById('payment-loading').classList.add('hidden');
   resultScreen.classList.add('hidden');
   startScreen.classList.remove('hidden');
-});
-
-document.getElementById('unlock-btn').addEventListener('click', async () => {
-  const loading = document.getElementById('payment-loading');
-  const reportEl = document.getElementById('deep-report');
-  const mbti = document.getElementById('mbti-result').textContent;
-  loading.classList.remove('hidden');
-  reportEl.textContent = '';
-
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  const prompt = `請根據寶寶姓名 ${babyNameInput.value.trim()}、星座 ${babyZodiacInput.value.trim()}、測驗結果 ${mbti} 撰寫一份 500 字溫馨的成長天賦報告。`;
-
-  try {
-    if (!API_KEY) {
-      throw new Error('請先設定 API_KEY');
-    }
-
-    const response = await fetch('https://api.openai.com/v1/responses', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-4.1-mini',
-        input: prompt
-      })
-    });
-
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.error?.message || 'API 呼叫失敗');
-    }
-
-    reportEl.textContent = data.output_text || '未收到報告內容';
-  } catch (err) {
-    reportEl.textContent = `解鎖失敗：${err.message}`;
-  } finally {
-    loading.classList.add('hidden');
-  }
 });
 
 function renderRound() {
@@ -165,6 +121,18 @@ function renderRound() {
 
   const picked = picks[round.key];
   selectedText.textContent = picked ? `已選擇：${picked.name} (${picked.mbti})` : '尚未選擇';
+}
+
+function buildLocalReport({ name, zodiac, result, chosen, dimensionLines }) {
+  const traits = chosen.map((item) => `${item.name}(${item.mbti})`).join('、');
+  return [
+    `給 ${name} 小寶貝的成長觀察：`,
+    `${name} 的星座是 ${zodiac}，這次抓周組合為 ${traits}，綜合 MBTI 傾向為 ${result}。`,
+    '從三關選擇來看，孩子具備穩定的好奇心與探索力，面對新事物願意先觀察再嘗試。',
+    '家長可以多安排開放式遊戲與陪伴式對話，讓孩子在安全感中培養自信與表達能力。',
+    `向度統計（${dimensionLines.join('；')}）顯示目前特質偏向仍在發展中，建議以鼓勵取代定型，持續記錄不同情境下的興趣變化。`,
+    '這份結果可作為親子互動參考，最珍貴的是孩子每一次主動探索與被理解的瞬間。'
+  ].join('\n\n');
 }
 
 function showResult() {
@@ -195,17 +163,27 @@ function showResult() {
     pickedList.appendChild(li);
   });
 
-  const dimensionList = document.getElementById('dimension-list');
-  dimensionList.innerHTML = '';
-  [
+  const dimensionLines = [
     `E:${count.E} / I:${count.I}`,
     `S:${count.S} / N:${count.N}`,
     `T:${count.T} / F:${count.F}`,
     `J:${count.J} / P:${count.P}`
-  ].forEach((line) => {
+  ];
+
+  const dimensionList = document.getElementById('dimension-list');
+  dimensionList.innerHTML = '';
+  dimensionLines.forEach((line) => {
     const li = document.createElement('li');
     li.textContent = line;
     dimensionList.appendChild(li);
+  });
+
+  document.getElementById('deep-report').textContent = buildLocalReport({
+    name: babyNameInput.value.trim(),
+    zodiac: babyZodiacInput.value.trim(),
+    result,
+    chosen,
+    dimensionLines
   });
 
   quizScreen.classList.add('hidden');
