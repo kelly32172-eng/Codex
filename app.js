@@ -20,7 +20,7 @@ const rounds = [
         explain: ['學習向外探索', '嚮往未知的遠方', '理解異國文化', '享受隨性的自由']
       },
       {
-        name: '球(其他)',
+        name: '球',
         mbti: 'ESTP',
         title: '運動與競技',
         desc: '被動態活動吸引,喜歡透過肢體與環境互動。',
@@ -68,7 +68,7 @@ const rounds = [
         explain: ['沉澱思考', '規劃書寫架構', '文體結構分明', '有系統地撰寫文章']
       },
       {
-        name: '積木(其他)',
+        name: '積木',
         mbti: 'ISTP',
         title: '空間實作力',
         desc: '具備動手操作與空間結構的建構天賦。',
@@ -160,8 +160,7 @@ const roundLabel = document.getElementById('round-label');
 const roundTitle = document.getElementById('round-title');
 const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
-const unlockBtn = document.getElementById('unlock-btn');
-const unlockStatus = document.getElementById('unlock-status');
+const reportStatus = document.getElementById('report-status');
 const deepReport = document.getElementById('deep-report');
 
 document.getElementById('start-btn').addEventListener('click', () => {
@@ -196,7 +195,6 @@ document.getElementById('next-btn').addEventListener('click', () => {
 });
 
 document.getElementById('restart-btn').addEventListener('click', resetAll);
-unlockBtn.addEventListener('click', unlockPaidReport);
 
 function renderRound() {
   const round = rounds[roundIndex];
@@ -269,27 +267,16 @@ function showResult() {
     dimensionList.appendChild(li);
   });
 
-  unlockStatus.classList.add('hidden');
-  unlockStatus.textContent = '';
-  deepReport.classList.add('hidden');
+  reportStatus.textContent = '正在生成 500 字完整報告，請稍候...';
   deepReport.textContent = '';
-  unlockBtn.disabled = false;
-  unlockBtn.textContent = '付費解鎖更多內容';
 
   quizScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
+
+  generateFullReport();
 }
 
-async function unlockPaidReport() {
-  unlockBtn.disabled = true;
-  unlockBtn.classList.add('loading');
-  unlockStatus.classList.remove('hidden');
-  unlockStatus.textContent = '金流處理中，請稍候 2 秒...';
-
-  await wait(2000);
-
-  unlockStatus.textContent = '已完成付款，正在生成溫馨報告...';
-
+async function generateFullReport() {
   try {
     const reportText = await fetchOpenAIReport({
       name: babyNameInput.value.trim(),
@@ -297,15 +284,10 @@ async function unlockPaidReport() {
       mbti: currentResult
     });
     deepReport.textContent = reportText;
-    deepReport.classList.remove('hidden');
-    unlockStatus.textContent = '✅ 解鎖完成！以下是專屬溫馨報告：';
+    reportStatus.textContent = '完整報告已生成：';
   } catch (error) {
     console.error(error);
-    unlockStatus.textContent = '⚠️ 目前無法連線 OpenAI API，請確認 API_KEY 後再試一次。';
-  } finally {
-    unlockBtn.classList.remove('loading');
-    unlockBtn.disabled = false;
-    unlockBtn.textContent = '重新產生付費報告';
+    reportStatus.textContent = '目前無法連線 OpenAI API，請確認 API_KEY 後再試一次。';
   }
 }
 
@@ -338,10 +320,6 @@ async function fetchOpenAIReport({ name, zodiac, mbti }) {
   return output || '已成功呼叫 API，但未取得可顯示文字。';
 }
 
-function wait(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 function resetAll() {
   picks.interest = null;
   picks.ability = null;
@@ -356,12 +334,8 @@ function resetAll() {
   document.getElementById('mbti-result').textContent = '';
   document.getElementById('base-info').textContent = '';
   selectedText.textContent = '尚未選擇';
-  unlockStatus.classList.add('hidden');
-  unlockStatus.textContent = '';
-  deepReport.classList.add('hidden');
+  reportStatus.textContent = '';
   deepReport.textContent = '';
-  unlockBtn.disabled = false;
-  unlockBtn.textContent = '付費解鎖更多內容';
 
   resultScreen.classList.add('hidden');
   startScreen.classList.remove('hidden');
