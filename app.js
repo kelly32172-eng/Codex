@@ -69,6 +69,7 @@ const roundTitle = document.getElementById('round-title');
 const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
 const bgmAudio = document.getElementById('bgMusic');
+const musicToggleBtn = document.getElementById('musicToggle');
 const bgmAlert = document.getElementById('bgm-alert');
 const bgmAlertText = document.getElementById('bgm-alert-text');
 const bgmRetryBtn = document.getElementById('bgm-retry-btn');
@@ -126,6 +127,12 @@ function hideBgmAlert() {
   bgmAlert.classList.add('hidden');
 }
 
+function updateMusicToggleState() {
+  const isPaused = bgmAudio.paused;
+  musicToggleBtn.textContent = isPaused ? '🔇' : '🎵';
+  musicToggleBtn.classList.toggle('paused', isPaused);
+}
+
 async function startBgm() {
   bgmAudio.volume = 0.35;
   bgmAudio.playbackRate = 0.95;
@@ -134,9 +141,11 @@ async function startBgm() {
   try {
     await bgmAudio.play();
     hideBgmAlert();
+    updateMusicToggleState();
     return true;
   } catch {
     showBgmAlert('背景音樂尚未啟用，請點下方按鈕再試一次。');
+    updateMusicToggleState();
     return false;
   }
 }
@@ -158,6 +167,7 @@ bgmAudio.addEventListener('canplaythrough', () => {
   if (!bgmAudio.paused) {
     hideBgmAlert();
   }
+  updateMusicToggleState();
 });
 
 bgmAudio.addEventListener('error', () => {
@@ -167,6 +177,20 @@ bgmAudio.addEventListener('error', () => {
 bgmRetryBtn.addEventListener('click', async () => {
   await startBgm();
 });
+
+musicToggleBtn.addEventListener('click', async () => {
+  if (bgmAudio.paused) {
+    await startBgm();
+    return;
+  }
+
+  bgmAudio.pause();
+  updateMusicToggleState();
+});
+
+bgmAudio.addEventListener('pause', updateMusicToggleState);
+bgmAudio.addEventListener('play', updateMusicToggleState);
+updateMusicToggleState();
 
 document.getElementById('start-btn').addEventListener('click', async () => {
   if (!babyNameInput.value.trim() || !babyZodiacInput.value.trim()) {
@@ -318,4 +342,5 @@ function resetAll() {
 
   bgmAudio.pause();
   bgmAudio.currentTime = 0;
+  updateMusicToggleState();
 }
