@@ -70,13 +70,6 @@ const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
 const bgmAudio = document.getElementById('bgMusic');
 const musicToggleBtn = document.getElementById('musicToggle');
-const bgmAlert = document.getElementById('bgm-alert');
-const bgmAlertText = document.getElementById('bgm-alert-text');
-const bgmRetryBtn = document.getElementById('bgm-retry-btn');
-
-const bgmFallbackUrls = [bgmAudio.dataset.fallbackSrc].filter(Boolean);
-let bgmFallbackIndex = 0;
-
 const reportName = document.getElementById('report-name');
 const reportMbti = document.getElementById('report-mbti');
 const reportTitle = document.getElementById('report-title');
@@ -118,88 +111,55 @@ function buildAvatarSVG(mbti, avatarConfig) {
   `;
 }
 
-function showBgmAlert(message) {
-  bgmAlertText.textContent = message;
-  bgmAlert.classList.remove('hidden');
+function updateMusicButtonIcon(isPlaying) {
+  musicToggleBtn.textContent = isPlaying ? '🎵' : '🔇';
+  musicToggleBtn.classList.toggle('paused', !isPlaying);
 }
 
-function hideBgmAlert() {
-  bgmAlert.classList.add('hidden');
-}
-
-function updateMusicToggleState() {
-  const isPaused = bgmAudio.paused;
-  musicToggleBtn.textContent = isPaused ? '🔇' : '🎵';
-  musicToggleBtn.classList.toggle('paused', isPaused);
-}
-
-async function startBgm() {
+function playBgmFromUserGesture() {
   bgmAudio.volume = 0.35;
   bgmAudio.playbackRate = 0.95;
   bgmAudio.muted = false;
 
-  try {
-    await bgmAudio.play();
-    hideBgmAlert();
-    updateMusicToggleState();
-    return true;
-  } catch {
-    showBgmAlert('背景音樂尚未啟用，請點下方按鈕再試一次。');
-    updateMusicToggleState();
-    return false;
+  const playPromise = bgmAudio.play();
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        updateMusicButtonIcon(true);
+      })
+      .catch((error) => {
+        console.log('自動播放遭阻擋，需等待使用者互動', error);
+        updateMusicButtonIcon(false);
+      });
   }
 }
 
-function switchToFallbackBgm() {
-  const fallbackSrc = bgmFallbackUrls[bgmFallbackIndex];
-  if (!fallbackSrc || bgmAudio.src === fallbackSrc) {
-    showBgmAlert('音樂載入失敗');
-    return;
-  }
-
-  bgmFallbackIndex += 1;
-  bgmAudio.src = fallbackSrc;
-  bgmAudio.load();
-  showBgmAlert('音樂載入失敗，已切換備援音源，請再點一次播放。');
-}
-
-bgmAudio.addEventListener('canplaythrough', () => {
-  if (!bgmAudio.paused) {
-    hideBgmAlert();
-  }
-  updateMusicToggleState();
-});
-
-bgmAudio.addEventListener('error', () => {
-  switchToFallbackBgm();
-});
-
-bgmRetryBtn.addEventListener('click', async () => {
-  await startBgm();
-});
-
-musicToggleBtn.addEventListener('click', async () => {
+musicToggleBtn.addEventListener('click', () => {
   if (bgmAudio.paused) {
-    await startBgm();
+    playBgmFromUserGesture();
     return;
   }
 
   bgmAudio.pause();
-  updateMusicToggleState();
+  updateMusicButtonIcon(false);
 });
 
-bgmAudio.addEventListener('pause', updateMusicToggleState);
-bgmAudio.addEventListener('play', updateMusicToggleState);
-updateMusicToggleState();
+bgmAudio.addEventListener('pause', () => updateMusicButtonIcon(false));
+bgmAudio.addEventListener('play', () => updateMusicButtonIcon(true));
+bgmAudio.addEventListener('error', (error) => {
+  console.log('背景音樂載入失敗', error);
+  updateMusicButtonIcon(false);
+});
+updateMusicButtonIcon(!bgmAudio.paused);
 
-document.getElementById('start-btn').addEventListener('click', async () => {
+document.getElementById('start-btn').addEventListener('click', () => {
   if (!babyNameInput.value.trim() || !babyZodiacInput.value.trim()) {
     alert('請先輸入寶寶小名與星座');
     return;
   }
 
   bgmAudio.currentTime = 0;
-  await startBgm();
+  playBgmFromUserGesture();
 
   startScreen.classList.add('hidden');
   quizScreen.classList.remove('hidden');
@@ -342,5 +302,5 @@ function resetAll() {
 
   bgmAudio.pause();
   bgmAudio.currentTime = 0;
-  updateMusicToggleState();
+  updateMusicButtonIcon(false);
 }
