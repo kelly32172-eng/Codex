@@ -52,3 +52,14 @@ create table if not exists report_requests (
   payment_status text not null default 'unpaid' check (payment_status in ('unpaid','paid','refunded')),
   created_at timestamptz not null default now()
 );
+
+-- 道具名稱清理（移除括號中的「其他」）
+update props
+set name_zh = '球',
+    updated_at = now()
+where name_zh = '球(其他)';
+
+update props
+set name_zh = '積木',
+    updated_at = now()
+where name_zh = '積木(其他)';
