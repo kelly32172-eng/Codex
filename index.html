@@ -10,12 +10,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <button id="music-toggle" class="music-toggle" type="button" aria-label="切換背景音樂" aria-pressed="false">🔇</button>
+    <audio
+      id="bgm-audio"
+      loop
+      preload="none"
+      src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3"
+    ></audio>
+
     <main class="container">
       <h1>魔法星空抓周派對：預見寶貝的超能力宇宙！</h1>
 
       <section id="start-screen" class="card">
         <p class="intro-copy">
-          準備好搭上星空探索號了嗎？跟著直覺幫寶寶挑選 3 件最吸引他的小禮物，直接獲得獨一無二的天賦完整報告！
+          「抓周」是寶寶滿週歲時最美好的傳統祝福，用來預測孩子未來的天賦與志向。我們將這份傳統結合現代 MBTI 心理學，透過「興趣、能力、特質」三階段的直覺挑選，帶您解碼寶貝獨一無二的 16 型人格天賦！現在，就跟著直覺幫寶寶挑選 3 件最吸引他的小禮物，獲得專屬的成長報告吧！
         </p>
         <label for="baby-name">寶寶小名
           <input id="baby-name" type="text" placeholder="請輸入寶寶小名" />

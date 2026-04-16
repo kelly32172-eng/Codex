@@ -16,34 +16,42 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--text);
+  background-color: #FFDEE9 !important;
   background-image:
-    radial-gradient(circle at 8% 16%, rgba(255, 255, 255, 0.85) 0 1px, transparent 1.9px),
-    radial-gradient(circle at 18% 70%, rgba(255, 255, 255, 0.78) 0 1.1px, transparent 2px),
-    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.72) 0 1.2px, transparent 2.1px),
-    radial-gradient(circle at 48% 82%, rgba(255, 255, 255, 0.76) 0 1px, transparent 1.9px),
-    radial-gradient(circle at 62% 52%, rgba(255, 255, 255, 0.8) 0 1.25px, transparent 2.2px),
-    radial-gradient(circle at 76% 18%, rgba(255, 255, 255, 0.74) 0 1px, transparent 2px),
-    radial-gradient(circle at 88% 76%, rgba(255, 255, 255, 0.7) 0 1px, transparent 2px),
-    radial-gradient(circle at 96% 40%, rgba(255, 255, 255, 0.82) 0 1.15px, transparent 2.1px),
-    linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%);
-  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
-  background-size: 260px 260px, 240px 240px, 280px 280px, 250px 250px, 300px 300px, 260px 260px, 280px 280px, 300px 300px, 100% 100%;
-  background-attachment: fixed;
-  background-color: #ffdee9 !important;
-  background: linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%) !important;
-  background-image:
-    radial-gradient(circle at 8% 16%, rgba(255, 255, 255, 0.85) 0 1px, transparent 1.9px),
-    radial-gradient(circle at 18% 70%, rgba(255, 255, 255, 0.78) 0 1.1px, transparent 2px),
-    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.72) 0 1.2px, transparent 2.1px),
-    radial-gradient(circle at 48% 82%, rgba(255, 255, 255, 0.76) 0 1px, transparent 1.9px),
-    radial-gradient(circle at 62% 52%, rgba(255, 255, 255, 0.8) 0 1.25px, transparent 2.2px),
-    radial-gradient(circle at 76% 18%, rgba(255, 255, 255, 0.74) 0 1px, transparent 2px),
-    radial-gradient(circle at 88% 76%, rgba(255, 255, 255, 0.7) 0 1px, transparent 2px),
-    radial-gradient(circle at 96% 40%, rgba(255, 255, 255, 0.82) 0 1.15px, transparent 2.1px),
-    linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%) !important;
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+    linear-gradient(135deg, rgba(255,222,233,0.8) 0%, rgba(181,255,252,0.8) 100%) !important;
+  background-size: 550px 550px, 350px 350px, 250px 250px, 100% 100% !important;
+  background-position: 0 0, 40px 60px, 130px 270px, 0 0 !important;
+  background-attachment: fixed !important;
   font-family: "Baloo 2", "Kiwi Maru", "Quicksand", "Noto Sans TC", sans-serif;
   font-size: 20px;
   line-height: 1.7;
+}
+
+
+.music-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 56px;
+  height: 56px;
+  z-index: 999;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px rgba(106, 92, 136, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  padding: 0;
+}
+
+.music-toggle:hover {
+  transform: translateY(-2px) scale(1.03);
 }
 
 .container {
