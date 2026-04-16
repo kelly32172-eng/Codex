@@ -601,15 +601,21 @@ button:hover {
     font-size: 20px;
   }
   .badge-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    width: 100%;
   }
   .explain-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     min-height: auto;
-    padding: 3px 6px;
+    padding: 4px 2px;
     font-size: 0.65rem;
+    width: 100%;
+    box-sizing: border-box;
   }
   .actions { grid-template-columns: 1fr; }
   button { font-size: 22px; }
