@@ -145,27 +145,39 @@ const rounds = [
   }
 ];
 
+const reportDatabase = {
+  ENFP: {
+    title: 'ENFP 啟發者小太陽',
+    analysis: '骨子裡的 ENFP 寶寶，是個溫暖又充滿潛力的小天使。他/她天生具備絕佳的直覺與行動力，擁有天馬行空的想像力。比起傳統的框架，他/她更喜歡用自己的方式探索世界，這份無可救藥的樂觀與熱情，會讓他/她成為同儕中最受歡迎的靈魂人物。',
+    zodiacBonus: '當 ENFP 遇上 {{zodiac}} 的特質，就像是為熱氣球裝上了最精準的導航！{{zodiac}} 的能量會讓寶寶在散發光芒的同時，多了一份獨特的魅力與專注力，讓創意不僅僅是想像，更能精彩落地。',
+    careers: '天生的創意家與溝通者！未來非常適合從事：藝術創作者、公關行銷專家、心理諮商師、甚至自己創立帶有社會意義的新創品牌。任何能讓他/她發揮靈感、與人深度交流的舞台，都是他/她的主場。',
+    parenting: '這孩子不需要過多的指令與限制。爸爸媽媽能給他/她最好的禮物，就是「傾聽與陪伴」。當他/她提出天馬行空的想法時，不要急著否定，陪著他/她一起做夢、一起實踐。給予足夠的情感支持，他/她就能勇敢飛翔。'
+  },
+  ISTJ: {
+    title: 'ISTJ 沉穩小學霸',
+    analysis: 'ISTJ 寶寶擁有超乎同齡人的穩定與專注力。他/她就像一個精密的穩固齒輪，喜歡事物有條不紊、按部就班。他/她擁有極強的責任感與觀察力，不喜歡張揚，但只要交給他/她的任務，總能用最踏實、完美的腳步完成。',
+    zodiacBonus: '穩重的 ISTJ 加上 {{zodiac}} 的守護，讓寶寶擁有一種讓人極度安心的氣場。{{zodiac}} 會柔化他/她過於嚴謹的邊界，讓他/她在堅持原則的同時，也能展現出溫暖、懂得照顧他人的一面。',
+    careers: '社會的中流砥柱！他/她那嚴謹的邏輯與對細節的掌控力，非常適合成為：專業醫師、財務金融分析師、高階專案經理、或是法律界專業人士。只要有清晰的規則與目標，他/她就能發揮極致。',
+    parenting: '這是一個極度需要「安全感與規律」的孩子。爸爸媽媽請盡量讓他/她的生活保持可預測性。在教導時，比起感性的說服，跟講明「原因與邏輯」更能讓他/她接受。多稱讚他/她努力的過程，他/她會成為你們一輩子最可靠的驕傲。'
+  },
+  INFJ: null, // TODO
+  INTJ: null, // TODO
+  ENFJ: null, // TODO
+  ENTJ: null, // TODO
+  INFP: null, // TODO
+  INTP: null, // TODO
+  ENTP: null, // TODO
+  ISTP: null, // TODO
+  ISFP: null, // TODO
+  ESTP: null, // TODO
+  ESFP: null, // TODO
+  ESTJ: null, // TODO
+  ESFJ: null, // TODO
+  ISFJ: null // TODO
+};
+
 const picks = { interest: null, ability: null, personality: null };
 let roundIndex = 0;
-let currentResult = '';
-const mbtiTitles = {
-  ISTJ: '秩序小守護者',
-  ISFJ: '暖心小天使',
-  INFJ: '星光小洞察家',
-  INTJ: '未來小策士',
-  ISTP: '機智小工匠',
-  ISFP: '藝術小精靈',
-  INFP: '夢想小旅人',
-  INTP: '邏輯小發明家',
-  ESTP: '行動小冒險王',
-  ESFP: '舞台小太陽',
-  ENFP: '靈感小魔法師',
-  ENTP: '創意小探索家',
-  ESTJ: '領航小隊長',
-  ESFJ: '貼心小夥伴',
-  ENFJ: '鼓舞小引導者',
-  ENTJ: '遠見小指揮家'
-};
 
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
@@ -176,49 +188,16 @@ const roundLabel = document.getElementById('round-label');
 const roundTitle = document.getElementById('round-title');
 const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
-const reportStatus = document.getElementById('report-status');
-const deepReport = document.getElementById('deep-report');
-const reportTitle = document.getElementById('report-title');
-const reportSubtitle = document.getElementById('report-subtitle');
-const mbtiTitleEl = document.getElementById('mbti-title');
-const pickedTags = document.getElementById('picked-tags');
-const talentSection = document.getElementById('talent-section');
-const personalitySection = document.getElementById('personality-section');
-const blessingSection = document.getElementById('blessing-section');
-
-const musicToggleBtn = document.getElementById('music-toggle');
 const bgmAudio = document.getElementById('bgm-audio');
 
-function updateMusicButton(isPlaying) {
-  musicToggleBtn.textContent = isPlaying ? '⏸ 暫停魔法音樂' : '🎵 播放魔法音樂';
-  musicToggleBtn.setAttribute('aria-pressed', String(isPlaying));
-}
-
-function playBgm() {
-  bgmAudio.play()
-    .then(() => {
-      updateMusicButton(true);
-    })
-    .catch(() => {
-      updateMusicButton(false);
-      alert('請再點一次「🎵 播放魔法音樂」，讓瀏覽器確認播放權限。');
-    });
-}
-
-function pauseBgm() {
-  bgmAudio.pause();
-  updateMusicButton(false);
-}
-
-musicToggleBtn.addEventListener('click', () => {
-  if (bgmAudio.paused) {
-    playBgm();
-    return;
-  }
-  pauseBgm();
-});
-
-updateMusicButton(false);
+const reportName = document.getElementById('report-name');
+const reportMbti = document.getElementById('report-mbti');
+const reportTitle = document.getElementById('report-title');
+const analysisText = document.getElementById('analysis-text');
+const zodiacText = document.getElementById('zodiac-text');
+const careerText = document.getElementById('career-text');
+const parentingText = document.getElementById('parenting-text');
+const pickedTags = document.getElementById('picked-tags');
 
 document.getElementById('start-btn').addEventListener('click', () => {
   if (!babyNameInput.value.trim() || !babyZodiacInput.value.trim()) {
@@ -226,6 +205,9 @@ document.getElementById('start-btn').addEventListener('click', () => {
     return;
   }
 
+  bgmAudio.play().catch(() => {
+    // 某些瀏覽器仍可能拒絕播放；此處靜默處理避免打斷流程。
+  });
 
   startScreen.classList.add('hidden');
   quizScreen.classList.remove('hidden');
@@ -282,8 +264,7 @@ function renderRound() {
   selectedText.textContent = picked ? `已選擇：${picked.name}（${picked.mbti}）` : '尚未選擇';
 }
 
-function showResult() {
-  const chosen = [picks.interest, picks.ability, picks.personality];
+function computeMbti(chosen) {
   const count = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
   chosen.forEach((item) => {
@@ -292,31 +273,39 @@ function showResult() {
     });
   });
 
-  const result = [
+  const mbti = [
     count.E >= 2 ? 'E' : 'I',
     count.S >= 2 ? 'S' : 'N',
     count.T >= 2 ? 'T' : 'F',
     count.J >= 2 ? 'J' : 'P'
   ].join('');
-  currentResult = result;
 
+  return { mbti, count };
+}
+
+function showResult() {
+  const chosen = [picks.interest, picks.ability, picks.personality];
+  const { mbti } = computeMbti(chosen);
   const babyName = babyNameInput.value.trim();
   const babyZodiac = babyZodiacInput.value.trim();
-  const title = mbtiTitles[result] || '宇宙小探險家';
 
-  reportTitle.textContent = `${babyName} 的專屬星象圖`;
-  reportSubtitle.textContent = `星座：${babyZodiac}座`;
-  document.getElementById('base-info').textContent = `${babyName}・${babyZodiac}座`;
-  document.getElementById('mbti-result').textContent = result;
-  mbtiTitleEl.textContent = `${result} ${title}`;
+  const report = reportDatabase[mbti] || null;
+  const fallback = {
+    title: `${mbti} 潛力新星`,
+    analysis: `${babyName} 的測驗結果為 ${mbti}。這個類型的完整報告正在擴充中，先恭喜寶寶已展現獨特天賦與個性。`,
+    zodiacBonus: `${babyZodiac} 的特質會持續加成 ${babyName} 的成長節奏，幫助他/她把天賦穩定發揮出來。`,
+    careers: '更多專屬職涯建議準備中，現階段可多觀察孩子的興趣與專注點。',
+    parenting: '教養建議即將上線，先以穩定陪伴、鼓勵探索作為主要支持。'
+  };
+  const finalReport = report || fallback;
 
-  const pickedList = document.getElementById('picked-list');
-  pickedList.innerHTML = '';
-  chosen.forEach((item, index) => {
-    const li = document.createElement('li');
-    li.textContent = `${index + 1}. ${item.name}（${item.mbti}）`;
-    pickedList.appendChild(li);
-  });
+  reportName.textContent = `${babyName} 的專屬分析圖卡`;
+  reportMbti.textContent = mbti;
+  reportTitle.textContent = finalReport.title;
+  analysisText.textContent = finalReport.analysis;
+  zodiacText.textContent = finalReport.zodiacBonus.replaceAll('{{zodiac}}', `${babyZodiac}座`);
+  careerText.textContent = finalReport.careers;
+  parentingText.textContent = finalReport.parenting;
 
   pickedTags.innerHTML = '';
   chosen.forEach((item) => {
@@ -326,50 +315,8 @@ function showResult() {
     pickedTags.appendChild(tag);
   });
 
-  const dimensionLines = [
-    `E:${count.E} / I:${count.I}`,
-    `S:${count.S} / N:${count.N}`,
-    `T:${count.T} / F:${count.F}`,
-    `J:${count.J} / P:${count.P}`
-  ];
-
-  const dimensionList = document.getElementById('dimension-list');
-  dimensionList.innerHTML = '';
-  dimensionLines.forEach((line) => {
-    const li = document.createElement('li');
-    li.textContent = line;
-    dimensionList.appendChild(li);
-  });
-
   quizScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
-
-  generateFullReport();
-}
-
-function generateFullReport() {
-  const name = babyNameInput.value.trim();
-  const mbti = currentResult;
-
-  const talentText = `親愛的爸爸媽媽，準備好迎接 ${name} 閃閃發光的未來了嗎？
-
-在這次的抓周探索中，${name} 展現了屬於 ${mbti} 的獨特光芒！他/她天生具備絕佳的直覺與行動力，遇到問題時總能用自己獨特的方式找到解答。請放心給予他/她探索的空間，這孩子未來絕對會讓你們充滿驚喜。`;
-
-  const personalityText = `骨子裡的 ${name}，是個溫暖又充滿潛力的小天使。比起傳統的框架，他/她更需要你們的鼓勵與陪伴。這份特質會讓他/她在未來的道路上，不僅能照顧好自己，還能成為周遭朋友們的小太陽。`;
-
-  const blessingText = `所有的測驗都只是一個美好的起點。看著 ${name} 抓起的這些小道具，是不是覺得特別感動呢？無論未來這顆小星星選擇飛向哪個宇宙，你們滿滿的愛，永遠是他/她最堅強的後盾！祝 ${name} 週歲快樂，平安健康長大！`;
-
-  talentSection.textContent = talentText;
-  personalitySection.textContent = personalityText;
-  blessingSection.textContent = blessingText;
-
-  const reportText = `${talentText}
-
-${personalityText}
-
-${blessingText}`;
-  deepReport.textContent = reportText;
-  reportStatus.textContent = '';
 }
 
 function resetAll() {
@@ -377,24 +324,19 @@ function resetAll() {
   picks.ability = null;
   picks.personality = null;
   roundIndex = 0;
-  currentResult = '';
 
   babyNameInput.value = '';
   babyZodiacInput.value = '';
-  document.getElementById('picked-list').innerHTML = '';
-  document.getElementById('dimension-list').innerHTML = '';
-  document.getElementById('mbti-result').textContent = '';
-  document.getElementById('base-info').textContent = '';
   selectedText.textContent = '尚未選擇';
-  reportStatus.textContent = '';
-  deepReport.textContent = '';
+
+  reportName.textContent = '';
+  reportMbti.textContent = '';
   reportTitle.textContent = '';
-  reportSubtitle.textContent = '';
-  mbtiTitleEl.textContent = '';
+  analysisText.textContent = '';
+  zodiacText.textContent = '';
+  careerText.textContent = '';
+  parentingText.textContent = '';
   pickedTags.innerHTML = '';
-  talentSection.textContent = '';
-  personalitySection.textContent = '';
-  blessingSection.textContent = '';
 
   resultScreen.classList.add('hidden');
   startScreen.classList.remove('hidden');
