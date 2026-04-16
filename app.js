@@ -73,7 +73,10 @@ const bgmAlert = document.getElementById('bgm-alert');
 const bgmAlertText = document.getElementById('bgm-alert-text');
 const bgmRetryBtn = document.getElementById('bgm-retry-btn');
 
-const bgmFallbackUrls = [bgmAudio.dataset.fallbackSrc].filter(Boolean);
+const bgmFallbackUrls = (bgmAudio.dataset.fallbackSrc || '')
+  .split(',')
+  .map((url) => url.trim())
+  .filter(Boolean);
 let bgmFallbackIndex = 0;
 
 const reportName = document.getElementById('report-name');
@@ -127,7 +130,8 @@ function hideBgmAlert() {
 }
 
 async function startBgm() {
-  bgmAudio.volume = 0.5;
+  bgmAudio.volume = 0.35;
+  bgmAudio.playbackRate = 0.95;
   bgmAudio.muted = false;
 
   try {
