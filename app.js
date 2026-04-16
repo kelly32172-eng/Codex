@@ -188,21 +188,20 @@ const blessingSection = document.getElementById('blessing-section');
 
 const musicToggleBtn = document.getElementById('music-toggle');
 const bgmAudio = document.getElementById('bgm-audio');
-let userInteractedForAudio = false;
 
 function updateMusicButton(isPlaying) {
-  musicToggleBtn.textContent = isPlaying ? '🎵' : '🔇';
+  musicToggleBtn.textContent = isPlaying ? '⏸ 暫停魔法音樂' : '🎵 播放魔法音樂';
   musicToggleBtn.setAttribute('aria-pressed', String(isPlaying));
 }
 
 function playBgm() {
-  userInteractedForAudio = true;
   bgmAudio.play()
     .then(() => {
       updateMusicButton(true);
     })
     .catch(() => {
       updateMusicButton(false);
+      alert('請再點一次「🎵 播放魔法音樂」，讓瀏覽器確認播放權限。');
     });
 }
 
@@ -227,9 +226,6 @@ document.getElementById('start-btn').addEventListener('click', () => {
     return;
   }
 
-  if (!userInteractedForAudio || bgmAudio.paused) {
-    playBgm();
-  }
 
   startScreen.classList.add('hidden');
   quizScreen.classList.remove('hidden');
@@ -310,9 +306,9 @@ function showResult() {
 
   reportTitle.textContent = `${babyName} 的專屬星象圖`;
   reportSubtitle.textContent = `星座：${babyZodiac}座`;
-  document.getElementById('base-info').textContent = `MBTI 靈魂原型分析`;
+  document.getElementById('base-info').textContent = `${babyName}・${babyZodiac}座`;
   document.getElementById('mbti-result').textContent = result;
-  mbtiTitleEl.textContent = title;
+  mbtiTitleEl.textContent = `${result} ${title}`;
 
   const pickedList = document.getElementById('picked-list');
   pickedList.innerHTML = '';
@@ -353,17 +349,15 @@ function showResult() {
 
 function generateFullReport() {
   const name = babyNameInput.value.trim();
-  const zodiac = babyZodiacInput.value.trim();
   const mbti = currentResult;
-  const mbtiTitle = mbtiTitles[mbti] || '宇宙小探險家';
-  const abilityPick = picks.ability?.name || '神秘能力道具';
-  const personalityPick = picks.personality?.name || '人格特質道具';
 
-  const talentText = `${name} 在「${abilityPick}」的選擇中，展現出 ${mbti} 型寶寶少見的專注與行動節奏。這代表你在學習新事物時，會先觀察規律、再用自己的方法嘗試，找到手感後就能穩定發揮。搭配 ${zodiac}座的敏銳直覺，你很適合在遊戲裡累積能力，透過重複練習把小小興趣培養成長期天賦。`;
+  const talentText = `親愛的爸爸媽媽，準備好迎接 ${name} 閃閃發光的未來了嗎？
 
-  const personalityText = `從「${personalityPick}」看見你內在的性格底色：溫柔、細膩，卻也有自己的判斷與堅持。作為「${mbtiTitle}」，你對周遭情緒很有感受力，知道何時靠近、何時安靜觀察；一旦認定值得投入的人事物，就會用真誠與耐心慢慢耕耘。這讓你在團體中自然成為兼具溫度與想法的小小發光體。`;
+在這次的抓周探索中，${name} 展現了屬於 ${mbti} 的獨特光芒！他/她天生具備絕佳的直覺與行動力，遇到問題時總能用自己獨特的方式找到解答。請放心給予他/她探索的空間，這孩子未來絕對會讓你們充滿驚喜。`;
 
-  const blessingText = `親愛的 ${name}，願你保有現在這份好奇與勇氣，在被愛包圍的安全感裡自由探索世界。家人只要持續給你溫柔的支持、清楚的邊界與穩定的陪伴，你就會把今天的「${mbti}」光芒，長成未來能照亮自己與他人的星星宇宙。願你天天被理解、被肯定，快樂長大。`;
+  const personalityText = `骨子裡的 ${name}，是個溫暖又充滿潛力的小天使。比起傳統的框架，他/她更需要你們的鼓勵與陪伴。這份特質會讓他/她在未來的道路上，不僅能照顧好自己，還能成為周遭朋友們的小太陽。`;
+
+  const blessingText = `所有的測驗都只是一個美好的起點。看著 ${name} 抓起的這些小道具，是不是覺得特別感動呢？無論未來這顆小星星選擇飛向哪個宇宙，你們滿滿的愛，永遠是他/她最堅強的後盾！祝 ${name} 週歲快樂，平安健康長大！`;
 
   talentSection.textContent = talentText;
   personalitySection.textContent = personalityText;
