@@ -178,6 +178,13 @@ const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
 const reportStatus = document.getElementById('report-status');
 const deepReport = document.getElementById('deep-report');
+const reportTitle = document.getElementById('report-title');
+const reportSubtitle = document.getElementById('report-subtitle');
+const mbtiTitleEl = document.getElementById('mbti-title');
+const pickedTags = document.getElementById('picked-tags');
+const talentSection = document.getElementById('talent-section');
+const personalitySection = document.getElementById('personality-section');
+const blessingSection = document.getElementById('blessing-section');
 
 const musicToggleBtn = document.getElementById('music-toggle');
 const bgmAudio = document.getElementById('bgm-audio');
@@ -297,8 +304,15 @@ function showResult() {
   ].join('');
   currentResult = result;
 
-  document.getElementById('base-info').textContent = `寶寶小名：${babyNameInput.value.trim()}｜星座：${babyZodiacInput.value.trim()}`;
+  const babyName = babyNameInput.value.trim();
+  const babyZodiac = babyZodiacInput.value.trim();
+  const title = mbtiTitles[result] || '宇宙小探險家';
+
+  reportTitle.textContent = `${babyName} 的專屬星象圖`;
+  reportSubtitle.textContent = `星座：${babyZodiac}座`;
+  document.getElementById('base-info').textContent = `MBTI 靈魂原型分析`;
   document.getElementById('mbti-result').textContent = result;
+  mbtiTitleEl.textContent = title;
 
   const pickedList = document.getElementById('picked-list');
   pickedList.innerHTML = '';
@@ -306,6 +320,14 @@ function showResult() {
     const li = document.createElement('li');
     li.textContent = `${index + 1}. ${item.name}（${item.mbti}）`;
     pickedList.appendChild(li);
+  });
+
+  pickedTags.innerHTML = '';
+  chosen.forEach((item) => {
+    const tag = document.createElement('span');
+    tag.className = 'pick-tag';
+    tag.textContent = `${item.name} ✨`;
+    pickedTags.appendChild(tag);
   });
 
   const dimensionLines = [
@@ -334,11 +356,26 @@ function generateFullReport() {
   const zodiac = babyZodiacInput.value.trim();
   const mbti = currentResult;
   const mbtiTitle = mbtiTitles[mbti] || '宇宙小探險家';
+  const abilityPick = picks.ability?.name || '神秘能力道具';
+  const personalityPick = picks.personality?.name || '人格特質道具';
 
-  const reportText = `親愛的 ${name}，恭喜你在這場魔法星空抓周派對中，展現出「${mbti}｜${mbtiTitle}」的獨特光芒！從這次三項選擇可以看見，你不只擁有 ${zodiac} 寶寶常見的敏銳直覺，也具備穩定而細膩的學習潛能。你會用自己的節奏觀察世界，對有興趣的事投入高度專注，一旦找到熱愛方向，就能累積驚人的成長能量。\n\n在日常互動中，你很可能同時具備好奇心與責任感：面對新環境時會先安靜感受、再勇敢嘗試；面對困難時，也能在鼓勵下逐步建立方法，越挫越有韌性。這份特質讓你在人際上既溫暖又有想法，能理解他人心情，也願意分享自己的點子，未來不論在學習、創作或團隊合作，都會是閃亮又可靠的存在。\n\n想讓你的天賦更自然開展，建議家人多提供「可自由探索、也有溫柔邊界」的成長空間：例如固定的陪伴閱讀時間、動手做的小任務、以及鼓勵表達感受的睡前對話。每一次被理解、被肯定、被耐心等待，都會讓你的自信星系更完整。請相信，你正在用最可愛也最堅定的方式，長成一顆有溫度、有智慧、能照亮他人的小宇宙。`;
+  const talentText = `${name} 在「${abilityPick}」的選擇中，展現出 ${mbti} 型寶寶少見的專注與行動節奏。這代表你在學習新事物時，會先觀察規律、再用自己的方法嘗試，找到手感後就能穩定發揮。搭配 ${zodiac}座的敏銳直覺，你很適合在遊戲裡累積能力，透過重複練習把小小興趣培養成長期天賦。`;
 
+  const personalityText = `從「${personalityPick}」看見你內在的性格底色：溫柔、細膩，卻也有自己的判斷與堅持。作為「${mbtiTitle}」，你對周遭情緒很有感受力，知道何時靠近、何時安靜觀察；一旦認定值得投入的人事物，就會用真誠與耐心慢慢耕耘。這讓你在團體中自然成為兼具溫度與想法的小小發光體。`;
+
+  const blessingText = `親愛的 ${name}，願你保有現在這份好奇與勇氣，在被愛包圍的安全感裡自由探索世界。家人只要持續給你溫柔的支持、清楚的邊界與穩定的陪伴，你就會把今天的「${mbti}」光芒，長成未來能照亮自己與他人的星星宇宙。願你天天被理解、被肯定，快樂長大。`;
+
+  talentSection.textContent = talentText;
+  personalitySection.textContent = personalityText;
+  blessingSection.textContent = blessingText;
+
+  const reportText = `${talentText}
+
+${personalityText}
+
+${blessingText}`;
   deepReport.textContent = reportText;
-  reportStatus.textContent = '完整報告如下：';
+  reportStatus.textContent = '';
 }
 
 function resetAll() {
@@ -357,6 +394,13 @@ function resetAll() {
   selectedText.textContent = '尚未選擇';
   reportStatus.textContent = '';
   deepReport.textContent = '';
+  reportTitle.textContent = '';
+  reportSubtitle.textContent = '';
+  mbtiTitleEl.textContent = '';
+  pickedTags.innerHTML = '';
+  talentSection.textContent = '';
+  personalitySection.textContent = '';
+  blessingSection.textContent = '';
 
   resultScreen.classList.add('hidden');
   startScreen.classList.remove('hidden');
