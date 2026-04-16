@@ -1,10 +1,89 @@
+let currentLang = 'zh';
+
+const uiTranslations = {
+  zh: {
+    title: '魔法星空抓周派對：預見寶貝的超能力宇宙！',
+    descP1: '「抓周」是一份跨越千年的祝福，標誌著寶寶踏入新世界的第一步。',
+    descP2: '我們將這份古老儀式與現代 MBTI 結合，不僅是觀察寶寶抓取了什麼，更是透過這 18 件富含寓意的道具，解讀寶寶與生俱來的感知力、執行力與性格靈魂。',
+    descP3: '這是一份專為爸爸媽媽準備的「育兒星象圖」，讓我們一起透過魔法道具，看見寶貝眼中的無限宇宙。',
+    nameLabel: '寶寶小名',
+    namePlaceholder: '請輸入寶寶小名',
+    zodiacLabel: '星座',
+    zodiacPlaceholder: '請選擇星座',
+    startBtn: '開始測驗',
+    prevBtn: '上一關',
+    nextBtn: '下一關',
+    restartBtn: '重新測驗',
+    roundInterest: '第一關：興趣分類',
+    roundAbility: '第二關：能力取向',
+    roundPersonality: '第三關：人格核心',
+    selectedPrefix: '已選擇：',
+    notSelected: '尚未選擇',
+    roundProgress: '第 {{current}} 關 / {{total}}',
+    alertProfileRequired: '請先輸入寶寶小名與星座',
+    alertPickRequired: '本關請先選 1 個道具',
+    reportName: '{{name}} 的專屬結果圖卡',
+    resultSealTitle: '抓周印記',
+    resultDimensionTitle: '2x2 四向度解析',
+    resultAnalysisTitle: 'MBTI 深度分析',
+    resultZodiacTitle: '星座加成效應',
+    resultCareerTitle: '未來職業參考',
+    resultParentingTitle: '爸媽教養建議'
+  },
+  en: {
+    title: "Magical Starry Night: Baby's Superpower Universe!",
+    descP1: "The 'Zhua Zhou' (Catching Test) is a millennium-old blessing marking your baby's first step into a new world.",
+    descP2: "We combine this ancient ritual with modern MBTI psychology. It's not just about what they pick, but decoding their innate perception, execution, and soul through 18 symbolic items.",
+    descP3: "This is a 'Parenting Horoscope' designed just for you. Let's use these magical items to discover the infinite universe in your baby's eyes.",
+    nameLabel: "Baby's Nickname",
+    namePlaceholder: 'Enter nickname',
+    zodiacLabel: 'Zodiac Sign',
+    zodiacPlaceholder: 'Choose zodiac sign',
+    startBtn: 'Start Journey',
+    prevBtn: 'Previous',
+    nextBtn: 'Next',
+    restartBtn: 'Restart',
+    roundInterest: 'Round 1: Interests',
+    roundAbility: 'Round 2: Abilities',
+    roundPersonality: 'Round 3: Personality Core',
+    selectedPrefix: 'Selected: ',
+    notSelected: 'No selection yet',
+    roundProgress: 'Round {{current}} / {{total}}',
+    alertProfileRequired: 'Please enter nickname and zodiac sign first.',
+    alertPickRequired: 'Please select one item in this round first.',
+    reportName: "{{name}}'s Personality Report",
+    resultSealTitle: 'Picked Seals',
+    resultDimensionTitle: '2x2 Dimension Map',
+    resultAnalysisTitle: 'MBTI Deep Analysis',
+    resultZodiacTitle: 'Zodiac Synergy',
+    resultCareerTitle: 'Future Careers',
+    resultParentingTitle: 'Parenting Tips'
+  }
+};
+
+const zodiacOptions = [
+  { key: '', zh: '請選擇星座', en: 'Choose zodiac sign' },
+  { key: 'aries', zh: '牡羊', en: 'Aries' },
+  { key: 'taurus', zh: '金牛', en: 'Taurus' },
+  { key: 'gemini', zh: '雙子', en: 'Gemini' },
+  { key: 'cancer', zh: '巨蟹', en: 'Cancer' },
+  { key: 'leo', zh: '獅子', en: 'Leo' },
+  { key: 'virgo', zh: '處女', en: 'Virgo' },
+  { key: 'libra', zh: '天秤', en: 'Libra' },
+  { key: 'scorpio', zh: '天蠍', en: 'Scorpio' },
+  { key: 'sagittarius', zh: '射手', en: 'Sagittarius' },
+  { key: 'capricorn', zh: '摩羯', en: 'Capricorn' },
+  { key: 'aquarius', zh: '水瓶', en: 'Aquarius' },
+  { key: 'pisces', zh: '雙魚', en: 'Pisces' }
+];
+
 const rounds = [
   {
     key: 'interest',
     label: '第一關：興趣分類',
     options: [
-      { name: '書', icon: '📘', mbti: 'ISTJ', title: '閱讀與知識', desc: '被故事與知識內容吸引，喜歡透過閱讀探索世界。', explain: ['專注書中世界', '重視文字記載', '吸收邏輯與事實', '按部就班地學習'] },
-      { name: '飛機', icon: '✈️', mbti: 'ENTP', title: '旅遊與探索', desc: '被未知與新環境吸引，喜歡旅遊並探索世界。', explain: ['學習向外探索', '嚮往未知遠方', '理解異國文化', '享受隨性的自由'] },
+      { id: 'book', name: '書', icon: '📘', mbti: 'ISTJ', title: '閱讀與知識', desc: '被故事與知識內容吸引，喜歡透過閱讀探索世界。', explain: ['專注書中世界', '重視文字記載', '吸收邏輯與事實', '按部就班地學習'] },
+      { id: 'plane', name: '飛機', icon: '✈️', mbti: 'ENTP', title: '旅遊與探索', desc: '被未知與新環境吸引，喜歡旅遊並探索世界。', explain: ['學習向外探索', '嚮往未知遠方', '理解異國文化', '享受隨性的自由'] },
       { name: '球', icon: '⚽', mbti: 'ESTP', title: '運動與競技', desc: '被動態活動吸引，喜歡透過肢體與環境互動。', explain: ['與他人交流', '重視具體體驗', '分析競爭優劣勢', '在場上靈活互動'] },
       { name: '鋼琴', icon: '🎹', mbti: 'ISFP', title: '音樂與節奏', desc: '被聲音與節奏吸引，喜歡用音樂感受與表達。', explain: ['探索內在情感', '實際彈奏樂器', '隨心情演奏樂曲', '擅長即興發揮'] },
       { name: '調色盤', icon: '🎨', mbti: 'ENFP', title: '色彩與創作', desc: '被色彩與創作吸引，喜歡用畫面表達想法。', explain: ['展現藝術', '表達色彩抽象', '用顏色代表情感', '自由揮灑創作'] },
@@ -37,6 +116,22 @@ const rounds = [
   }
 ];
 
+const itemsDatabase = {
+  book: {
+    id: 'book',
+    mbti: 'ISTJ',
+    zh: { name: '書', dimensions: ['吸收資訊', '概念想像', '邏輯理解', '結構學習'] },
+    en: { name: 'Book', dimensions: ['Absorb Info', 'Imagination', 'Logic', 'Structure'] }
+  },
+  plane: {
+    id: 'plane',
+    mbti: 'ENTP',
+    zh: { name: '飛機', dimensions: ['向外探索', '未知想像', '跨域理解', '彈性行動'] },
+    en: { name: 'Plane', dimensions: ['Explore Outward', 'Unknown Vision', 'Cross-Cultural Insight', 'Flexible Action'] }
+  }
+  // TODO: add remaining 16 items with full zh/en mappings.
+};
+
 const mbtiReports = {
   ENFP: { title: 'ENFP 啟發者小太陽', avatar: { base: '#ffe8a6', accent: '#ffb2c6', mark: '☀︎' }, analysis: 'ENFP 寶寶像是把春天裝在口袋裡的小小探險家，遇見新的人、聲音與玩具都會主動靠近，並且以驚人的速度建立連結。他或她會先感受氛圍，再用創意去解釋世界，因此常常在大人還在觀察時，就已經用笑容和動作提出自己版本的答案。這類孩子重視關係中的真誠與新鮮感，內在節奏自由、外在能量活潑，若被過度限制可能暫時退縮，但只要獲得理解就會迅速回到明亮狀態，持續展現感染全家的生命力。', zodiacBonus: '當 {{zodiac}} 座的氣質與 ENFP 相遇，寶寶會同時擁有敏銳情緒雷達與充沛想像力，既會追逐新鮮，也能在關鍵時刻抓住真正重要的人事物。', careers: ['品牌創意與企劃', '兒童教育與引導設計', '影像內容創作者', '心理與陪伴工作'], parenting: '請把這位孩子當成「需要回應的火花」，而不是「需要修正的問題」。每天給他或她可自由選擇的小任務，例如兩種遊戲、兩種故事，讓孩子在選擇中建立責任感。當情緒起伏時，先接住感受再談規則，例如「你很想再玩一下，我懂，我們一起設計收玩具儀式」。家長也可準備創作角落，放紙張、貼紙、積木，鼓勵把腦中的畫面做出來。固定的睡前對話很重要，陪孩子回顧今天最開心與最困難的片段，讓想像力和安全感一起長大。' },
   INFP: { title: 'INFP 夢境溫柔小詩人', avatar: { base: '#e7dcff', accent: '#a9d7ff', mark: '✿' }, analysis: 'INFP 寶寶的感受力非常細緻，常會在安靜時觀察每個人的表情與語氣，再決定自己要不要靠近。這不是害羞，而是一種先在心裡建立安全圖景的能力。他或她對美感、聲音、故事有天然敏感度，喜歡把感受變成自己的小小儀式，例如抱著固定玩偶聽同一首歌。這類孩子重視被理解的品質，高壓催促會讓他或她更慢，但溫柔陪伴反而能喚起驚人專注。當家庭給予穩定且尊重的空間，INFP 會長出深刻同理與獨到創造力，成為溫暖他人的靈魂角色。', zodiacBonus: '{{zodiac}} 座與 INFP 的結合，讓孩子既浪漫又有方向，能把內在世界慢慢轉成可被他人看見的作品與行動，情感深度因此更具力量。', careers: ['繪本與故事創作', '音樂與聲音設計', '心理諮商與輔導', '文化內容策展'], parenting: '陪伴 INFP 的關鍵不是「快一點」，而是「懂一點」。家長可以先描述孩子的感受：「你是不是擔心太吵？」被命中後，孩子才更願意合作。每天保留一段安靜共讀或共畫時間，讓孩子在不被評分的氛圍中輸出內在想法。遇到挫折時，避免直接說教，可透過角色扮演找解法，例如讓玩偶示範如何重新嘗試。規範要清楚但語氣要柔軟，讓孩子知道界線存在且關係安全。長期下來，這份被理解的經驗會轉化為穩定自信，幫助孩子把善良變成真正的行動力。' },
@@ -56,6 +151,36 @@ const mbtiReports = {
   ISTJ: { title: 'ISTJ 沉穩小學霸', avatar: { base: '#e6e6ff', accent: '#ffe1bf', mark: '▣' }, analysis: 'ISTJ 寶寶天生重視秩序與可靠感，對固定作息、明確指令與可預測流程反應良好。他或她會仔細觀察細節，並以踏實方式完成任務，雖不一定最外放，卻常是最穩定的那位。這類孩子責任心早熟，對承諾與規範有高敏感度，若規則前後不一會產生不安。ISTJ 的優勢在於長期累積與精準執行，只要目標清楚就能穩步前進。家庭若給予一致界線與耐心肯定，孩子會形成堅實自律與抗壓力。避免只看結果忽略努力，因為被理解的過程感，正是他持續精進的燃料。', zodiacBonus: '{{zodiac}} 座讓 ISTJ 的穩健更有彈性與溫度，孩子在守規則的同時，也更能理解他人節奏與情緒需求。', careers: ['醫療與專業技術', '財務審計與法務', '品質管理與專案執行', '教育行政與資料管理'], parenting: 'ISTJ 的教養重點是「一致」與「可追蹤」。建立清楚日程表、責任表，孩子會非常受用。家長給指令時盡量具體，例如「先收三樣玩具，再去洗手」，比抽象提醒更有效。當孩子表現謹慎慢熱，請肯定其細心而非催促比較。若遇變動，提早告知並說明原因，可大幅降低焦慮。也可安排小任務讓孩子感受被信任，例如管理閱讀角。當 ISTJ 在穩定環境中累積成功經驗，會長成踏實可靠、值得託付的重要力量。' }
 };
 
+const reportDatabase = Object.fromEntries(Object.entries(mbtiReports).map(([type, report]) => [type, {
+  mbti: type,
+  zh: { ...report },
+  en: {
+    title: '',
+    analysis: '',
+    zodiacBonus: '',
+    careers: [],
+    parenting: ''
+  }
+}]));
+
+reportDatabase.ENFP.en = {
+  title: 'ENFP Inspiring Little Sun',
+  analysis: 'An ENFP baby is curious, expressive, and socially radiant. They explore the world with imagination and emotional sensitivity, then turn experiences into playful creativity.',
+  zodiacBonus: 'With {{zodiac}} energy, this ENFP gains both empathy and momentum, balancing spontaneity with meaningful focus.',
+  careers: ['Creative Branding', 'Early Childhood Education', 'Content Creation', 'Counseling & Care'],
+  parenting: 'Offer guided choices, acknowledge feelings first, and create a safe creative corner. Structure helps, but emotional connection is the key driver.'
+};
+
+reportDatabase.INTJ.en = {
+  title: 'INTJ Strategic Star Mapper',
+  analysis: 'An INTJ baby naturally seeks patterns, systems, and reasons. They prefer clarity, predictability, and thoughtful independence when learning and making decisions.',
+  zodiacBonus: '{{zodiac}} adds warmth and flexibility to this INTJ profile, supporting both strategic thinking and smoother social collaboration.',
+  careers: ['Engineering & Systems', 'Product Strategy', 'Data Science', 'Architecture'],
+  parenting: 'Use reason-based guidance and clear routines. Give autonomy within boundaries, and coach flexibility through comparing options and outcomes.'
+};
+
+// TODO: expand en content for the other 14 MBTI report types.
+
 const picks = { interest: null, ability: null, personality: null };
 let roundIndex = 0;
 
@@ -70,6 +195,7 @@ const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
 const bgmAudio = document.getElementById('bgMusic');
 const musicToggleBtn = document.getElementById('musicToggle');
+const langToggleBtn = document.getElementById('langToggle');
 const reportName = document.getElementById('report-name');
 const reportMbti = document.getElementById('report-mbti');
 const reportTitle = document.getElementById('report-title');
@@ -80,6 +206,56 @@ const parentingText = document.getElementById('parenting-text');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
 const dimensionGrid = document.getElementById('dimension-grid');
+
+function t(key) {
+  return uiTranslations[currentLang][key] || uiTranslations.zh[key] || key;
+}
+
+function getLocalizedItemName(item) {
+  const profile = item?.id ? itemsDatabase[item.id] : null;
+  if (!profile) return item.name;
+  return (profile[currentLang]?.name || profile.zh?.name || item.name);
+}
+
+function getLocalizedDimensions(item) {
+  const profile = item?.id ? itemsDatabase[item.id] : null;
+  if (!profile) return item.explain;
+  return profile[currentLang]?.dimensions?.length ? profile[currentLang].dimensions : profile.zh?.dimensions || item.explain;
+}
+
+function renderZodiacOptions() {
+  const currentValue = babyZodiacInput.value;
+  babyZodiacInput.innerHTML = '';
+  zodiacOptions.forEach((zodiac, index) => {
+    const option = document.createElement('option');
+    option.value = zodiac.key;
+    option.textContent = index === 0 ? t('zodiacPlaceholder') : zodiac[currentLang];
+    if (option.value === currentValue) option.selected = true;
+    babyZodiacInput.appendChild(option);
+  });
+}
+
+function getZodiacLabel() {
+  const target = zodiacOptions.find((option) => option.key === babyZodiacInput.value);
+  return target ? target[currentLang] : '';
+}
+
+function updateLanguageUI() {
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    el.setAttribute('placeholder', t(el.dataset.i18nPlaceholder));
+  });
+  langToggleBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
+  renderZodiacOptions();
+
+  if (!quizScreen.classList.contains('hidden')) {
+    renderRound();
+  } else if (!resultScreen.classList.contains('hidden')) {
+    showResult();
+  }
+}
 
 function buildAvatarSVG(mbti, avatarConfig) {
   const { base, accent, mark } = avatarConfig;
@@ -152,9 +328,16 @@ bgmAudio.addEventListener('error', (error) => {
 });
 updateMusicButtonIcon(!bgmAudio.paused);
 
+langToggleBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  updateLanguageUI();
+});
+
+updateLanguageUI();
+
 document.getElementById('start-btn').addEventListener('click', () => {
   if (!babyNameInput.value.trim() || !babyZodiacInput.value.trim()) {
-    alert('請先輸入寶寶小名與星座');
+    alert(t('alertProfileRequired'));
     return;
   }
 
@@ -176,7 +359,7 @@ document.getElementById('prev-btn').addEventListener('click', () => {
 document.getElementById('next-btn').addEventListener('click', () => {
   const current = rounds[roundIndex];
   if (!picks[current.key]) {
-    alert('本關請先選 1 個道具');
+    alert(t('alertPickRequired'));
     return;
   }
 
@@ -193,18 +376,19 @@ document.getElementById('restart-btn').addEventListener('click', resetAll);
 
 function renderRound() {
   const round = rounds[roundIndex];
-  roundLabel.textContent = `第 ${roundIndex + 1} 關 / 3`;
-  roundTitle.textContent = round.label;
+  const roundTitleKeyMap = { interest: 'roundInterest', ability: 'roundAbility', personality: 'roundPersonality' };
+  roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
+  roundTitle.textContent = t(roundTitleKeyMap[round.key]);
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
     const btn = document.createElement('button');
-    btn.className = `option ${picks[round.key]?.name === item.name ? 'selected' : ''}`;
+    btn.className = `option ${picks[round.key]?.icon === item.icon && picks[round.key]?.mbti === item.mbti ? 'selected' : ''}`;
     btn.innerHTML = `
-      <h4>${item.icon} ${item.name}（${item.mbti}）</h4>
+      <h4>${item.icon} ${getLocalizedItemName(item)}（${item.mbti}）</h4>
       <p><strong>${item.title}</strong>：${item.desc}</p>
       <div class="badge-wrap">
-        ${item.explain.map((part) => `<span class="explain-badge">${part}</span>`).join('')}
+        ${getLocalizedDimensions(item).map((part) => `<span class="explain-badge">${part}</span>`).join('')}
       </div>
     `;
     btn.addEventListener('click', () => {
@@ -215,7 +399,7 @@ function renderRound() {
   });
 
   const picked = picks[round.key];
-  selectedText.textContent = picked ? `已選擇：${picked.icon} ${picked.name}（${picked.mbti}）` : '尚未選擇';
+  selectedText.textContent = picked ? `${t('selectedPrefix')}${picked.icon} ${getLocalizedItemName(picked)}（${picked.mbti}）` : t('notSelected');
 }
 
 function computeMbti(chosen) {
@@ -241,9 +425,9 @@ function renderDimensionCards(chosen) {
     const card = document.createElement('article');
     card.className = 'dimension-card';
     card.innerHTML = `
-      <h4>${item.icon} ${item.name}</h4>
+      <h4>${item.icon} ${getLocalizedItemName(item)}</h4>
       <div class="dimension-2x2">
-        ${item.explain.map((tip) => `<span class="pulse-dot">${tip}</span>`).join('')}
+        ${getLocalizedDimensions(item).map((tip) => `<span class="pulse-dot">${tip}</span>`).join('')}
       </div>
     `;
     dimensionGrid.appendChild(card);
@@ -254,18 +438,20 @@ function showResult() {
   const chosen = [picks.interest, picks.ability, picks.personality];
   const mbti = computeMbti(chosen);
   const babyName = babyNameInput.value.trim();
-  const babyZodiac = babyZodiacInput.value.trim();
-  const report = mbtiReports[mbti] || mbtiReports.ENFP;
+  const babyZodiac = getZodiacLabel();
+  const reportPack = reportDatabase[mbti] || reportDatabase.ENFP;
+  const fallbackZh = reportPack.zh;
+  const report = currentLang === 'en' && reportPack.en?.title ? reportPack.en : fallbackZh;
   const cuteTitle = report.title.replace(/^[A-Z]{4}\s*/, '');
 
-  reportName.textContent = `${babyName} 的專屬結果圖卡`;
+  reportName.textContent = t('reportName').replace('{{name}}', babyName);
   reportMbti.textContent = mbti;
   reportTitle.textContent = `${mbti} ${cuteTitle}`;
   analysisText.textContent = report.analysis;
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;
 
-  babyAvatar.innerHTML = buildAvatarSVG(mbti, report.avatar);
+  babyAvatar.innerHTML = buildAvatarSVG(mbti, fallbackZh.avatar);
 
   careerText.innerHTML = '';
   report.careers.forEach((career) => {
@@ -278,7 +464,7 @@ function showResult() {
   chosen.forEach((item) => {
     const tag = document.createElement('div');
     tag.className = 'seal-item';
-    tag.innerHTML = `<span>${item.icon}</span><strong>${item.name}</strong>`;
+    tag.innerHTML = `<span>${item.icon}</span><strong>${getLocalizedItemName(item)}</strong>`;
     pickedTags.appendChild(tag);
   });
 
@@ -295,6 +481,7 @@ function resetAll() {
   roundIndex = 0;
   babyNameInput.value = '';
   babyZodiacInput.value = '';
+  renderZodiacOptions();
 
   resultScreen.classList.add('hidden');
   quizScreen.classList.add('hidden');
