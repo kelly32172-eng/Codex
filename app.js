@@ -73,8 +73,14 @@ const bgmAlert = document.getElementById('bgm-alert');
 const bgmAlertText = document.getElementById('bgm-alert-text');
 const bgmRetryBtn = document.getElementById('bgm-retry-btn');
 
-const bgmFallbackUrls = [bgmAudio.dataset.fallbackSrc].filter(Boolean);
+const bgmFallbackUrls = (bgmAudio.dataset.fallbackSrc || '')
+  .split(',')
+  .map((url) => url.trim())
+  .filter(Boolean);
 let bgmFallbackIndex = 0;
+let ambientCtx = null;
+let ambientMasterGain = null;
+let ambientOscillators = [];
 
 const reportName = document.getElementById('report-name');
 const reportMbti = document.getElementById('report-mbti');
@@ -126,8 +132,71 @@ function hideBgmAlert() {
   bgmAlert.classList.add('hidden');
 }
 
+function stopGeneratedAmbient() {
+  ambientOscillators.forEach((osc) => {
+    try {
+      osc.stop();
+    } catch {
+      // oscillator may already be stopped
+    }
+  });
+  ambientOscillators = [];
+
+  if (ambientMasterGain) {
+    ambientMasterGain.disconnect();
+    ambientMasterGain = null;
+  }
+}
+
+function startGeneratedAmbient() {
+  const WebAudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!WebAudioContext) {
+    showBgmAlert('此裝置不支援背景音樂播放。');
+    return false;
+  }
+
+  if (!ambientCtx) {
+    ambientCtx = new WebAudioContext();
+  }
+
+  if (ambientCtx.state === 'suspended') {
+    ambientCtx.resume();
+  }
+
+  stopGeneratedAmbient();
+
+  ambientMasterGain = ambientCtx.createGain();
+  ambientMasterGain.gain.value = 0.015;
+  ambientMasterGain.connect(ambientCtx.destination);
+
+  const now = ambientCtx.currentTime;
+  const notes = [220, 261.63, 329.63];
+
+  notes.forEach((freq, index) => {
+    const osc = ambientCtx.createOscillator();
+    const gain = ambientCtx.createGain();
+
+    osc.type = 'triangle';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.linearRampToValueAtTime(0.02, now + 2 + index * 0.5);
+    gain.gain.linearRampToValueAtTime(0.007, now + 12 + index);
+
+    osc.connect(gain);
+    gain.connect(ambientMasterGain);
+    osc.start();
+
+    ambientOscillators.push(osc);
+  });
+
+  showBgmAlert('已啟用內建舒眠背景音（網路音源載入失敗時使用）。');
+  return true;
+}
+
 async function startBgm() {
-  bgmAudio.volume = 0.5;
+  stopGeneratedAmbient();
+  bgmAudio.volume = 0.35;
+  bgmAudio.playbackRate = 0.95;
   bgmAudio.muted = false;
 
   try {
@@ -135,6 +204,9 @@ async function startBgm() {
     hideBgmAlert();
     return true;
   } catch {
+    if (startGeneratedAmbient()) {
+      return true;
+    }
     showBgmAlert('背景音樂尚未啟用，請點下方按鈕再試一次。');
     return false;
   }
@@ -143,7 +215,7 @@ async function startBgm() {
 function switchToFallbackBgm() {
   const fallbackSrc = bgmFallbackUrls[bgmFallbackIndex];
   if (!fallbackSrc || bgmAudio.src === fallbackSrc) {
-    showBgmAlert('音樂載入失敗');
+    startGeneratedAmbient();
     return;
   }
 
@@ -317,4 +389,5 @@ function resetAll() {
 
   bgmAudio.pause();
   bgmAudio.currentTime = 0;
+  stopGeneratedAmbient();
 }
