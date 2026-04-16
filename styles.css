@@ -1,87 +1,166 @@
 :root {
-  --bg: #fff3f7;
-  --panel: #ffffff;
-  --primary: #f07ea6;
-  --primary-dark: #de5d8e;
-  --text: #5b4450;
-  --line: #ffd6e6;
+  /* 低飽和莫蘭迪色票（淺底深字） */
+  --bg: #ece8e1;
+  --panel: #f7f3ed;
+  --primary: #8f9f92;
+  --primary-dark: #75857a;
+  --text: #3f4549;
+  --line: #c8c2b8;
 }
 
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: "Noto Sans TC", sans-serif;
-  background: linear-gradient(180deg, #ffeef4, #fff8fb);
+  font-family: "M PLUS Rounded 1c", "Noto Sans TC", sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  background: linear-gradient(180deg, #efebe4, var(--bg));
   color: var(--text);
 }
 
 .container {
-  max-width: 980px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 40px 28px;
 }
 
-h1 { text-align: center; color: var(--primary-dark); }
+h1 {
+  margin: 0 0 24px;
+  text-align: center;
+  color: var(--primary-dark);
+  font-size: 34px;
+  line-height: 1.3;
+}
+
+section {
+  margin-top: 20px;
+}
 
 .card {
   background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(240, 126, 166, 0.15);
+  border: 1.5px solid var(--line);
+  border-radius: 20px 18px 22px 16px;
+  padding: 28px;
+  box-shadow: 0 10px 22px rgba(80, 86, 88, 0.12);
 }
 
 .hidden { display: none; }
 
 label {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-weight: 600;
 }
 
 input {
   width: 100%;
-  margin-top: 6px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1.5px solid var(--line);
+  font-size: 18px;
+  color: var(--text);
+  background: #fbf8f3;
+}
+
+button,
+.option {
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 5px 12px rgba(70, 74, 76, 0.09);
 }
 
 button {
-  border: none;
-  border-radius: 10px;
-  padding: 10px 16px;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  padding: 14px 20px;
   background: var(--primary);
-  color: white;
+  color: #f8f6f2;
   cursor: pointer;
+  font-size: 18px;
   font-weight: 700;
 }
-button:hover { background: var(--primary-dark); }
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(70, 74, 76, 0.18);
+}
+
+button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 10px rgba(70, 74, 76, 0.12);
+}
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
 }
 
 .option {
   text-align: left;
-  background: #fff;
+  background: #faf7f1;
   border: 2px solid var(--line);
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: 16px 14px 18px 13px;
+  padding: 18px;
+}
+
+.option:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(70, 74, 76, 0.14);
+}
+
+.option:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 5px 10px rgba(70, 74, 76, 0.1);
 }
 
 .option.selected {
   border-color: var(--primary);
-  background: #fff1f7;
+  background: #f0eee8;
 }
 
-.option h4 { margin: 0 0 8px; }
-.option p { margin: 0 0 8px; }
-.option small { color: #8f6676; display: block; }
+.option h4 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
 
-.actions { display: flex; gap: 10px; margin-top: 14px; }
-.mbti { font-size: 40px; color: var(--primary-dark); font-weight: 900; }
-.paywall { margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--line); }
-.report { white-space: pre-wrap; line-height: 1.7; background: #fff8fc; padding: 12px; border-radius: 10px; margin-top: 10px; }
+.option p {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.option small {
+  color: #6e7477;
+  display: block;
+  font-size: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.mbti {
+  font-size: 44px;
+  color: var(--primary-dark);
+  font-weight: 900;
+}
+
+.paywall {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1.5px dashed var(--line);
+}
+
+.report {
+  white-space: pre-wrap;
+  line-height: 1.8;
+  background: #f5f2ec;
+  padding: 18px;
+  border-radius: 14px;
+  margin-top: 14px;
+  border: 1px solid #ddd6cb;
+}
