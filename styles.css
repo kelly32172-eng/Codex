@@ -319,6 +319,31 @@ button:hover {
   color: #333333;
 }
 
+.option-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.option-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(201, 166, 218, 0.45);
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  font-size: 34px;
+  line-height: 1;
+  box-shadow: 0 8px 14px rgba(105, 85, 136, 0.16);
+}
+
+.option-label {
+  display: block;
+}
+
 .option p {
   margin: 0;
   font-size: 20px;
@@ -534,8 +559,24 @@ button:hover {
 
 @media (max-width: 768px) {
   body { font-size: 18px; }
-  .container { padding: 70px 10px 36px; }
+  .container {
+    padding: 90px 10px 36px;
+  }
   h1 { font-size: 1.5rem; }
+  .music-btn {
+    top: 16px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+  .lang-btn {
+    top: 16px;
+    right: 56px;
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -547,7 +588,28 @@ button:hover {
     font-size: 0.8rem;
     line-height: 1.4;
   }
+  .option-icon {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto;
+    font-size: 28px;
+  }
   .actions { grid-template-columns: 1fr; }
   button { font-size: 22px; }
-  .seal-list { grid-template-columns: 1fr; }
+  .seal-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .seal-item {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .seal-item strong {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.3;
+  }
 }

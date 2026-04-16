@@ -385,7 +385,10 @@ function renderRound() {
     const btn = document.createElement('button');
     btn.className = `option ${picks[round.key]?.icon === item.icon && picks[round.key]?.mbti === item.mbti ? 'selected' : ''}`;
     btn.innerHTML = `
-      <h4>${item.icon} ${getLocalizedItemName(item)}（${item.mbti}）</h4>
+      <h4 class="option-title">
+        <span class="option-icon">${item.icon}</span>
+        <span class="option-label">${getLocalizedItemName(item)}（${item.mbti}）</span>
+      </h4>
       <p><strong>${item.title}</strong>：${item.desc}</p>
       <div class="badge-wrap">
         ${getLocalizedDimensions(item).map((part) => `<span class="explain-badge">${part}</span>`).join('')}
