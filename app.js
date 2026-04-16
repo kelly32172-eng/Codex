@@ -88,6 +88,13 @@ document.getElementById('restart-btn').addEventListener('click', () => {
   picks.ability = null;
   picks.personality = null;
   roundIndex = 0;
+  babyNameInput.value = '';
+  babyZodiacInput.value = '';
+  document.getElementById('picked-list').innerHTML = '';
+  document.getElementById('dimension-list').innerHTML = '';
+  document.getElementById('mbti-result').textContent = '';
+  document.getElementById('base-info').textContent = '';
+  selectedText.textContent = '';
   document.getElementById('deep-report').textContent = '';
   document.getElementById('payment-loading').classList.add('hidden');
   resultScreen.classList.add('hidden');
