@@ -3,7 +3,7 @@ const API_KEY = '';
 const rounds = [
   {
     key: 'interest',
-    label: '第一關：興趣 (感知世界的方式)',
+    label: '第一關：天賦雷達啟動！看看他怎麼感知世界',
     options: [
       { name: '書', mbti: 'INTJ', desc: '被故事與知識內容吸引，喜歡透過閱讀探索世界。', explain: '吸收資訊 / 概念想像 / 邏輯理解 / 結構學習' },
       { name: '調色盤', mbti: 'INFP', desc: '被色彩與創作吸引，喜歡用畫面表達想法。', explain: '內在表達 / 抽象思維 / 感受導向 / 自由主義' },
@@ -15,7 +15,7 @@ const rounds = [
   },
   {
     key: 'ability',
-    label: '第二關：能力 (如何處理問題)',
+    label: '第二關：能力挑戰開跑！看看他怎麼解任務',
     options: [
       { name: '積木', mbti: 'ISFJ', desc: '透過空間建構與調整，打造理想的創作。', explain: '內向建構 / 細節堆疊 / 創作設計 / 穩定執行' },
       { name: '鏡子', mbti: 'ENFP', desc: '透過他人互動與情感連結，理解自己與世界。', explain: '互動連結 / 抽象感知 / 情感共鳴 / 自由表達' },
@@ -27,7 +27,7 @@ const rounds = [
   },
   {
     key: 'personality',
-    label: '第三關：人格特質 (手作用品)',
+    label: '第三關：個性星光秀！看看他最閃亮的特質',
     options: [
       { name: '愛心', mbti: 'ESFJ', desc: '天生具備同理心，喜歡照顧他人並維持和諧關係。', explain: '外向社交 / 現實關懷 / 情感連結 / 秩序守護' },
       { name: '皇冠', mbti: 'ENTJ', desc: '具備領袖氣質，自信果斷且充滿目標導向的動力。', explain: '影響他人 / 宏觀視野 / 理性決策 / 計畫執行' },
