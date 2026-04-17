@@ -280,32 +280,112 @@ function updateLanguageUI() {
   }
 }
 
-function buildAvatarSVG(mbti, avatarConfig) {
-  const { base, accent, mark } = avatarConfig;
-  const babyPersonaIcons = {
-    ENFP: '🧭', ENTP: '🔭', ESTP: '🪂', ESFP: '🎵',
-    ENFJ: '💞', ENTJ: '🧠', ESTJ: '📋', ESFJ: '🧸',
-    INFP: '🌈', INTP: '📚', INFJ: '🕊️', INTJ: '👓',
-    ISFP: '🎨', ISTP: '🛠️', ISFJ: '💗', ISTJ: '📖'
+function getBabyAvatar(mbti) {
+  const accessoryByMbti = {
+    INTJ: `
+      <rect x="29" y="35" width="18" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <rect x="53" y="35" width="18" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <line x1="47" y1="40" x2="53" y2="40" stroke="#2f3342" stroke-width="2.2"/>
+    `,
+    INTP: `
+      <rect x="30" y="35" width="17" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <rect x="53" y="35" width="17" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <line x1="47" y1="40" x2="53" y2="40" stroke="#2f3342" stroke-width="2"/>
+      <circle cx="72" cy="24" r="6" fill="#bfc7ff"/>
+      <rect x="67" y="27" width="10" height="2.5" rx="1.2" fill="#8f97d9"/>
+    `,
+    ENTJ: `
+      <path d="M35 27 L40 18 L46 26 L52 17 L58 26 L64 18 L69 27 Z" fill="#f0c36e"/>
+      <circle cx="52" cy="19" r="2" fill="#f8e3a8"/>
+    `,
+    ESTJ: `
+      <path d="M35 27 L40 18 L46 26 L52 17 L58 26 L64 18 L69 27 Z" fill="#f0c36e"/>
+      <rect x="68" y="52" width="16" height="3.4" rx="1.7" fill="#d8a070" transform="rotate(-18 68 52)"/>
+      <circle cx="82" cy="47" r="3" fill="#ffd7a5"/>
+    `,
+    ENFP: `
+      <circle cx="40" cy="24" r="4.2" fill="#f6b8c9"/>
+      <circle cx="49" cy="22" r="4.2" fill="#f7d9a8"/>
+      <circle cx="58" cy="24" r="4.2" fill="#c5e7b4"/>
+      <circle cx="67" cy="22" r="4.2" fill="#b8d9f7"/>
+      <rect x="38" y="24" width="31" height="2.6" rx="1.2" fill="#93b18f"/>
+    `,
+    INFP: `
+      <circle cx="41" cy="24" r="4" fill="#f7d0de"/>
+      <circle cx="49" cy="22" r="4" fill="#ecd3ff"/>
+      <circle cx="57" cy="24" r="4" fill="#ffdcb8"/>
+      <rect x="38" y="20" width="22" height="9" rx="2" fill="#9dc4e6"/>
+      <rect x="58" y="23" width="8" height="2.8" fill="#8f97d9" transform="rotate(18 58 23)"/>
+    `,
+    ISFJ: `
+      <rect x="39" y="19" width="26" height="9" rx="2" fill="#ffffff"/>
+      <path d="M39 28 Q52 35 65 28" fill="#f2f2f2"/>
+      <rect x="47" y="22" width="10" height="3.2" rx="1.5" fill="#ffd9e8"/>
+    `,
+    ESFJ: `
+      <path d="M35 25 C39 18,47 17,52 23 C57 17,65 18,69 25 C63 31,58 34,52 35 C46 34,41 31,35 25Z" fill="#ffbfd2"/>
+      <circle cx="52" cy="27" r="2.5" fill="#ffdceb"/>
+    `,
+    ESTP: `
+      <rect x="31" y="35" width="14" height="8.5" rx="2.8" fill="none" stroke="#6f7ea8" stroke-width="2.2"/>
+      <rect x="47" y="35" width="14" height="8.5" rx="2.8" fill="none" stroke="#6f7ea8" stroke-width="2.2"/>
+      <line x1="45" y1="39.2" x2="47" y2="39.2" stroke="#6f7ea8" stroke-width="2"/>
+      <path d="M60 31 Q66 28 71 31" stroke="#6f7ea8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    `,
+    ISTP: `
+      <path d="M31 31 Q52 17 73 31 L71 35 Q52 23 33 35 Z" fill="#85a4d5"/>
+      <rect x="46" y="24" width="11" height="4" rx="2" fill="#6f7ea8"/>
+    `,
+    ESFP: `
+      <rect x="30" y="30" width="44" height="8" rx="4" fill="#ffd2dd"/>
+      <circle cx="38" cy="34" r="3.5" fill="#fff3b7"/>
+      <circle cx="47" cy="34" r="3.5" fill="#b9e7f9"/>
+      <circle cx="56" cy="34" r="3.5" fill="#c8efc2"/>
+      <circle cx="65" cy="34" r="3.5" fill="#f8c4e0"/>
+    `,
+    ISFP: `
+      <path d="M35 24 L62 24 L56 32 L29 32 Z" fill="#8eb8e6"/>
+      <rect x="56" y="23" width="3" height="12" rx="1.5" fill="#7d86cb" transform="rotate(-15 56 23)"/>
+      <circle cx="42" cy="28" r="2.3" fill="#ffd7a8"/>
+      <circle cx="50" cy="28" r="2.3" fill="#f5b8ce"/>
+    `,
+    INFJ: `
+      <ellipse cx="52" cy="23" rx="12" ry="5.5" fill="#f0e2ff"/>
+      <path d="M52 30 L47 38 L52 36 L57 38 Z" fill="#c9b2f4"/>
+    `,
+    ENFJ: `
+      <path d="M41 24 C41 20,44 18,47 18 C50 18,52 20,52 23 C52 20,54 18,57 18 C60 18,63 20,63 24 C63 30,58 34,52 37 C46 34,41 30,41 24Z" fill="#ffb8ca"/>
+      <circle cx="52" cy="27" r="2.2" fill="#ffdce6"/>
+    `,
+    ENTP: `
+      <circle cx="52" cy="23" r="6.5" fill="#c2d0ff"/>
+      <rect x="50.8" y="13" width="2.4" height="5.5" rx="1.2" fill="#8f97d9"/>
+      <line x1="52" y1="23" x2="58.5" y2="21.5" stroke="#7f88cc" stroke-width="2" stroke-linecap="round"/>
+      <line x1="52" y1="23" x2="55" y2="28.5" stroke="#7f88cc" stroke-width="2" stroke-linecap="round"/>
+    `,
+    ISTJ: `
+      <rect x="34" y="19" width="36" height="11" rx="2" fill="#ffffff" stroke="#cfd6e9" stroke-width="1.5"/>
+      <line x1="40" y1="23" x2="64" y2="23" stroke="#9ea8cc" stroke-width="1.5"/>
+      <line x1="40" y1="27" x2="60" y2="27" stroke="#9ea8cc" stroke-width="1.5"/>
+    `
   };
-  const accessory = babyPersonaIcons[mbti] || '✨';
+
+  const accessory = accessoryByMbti[mbti] || '<circle cx="52" cy="22" r="5" fill="#d8c6ff"/>';
+
   return `
-    <svg viewBox="0 0 260 260" role="img" aria-label="${mbti} 寶寶插畫" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="face" cx="50%" cy="40%" r="70%">
-          <stop offset="0%" stop-color="#fff" stop-opacity="0.95"/>
-          <stop offset="100%" stop-color="${base}" stop-opacity="1"/>
-        </radialGradient>
-      </defs>
-      <circle cx="130" cy="130" r="120" fill="url(#face)"/>
-      <circle cx="90" cy="110" r="14" fill="#3f3554"/>
-      <circle cx="170" cy="110" r="14" fill="#3f3554"/>
-      <path d="M 90 170 Q 130 200 170 170" stroke="#3f3554" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <circle cx="56" cy="70" r="30" fill="${accent}" opacity="0.85"/>
-      <circle cx="205" cy="70" r="30" fill="${accent}" opacity="0.85"/>
-      <text x="130" y="68" text-anchor="middle" font-size="38" fill="#694c84">${mark}</text>
-      <text x="130" y="134" text-anchor="middle" font-size="36">${accessory}</text>
-      <text x="130" y="240" text-anchor="middle" font-size="30" font-family="Baloo 2">${mbti}</text>
+    <svg viewBox="0 0 100 100" role="img" aria-label="${mbti} 寶寶頭像" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#f5f1ff"/>
+      <circle cx="50" cy="54" r="34" fill="#ffd9c9"/>
+      <ellipse cx="37" cy="58" rx="5.5" ry="3.4" fill="#f8adc2" opacity="0.7"/>
+      <ellipse cx="63" cy="58" rx="5.5" ry="3.4" fill="#f8adc2" opacity="0.7"/>
+      <ellipse cx="40" cy="49" rx="4.8" ry="5.6" fill="#2f3342"/>
+      <ellipse cx="60" cy="49" rx="4.8" ry="5.6" fill="#2f3342"/>
+      <circle cx="38.5" cy="47" r="1.5" fill="#ffffff"/>
+      <circle cx="58.5" cy="47" r="1.5" fill="#ffffff"/>
+      <path d="M43 66 Q50 71 57 66" stroke="#8d6a76" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      ${accessory}
+      <rect x="28" y="76.5" width="44" height="14" rx="7" fill="#d8e6f8"/>
+      <text x="50" y="85.8" text-anchor="middle" font-size="7.8" fill="#5d668a" font-family="Arial, sans-serif">${mbti}</text>
     </svg>
   `;
 }
@@ -478,7 +558,7 @@ function showResult() {
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;
 
-  babyAvatar.innerHTML = buildAvatarSVG(mbti, fallbackZh.avatar);
+  babyAvatar.innerHTML = getBabyAvatar(mbti);
 
   careerText.innerHTML = '';
   report.careers.forEach((career) => {
