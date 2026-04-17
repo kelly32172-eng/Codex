@@ -108,40 +108,6 @@ const rounds = [
   }
 ];
 
-/** 測驗三關：關卡標題 + 關卡說明（依語系切換） */
-const QUIZ_ROUND_COPY = [
-  {
-    zh: {
-      title: '🌟 星際啟航：捕捉第一縷星光！',
-      desc: '寶貝的小手會伸向哪個神秘盲盒呢？這代表著他內在最純粹的好奇心'
-    },
-    en: {
-      title: '🌟 Star Launch: Catch the First Spark!',
-      desc: 'Which mysterious blind box will your baby reach for? It reflects their innermost curiosity.'
-    }
-  },
-  {
-    zh: {
-      title: '🚀 探索軌跡：喚醒沉睡的魔法！',
-      desc: '面對未知的宇宙，寶貝會選擇哪種法寶來披荊斬棘？這暗示著他自帶的天賦與行動風格！'
-    },
-    en: {
-      title: '🚀 Trailblazing: Wake the Sleeping Magic!',
-      desc: 'Facing the unknown universe, which magical tool will your baby choose? It hints at their inborn gifts and action style!'
-    }
-  },
-  {
-    zh: {
-      title: '🔮 靈魂共鳴：預見未來的超能力！',
-      desc: '最後一站！選出最吸引寶貝的終極魔法石，準備解鎖專屬於他的 MBTI 星象圖與性格解析吧！'
-    },
-    en: {
-      title: '🔮 Soul Resonance: Preview the Superpower Ahead!',
-      desc: 'Last stop! Pick the ultimate magic stone that pulls your baby in—and unlock an MBTI star map and personality reading just for them!'
-    }
-  }
-];
-
 const itemsDatabase = {
   book: {
     id: 'book',
@@ -283,15 +249,98 @@ function updateLanguageUI() {
   }
 }
 
-function buildAvatarSVG(mbti, avatarConfig) {
-  const { base, accent, mark } = avatarConfig;
-  const babyPersonaIcons = {
-    ENFP: '🧭', ENTP: '🔭', ESTP: '🪂', ESFP: '🎵',
-    ENFJ: '💞', ENTJ: '🧠', ESTJ: '📋', ESFJ: '🧸',
-    INFP: '🌈', INTP: '📚', INFJ: '🕊️', INTJ: '👓',
-    ISFP: '🎨', ISTP: '🛠️', ISFJ: '💗', ISTJ: '📖'
+function getBabyAvatar(mbti) {
+  const accessoryByMbti = {
+    INTJ: `
+      <rect x="29" y="35" width="18" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <rect x="53" y="35" width="18" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <line x1="47" y1="40" x2="53" y2="40" stroke="#2f3342" stroke-width="2.2"/>
+    `,
+    INTP: `
+      <rect x="30" y="35" width="17" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <rect x="53" y="35" width="17" height="10" rx="2.5" fill="none" stroke="#2f3342" stroke-width="2.6"/>
+      <line x1="47" y1="40" x2="53" y2="40" stroke="#2f3342" stroke-width="2"/>
+      <circle cx="72" cy="24" r="6" fill="#bfc7ff"/>
+      <rect x="67" y="27" width="10" height="2.5" rx="1.2" fill="#8f97d9"/>
+    `,
+    ENTJ: `
+      <path d="M35 27 L40 18 L46 26 L52 17 L58 26 L64 18 L69 27 Z" fill="#f0c36e"/>
+      <circle cx="52" cy="19" r="2" fill="#f8e3a8"/>
+    `,
+    ESTJ: `
+      <path d="M35 27 L40 18 L46 26 L52 17 L58 26 L64 18 L69 27 Z" fill="#f0c36e"/>
+      <rect x="68" y="52" width="16" height="3.4" rx="1.7" fill="#d8a070" transform="rotate(-18 68 52)"/>
+      <circle cx="82" cy="47" r="3" fill="#ffd7a5"/>
+    `,
+    ENFP: `
+      <circle cx="40" cy="24" r="4.2" fill="#f6b8c9"/>
+      <circle cx="49" cy="22" r="4.2" fill="#f7d9a8"/>
+      <circle cx="58" cy="24" r="4.2" fill="#c5e7b4"/>
+      <circle cx="67" cy="22" r="4.2" fill="#b8d9f7"/>
+      <rect x="38" y="24" width="31" height="2.6" rx="1.2" fill="#93b18f"/>
+    `,
+    INFP: `
+      <circle cx="41" cy="24" r="4" fill="#f7d0de"/>
+      <circle cx="49" cy="22" r="4" fill="#ecd3ff"/>
+      <circle cx="57" cy="24" r="4" fill="#ffdcb8"/>
+      <rect x="38" y="20" width="22" height="9" rx="2" fill="#9dc4e6"/>
+      <rect x="58" y="23" width="8" height="2.8" fill="#8f97d9" transform="rotate(18 58 23)"/>
+    `,
+    ISFJ: `
+      <rect x="39" y="19" width="26" height="9" rx="2" fill="#ffffff"/>
+      <path d="M39 28 Q52 35 65 28" fill="#f2f2f2"/>
+      <rect x="47" y="22" width="10" height="3.2" rx="1.5" fill="#ffd9e8"/>
+    `,
+    ESFJ: `
+      <path d="M35 25 C39 18,47 17,52 23 C57 17,65 18,69 25 C63 31,58 34,52 35 C46 34,41 31,35 25Z" fill="#ffbfd2"/>
+      <circle cx="52" cy="27" r="2.5" fill="#ffdceb"/>
+    `,
+    ESTP: `
+      <rect x="31" y="35" width="14" height="8.5" rx="2.8" fill="none" stroke="#6f7ea8" stroke-width="2.2"/>
+      <rect x="47" y="35" width="14" height="8.5" rx="2.8" fill="none" stroke="#6f7ea8" stroke-width="2.2"/>
+      <line x1="45" y1="39.2" x2="47" y2="39.2" stroke="#6f7ea8" stroke-width="2"/>
+      <path d="M60 31 Q66 28 71 31" stroke="#6f7ea8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    `,
+    ISTP: `
+      <path d="M31 31 Q52 17 73 31 L71 35 Q52 23 33 35 Z" fill="#85a4d5"/>
+      <rect x="46" y="24" width="11" height="4" rx="2" fill="#6f7ea8"/>
+    `,
+    ESFP: `
+      <rect x="30" y="30" width="44" height="8" rx="4" fill="#ffd2dd"/>
+      <circle cx="38" cy="34" r="3.5" fill="#fff3b7"/>
+      <circle cx="47" cy="34" r="3.5" fill="#b9e7f9"/>
+      <circle cx="56" cy="34" r="3.5" fill="#c8efc2"/>
+      <circle cx="65" cy="34" r="3.5" fill="#f8c4e0"/>
+    `,
+    ISFP: `
+      <path d="M35 24 L62 24 L56 32 L29 32 Z" fill="#8eb8e6"/>
+      <rect x="56" y="23" width="3" height="12" rx="1.5" fill="#7d86cb" transform="rotate(-15 56 23)"/>
+      <circle cx="42" cy="28" r="2.3" fill="#ffd7a8"/>
+      <circle cx="50" cy="28" r="2.3" fill="#f5b8ce"/>
+    `,
+    INFJ: `
+      <ellipse cx="52" cy="23" rx="12" ry="5.5" fill="#f0e2ff"/>
+      <path d="M52 30 L47 38 L52 36 L57 38 Z" fill="#c9b2f4"/>
+    `,
+    ENFJ: `
+      <path d="M41 24 C41 20,44 18,47 18 C50 18,52 20,52 23 C52 20,54 18,57 18 C60 18,63 20,63 24 C63 30,58 34,52 37 C46 34,41 30,41 24Z" fill="#ffb8ca"/>
+      <circle cx="52" cy="27" r="2.2" fill="#ffdce6"/>
+    `,
+    ENTP: `
+      <circle cx="52" cy="23" r="6.5" fill="#c2d0ff"/>
+      <rect x="50.8" y="13" width="2.4" height="5.5" rx="1.2" fill="#8f97d9"/>
+      <line x1="52" y1="23" x2="58.5" y2="21.5" stroke="#7f88cc" stroke-width="2" stroke-linecap="round"/>
+      <line x1="52" y1="23" x2="55" y2="28.5" stroke="#7f88cc" stroke-width="2" stroke-linecap="round"/>
+    `,
+    ISTJ: `
+      <rect x="34" y="19" width="36" height="11" rx="2" fill="#ffffff" stroke="#cfd6e9" stroke-width="1.5"/>
+      <line x1="40" y1="23" x2="64" y2="23" stroke="#9ea8cc" stroke-width="1.5"/>
+      <line x1="40" y1="27" x2="60" y2="27" stroke="#9ea8cc" stroke-width="1.5"/>
+    `
   };
-  const accessory = babyPersonaIcons[mbti] || '✨';
+
+  const accessory = accessoryByMbti[mbti] || '<circle cx="52" cy="22" r="5" fill="#d8c6ff"/>';
+
   return `
     <svg viewBox="0 0 260 260" role="img" aria-label="${mbti} 寶寶插畫" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -308,6 +357,7 @@ function buildAvatarSVG(mbti, avatarConfig) {
       <circle cx="205" cy="70" r="30" fill="${accent}" opacity="0.85"/>
       <text x="130" y="68" text-anchor="middle" font-size="38" fill="#694c84">${mark}</text>
       <text x="130" y="134" text-anchor="middle" font-size="36">${accessory}</text>
+      <text x="130" y="240" text-anchor="middle" font-size="30" font-family="Baloo 2">${mbti}</text>
     </svg>
   `;
 }
@@ -401,9 +451,9 @@ document.getElementById('restart-btn').addEventListener('click', resetAll);
 
 function renderRound() {
   const round = rounds[roundIndex];
-  const copy = QUIZ_ROUND_COPY[roundIndex][currentLang];
-  roundTitle.textContent = copy.title;
-  roundDesc.textContent = copy.desc;
+  const roundTitleKeyMap = { interest: 'roundInterest', ability: 'roundAbility', personality: 'roundPersonality' };
+  roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
+  roundTitle.textContent = t(roundTitleKeyMap[round.key]);
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
@@ -510,7 +560,7 @@ function showResult() {
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;
 
-  babyAvatar.innerHTML = buildAvatarSVG(mbti, fallbackZh.avatar);
+  babyAvatar.innerHTML = `<div class="mbti-avatar avatar-${mbti.toLowerCase()}"></div>`;
 
   careerText.innerHTML = '';
   report.careers.forEach((career) => {
