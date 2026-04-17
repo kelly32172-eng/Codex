@@ -459,10 +459,37 @@ button:hover {
   place-items: center;
 }
 
-.baby-avatar svg {
-  width: 100%;
-  height: 100%;
+.mbti-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-image: url('請填寫圖片相對路徑');
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 15px auto;
+  background-position: 0 0;
 }
+
+.avatar-intj { background-position: 0% 0%; }
+.avatar-intp { background-position: 33.33% 0%; }
+.avatar-entj { background-position: 66.67% 0%; }
+.avatar-entp { background-position: 100% 0%; }
+
+.avatar-infj { background-position: 0% 33.33%; }
+.avatar-infp { background-position: 33.33% 33.33%; }
+.avatar-enfj { background-position: 66.67% 33.33%; }
+.avatar-enfp { background-position: 100% 33.33%; }
+
+.avatar-istj { background-position: 0% 66.67%; }
+.avatar-isfj { background-position: 33.33% 66.67%; }
+.avatar-estj { background-position: 66.67% 66.67%; }
+.avatar-esfj { background-position: 100% 66.67%; }
+
+.avatar-istp { background-position: 0% 100%; }
+.avatar-isfp { background-position: 33.33% 100%; }
+.avatar-estp { background-position: 66.67% 100%; }
+.avatar-esfp { background-position: 100% 100%; }
 
 .result-side {
   display: grid;

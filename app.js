@@ -558,7 +558,7 @@ function showResult() {
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;
 
-  babyAvatar.innerHTML = getBabyAvatar(mbti);
+  babyAvatar.innerHTML = `<div class="mbti-avatar avatar-${mbti.toLowerCase()}"></div>`;
 
   careerText.innerHTML = '';
   report.careers.forEach((career) => {
