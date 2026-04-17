@@ -2,10 +2,10 @@ let currentLang = 'zh';
 
 const uiTranslations = {
   zh: {
-    title: '魔法星空抓周派對：預見寶貝的超能力宇宙！',
-    descP1: '「抓周」是一份跨越千年的祝福，標誌著寶寶踏入新世界的第一步。',
-    descP2: '我們將這份古老儀式與現代 MBTI 結合，不僅是觀察寶寶抓取了什麼，更是透過這 18 件富含寓意的道具，解讀寶寶與生俱來的感知力、執行力與性格靈魂。',
-    descP3: '這是一份專為爸爸媽媽準備的「育兒星象圖」，讓我們一起透過魔法道具，看見寶貝眼中的無限宇宙。',
+    title: '魔法星空抓周派對：尋找寶貝的專屬超能力🔮',
+    descP1: '「抓周」不僅是一份跨越千年的溫暖祝福，更是寶貝踏入無限宇宙的第一步！',
+    descP2: '在這片魔法星空中，我們結合了古老儀式與現代 MBTI 心理學。透過 18 件充滿驚喜的魔法道具，陪你一起解鎖寶貝與生俱來的性格密碼與靈魂天賦💫',
+    descP3: '準備好化身「星際領航員」了嗎？這是一份專屬爸爸媽媽的育兒星象圖，讓我們一起打開盲盒，看見寶貝眼中的奇妙宇宙吧🔭',
     nameLabel: '寶寶小名',
     namePlaceholder: '請輸入寶寶小名',
     zodiacLabel: '星座',
@@ -14,12 +14,8 @@ const uiTranslations = {
     prevBtn: '上一關',
     nextBtn: '下一關',
     restartBtn: '重新測驗',
-    roundInterest: '第一關：興趣分類',
-    roundAbility: '第二關：能力取向',
-    roundPersonality: '第三關：人格核心',
     selectedPrefix: '已選擇：',
     notSelected: '尚未選擇',
-    roundProgress: '第 {{current}} 關 / {{total}}',
     alertProfileRequired: '請先輸入寶寶小名與星座',
     alertPickRequired: '本關請先選 1 個道具',
     reportName: '{{name}} 的專屬結果圖卡',
@@ -43,12 +39,8 @@ const uiTranslations = {
     prevBtn: 'Previous',
     nextBtn: 'Next',
     restartBtn: 'Restart',
-    roundInterest: 'Round 1: Interests',
-    roundAbility: 'Round 2: Abilities',
-    roundPersonality: 'Round 3: Personality Core',
     selectedPrefix: 'Selected: ',
     notSelected: 'No selection yet',
-    roundProgress: 'Round {{current}} / {{total}}',
     alertProfileRequired: 'Please enter nickname and zodiac sign first.',
     alertPickRequired: 'Please select one item in this round first.',
     reportName: "{{name}}'s Personality Report",
@@ -115,6 +107,37 @@ const rounds = [
     ]
   }
 ];
+
+const levelIndicators = {
+  zh: [
+    {
+      title: '🌟 星際啟航：捕捉第一縷星光！',
+      description: '寶貝的小手會伸向哪個神秘盲盒呢？這代表著他內在最純粹的好奇心'
+    },
+    {
+      title: '🚀 探索軌跡：喚醒沉睡的魔法！',
+      description: '面對未知的宇宙，寶貝會選擇哪種法寶來披荊斬棘？這暗示著他自帶的天賦與行動風格！'
+    },
+    {
+      title: '🔮 靈魂共鳴：預見未來的超能力！',
+      description: '最後一站！選出最吸引寶貝的終極魔法石，準備解鎖專屬於他的 MBTI 星象圖與性格解析吧！'
+    }
+  ],
+  en: [
+    {
+      title: '🌟 Interstellar Launch: Catch the First Starlight!',
+      description: "Which mystery box will your baby reach for first? It's a peek into their purest curiosity."
+    },
+    {
+      title: '🚀 Orbit Discovery: Awaken Sleeping Magic!',
+      description: 'In an unknown universe, which magical tool will your baby choose? It hints at their natural gifts and action style!'
+    },
+    {
+      title: '🔮 Soul Resonance: Foresee Their Superpower!',
+      description: "Final stop! Choose the ultimate magic stone and unlock your baby's MBTI star map and personality insights!"
+    }
+  ]
+};
 
 const itemsDatabase = {
   book: {
@@ -376,9 +399,10 @@ document.getElementById('restart-btn').addEventListener('click', resetAll);
 
 function renderRound() {
   const round = rounds[roundIndex];
-  const roundTitleKeyMap = { interest: 'roundInterest', ability: 'roundAbility', personality: 'roundPersonality' };
-  roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
-  roundTitle.textContent = t(roundTitleKeyMap[round.key]);
+  const indicatorSet = levelIndicators[currentLang] || levelIndicators.zh;
+  const currentIndicator = indicatorSet[roundIndex] || indicatorSet[0];
+  roundLabel.textContent = currentIndicator.title;
+  roundTitle.textContent = currentIndicator.description;
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
