@@ -2,10 +2,10 @@ let currentLang = 'zh';
 
 const uiTranslations = {
   zh: {
-    title: '魔法星空抓周派對：預見寶貝的超能力宇宙！',
-    descP1: '「抓周」是一份跨越千年的祝福，標誌著寶寶踏入新世界的第一步。',
-    descP2: '我們將這份古老儀式與現代 MBTI 結合，不僅是觀察寶寶抓取了什麼，更是透過這 18 件富含寓意的道具，解讀寶寶與生俱來的感知力、執行力與性格靈魂。',
-    descP3: '這是一份專為爸爸媽媽準備的「育兒星象圖」，讓我們一起透過魔法道具，看見寶貝眼中的無限宇宙。',
+    title: '魔法星空抓周派對：尋找寶貝的專屬超能力🔮',
+    descP1: '「抓周」不僅是一份跨越千年的溫暖祝福，更是寶貝踏入無限宇宙的第一步！',
+    descP2: '在這片魔法星空中，我們結合了古老儀式與現代 MBTI 心理學。透過 18 件充滿驚喜的魔法道具，陪你一起解鎖寶貝與生俱來的性格密碼與靈魂天賦💫',
+    descP3: '準備好化身「星際領航員」了嗎？這是一份專屬爸爸媽媽的育兒星象圖，讓我們一起打開盲盒，看見寶貝眼中的奇妙宇宙吧🔭',
     nameLabel: '寶寶小名',
     namePlaceholder: '請輸入寶寶小名',
     zodiacLabel: '星座',
@@ -14,16 +14,12 @@ const uiTranslations = {
     prevBtn: '上一關',
     nextBtn: '下一關',
     restartBtn: '重新測驗',
-    roundInterest: '第一關：興趣分類',
-    roundAbility: '第二關：能力取向',
-    roundPersonality: '第三關：人格核心',
     selectedPrefix: '已選擇：',
     notSelected: '尚未選擇',
-    roundProgress: '第 {{current}} 關 / {{total}}',
     alertProfileRequired: '請先輸入寶寶小名與星座',
     alertPickRequired: '本關請先選 1 個道具',
     reportName: '{{name}} 的專屬結果圖卡',
-    resultSealTitle: '抓周印記',
+    resultSealTitle: '抓周印記 💮',
     resultDimensionTitle: '2x2 四向度解析',
     resultAnalysisTitle: 'MBTI 深度分析',
     resultZodiacTitle: '星座加成效應',
@@ -31,10 +27,10 @@ const uiTranslations = {
     resultParentingTitle: '爸媽教養建議'
   },
   en: {
-    title: "Magical Starry Night: Baby's Superpower Universe!",
-    descP1: "The 'Zhua Zhou' (Catching Test) is a millennium-old blessing marking your baby's first step into a new world.",
-    descP2: "We combine this ancient ritual with modern MBTI psychology. It's not just about what they pick, but decoding their innate perception, execution, and soul through 18 symbolic items.",
-    descP3: "This is a 'Parenting Horoscope' designed just for you. Let's use these magical items to discover the infinite universe in your baby's eyes.",
+    title: 'Magical Starry Zhua Zhou: Discover Your Baby’s Superpowers 🔮',
+    descP1: 'Zhua Zhou is more than a thousand-year blessing—it’s your baby’s first step into a vast, sparkling universe!',
+    descP2: 'In this magical night sky, we blend the old ritual with modern MBTI. Through 18 surprise-filled props, unlock your baby’s personality code and soul talents 💫',
+    descP3: 'Ready to be a “star navigator”? This parenting star chart is for you—open the blind boxes and glimpse the wonder in your baby’s eyes 🔭',
     nameLabel: "Baby's Nickname",
     namePlaceholder: 'Enter nickname',
     zodiacLabel: 'Zodiac Sign',
@@ -43,16 +39,12 @@ const uiTranslations = {
     prevBtn: 'Previous',
     nextBtn: 'Next',
     restartBtn: 'Restart',
-    roundInterest: 'Round 1: Interests',
-    roundAbility: 'Round 2: Abilities',
-    roundPersonality: 'Round 3: Personality Core',
     selectedPrefix: 'Selected: ',
     notSelected: 'No selection yet',
-    roundProgress: 'Round {{current}} / {{total}}',
     alertProfileRequired: 'Please enter nickname and zodiac sign first.',
     alertPickRequired: 'Please select one item in this round first.',
     reportName: "{{name}}'s Personality Report",
-    resultSealTitle: 'Picked Seals',
+    resultSealTitle: 'Picked Seals 💮',
     resultDimensionTitle: '2x2 Dimension Map',
     resultAnalysisTitle: 'MBTI Deep Analysis',
     resultZodiacTitle: 'Zodiac Synergy',
@@ -113,6 +105,40 @@ const rounds = [
       { name: '齒輪', icon: '⚙️', mbti: 'ENTP', title: '革新者', desc: '擅長靈活變通，是推動系統進化原動力。', explain: ['帶動團隊運轉', '發想各種方案', '追求理性模式', '適應環境變動'] },
       { name: '雲朵', icon: '☁️', mbti: 'ISFP', title: '隨心者', desc: '懂得享受生活，擁有純真且不受拘束的靈魂。', explain: ['享受獨處自在', '對環境變化敏感', '對世界充滿包容', '展現生活彈性'] }
     ]
+  }
+];
+
+/** 測驗三關：關卡標題 + 關卡說明（依語系切換） */
+const QUIZ_ROUND_COPY = [
+  {
+    zh: {
+      title: '🌟 星際啟航：捕捉第一縷星光！',
+      desc: '寶貝的小手會伸向哪個神秘盲盒呢？這代表著他內在最純粹的好奇心'
+    },
+    en: {
+      title: '🌟 Star Launch: Catch the First Spark!',
+      desc: 'Which mysterious blind box will your baby reach for? It reflects their innermost curiosity.'
+    }
+  },
+  {
+    zh: {
+      title: '🚀 探索軌跡：喚醒沉睡的魔法！',
+      desc: '面對未知的宇宙，寶貝會選擇哪種法寶來披荊斬棘？這暗示著他自帶的天賦與行動風格！'
+    },
+    en: {
+      title: '🚀 Trailblazing: Wake the Sleeping Magic!',
+      desc: 'Facing the unknown universe, which magical tool will your baby choose? It hints at their inborn gifts and action style!'
+    }
+  },
+  {
+    zh: {
+      title: '🔮 靈魂共鳴：預見未來的超能力！',
+      desc: '最後一站！選出最吸引寶貝的終極魔法石，準備解鎖專屬於他的 MBTI 星象圖與性格解析吧！'
+    },
+    en: {
+      title: '🔮 Soul Resonance: Preview the Superpower Ahead!',
+      desc: 'Last stop! Pick the ultimate magic stone that pulls your baby in—and unlock an MBTI star map and personality reading just for them!'
+    }
   }
 ];
 
@@ -189,8 +215,8 @@ const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
 const babyNameInput = document.getElementById('baby-name');
 const babyZodiacInput = document.getElementById('baby-zodiac');
-const roundLabel = document.getElementById('round-label');
 const roundTitle = document.getElementById('round-title');
+const roundDesc = document.getElementById('round-desc');
 const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
 const bgmAudio = document.getElementById('bgMusic');
@@ -282,7 +308,6 @@ function buildAvatarSVG(mbti, avatarConfig) {
       <circle cx="205" cy="70" r="30" fill="${accent}" opacity="0.85"/>
       <text x="130" y="68" text-anchor="middle" font-size="38" fill="#694c84">${mark}</text>
       <text x="130" y="134" text-anchor="middle" font-size="36">${accessory}</text>
-      <text x="130" y="240" text-anchor="middle" font-size="30" font-family="Baloo 2">${mbti}</text>
     </svg>
   `;
 }
@@ -376,9 +401,9 @@ document.getElementById('restart-btn').addEventListener('click', resetAll);
 
 function renderRound() {
   const round = rounds[roundIndex];
-  const roundTitleKeyMap = { interest: 'roundInterest', ability: 'roundAbility', personality: 'roundPersonality' };
-  roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
-  roundTitle.textContent = t(roundTitleKeyMap[round.key]);
+  const copy = QUIZ_ROUND_COPY[roundIndex][currentLang];
+  roundTitle.textContent = copy.title;
+  roundDesc.textContent = copy.desc;
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
@@ -390,10 +415,15 @@ function renderRound() {
         <span class="option-label">${getLocalizedItemName(item)}（${item.mbti}）</span>
       </h4>
       <p><strong>${item.title}</strong>：${item.desc}</p>
-      <div class="badge-wrap">
-        ${getLocalizedDimensions(item).map((part) => `<span class="explain-badge">${part}</span>`).join('')}
-      </div>
+      <div class="badge-wrap"></div>
     `;
+    const badgeWrap = btn.querySelector('.badge-wrap');
+    getLocalizedDimensions(item).forEach((part) => {
+      const badge = document.createElement('span');
+      badge.className = 'explain-badge';
+      badge.innerHTML = formatDimensionLabelHtml(part);
+      badgeWrap.appendChild(badge);
+    });
     btn.addEventListener('click', () => {
       picks[round.key] = item;
       renderRound();
@@ -422,17 +452,43 @@ function computeMbti(chosen) {
   ].join('');
 }
 
+function escapeHtmlText(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** 六字標籤：前 4 字 + <br> + 後 2 字；其餘維持單行（內容經 escape）。 */
+function formatDimensionLabelHtml(tip) {
+  const label = String(tip);
+  if (label.length === 6) {
+    return `${escapeHtmlText(label.slice(0, 4))}<br>${escapeHtmlText(label.slice(4))}`;
+  }
+  return escapeHtmlText(label);
+}
+
 function renderDimensionCards(chosen) {
   dimensionGrid.innerHTML = '';
   chosen.forEach((item) => {
     const card = document.createElement('article');
     card.className = 'dimension-card';
-    card.innerHTML = `
-      <h4>${item.icon} ${getLocalizedItemName(item)}</h4>
-      <div class="dimension-2x2">
-        ${getLocalizedDimensions(item).map((tip) => `<span class="pulse-dot">${tip}</span>`).join('')}
-      </div>
-    `;
+
+    const title = document.createElement('h4');
+    title.textContent = `${item.icon} ${getLocalizedItemName(item)}`;
+
+    const grid = document.createElement('div');
+    grid.className = 'dimension-2x2';
+    getLocalizedDimensions(item).forEach((tip) => {
+      const cell = document.createElement('span');
+      cell.className = 'pulse-dot';
+      cell.innerHTML = formatDimensionLabelHtml(tip);
+      grid.appendChild(cell);
+    });
+
+    card.appendChild(title);
+    card.appendChild(grid);
     dimensionGrid.appendChild(card);
   });
 }
@@ -448,8 +504,8 @@ function showResult() {
   const cuteTitle = report.title.replace(/^[A-Z]{4}\s*/, '');
 
   reportName.textContent = t('reportName').replace('{{name}}', babyName);
-  reportMbti.textContent = mbti;
-  reportTitle.textContent = `${mbti} ${cuteTitle}`;
+  reportMbti.textContent = '';
+  reportTitle.textContent = cuteTitle;
   analysisText.textContent = report.analysis;
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;
@@ -466,7 +522,7 @@ function showResult() {
   pickedTags.innerHTML = '';
   chosen.forEach((item) => {
     const tag = document.createElement('div');
-    tag.className = 'seal-item';
+    tag.className = 'seal-item picked-item';
     tag.innerHTML = `<span>${item.icon}</span><strong>${getLocalizedItemName(item)}</strong>`;
     pickedTags.appendChild(tag);
   });

@@ -20,13 +20,13 @@
     <button id="langToggle" class="lang-btn" type="button">EN</button>
 
     <main class="container">
-      <h1 data-i18n="title">魔法星空抓周派對：預見寶貝的超能力宇宙！</h1>
+      <h1 data-i18n="title">魔法星空抓周派對：尋找寶貝的專屬超能力🔮</h1>
 
       <section id="start-screen" class="card">
         <div class="intro-copy">
-          <p data-i18n="descP1">「抓周」是一份跨越千年的祝福，標誌著寶寶踏入新世界的第一步。</p>
-          <p data-i18n="descP2">我們將這份古老儀式與現代 MBTI 結合，不僅是觀察寶寶抓取了什麼，更是透過這 18 件富含寓意的道具，解讀寶寶與生俱來的感知力、執行力與性格靈魂。</p>
-          <p data-i18n="descP3">這是一份專為爸爸媽媽準備的「育兒星象圖」，讓我們一起透過魔法道具，看見寶貝眼中的無限宇宙。</p>
+          <p data-i18n="descP1">「抓周」不僅是一份跨越千年的溫暖祝福，更是寶貝踏入無限宇宙的第一步！</p>
+          <p data-i18n="descP2">在這片魔法星空中，我們結合了古老儀式與現代 MBTI 心理學。透過 18 件充滿驚喜的魔法道具，陪你一起解鎖寶貝與生俱來的性格密碼與靈魂天賦💫</p>
+          <p data-i18n="descP3">準備好化身「星際領航員」了嗎？這是一份專屬爸爸媽媽的育兒星象圖，讓我們一起打開盲盒，看見寶貝眼中的奇妙宇宙吧🔭</p>
         </div>
 
         <label for="baby-name"><span data-i18n="nameLabel">寶寶小名</span>
@@ -41,8 +41,8 @@
       </section>
 
       <section id="quiz-screen" class="card hidden">
-        <p id="round-label"></p>
         <h2 id="round-title"></h2>
+        <p id="round-desc" class="round-desc"></p>
         <div id="options" class="grid"></div>
         <p id="selected-text">尚未選擇</p>
         <div class="actions">
@@ -55,7 +55,7 @@
         <article class="report-card">
           <section class="result-top">
             <div class="baby-visual-wrap">
-              <p id="report-name" class="report-name"></p>
+              <p id="report-name" class="report-name report-badge"></p>
               <h2 id="report-mbti"></h2>
               <p id="report-title" class="report-title"></p>
               <div id="baby-avatar" class="baby-avatar" aria-label="寶寶人格插畫"></div>

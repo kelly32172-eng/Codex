@@ -157,6 +157,21 @@ h1 {
   display: none;
 }
 
+#quiz-screen #round-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.15rem, 4vw, 1.45rem);
+  line-height: 1.35;
+}
+
+.round-desc {
+  margin: 0 auto 18px;
+  max-width: 560px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.55;
+  text-align: center;
+}
+
 label {
   display: block;
   margin-bottom: 14px;
@@ -358,8 +373,12 @@ button:hover {
 
 .explain-badge {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
   min-height: 40px;
   padding: 6px 10px;
   border-radius: 999px;
@@ -435,6 +454,18 @@ button:hover {
   font-size: clamp(22px, 2.8vw, 30px);
 }
 
+.report-badge {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  display: inline-block;
+  margin: 0 auto 15px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
 .baby-avatar {
   width: min(380px, 86%);
   aspect-ratio: 1;
@@ -474,6 +505,18 @@ button:hover {
   gap: 4px;
 }
 
+.picked-item {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px dashed #FFD1DC;
+  border-radius: 15px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
 .seal-item span {
   font-size: 28px;
 }
@@ -492,6 +535,8 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 .pulse-dot {
@@ -499,9 +544,12 @@ button:hover {
   border-radius: 999px;
   padding: 8px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
   font-weight: 700;
   font-size: 15px;
   color: #55456f;
@@ -582,6 +630,15 @@ button:hover {
     gap: 10px;
   }
   .card { padding: 22px 16px; }
+  #quiz-screen #round-title {
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+  }
+  .round-desc {
+    margin-bottom: 14px;
+    padding: 0 4px;
+    line-height: 1.5;
+  }
   .option { padding: 10px; }
   .option h4 {
     font-size: 1.1rem;
@@ -608,9 +665,12 @@ button:hover {
   }
   .explain-badge {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
     min-height: auto;
     padding: 4px 2px;
     font-size: 0.65rem;
@@ -635,9 +695,15 @@ button:hover {
     font-size: 14px;
     line-height: 1.3;
   }
-  .dimension-tag {
-    white-space: nowrap;
-    letter-spacing: -0.5px;
-    overflow: hidden;
+}
+/* 手機版：維度網格寬度（換行由 app.js 的 innerHTML + <br> 與 word-break 處理） */
+@media (max-width: 768px) {
+  .dimension-block,
+  .dimension-grid,
+  .dimension-card,
+  .dimension-2x2 {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
