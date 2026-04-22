@@ -14,6 +14,13 @@ const uiTranslations = {
     prevBtn: '上一關',
     nextBtn: '下一關',
     restartBtn: '重新測驗',
+    roundProgress: '第 {{current}} 關 / 共 {{total}} 關',
+    roundInterest: '第一關｜興趣探索',
+    roundAbility: '第二關｜能力天賦',
+    roundPersonality: '第三關｜人格核心',
+    roundInterestDesc: '先看看寶寶最容易被哪一種世界吸引。',
+    roundAbilityDesc: '從選擇中，找出寶寶自然流露的能力傾向。',
+    roundPersonalityDesc: '最後一關，拼出寶寶更深層的個性輪廓。',
     selectedPrefix: '已選擇：',
     notSelected: '尚未選擇',
     alertProfileRequired: '請先輸入寶寶小名與星座',
@@ -39,6 +46,13 @@ const uiTranslations = {
     prevBtn: 'Previous',
     nextBtn: 'Next',
     restartBtn: 'Restart',
+    roundProgress: 'Round {{current}} / {{total}}',
+    roundInterest: 'Round 1 | Interest Discovery',
+    roundAbility: 'Round 2 | Talent & Strength',
+    roundPersonality: 'Round 3 | Core Personality',
+    roundInterestDesc: 'Start by seeing which kind of world draws your baby most.',
+    roundAbilityDesc: 'From each choice, spot the strengths your baby shows naturally.',
+    roundPersonalityDesc: 'In the final round, reveal your baby’s deeper personality profile.',
     selectedPrefix: 'Selected: ',
     notSelected: 'No selection yet',
     alertProfileRequired: 'Please enter nickname and zodiac sign first.',
@@ -181,6 +195,7 @@ const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
 const babyNameInput = document.getElementById('baby-name');
 const babyZodiacInput = document.getElementById('baby-zodiac');
+const roundLabel = document.getElementById('round-label');
 const roundTitle = document.getElementById('round-title');
 const roundDesc = document.getElementById('round-desc');
 const optionsEl = document.getElementById('options');
@@ -452,28 +467,36 @@ document.getElementById('restart-btn').addEventListener('click', resetAll);
 function renderRound() {
   const round = rounds[roundIndex];
   const roundTitleKeyMap = { interest: 'roundInterest', ability: 'roundAbility', personality: 'roundPersonality' };
+  const roundDescKeyMap = { interest: 'roundInterestDesc', ability: 'roundAbilityDesc', personality: 'roundPersonalityDesc' };
+  const picked = picks[round.key];
+
   roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
   roundTitle.textContent = t(roundTitleKeyMap[round.key]);
+  roundDesc.textContent = t(roundDescKeyMap[round.key]);
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
+    const isSelected = picked?.icon === item.icon && picked?.mbti === item.mbti;
     const btn = document.createElement('button');
-    btn.className = `option ${picks[round.key]?.icon === item.icon && picks[round.key]?.mbti === item.mbti ? 'selected' : ''}`;
+    btn.className = `option ${isSelected ? 'selected' : ''}`;
     btn.innerHTML = `
       <h4 class="option-title">
         <span class="option-icon">${item.icon}</span>
-        <span class="option-label">${getLocalizedItemName(item)}（${item.mbti}）</span>
+        <span class="option-label">${getLocalizedItemName(item)}</span>
       </h4>
-      <p><strong>${item.title}</strong>：${item.desc}</p>
-      <div class="badge-wrap"></div>
+      <p class="option-mbti">${item.mbti}</p>
+      <p class="option-desc">${item.desc}</p>
+      <div class="badge-wrap ${isSelected ? '' : 'hidden'}"></div>
     `;
-    const badgeWrap = btn.querySelector('.badge-wrap');
-    getLocalizedDimensions(item).forEach((part) => {
-      const badge = document.createElement('span');
-      badge.className = 'explain-badge';
-      badge.innerHTML = formatDimensionLabelHtml(part);
-      badgeWrap.appendChild(badge);
-    });
+    if (isSelected) {
+      const badgeWrap = btn.querySelector('.badge-wrap');
+      getLocalizedDimensions(item).forEach((part) => {
+        const badge = document.createElement('span');
+        badge.className = 'explain-badge';
+        badge.innerHTML = formatDimensionLabelHtml(part);
+        badgeWrap.appendChild(badge);
+      });
+    }
     btn.addEventListener('click', () => {
       picks[round.key] = item;
       renderRound();
@@ -481,7 +504,6 @@ function renderRound() {
     optionsEl.appendChild(btn);
   });
 
-  const picked = picks[round.key];
   selectedText.textContent = picked ? `${t('selectedPrefix')}${picked.icon} ${getLocalizedItemName(picked)}（${picked.mbti}）` : t('notSelected');
 }
 
