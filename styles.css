@@ -438,8 +438,8 @@ button:hover {
   grid-template-rows: auto 1fr auto;
   align-items: center;
   justify-items: center;
-  gap: 8px;
-  padding: 16px 12px 14px;
+  gap: 6px;
+  padding: 14px 12px 12px;
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 38%),
     radial-gradient(circle at 82% 16%, rgba(255, 245, 214, 0.66), transparent 35%),
@@ -454,15 +454,15 @@ button:hover {
 }
 
 .option-back-head {
-  gap: 3px;
-  padding-top: 1px;
+  gap: 4px;
+  padding-top: 0;
 }
 
 .option-back-body {
   align-self: stretch;
-  align-content: center;
-  min-height: 50px;
-  padding: 1px 0;
+  align-content: start;
+  min-height: 42px;
+  padding: 0;
 }
 
 .option:not(.selected):hover .option-card-inner {
@@ -516,26 +516,28 @@ button:hover {
 
 .option-back-name {
   color: #433758;
-  font-size: 1.2rem;
+  font-size: 1.34rem;
   font-weight: 800;
-  line-height: 1.22;
+  line-height: 1.18;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .option-back-mbti {
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #7e6da0;
+  font-size: 1.04rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.16em;
+  color: #6f5b98;
 }
 
 .option-back-desc {
   max-width: 18ch;
-  font-size: 0.74rem;
-  line-height: 1.45;
+  font-size: 0.78rem;
+  line-height: 1.4;
   color: #5e5473;
   text-align: center;
+  margin: 1px 0 2px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -546,13 +548,13 @@ button:hover {
 
 .option-back-traits {
   margin-top: 0;
-  padding-top: 1px;
+  padding-top: 0;
   width: 100%;
-  max-width: 224px;
+  max-width: 228px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 8px;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 6px;
 }
 
 .option-trait-pill {
@@ -560,24 +562,24 @@ button:hover {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 32px;
+  min-height: 34px;
   width: 100%;
-  padding: 6px 8px;
-  border-radius: 999px;
+  padding: 6px 7px;
+  border-radius: 12px;
   border: 1px solid rgba(216, 199, 244, 0.95);
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.5) 45%, transparent 100%),
     linear-gradient(138deg, rgba(255, 254, 255, 0.78), rgba(238, 226, 255, 0.92));
   color: #5b4d74;
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: 0.01em;
   text-align: center;
-  white-space: nowrap;
-  word-break: normal;
-  overflow-wrap: normal;
-  line-break: strict;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: balance;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 3px 8px rgba(163, 140, 203, 0.16);
@@ -971,26 +973,27 @@ button:hover {
     min-height: 220px;
   }
   .option-back {
-    gap: 7px;
-    padding: 14px 10px 12px;
+    gap: 5px;
+    padding: 12px 10px 10px;
   }
   .option-back-head {
-    gap: 2px;
+    gap: 3px;
   }
   .option-back-body {
-    min-height: 44px;
-    padding: 1px 0;
+    min-height: 36px;
+    padding: 0;
   }
   .option-back-name {
-    font-size: 1.02rem;
+    font-size: 1.16rem;
   }
   .option-back-mbti {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
   }
   .option-back-desc {
-    font-size: 0.68rem;
-    line-height: 1.38;
+    font-size: 0.72rem;
+    line-height: 1.34;
     max-width: 16ch;
+    margin: 0;
   }
   .option-icon {
     width: 66px;
@@ -1010,14 +1013,14 @@ button:hover {
   }
   .option-back-traits {
     max-width: 100%;
-    grid-auto-rows: 1fr;
-    gap: 6px;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 5px;
   }
   .option-trait-pill {
     min-height: 30px;
-    padding: 5px 6px;
-    font-size: 0.6rem;
-    line-height: 1.2;
+    padding: 4px 5px;
+    font-size: 0.62rem;
+    line-height: 1.16;
     letter-spacing: 0.01em;
   }
   .explain-badge {
