@@ -438,8 +438,8 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 18px 16px;
+  gap: 6px;
+  padding: 16px 14px;
   background: linear-gradient(150deg, rgba(255, 239, 248, 0.96) 0%, rgba(228, 241, 255, 0.97) 100%);
 }
 
@@ -494,24 +494,52 @@ button:hover {
 
 .option-back-name {
   color: #433758;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.35;
+  font-size: 1.02rem;
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .option-back-mbti {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #7e6da0;
 }
 
 .option-back-desc {
-  max-width: 22ch;
-  font-size: 0.8rem;
-  line-height: 1.5;
+  max-width: 21ch;
+  font-size: 0.76rem;
+  line-height: 1.45;
   color: #5e5473;
   text-align: center;
+}
+
+.option-back-traits {
+  margin-top: 4px;
+  width: 100%;
+  max-width: 220px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.option-trait-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(214, 194, 243, 0.95);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.72), rgba(239, 230, 255, 0.9));
+  color: #5a4c72;
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .badge-wrap {
@@ -902,15 +930,15 @@ button:hover {
     min-height: 220px;
   }
   .option-back-name {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
   }
   .option-back-mbti {
     font-size: 0.75rem;
   }
   .option-back-desc {
-    font-size: 0.76rem;
-    line-height: 1.45;
-    max-width: 21ch;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    max-width: 19ch;
   }
   .option-icon {
     width: 66px;
@@ -927,6 +955,15 @@ button:hover {
     gap: 5px;
     width: 100%;
     margin-top: 8px;
+  }
+  .option-back-traits {
+    max-width: 100%;
+    gap: 4px;
+  }
+  .option-trait-pill {
+    min-height: 22px;
+    padding: 4px 8px;
+    font-size: 0.61rem;
   }
   .explain-badge {
     display: flex;
