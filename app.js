@@ -640,6 +640,7 @@ function renderRound() {
           <span class="option-back-name">${getLocalizedItemName(item)}</span>
           <span class="option-back-mbti">${item.mbti}</span>
           <span class="option-back-desc">${item.desc}</span>
+          <span class="option-back-traits">${renderOptionTraits(item)}</span>
         </span>
       </span>
     `;
@@ -653,6 +654,13 @@ function renderRound() {
   selectedText.innerHTML = picked
     ? `${t('selectedPrefix')}<span class="inline-picked-icon">${getItemIconMarkup(picked)}</span> ${getLocalizedItemName(picked)}（${picked.mbti}）`
     : t('notSelected');
+}
+
+function renderOptionTraits(item) {
+  const traits = Array.isArray(item.explain) ? item.explain.slice(0, 4) : [];
+  return traits
+    .map((trait) => `<span class="option-trait-pill">${escapeHtmlText(trait)}</span>`)
+    .join('');
 }
 
 function computeMbti(chosen) {
