@@ -1087,3 +1087,75 @@ button:hover {
     box-sizing: border-box;
   }
 }
+.option-back {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  gap: 6px !important;
+  padding: 14px 12px 12px !important;
+}
+
+.option-back-head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 2px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.option-back-name {
+  font-size: 18px !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+}
+
+.option-back-mbti {
+  font-size: 14px !important;
+  line-height: 1.1 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  margin: 0 !important;
+}
+
+.option-back-body {
+  display: block !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+
+.option-back-desc {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+}
+
+.option-back-traits {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  margin-top: 4px !important;
+  align-items: stretch !important;
+}
+
+.option-trait-pill {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 32px !important;
+  padding: 6px 8px !important;
+  margin: 0 !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
