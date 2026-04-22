@@ -467,17 +467,12 @@ document.getElementById('restart-btn').addEventListener('click', resetAll);
 function renderRound() {
   const round = rounds[roundIndex];
   const roundTitleKeyMap = { interest: 'roundInterest', ability: 'roundAbility', personality: 'roundPersonality' };
-<<<<<<< HEAD
-roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
-roundTitle.textContent = t(roundTitleKeyMap[round.key]);
-=======
   const roundDescKeyMap = { interest: 'roundInterestDesc', ability: 'roundAbilityDesc', personality: 'roundPersonalityDesc' };
   const picked = picks[round.key];
 
   roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
   roundTitle.textContent = t(roundTitleKeyMap[round.key]);
   roundDesc.textContent = t(roundDescKeyMap[round.key]);
->>>>>>> 67af7f6bb3fdc8559f5d96553364c362348ec2fa
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
