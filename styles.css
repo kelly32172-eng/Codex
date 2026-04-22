@@ -383,17 +383,33 @@ button:hover {
 }
 
 .option {
+  position: relative;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   min-height: 248px;
-  padding: 24px 18px;
+  padding: 0;
   border-radius: 26px;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.62) 45%, rgba(236, 229, 255, 0.66) 100%);
+  background: transparent;
+  border: none;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.option-card-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 248px;
+  border-radius: 26px;
+  transform-style: preserve-3d;
+  transition: transform 0.72s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.3s ease;
+}
+
+.option-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border: 1.5px solid rgba(255, 255, 255, 0.9);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.78),
@@ -401,8 +417,32 @@ button:hover {
     0 0 24px rgba(207, 219, 255, 0.28);
 }
 
-.option:hover {
+.option-front {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.64) 45%, rgba(236, 229, 255, 0.7) 100%);
+}
+
+.option-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 16px;
+  background: linear-gradient(150deg, rgba(255, 239, 248, 0.96) 0%, rgba(228, 241, 255, 0.97) 100%);
+}
+
+.option:hover .option-card-inner {
   transform: translateY(-2px) scale(1.015);
+  filter: brightness(1.02);
+}
+
+.option:hover .option-front,
+.option:hover .option-back {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 0 0 1px rgba(255, 255, 255, 0.92),
@@ -410,18 +450,9 @@ button:hover {
     0 0 26px rgba(212, 227, 255, 0.5);
 }
 
-.option-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 0;
-  width: 100%;
-}
-
 .option-icon {
-  width: 76px;
-  height: 76px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.96), rgba(239, 235, 255, 0.95) 58%, rgba(224, 241, 255, 0.9) 100%);
   border: 1px solid rgba(199, 177, 234, 0.55);
@@ -435,8 +466,8 @@ button:hover {
 }
 
 .magical-icon-svg {
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   filter: drop-shadow(0 2px 6px rgba(178, 159, 226, 0.35));
 }
 
@@ -453,29 +484,24 @@ button:hover {
   height: 100%;
 }
 
-.option-label {
-  display: block;
+.option-back-name {
   color: #433758;
-  font-size: 1.06rem;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 1.33;
-  letter-spacing: 0.01em;
-  text-align: center;
+  line-height: 1.35;
 }
 
-.option-mbti {
-  margin: 0;
-  font-size: 0.82rem;
+.option-back-mbti {
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: #7e6da0;
 }
 
-.option-desc {
-  margin: 2px 0 0;
-  max-width: 23ch;
-  font-size: 0.82rem;
-  line-height: 1.52;
+.option-back-desc {
+  max-width: 22ch;
+  font-size: 0.8rem;
+  line-height: 1.5;
   color: #5e5473;
   text-align: center;
 }
@@ -507,26 +533,23 @@ button:hover {
 }
 
 .option.selected {
-  justify-content: flex-start;
-  gap: 6px;
-  min-height: 248px;
-  transform: translateY(-4px) scale(1.02);
-  padding-top: 20px;
-  border-color: #c399e0;
-  background: linear-gradient(145deg, rgba(255, 232, 244, 0.97) 0%, rgba(229, 241, 255, 0.96) 100%);
-  box-shadow:
-    0 0 0 2px rgba(255, 243, 250, 0.98),
-    0 16px 30px rgba(153, 128, 193, 0.38),
-    0 0 36px rgba(185, 223, 255, 0.75);
+  transform: translateY(-3px);
 }
 
-.option.selected:hover {
-  background: linear-gradient(145deg, rgba(255, 232, 244, 0.98) 0%, rgba(229, 241, 255, 0.97) 100%);
+.option.selected .option-card-inner {
+  transform: rotateY(180deg) translateY(-2px) scale(1.02);
+}
+
+.option.selected .option-back {
   border-color: #cfafe3;
   box-shadow:
     0 0 0 2px rgba(255, 243, 250, 0.98),
     0 18px 30px rgba(153, 128, 193, 0.4),
     0 0 38px rgba(186, 213, 255, 0.78);
+}
+
+.option.selected:hover .option-card-inner {
+  transform: rotateY(180deg) translateY(-2px) scale(1.025);
 }
 
 .actions {
@@ -874,33 +897,29 @@ button:hover {
   }
   .option {
     min-height: 220px;
-    padding: 16px 10px;
-    gap: 6px;
   }
-  .option-label {
-    font-size: 0.92rem;
+  .option-card-inner {
+    min-height: 220px;
   }
-  .option-mbti {
+  .option-back-name {
+    font-size: 0.9rem;
+  }
+  .option-back-mbti {
     font-size: 0.75rem;
   }
-  .option-desc {
+  .option-back-desc {
     font-size: 0.76rem;
     line-height: 1.45;
-    margin-top: 2px;
     max-width: 21ch;
   }
   .option-icon {
-    width: 52px;
-    height: 52px;
+    width: 66px;
+    height: 66px;
     margin: 0 auto;
   }
   .magical-icon-svg {
-    width: 32px;
-    height: 32px;
-  }
-  .option.selected {
-    min-height: 220px;
-    padding-top: 14px;
+    width: 38px;
+    height: 38px;
   }
   .badge-wrap {
     display: grid;

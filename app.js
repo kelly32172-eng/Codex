@@ -629,24 +629,20 @@ function renderRound() {
     const isSelected = picked?.id === item.id;
     const btn = document.createElement('button');
     btn.className = `option ${isSelected ? 'selected' : ''}`;
+    btn.type = 'button';
+    btn.setAttribute('aria-pressed', String(isSelected));
     btn.innerHTML = `
-      <h4 class="option-title">
-        <span class="option-icon">${getItemIconMarkup(item)}</span>
-        <span class="option-label">${getLocalizedItemName(item)}</span>
-      </h4>
-      <p class="option-mbti">${item.mbti}</p>
-      <p class="option-desc">${item.desc}</p>
-      <div class="badge-wrap ${isSelected ? '' : 'hidden'}"></div>
+      <span class="option-card-inner" aria-hidden="true">
+        <span class="option-face option-front">
+          <span class="option-icon">${getItemIconMarkup(item)}</span>
+        </span>
+        <span class="option-face option-back">
+          <span class="option-back-name">${getLocalizedItemName(item)}</span>
+          <span class="option-back-mbti">${item.mbti}</span>
+          <span class="option-back-desc">${item.desc}</span>
+        </span>
+      </span>
     `;
-    if (isSelected) {
-      const badgeWrap = btn.querySelector('.badge-wrap');
-      getLocalizedDimensions(item).forEach((part) => {
-        const badge = document.createElement('span');
-        badge.className = 'explain-badge';
-        badge.innerHTML = formatDimensionLabelHtml(part);
-        badgeWrap.appendChild(badge);
-      });
-    }
     btn.addEventListener('click', () => {
       picks[round.key] = item;
       renderRound();
