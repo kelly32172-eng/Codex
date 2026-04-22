@@ -438,7 +438,7 @@ button:hover {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 4px;
   padding: 14px 12px 12px;
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 38%),
@@ -459,12 +459,12 @@ button:hover {
 .option-back-head {
   gap: 1px;
   padding-top: 0;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .option-back-body {
   padding: 0;
-  margin: 0 0 2px;
+  margin: 0;
 }
 
 .option:not(.selected):hover .option-card-inner {
@@ -536,7 +536,7 @@ button:hover {
 .option-back-desc {
   max-width: 18ch;
   font-size: 0.76rem;
-  line-height: 1.34;
+  line-height: 1.28;
   color: #5e5473;
   text-align: center;
   margin: 0;
@@ -549,7 +549,7 @@ button:hover {
 }
 
 .option-back-traits {
-  margin-top: 0;
+  margin-top: 1px;
   padding-top: 0;
   width: 100%;
   max-width: 228px;
@@ -978,16 +978,16 @@ button:hover {
     min-height: 220px;
   }
   .option-back {
-    gap: 7px;
+    gap: 4px;
     padding: 12px 10px 10px;
   }
   .option-back-head {
     gap: 1px;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
   }
   .option-back-body {
     padding: 0;
-    margin: 0 0 2px;
+    margin: 0;
   }
   .option-back-name {
     font-size: 1.2rem;
@@ -997,7 +997,7 @@ button:hover {
   }
   .option-back-desc {
     font-size: 0.7rem;
-    line-height: 1.3;
+    line-height: 1.25;
     max-width: 16ch;
     margin: 0;
   }
@@ -1018,7 +1018,7 @@ button:hover {
     margin-top: 8px;
   }
   .option-back-traits {
-    margin-top: 0;
+    margin-top: 1px;
     max-width: 100%;
     grid-template-rows: repeat(2, minmax(0, 1fr));
     gap: 5px;
