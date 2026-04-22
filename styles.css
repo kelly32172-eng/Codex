@@ -438,7 +438,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 6px;
   padding: 14px 12px 12px;
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 38%),
@@ -449,8 +449,10 @@ button:hover {
 .option-back-head,
 .option-back-body {
   width: 100%;
-  display: grid;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .option-back-head {
@@ -459,7 +461,6 @@ button:hover {
 }
 
 .option-back-body {
-  align-content: center;
   padding: 0;
 }
 
@@ -545,13 +546,13 @@ button:hover {
 }
 
 .option-back-traits {
-  margin-top: 4px;
+  margin-top: 0;
   padding-top: 0;
   width: 100%;
   max-width: 228px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 6px;
 }
 
@@ -560,9 +561,9 @@ button:hover {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 34px;
+  min-height: 38px;
   width: 100%;
-  padding: 6px 7px;
+  padding: 6px;
   border-radius: 12px;
   border: 1px solid rgba(216, 199, 244, 0.95);
   background:
@@ -574,10 +575,11 @@ button:hover {
   line-height: 1.18;
   letter-spacing: 0.01em;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
   word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: balance;
   overflow: hidden;
-  text-overflow: ellipsis;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 3px 8px rgba(163, 140, 203, 0.16);
@@ -971,7 +973,7 @@ button:hover {
     min-height: 220px;
   }
   .option-back {
-    gap: 5px;
+    gap: 6px;
     padding: 12px 10px 10px;
   }
   .option-back-head {
@@ -1009,14 +1011,14 @@ button:hover {
     margin-top: 8px;
   }
   .option-back-traits {
-    margin-top: 4px;
+    margin-top: 0;
     max-width: 100%;
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
     gap: 5px;
   }
   .option-trait-pill {
-    min-height: 30px;
-    padding: 4px 5px;
+    min-height: 34px;
+    padding: 4px 6px;
     font-size: 0.62rem;
     line-height: 1.16;
     letter-spacing: 0.01em;
