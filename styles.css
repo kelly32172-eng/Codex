@@ -140,15 +140,8 @@ h1 {
 }
 
 #round-label {
-  margin: 0 0 8px;
+  margin: 0;
   line-height: 1.35;
-}
-
-#round-title {
-  margin: 0 0 18px;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #555;
 }
 
 .card {
@@ -208,16 +201,29 @@ h1 {
   display: none;
 }
 
+#quiz-screen .round-head {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+#quiz-screen #round-label {
+  font-size: 0.92rem;
+  color: #6d5a88;
+  font-weight: 700;
+}
+
 #quiz-screen #round-title {
-  margin: 0 0 8px;
-  font-size: clamp(1.15rem, 4vw, 1.45rem);
+  margin: 0;
+  font-size: clamp(1.2rem, 4vw, 1.65rem);
   line-height: 1.35;
 }
 
 .round-desc {
-  margin: 0 auto 18px;
+  margin: 0;
   max-width: 560px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #555;
   line-height: 1.55;
   text-align: center;
@@ -364,10 +370,27 @@ button:hover {
   gap: 16px;
 }
 
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (min-width: 981px) {
+  .options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .option {
   text-align: left;
-  padding: 20px;
-  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 228px;
+  padding: 16px 14px;
+  border-radius: 24px;
   background: rgba(255, 255, 255, 0.7);
   border: 1.5px solid rgba(255, 255, 255, 0.75);
   box-shadow: 0 12px 22px rgba(105, 85, 136, 0.18);
@@ -378,18 +401,12 @@ button:hover {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 209, 232, 0.9);
 }
 
-.option h4 {
-  margin: 0 0 8px;
-  font-size: 28px;
-  text-align: center;
-  color: #333333;
-}
-
 .option-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  margin: 0;
 }
 
 .option-icon {
@@ -408,17 +425,34 @@ button:hover {
 
 .option-label {
   display: block;
+  color: #433758;
+  font-size: 1.04rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
 }
 
-.option p {
-  margin: 0;
-  font-size: 20px;
+.option-mbti {
+  margin: 2px 0 0;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #7b619c;
+}
+
+.option-desc {
+  margin: 6px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  color: #5f5375;
+  text-align: center;
 }
 
 .badge-wrap {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+  width: 100%;
   margin-top: 12px;
 }
 
@@ -441,9 +475,10 @@ button:hover {
 }
 
 .option.selected {
-  border-color: #c9a6da;
+  transform: translateY(-2px) scale(1.015);
+  border-color: #be94d8;
   background: linear-gradient(135deg, #ffe2ef 0%, #d7e9ff 100%);
-  box-shadow: 0 0 0 2px rgba(255, 243, 250, 0.92), 0 0 28px rgba(186, 213, 255, 0.62);
+  box-shadow: 0 0 0 2px rgba(255, 243, 250, 0.95), 0 16px 28px rgba(164, 142, 201, 0.35), 0 0 28px rgba(186, 213, 255, 0.62);
 }
 
 .option.selected:hover {
@@ -456,7 +491,15 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 20px;
+}
+
+#selected-text {
+  margin: 14px 0 0;
+  font-size: 0.98rem;
+  color: #5a4a72;
+  font-weight: 700;
+  min-height: 28px;
 }
 
 .report-card {
@@ -754,39 +797,55 @@ button:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
+  .options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
   .card { padding: 22px 16px; }
+  #quiz-screen .round-head {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  #quiz-screen #round-label {
+    font-size: 0.86rem;
+  }
   #quiz-screen #round-title {
-    margin-bottom: 6px;
-    font-size: 1.1rem;
+    margin-bottom: 0;
+    font-size: 1.12rem;
   }
   .round-desc {
-    margin-bottom: 14px;
+    margin-bottom: 0;
     padding: 0 4px;
-    line-height: 1.5;
+    font-size: 0.84rem;
+    line-height: 1.45;
   }
-  .option { padding: 10px; }
-  .option h4 {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 6px;
+  .option {
+    min-height: 208px;
+    padding: 12px 10px;
   }
-  .option p {
-    font-size: 0.85rem;
+  .option-label {
+    font-size: 0.92rem;
+  }
+  .option-mbti {
+    font-size: 0.75rem;
+  }
+  .option-desc {
+    font-size: 0.76rem;
     line-height: 1.4;
-    color: #444;
-    margin-bottom: 10px;
+    margin-top: 4px;
   }
   .option-icon {
-    width: 35px;
-    height: 35px;
+    width: 44px;
+    height: 44px;
     margin: 0 auto;
-    font-size: 20px;
+    font-size: 24px;
   }
   .badge-wrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 5px;
     width: 100%;
+    margin-top: 8px;
   }
   .explain-badge {
     display: flex;
@@ -797,13 +856,25 @@ button:hover {
     line-height: 1.2;
     word-break: break-word;
     min-height: auto;
-    padding: 4px 2px;
+    padding: 5px 2px;
     font-size: 0.65rem;
     width: 100%;
     box-sizing: border-box;
   }
-  .actions { grid-template-columns: 1fr; }
-  button { font-size: 22px; }
+  #selected-text {
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+  .actions {
+    grid-template-columns: 1fr;
+    margin-top: 18px;
+    gap: 10px;
+  }
+  #prev-btn,
+  #next-btn {
+    min-height: 52px;
+    font-size: 1.03rem;
+  }
   .seal-list {
     display: flex;
     flex-wrap: nowrap;
