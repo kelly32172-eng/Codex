@@ -436,9 +436,9 @@ button:hover {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
-  gap: 6px;
+  gap: 8px;
   padding: 14px 12px 12px;
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 38%),
@@ -453,15 +453,18 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin: 0;
 }
 
 .option-back-head {
-  gap: 2px;
+  gap: 1px;
   padding-top: 0;
+  margin-bottom: 2px;
 }
 
 .option-back-body {
   padding: 0;
+  margin: 0 0 2px;
 }
 
 .option:not(.selected):hover .option-card-inner {
@@ -515,7 +518,7 @@ button:hover {
 
 .option-back-name {
   color: #433758;
-  font-size: 1.34rem;
+  font-size: 1.42rem;
   font-weight: 800;
   line-height: 1.18;
   letter-spacing: 0.02em;
@@ -523,7 +526,7 @@ button:hover {
 }
 
 .option-back-mbti {
-  font-size: 1.04rem;
+  font-size: 0.98rem;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0.16em;
@@ -532,8 +535,8 @@ button:hover {
 
 .option-back-desc {
   max-width: 18ch;
-  font-size: 0.78rem;
-  line-height: 1.4;
+  font-size: 0.76rem;
+  line-height: 1.34;
   color: #5e5473;
   text-align: center;
   margin: 0;
@@ -554,6 +557,8 @@ button:hover {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 6px;
+  margin-bottom: 0;
+  align-self: center;
 }
 
 .option-trait-pill {
@@ -561,23 +566,23 @@ button:hover {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 38px;
+  min-height: 40px;
   width: 100%;
-  padding: 6px;
+  padding: 6px 8px;
   border-radius: 12px;
   border: 1px solid rgba(216, 199, 244, 0.95);
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.5) 45%, transparent 100%),
     linear-gradient(138deg, rgba(255, 254, 255, 0.78), rgba(238, 226, 255, 0.92));
   color: #5b4d74;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: 0.01em;
   text-align: center;
   white-space: normal;
   word-break: keep-all;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   text-wrap: balance;
   overflow: hidden;
   box-shadow:
@@ -973,24 +978,26 @@ button:hover {
     min-height: 220px;
   }
   .option-back {
-    gap: 6px;
+    gap: 7px;
     padding: 12px 10px 10px;
   }
   .option-back-head {
-    gap: 3px;
+    gap: 1px;
+    margin-bottom: 2px;
   }
   .option-back-body {
     padding: 0;
+    margin: 0 0 2px;
   }
   .option-back-name {
-    font-size: 1.16rem;
+    font-size: 1.2rem;
   }
   .option-back-mbti {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
   }
   .option-back-desc {
-    font-size: 0.72rem;
-    line-height: 1.34;
+    font-size: 0.7rem;
+    line-height: 1.3;
     max-width: 16ch;
     margin: 0;
   }
@@ -1015,11 +1022,12 @@ button:hover {
     max-width: 100%;
     grid-template-rows: repeat(2, minmax(0, 1fr));
     gap: 5px;
+    margin-bottom: 0;
   }
   .option-trait-pill {
-    min-height: 34px;
-    padding: 4px 6px;
-    font-size: 0.62rem;
+    min-height: 36px;
+    padding: 5px 7px;
+    font-size: 0.64rem;
     line-height: 1.16;
     letter-spacing: 0.01em;
   }
