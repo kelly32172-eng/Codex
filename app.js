@@ -182,6 +182,7 @@ const resultScreen = document.getElementById('result-screen');
 const babyNameInput = document.getElementById('baby-name');
 const babyZodiacInput = document.getElementById('baby-zodiac');
 const roundTitle = document.getElementById('round-title');
+const roundLabel = document.getElementById('round-label');
 const roundDesc = document.getElementById('round-desc');
 const optionsEl = document.getElementById('options');
 const selectedText = document.getElementById('selected-text');
@@ -452,8 +453,8 @@ document.getElementById('restart-btn').addEventListener('click', resetAll);
 function renderRound() {
   const round = rounds[roundIndex];
   const roundTitleKeyMap = { interest: 'roundInterest', ability: 'roundAbility', personality: 'roundPersonality' };
-  roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
-  roundTitle.textContent = t(roundTitleKeyMap[round.key]);
+roundLabel.textContent = t('roundProgress').replace('{{current}}', String(roundIndex + 1)).replace('{{total}}', String(rounds.length));
+roundTitle.textContent = t(roundTitleKeyMap[round.key]);
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
