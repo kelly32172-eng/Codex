@@ -20,24 +20,25 @@
     <button id="langToggle" class="lang-btn" type="button">EN</button>
 
     <main class="container">
-      <h1 data-i18n="title">魔法星空抓周派對：尋找寶貝的專屬超能力🔮</h1>
+      <h1 class="page-title" data-i18n="title">魔法星空抓周派對：尋找寶貝的專屬超能力🔮</h1>
 
       <section id="start-screen" class="card">
         <div class="intro-copy">
-          <p data-i18n="descP1">「抓周」不僅是一份跨越千年的溫暖祝福，更是寶貝踏入無限宇宙的第一步！</p>
-          <p data-i18n="descP2">在這片魔法星空中，我們結合了古老儀式與現代 MBTI 心理學。透過 18 件充滿驚喜的魔法道具，陪你一起解鎖寶貝與生俱來的性格密碼與靈魂天賦💫</p>
-          <p data-i18n="descP3">準備好化身「星際領航員」了嗎？這是一份專屬爸爸媽媽的育兒星象圖，讓我們一起打開盲盒，看見寶貝眼中的奇妙宇宙吧🔭</p>
+          <p class="intro-quote" data-i18n="heroQuote">抓周，不只是延續千年的溫暖祝福，<br />更是寶貝探索世界的第一步。</p>
+          <p class="intro-body" data-i18n="heroBody">在這片魔法星空中，我們把古老抓周與 MBTI 靈感結合，透過 18 個充滿寓意的魔法道具，陪你一起解鎖寶貝與生俱來的性格密碼與靈魂天賦。</p>
+          <p class="intro-guide" data-i18n="heroGuide">輸入寶寶的小名與星座，開始這趟專屬的星際探索吧。</p>
         </div>
+        <div class="start-form">
+          <label for="baby-name"><span data-i18n="nameLabel">寶寶小名</span>
+            <input id="baby-name" type="text" placeholder="請輸入寶寶小名" data-i18n-placeholder="namePlaceholder" />
+          </label>
 
-        <label for="baby-name"><span data-i18n="nameLabel">寶寶小名</span>
-          <input id="baby-name" type="text" placeholder="請輸入寶寶小名" data-i18n-placeholder="namePlaceholder" />
-        </label>
+          <label for="baby-zodiac"><span data-i18n="zodiacLabel">星座</span>
+            <select id="baby-zodiac"></select>
+          </label>
 
-        <label for="baby-zodiac"><span data-i18n="zodiacLabel">星座</span>
-          <select id="baby-zodiac"></select>
-        </label>
-
-        <button id="start-btn" type="button" data-i18n="startBtn">開始測驗</button>
+          <button id="start-btn" type="button" data-i18n="startBtn">開始測驗</button>
+        </div>
       </section>
 
       <section id="quiz-screen" class="card hidden">

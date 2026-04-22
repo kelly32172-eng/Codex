@@ -3,9 +3,9 @@ let currentLang = 'zh';
 const uiTranslations = {
   zh: {
     title: '魔法星空抓周派對：尋找寶貝的專屬超能力🔮',
-    descP1: '「抓周」不僅是一份跨越千年的溫暖祝福，更是寶貝踏入無限宇宙的第一步！',
-    descP2: '在這片魔法星空中，我們結合了古老儀式與現代 MBTI 心理學。透過 18 件充滿驚喜的魔法道具，陪你一起解鎖寶貝與生俱來的性格密碼與靈魂天賦💫',
-    descP3: '準備好化身「星際領航員」了嗎？這是一份專屬爸爸媽媽的育兒星象圖，讓我們一起打開盲盒，看見寶貝眼中的奇妙宇宙吧🔭',
+    heroQuote: '抓周，不只是延續千年的溫暖祝福，\n更是寶貝探索世界的第一步。',
+    heroBody: '在這片魔法星空中，我們把古老抓周與 MBTI 靈感結合，透過 18 個充滿寓意的魔法道具，陪你一起解鎖寶貝與生俱來的性格密碼與靈魂天賦。',
+    heroGuide: '輸入寶寶的小名與星座，開始這趟專屬的星際探索吧。',
     nameLabel: '寶寶小名',
     namePlaceholder: '請輸入寶寶小名',
     zodiacLabel: '星座',
@@ -28,9 +28,9 @@ const uiTranslations = {
   },
   en: {
     title: 'Magical Starry Zhua Zhou: Discover Your Baby’s Superpowers 🔮',
-    descP1: 'Zhua Zhou is more than a thousand-year blessing—it’s your baby’s first step into a vast, sparkling universe!',
-    descP2: 'In this magical night sky, we blend the old ritual with modern MBTI. Through 18 surprise-filled props, unlock your baby’s personality code and soul talents 💫',
-    descP3: 'Ready to be a “star navigator”? This parenting star chart is for you—open the blind boxes and glimpse the wonder in your baby’s eyes 🔭',
+    heroQuote: 'Zhua Zhou is not only a timeless blessing,\nit is also your baby’s first step into exploring the world.',
+    heroBody: 'In this magical starry sky, we blend the ancient Zhua Zhou ritual with MBTI inspiration. Through 18 symbolic magical props, discover your baby’s natural personality code and soul gifts.',
+    heroGuide: 'Enter your baby’s nickname and zodiac sign to begin this personalized interstellar journey.',
     nameLabel: "Baby's Nickname",
     namePlaceholder: 'Enter nickname',
     zodiacLabel: 'Zodiac Sign',
