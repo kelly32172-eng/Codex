@@ -83,41 +83,168 @@ const zodiacOptions = [
   { key: 'pisces', zh: '雙魚', en: 'Pisces' }
 ];
 
+const magicalIconPaths = {
+  book: `
+    <rect x="8" y="10" width="20" height="20" rx="4.5" fill="#fffaf2"/>
+    <path d="M18 10v20" stroke="#b7a7df" stroke-width="1.8"/>
+    <path d="M12 15h4M12 19h4M12 23h4" stroke="#d0c1ee" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M20 15l2 2 3-4" stroke="#9cc9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="25.5" cy="12.5" r="1.4" fill="#fff2b7"/>
+  `,
+  plane: `
+    <path d="M8 21l20-8-6.5 11.2-2.8-3.5-4.5 3.6 1.2-4.9-7.4 1.6z" fill="#fffaf2"/>
+    <path d="M21.5 20.5c2.2.8 3.8 2.2 4.8 4" stroke="#cdb9f3" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M25 18.5l2-1.2M26.6 21l2.2.3" stroke="#fff2b7" stroke-width="1.4" stroke-linecap="round"/>
+  `,
+  ball: `
+    <circle cx="18" cy="20" r="9.5" fill="#fffaf2"/>
+    <path d="M11.4 23.5c3.8 1.9 8.9 1.5 12.4-1.3" stroke="#bca8e4" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M14.8 12.3c2.8 2.1 6 3 8.9 2.6" stroke="#9ecfff" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="25.5" cy="11.5" r="1.5" fill="#fff2b7"/>
+  `,
+  piano: `
+    <rect x="8" y="11" width="20" height="18" rx="5" fill="#fffaf2"/>
+    <path d="M11.5 15.5h13" stroke="#c2b1e8" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="11" y="18" width="3" height="8" rx="1.2" fill="#d6c9f4"/>
+    <rect x="15" y="18" width="3" height="8" rx="1.2" fill="#b6d4ff"/>
+    <rect x="19" y="18" width="3" height="8" rx="1.2" fill="#d6c9f4"/>
+    <rect x="23" y="18" width="3" height="8" rx="1.2" fill="#b6d4ff"/>
+  `,
+  palette: `
+    <path d="M18 10c-5.8 0-10 4.3-10 9.3 0 4.8 3.7 8.7 8.2 8.7h1.3c1.3 0 2.2-1 2.2-2.1 0-1-.7-1.8-.7-2.8 0-1.6 1.2-2.8 3-2.8h1.6c2.6 0 4.4-1.6 4.4-4.4C28 12.6 23.8 10 18 10z" fill="#fffaf2"/>
+    <circle cx="13" cy="16" r="1.6" fill="#ffcfdf"/>
+    <circle cx="16.4" cy="13.4" r="1.5" fill="#c4dcff"/>
+    <circle cx="20.3" cy="13.8" r="1.4" fill="#fff2b7"/>
+    <circle cx="23.2" cy="16.6" r="1.4" fill="#d5c4f3"/>
+  `,
+  camera: `
+    <rect x="8" y="13" width="20" height="14" rx="4.2" fill="#fffaf2"/>
+    <rect x="12" y="10" width="7" height="4" rx="1.7" fill="#d8c8f5"/>
+    <circle cx="19" cy="20" r="4.2" fill="none" stroke="#af9cdd" stroke-width="1.8"/>
+    <circle cx="19" cy="20" r="1.8" fill="#9ecfff"/>
+    <circle cx="25" cy="16.5" r="1.2" fill="#fff2b7"/>
+  `,
+  abacus: `
+    <circle cx="18" cy="20" r="9.5" fill="#fffaf2"/>
+    <path d="M18 12v16M10 20h16" stroke="#b7a7df" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="18" cy="12.3" r="1.6" fill="#fff2b7"/>
+    <circle cx="25.5" cy="20" r="1.4" fill="#c6dcff"/>
+    <circle cx="10.5" cy="20" r="1.4" fill="#d9c8f2"/>
+  `,
+  pen: `
+    <path d="M10 26l5.5-14.5 7.6-2.1-2.1 7.6L10 26z" fill="#fffaf2"/>
+    <path d="M15.5 11.5l5.7 5.7" stroke="#af9cdd" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="23.6" cy="9.2" r="1.4" fill="#fff2b7"/>
+    <path d="M24.8 10.6l1.2.9M23.5 12.2l1.5.2" stroke="#fff2b7" stroke-width="1.1" stroke-linecap="round"/>
+  `,
+  blocks: `
+    <rect x="9" y="17" width="8" height="8" rx="2" fill="#fffaf2"/>
+    <rect x="16" y="13" width="8" height="8" rx="2" fill="#efe6ff"/>
+    <rect x="20" y="18" width="8" height="8" rx="2" fill="#e4f0ff"/>
+    <path d="M13 17v-2.2M15 17v-2.2M20 13v-2.2M22 13v-2.2M24 18v-2.2M26 18v-2.2" stroke="#b6a5de" stroke-width="1.2" stroke-linecap="round"/>
+  `,
+  compass: `
+    <circle cx="18" cy="20" r="9.8" fill="#fffaf2"/>
+    <circle cx="18" cy="20" r="6.8" fill="none" stroke="#cab9ee" stroke-width="1.3"/>
+    <path d="M18 13.2l3.6 7.4L18 19l-3.6 1.6L18 13.2z" fill="#9cc9ff"/>
+    <circle cx="18" cy="20" r="1.4" fill="#fff2b7"/>
+  `,
+  microphone: `
+    <rect x="14" y="10" width="8" height="13" rx="4" fill="#fffaf2"/>
+    <path d="M12 18a6 6 0 0 0 12 0" fill="none" stroke="#b8a7df" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M18 24.2v3.8M14.5 28h7" stroke="#b8a7df" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="23.8" cy="11.7" r="1.3" fill="#fff2b7"/>
+  `,
+  medkit: `
+    <rect x="8" y="13" width="20" height="15" rx="4" fill="#fffaf2"/>
+    <rect x="14" y="10" width="8" height="4" rx="1.8" fill="#d8c8f5"/>
+    <path d="M18 17v7M14.5 20.5h7" stroke="#ffbfd4" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="24.8" cy="15.5" r="1.1" fill="#fff2b7"/>
+  `,
+  heart: `
+    <path d="M18 27c-6.5-3.6-10-7-10-11.2 0-2.9 2.2-5.3 5.2-5.3 2 0 3.8 1.1 4.8 2.7 1-1.6 2.9-2.7 4.8-2.7 3 0 5.2 2.4 5.2 5.3C28 20 24.5 23.4 18 27z" fill="#fff3f8"/>
+    <path d="M21.5 14.5l1.6 1.2M20.3 16.4l1.8.2" stroke="#fff2b7" stroke-width="1.2" stroke-linecap="round"/>
+  `,
+  crown: `
+    <path d="M9 25l2-11 6 5 4-7 4 7 6-5 2 11H9z" fill="#fffaf2"/>
+    <path d="M11 22h14" stroke="#d6c6f2" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="18" cy="15.5" r="1.4" fill="#fff2b7"/>
+    <circle cx="25.5" cy="16.5" r="1.2" fill="#b8d7ff"/>
+  `,
+  sun: `
+    <circle cx="18" cy="20" r="6.8" fill="#fff8dd"/>
+    <path d="M18 9.5v2.5M18 28v2.5M8 20h2.5M25.5 20H28M10.7 12.8l1.8 1.8M23.5 25.6l1.8 1.8M10.7 27.2l1.8-1.8M23.5 14.4l1.8-1.8" stroke="#d7c4ef" stroke-width="1.5" stroke-linecap="round"/>
+  `,
+  moon: `
+    <path d="M23.8 12.2A9.8 9.8 0 1 0 23.8 27c-1.3.6-2.4.8-3.8.8-4.8 0-8.8-3.9-8.8-8.7s4-8.7 8.8-8.7c1.4 0 2.5.2 3.8.8z" fill="#fffaf2"/>
+    <circle cx="26" cy="13.8" r="1.3" fill="#fff2b7"/>
+  `,
+  gear: `
+    <path d="M18 11.2l2.2.7 1.8-1.5 2.4 2.4-1.5 1.8.7 2.2 2.2.7v3.4l-2.2.7-.7 2.2 1.5 1.8-2.4 2.4-1.8-1.5-2.2.7-.7 2.2h-3.4l-.7-2.2-2.2-.7-1.8 1.5-2.4-2.4 1.5-1.8-.7-2.2-2.2-.7v-3.4l2.2-.7.7-2.2-1.5-1.8 2.4-2.4 1.8 1.5 2.2-.7.7-2.2h3.4z" fill="#fffaf2"/>
+    <circle cx="18" cy="20" r="3.4" fill="#b9d7ff"/>
+  `,
+  cloud: `
+    <path d="M11 26h13.2a4.8 4.8 0 0 0 .2-9.6 6.7 6.7 0 0 0-12.7-1.7A4.4 4.4 0 0 0 11 26z" fill="#fffaf2"/>
+    <circle cx="26.3" cy="13.5" r="1.3" fill="#fff2b7"/>
+  `
+};
+
+const iconKeyByName = {
+  書: 'book',
+  飛機: 'plane',
+  球: 'ball',
+  鋼琴: 'piano',
+  調色盤: 'palette',
+  相機: 'camera',
+  計算機: 'abacus',
+  筆: 'pen',
+  積木: 'blocks',
+  指南針: 'compass',
+  麥克風: 'microphone',
+  醫藥箱: 'medkit',
+  愛心: 'heart',
+  皇冠: 'crown',
+  太陽: 'sun',
+  月亮: 'moon',
+  齒輪: 'gear',
+  雲朵: 'cloud'
+};
+
 const rounds = [
   {
     key: 'interest',
     label: '第一關：興趣分類',
     options: [
-      { id: 'book', name: '書', icon: '📘', mbti: 'ISTJ', title: '閱讀與知識', desc: '被故事與知識內容吸引，喜歡透過閱讀探索世界。', explain: ['專注書中世界', '重視文字記載', '吸收邏輯與事實', '按部就班地學習'] },
-      { id: 'plane', name: '飛機', icon: '✈️', mbti: 'ENTP', title: '旅遊與探索', desc: '被未知與新環境吸引，喜歡旅遊並探索世界。', explain: ['學習向外探索', '嚮往未知遠方', '理解異國文化', '享受隨性的自由'] },
-      { name: '球', icon: '⚽', mbti: 'ESTP', title: '運動與競技', desc: '被動態活動吸引，喜歡透過肢體與環境互動。', explain: ['與他人交流', '重視具體體驗', '分析競爭優劣勢', '在場上靈活互動'] },
-      { name: '鋼琴', icon: '🎹', mbti: 'ISFP', title: '音樂與節奏', desc: '被聲音與節奏吸引，喜歡用音樂感受與表達。', explain: ['探索內在情感', '實際彈奏樂器', '隨心情演奏樂曲', '擅長即興發揮'] },
-      { name: '調色盤', icon: '🎨', mbti: 'ENFP', title: '色彩與創作', desc: '被色彩與創作吸引，喜歡用畫面表達想法。', explain: ['展現藝術', '表達色彩抽象', '用顏色代表情感', '自由揮灑創作'] },
-      { name: '相機', icon: '📷', mbti: 'INFJ', title: '影像與紀錄', desc: '被畫面與細節吸引，喜歡用觀察理解世界。', explain: ['擅長觀察周遭', '用畫面象徵故事', '帶有溫度影像', '有計劃地構圖'] }
+      { id: 'book', name: '書', iconKey: 'book', mbti: 'ISTJ', title: '閱讀與知識', desc: '被故事與知識內容吸引，喜歡透過閱讀探索世界。', explain: ['專注書中世界', '重視文字記載', '吸收邏輯與事實', '按部就班地學習'] },
+      { id: 'plane', name: '飛機', iconKey: 'plane', mbti: 'ENTP', title: '旅遊與探索', desc: '被未知與新環境吸引，喜歡旅遊並探索世界。', explain: ['學習向外探索', '嚮往未知遠方', '理解異國文化', '享受隨性的自由'] },
+      { id: 'ball', name: '球', iconKey: 'ball', mbti: 'ESTP', title: '運動與競技', desc: '被動態活動吸引，喜歡透過肢體與環境互動。', explain: ['與他人交流', '重視具體體驗', '分析競爭優劣勢', '在場上靈活互動'] },
+      { id: 'piano', name: '鋼琴', iconKey: 'piano', mbti: 'ISFP', title: '音樂與節奏', desc: '被聲音與節奏吸引，喜歡用音樂感受與表達。', explain: ['探索內在情感', '實際彈奏樂器', '隨心情演奏樂曲', '擅長即興發揮'] },
+      { id: 'palette', name: '調色盤', iconKey: 'palette', mbti: 'ENFP', title: '色彩與創作', desc: '被色彩與創作吸引，喜歡用畫面表達想法。', explain: ['展現藝術', '表達色彩抽象', '用顏色代表情感', '自由揮灑創作'] },
+      { id: 'camera', name: '相機', iconKey: 'camera', mbti: 'INFJ', title: '影像與紀錄', desc: '被畫面與細節吸引，喜歡用觀察理解世界。', explain: ['擅長觀察周遭', '用畫面象徵故事', '帶有溫度影像', '有計劃地構圖'] }
     ]
   },
   {
     key: 'ability',
     label: '第二關：能力取向',
     options: [
-      { name: '計算機', icon: '🧮', mbti: 'INTP', title: '數理邏輯力', desc: '具備強大的邏輯運算與數據分析天賦。', explain: ['獨立解決問題', '思考抽象邏輯', '理性數據分析', '善於嘗試解法'] },
-      { name: '筆', icon: '🖊️', mbti: 'INTJ', title: '計劃組織力', desc: '具備統整思維與結構化表達的天賦。', explain: ['沉澱獨立思考', '規劃書寫架構', '文體結構分明', '系統地撰寫'] },
-      { name: '積木', icon: '🧱', mbti: 'ISTP', title: '空間實作力', desc: '具備動手操作與空間結構的建構天賦。', explain: ['專注零件操作', '擅長實際手作', '分析構造定律', '重組各種可能'] },
-      { name: '指南針', icon: '🧭', mbti: 'ENTJ', title: '方向決策力', desc: '具備判斷趨勢與決定前進目標的天賦。', explain: ['指引團隊前行', '想像未來目的', '理性規劃路線', '有計劃地執行'] },
-      { name: '麥克風', icon: '🎤', mbti: 'ESFP', title: '口語表達力', desc: '具備感染人群與大方自信的表演天賦。', explain: ['熱衷向外發聲', '強調現場張力', '擅長感性表達', '享受即興演說'] },
-      { name: '醫藥箱', icon: '🩺', mbti: 'ESFJ', title: '協調關懷力', desc: '具備細心照顧與組織人群福利的天賦。', explain: ['建立溫暖互動', '提供實務支援', '能以同理關懷', '遵循安全規範'] }
+      { id: 'abacus', name: '計算機', iconKey: 'abacus', mbti: 'INTP', title: '數理邏輯力', desc: '具備強大的邏輯運算與數據分析天賦。', explain: ['獨立解決問題', '思考抽象邏輯', '理性數據分析', '善於嘗試解法'] },
+      { id: 'pen', name: '筆', iconKey: 'pen', mbti: 'INTJ', title: '計劃組織力', desc: '具備統整思維與結構化表達的天賦。', explain: ['沉澱獨立思考', '規劃書寫架構', '文體結構分明', '系統地撰寫'] },
+      { id: 'blocks', name: '積木', iconKey: 'blocks', mbti: 'ISTP', title: '空間實作力', desc: '具備動手操作與空間結構的建構天賦。', explain: ['專注零件操作', '擅長實際手作', '分析構造定律', '重組各種可能'] },
+      { id: 'compass', name: '指南針', iconKey: 'compass', mbti: 'ENTJ', title: '方向決策力', desc: '具備判斷趨勢與決定前進目標的天賦。', explain: ['指引團隊前行', '想像未來目的', '理性規劃路線', '有計劃地執行'] },
+      { id: 'microphone', name: '麥克風', iconKey: 'microphone', mbti: 'ESFP', title: '口語表達力', desc: '具備感染人群與大方自信的表演天賦。', explain: ['熱衷向外發聲', '強調現場張力', '擅長感性表達', '享受即興演說'] },
+      { id: 'medkit', name: '醫藥箱', iconKey: 'medkit', mbti: 'ESFJ', title: '協調關懷力', desc: '具備細心照顧與組織人群福利的天賦。', explain: ['建立溫暖互動', '提供實務支援', '能以同理關懷', '遵循安全規範'] }
     ]
   },
   {
     key: 'personality',
     label: '第三關：人格核心',
     options: [
-      { name: '愛心', icon: '💗', mbti: 'ISFJ', title: '守護者', desc: '溫柔穩定，重視情感交流與互動。', explain: ['內斂體貼', '給予實際關心', '充滿同理心', '守護長期安定'] },
-      { name: '皇冠', icon: '👑', mbti: 'ESTJ', title: '領導者', desc: '展現自信與領導風範，喜歡建立秩序。', explain: ['在群體發揮影響', '注重效率成果', '客觀準則導向', '善於掌控秩序'] },
-      { name: '太陽', icon: '☀️', mbti: 'ENFP', title: '啟發者', desc: '熱情奔放，能照亮並鼓舞身邊的人。', explain: ['對外擴散能量', '有天馬行空靈感', '對人事物熱情', '不受框架限制'] },
-      { name: '月亮', icon: '🌙', mbti: 'INTJ', title: '思考者', desc: '富有智慧，喜歡獨立鑽研事物本質。', explain: ['深沉冷靜', '具備洞察力', '善於冷靜決策', '有條不紊實踐'] },
-      { name: '齒輪', icon: '⚙️', mbti: 'ENTP', title: '革新者', desc: '擅長靈活變通，是推動系統進化原動力。', explain: ['帶動團隊運轉', '發想各種方案', '追求理性模式', '適應環境變動'] },
-      { name: '雲朵', icon: '☁️', mbti: 'ISFP', title: '隨心者', desc: '懂得享受生活，擁有純真且不受拘束的靈魂。', explain: ['享受獨處自在', '對環境變化敏感', '對世界充滿包容', '展現生活彈性'] }
+      { id: 'heart', name: '愛心', iconKey: 'heart', mbti: 'ISFJ', title: '守護者', desc: '溫柔穩定，重視情感交流與互動。', explain: ['內斂體貼', '給予實際關心', '充滿同理心', '守護長期安定'] },
+      { id: 'crown', name: '皇冠', iconKey: 'crown', mbti: 'ESTJ', title: '領導者', desc: '展現自信與領導風範，喜歡建立秩序。', explain: ['在群體發揮影響', '注重效率成果', '客觀準則導向', '善於掌控秩序'] },
+      { id: 'sun', name: '太陽', iconKey: 'sun', mbti: 'ENFP', title: '啟發者', desc: '熱情奔放，能照亮並鼓舞身邊的人。', explain: ['對外擴散能量', '有天馬行空靈感', '對人事物熱情', '不受框架限制'] },
+      { id: 'moon', name: '月亮', iconKey: 'moon', mbti: 'INTJ', title: '思考者', desc: '富有智慧，喜歡獨立鑽研事物本質。', explain: ['深沉冷靜', '具備洞察力', '善於冷靜決策', '有條不紊實踐'] },
+      { id: 'gear', name: '齒輪', iconKey: 'gear', mbti: 'ENTP', title: '革新者', desc: '擅長靈活變通，是推動系統進化原動力。', explain: ['帶動團隊運轉', '發想各種方案', '追求理性模式', '適應環境變動'] },
+      { id: 'cloud', name: '雲朵', iconKey: 'cloud', mbti: 'ISFP', title: '隨心者', desc: '懂得享受生活，擁有純真且不受拘束的靈魂。', explain: ['享受獨處自在', '對環境變化敏感', '對世界充滿包容', '展現生活彈性'] }
     ]
   }
 ];
@@ -228,6 +355,29 @@ function getLocalizedDimensions(item) {
   const profile = item?.id ? itemsDatabase[item.id] : null;
   if (!profile) return item.explain;
   return profile[currentLang]?.dimensions?.length ? profile[currentLang].dimensions : profile.zh?.dimensions || item.explain;
+}
+
+function getItemIconKey(item) {
+  if (item?.iconKey) return item.iconKey;
+  if (item?.id && magicalIconPaths[item.id]) return item.id;
+  return iconKeyByName[item?.name] || 'book';
+}
+
+function getMagicalIconSvg(iconKey, label = '') {
+  const key = magicalIconPaths[iconKey] ? iconKey : 'book';
+  return `
+    <svg class="magical-icon-svg" viewBox="0 0 36 36" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="16" fill="#f4f0ff"/>
+      <circle cx="18" cy="18" r="15.2" fill="none" stroke="#e0d5f7" stroke-width="0.8"/>
+      <g fill="none" stroke="#a793d6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        ${magicalIconPaths[key]}
+      </g>
+    </svg>
+  `;
+}
+
+function getItemIconMarkup(item) {
+  return getMagicalIconSvg(getItemIconKey(item), getLocalizedItemName(item));
 }
 
 function renderZodiacOptions() {
@@ -476,12 +626,12 @@ function renderRound() {
 
   optionsEl.innerHTML = '';
   round.options.forEach((item) => {
-    const isSelected = picked?.icon === item.icon && picked?.mbti === item.mbti;
+    const isSelected = picked?.id === item.id;
     const btn = document.createElement('button');
     btn.className = `option ${isSelected ? 'selected' : ''}`;
     btn.innerHTML = `
       <h4 class="option-title">
-        <span class="option-icon">${item.icon}</span>
+        <span class="option-icon">${getItemIconMarkup(item)}</span>
         <span class="option-label">${getLocalizedItemName(item)}</span>
       </h4>
       <p class="option-mbti">${item.mbti}</p>
@@ -504,7 +654,9 @@ function renderRound() {
     optionsEl.appendChild(btn);
   });
 
-  selectedText.textContent = picked ? `${t('selectedPrefix')}${picked.icon} ${getLocalizedItemName(picked)}（${picked.mbti}）` : t('notSelected');
+  selectedText.innerHTML = picked
+    ? `${t('selectedPrefix')}<span class="inline-picked-icon">${getItemIconMarkup(picked)}</span> ${getLocalizedItemName(picked)}（${picked.mbti}）`
+    : t('notSelected');
 }
 
 function computeMbti(chosen) {
@@ -548,7 +700,7 @@ function renderDimensionCards(chosen) {
     card.className = 'dimension-card';
 
     const title = document.createElement('h4');
-    title.textContent = `${item.icon} ${getLocalizedItemName(item)}`;
+    title.innerHTML = `<span class="inline-picked-icon">${getItemIconMarkup(item)}</span> ${getLocalizedItemName(item)}`;
 
     const grid = document.createElement('div');
     grid.className = 'dimension-2x2';
@@ -595,7 +747,7 @@ function showResult() {
   chosen.forEach((item) => {
     const tag = document.createElement('div');
     tag.className = 'seal-item picked-item';
-    tag.innerHTML = `<span>${item.icon}</span><strong>${getLocalizedItemName(item)}</strong>`;
+    tag.innerHTML = `<span class="seal-icon">${getItemIconMarkup(item)}</span><strong>${getLocalizedItemName(item)}</strong>`;
     pickedTags.appendChild(tag);
   });
 
