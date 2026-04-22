@@ -637,9 +637,13 @@ function renderRound() {
           <span class="option-icon">${getItemIconMarkup(item)}</span>
         </span>
         <span class="option-face option-back">
-          <span class="option-back-name">${getLocalizedItemName(item)}</span>
-          <span class="option-back-mbti">${item.mbti}</span>
-          <span class="option-back-desc">${item.desc}</span>
+          <span class="option-back-head">
+            <span class="option-back-name">${getLocalizedItemName(item)}</span>
+            <span class="option-back-mbti">${item.mbti}</span>
+          </span>
+          <span class="option-back-body">
+            <span class="option-back-desc">${item.desc}</span>
+          </span>
           <span class="option-back-traits">${renderOptionTraits(item)}</span>
         </span>
       </span>
