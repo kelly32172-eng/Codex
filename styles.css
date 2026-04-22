@@ -438,7 +438,7 @@ button:hover {
   grid-template-rows: auto 1fr auto;
   align-items: center;
   justify-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 16px 12px 14px;
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 38%),
@@ -454,15 +454,15 @@ button:hover {
 }
 
 .option-back-head {
-  gap: 2px;
+  gap: 3px;
   padding-top: 1px;
 }
 
 .option-back-body {
   align-self: stretch;
   align-content: center;
-  min-height: 56px;
-  padding: 4px 0;
+  min-height: 50px;
+  padding: 1px 0;
 }
 
 .option:not(.selected):hover .option-card-inner {
@@ -516,7 +516,7 @@ button:hover {
 
 .option-back-name {
   color: #433758;
-  font-size: 1.06rem;
+  font-size: 1.2rem;
   font-weight: 800;
   line-height: 1.22;
   letter-spacing: 0.02em;
@@ -524,7 +524,7 @@ button:hover {
 }
 
 .option-back-mbti {
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: #7e6da0;
@@ -546,12 +546,13 @@ button:hover {
 
 .option-back-traits {
   margin-top: 0;
-  padding-top: 2px;
+  padding-top: 1px;
   width: 100%;
-  max-width: 220px;
+  max-width: 224px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px;
+  grid-auto-rows: 1fr;
+  gap: 8px;
 }
 
 .option-trait-pill {
@@ -559,15 +560,16 @@ button:hover {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 31px;
-  padding: 6px 6px;
+  min-height: 32px;
+  width: 100%;
+  padding: 6px 8px;
   border-radius: 999px;
   border: 1px solid rgba(216, 199, 244, 0.95);
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.5) 45%, transparent 100%),
     linear-gradient(138deg, rgba(255, 254, 255, 0.78), rgba(238, 226, 255, 0.92));
   color: #5b4d74;
-  font-size: 0.63rem;
+  font-size: 0.66rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.01em;
@@ -969,21 +971,21 @@ button:hover {
     min-height: 220px;
   }
   .option-back {
-    gap: 8px;
+    gap: 7px;
     padding: 14px 10px 12px;
   }
   .option-back-head {
-    gap: 1px;
+    gap: 2px;
   }
   .option-back-body {
-    min-height: 50px;
-    padding: 2px 0;
+    min-height: 44px;
+    padding: 1px 0;
   }
   .option-back-name {
-    font-size: 0.9rem;
+    font-size: 1.02rem;
   }
   .option-back-mbti {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
   }
   .option-back-desc {
     font-size: 0.68rem;
@@ -1008,12 +1010,13 @@ button:hover {
   }
   .option-back-traits {
     max-width: 100%;
-    gap: 5px 6px;
+    grid-auto-rows: 1fr;
+    gap: 6px;
   }
   .option-trait-pill {
-    min-height: 28px;
-    padding: 5px 4px;
-    font-size: 0.56rem;
+    min-height: 30px;
+    padding: 5px 6px;
+    font-size: 0.6rem;
     line-height: 1.2;
     letter-spacing: 0.01em;
   }
