@@ -395,15 +395,19 @@ button:hover {
 }
 
 .option-card-inner {
+  --card-rotate: 0deg;
+  --card-lift: 0px;
+  --card-scale: 1;
   position: relative;
   display: block;
   width: 100%;
   min-height: 248px;
   border-radius: 26px;
   transform-style: preserve-3d;
+  transform: rotateY(var(--card-rotate)) translateY(var(--card-lift)) scale(var(--card-scale));
   will-change: transform, filter;
   transition:
-    transform 0.24s cubic-bezier(0.26, 0.74, 0.3, 1),
+    transform 0.3s cubic-bezier(0.26, 0.74, 0.3, 1),
     filter 0.2s ease-out;
 }
 
@@ -439,13 +443,14 @@ button:hover {
   background: linear-gradient(150deg, rgba(255, 239, 248, 0.96) 0%, rgba(228, 241, 255, 0.97) 100%);
 }
 
-.option:hover .option-card-inner {
-  transform: translateY(-2px) scale(1.015);
+.option:not(.selected):hover .option-card-inner {
+  --card-lift: -2px;
+  --card-scale: 1.012;
   filter: brightness(1.02);
 }
 
-.option:hover .option-front,
-.option:hover .option-back {
+.option:not(.selected):hover .option-front,
+.option:not(.selected):hover .option-back {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 0 0 1px rgba(255, 255, 255, 0.92),
@@ -535,12 +540,8 @@ button:hover {
   font-weight: 700;
 }
 
-.option.selected {
-  transform: translateY(-3px);
-}
-
 .option.selected .option-card-inner {
-  transform: rotateY(180deg) translateY(-2px) scale(1.02);
+  --card-rotate: 180deg;
 }
 
 .option.selected .option-back {
@@ -549,10 +550,6 @@ button:hover {
     0 0 0 2px rgba(255, 243, 250, 0.98),
     0 18px 30px rgba(153, 128, 193, 0.4),
     0 0 38px rgba(186, 213, 255, 0.78);
-}
-
-.option.selected:hover .option-card-inner {
-  transform: rotateY(180deg) translateY(-2px) scale(1.025);
 }
 
 .actions {
