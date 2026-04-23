@@ -367,9 +367,9 @@ function getMagicalIconSvg(iconKey, label = '') {
   const key = magicalIconPaths[iconKey] ? iconKey : 'book';
   return `
     <svg class="magical-icon-svg" viewBox="0 0 36 36" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="18" r="16" fill="#f4f0ff"/>
-      <circle cx="18" cy="18" r="15.2" fill="none" stroke="#e0d5f7" stroke-width="0.8"/>
-      <g fill="none" stroke="#a793d6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle class="magical-icon-base" cx="18" cy="18" r="16" fill="#f4f0ff"/>
+      <circle class="magical-icon-base-ring" cx="18" cy="18" r="15.2" fill="none" stroke="#e0d5f7" stroke-width="0.8"/>
+      <g class="magical-icon-glyph" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
         ${magicalIconPaths[key]}
       </g>
     </svg>
@@ -634,7 +634,7 @@ function renderRound() {
     btn.innerHTML = `
       <span class="option-card-inner" aria-hidden="true">
         <span class="option-face option-front">
-          <span class="option-icon">${getItemIconMarkup(item)}</span>
+          <span class="option-icon icon-${getItemIconKey(item)}">${getItemIconMarkup(item)}</span>
         </span>
         <span class="option-face option-back">
           <span class="option-back-head">
