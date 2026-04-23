@@ -436,35 +436,34 @@ button:hover {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   justify-content: flex-start;
-  gap: 4px;
-  padding: 14px 12px 12px;
+  align-items: stretch;
+  gap: 0;
+  padding: 12px 10px 10px;
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 38%),
     radial-gradient(circle at 82% 16%, rgba(255, 245, 214, 0.66), transparent 35%),
     linear-gradient(160deg, rgba(255, 239, 248, 0.96) 0%, rgba(228, 241, 255, 0.97) 100%);
 }
 
-.option-back-head,
-.option-back-body {
-  width: 100%;
+.option-back-head {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin: 0;
-}
-
-.option-back-head {
-  gap: 1px;
-  padding-top: 0;
-  margin-bottom: 1px;
+  gap: 2px;
+  margin: 8px 0 0 0;
+  padding: 0;
+  flex: 0 0 auto;
 }
 
 .option-back-body {
+  display: block;
+  margin: 2px 0 0 0;
   padding: 0;
-  margin: 0;
+  min-height: 0;
+  height: auto;
+  flex: 0 0 auto;
 }
 
 .option:not(.selected):hover .option-card-inner {
@@ -518,73 +517,65 @@ button:hover {
 
 .option-back-name {
   color: #433758;
-  font-size: 1.42rem;
-  font-weight: 800;
-  line-height: 1.18;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.08;
+  font-weight: 700;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .option-back-mbti {
-  font-size: 0.98rem;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: 0.16em;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: #6f5b98;
 }
 
 .option-back-desc {
-  max-width: 18ch;
-  font-size: 0.76rem;
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
   line-height: 1.28;
   color: #5e5473;
   text-align: center;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  overflow: hidden;
-  text-wrap: pretty;
 }
 
 .option-back-traits {
-  margin-top: 1px;
-  padding-top: 0;
-  width: 100%;
-  max-width: 228px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 6px;
-  margin-bottom: 0;
-  align-self: center;
+  margin: 2px 0 0 0;
+  padding: 0;
+  align-items: stretch;
 }
 
 .option-trait-pill {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 0;
-  min-height: 40px;
   width: 100%;
-  padding: 6px 8px;
+  min-height: 30px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 5px 6px;
   border-radius: 12px;
   border: 1px solid rgba(216, 199, 244, 0.95);
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.5) 45%, transparent 100%),
     linear-gradient(138deg, rgba(255, 254, 255, 0.78), rgba(238, 226, 255, 0.92));
   color: #5b4d74;
-  font-size: 0.7rem;
+  font-size: 10.5px;
   font-weight: 700;
-  line-height: 1.18;
+  line-height: 1.15;
   letter-spacing: 0.01em;
   text-align: center;
   white-space: normal;
   word-break: keep-all;
-  overflow-wrap: anywhere;
-  text-wrap: balance;
-  overflow: hidden;
+  overflow-wrap: break-word;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 3px 8px rgba(163, 140, 203, 0.16);
@@ -977,30 +968,6 @@ button:hover {
   .option-card-inner {
     min-height: 220px;
   }
-  .option-back {
-    gap: 4px;
-    padding: 12px 10px 10px;
-  }
-  .option-back-head {
-    gap: 1px;
-    margin-bottom: 1px;
-  }
-  .option-back-body {
-    padding: 0;
-    margin: 0;
-  }
-  .option-back-name {
-    font-size: 1.2rem;
-  }
-  .option-back-mbti {
-    font-size: 0.86rem;
-  }
-  .option-back-desc {
-    font-size: 0.7rem;
-    line-height: 1.25;
-    max-width: 16ch;
-    margin: 0;
-  }
   .option-icon {
     width: 66px;
     height: 66px;
@@ -1016,20 +983,6 @@ button:hover {
     gap: 5px;
     width: 100%;
     margin-top: 8px;
-  }
-  .option-back-traits {
-    margin-top: 1px;
-    max-width: 100%;
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    gap: 5px;
-    margin-bottom: 0;
-  }
-  .option-trait-pill {
-    min-height: 36px;
-    padding: 5px 7px;
-    font-size: 0.64rem;
-    line-height: 1.16;
-    letter-spacing: 0.01em;
   }
   .explain-badge {
     display: flex;
@@ -1086,76 +1039,4 @@ button:hover {
     max-width: 100%;
     box-sizing: border-box;
   }
-}
-.option-back {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  align-items: stretch !important;
-  gap: 6px !important;
-  padding: 14px 12px 12px !important;
-}
-
-.option-back-head {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 2px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.option-back-name {
-  font-size: 18px !important;
-  line-height: 1.1 !important;
-  font-weight: 700 !important;
-  margin: 0 !important;
-}
-
-.option-back-mbti {
-  font-size: 14px !important;
-  line-height: 1.1 !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
-  margin: 0 !important;
-}
-
-.option-back-body {
-  display: block !important;
-  flex: 0 0 auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  min-height: 0 !important;
-}
-
-.option-back-desc {
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-size: 12px !important;
-  line-height: 1.35 !important;
-  text-align: center !important;
-}
-
-.option-back-traits {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 6px !important;
-  margin-top: 4px !important;
-  align-items: stretch !important;
-}
-
-.option-trait-pill {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 32px !important;
-  padding: 6px 8px !important;
-  margin: 0 !important;
-  font-size: 11px !important;
-  line-height: 1.2 !important;
-  text-align: center !important;
-  white-space: normal !important;
-  word-break: keep-all !important;
-  overflow-wrap: break-word !important;
 }
