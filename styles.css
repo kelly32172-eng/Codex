@@ -438,7 +438,7 @@ button:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 24px;
+  gap: 14px;
   padding: 14px 10px 12px;
   color: #5e5473;
   overflow: visible;
@@ -553,7 +553,7 @@ button:hover {
   margin: 0;
   padding: 0;
   color: #5e5473;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.45;
   text-align: center;
   white-space: normal;
@@ -563,10 +563,10 @@ button:hover {
 .option-back-traits {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 4px;
   margin: 4px 0 0;
-  padding: 10px 0 0;
-  border-top: 1px solid rgba(94, 84, 115, 0.15);
+  padding: 4px 0 0;
+  border-top: none;
   align-items: stretch;
   flex: 0 0 auto;
   opacity: 1;
@@ -577,13 +577,13 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 8px;
-  min-height: 32px;
+  padding: 4px 8px;
+  min-height: 26px;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
   color: #5e5473;
-  font-size: 0.8rem;
+  font-size: 12px;
   line-height: 1.15;
   text-align: center;
   white-space: normal;
