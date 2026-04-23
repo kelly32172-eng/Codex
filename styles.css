@@ -517,6 +517,69 @@ button:hover {
   filter: drop-shadow(0 2px 6px rgba(178, 159, 226, 0.35));
 }
 
+/* Round 1: Morandi palette for six prop cards (icon + circular frame). */
+.options .option:nth-child(1) .option-front .option-icon {
+  background-color: rgba(141, 123, 104, 0.15);
+  background-image: none;
+}
+
+.options .option:nth-child(1) .option-front .magical-icon-svg {
+  color: #8D7B68;
+}
+
+.options .option:nth-child(2) .option-front .option-icon {
+  background-color: rgba(120, 149, 178, 0.15);
+  background-image: none;
+}
+
+.options .option:nth-child(2) .option-front .magical-icon-svg {
+  color: #7895B2;
+}
+
+.options .option:nth-child(3) .option-front .option-icon {
+  background-color: rgba(201, 139, 112, 0.15);
+  background-image: none;
+}
+
+.options .option:nth-child(3) .option-front .magical-icon-svg {
+  color: #C98B70;
+}
+
+.options .option:nth-child(4) .option-front .option-icon {
+  background-color: rgba(107, 114, 142, 0.15);
+  background-image: none;
+}
+
+.options .option:nth-child(4) .option-front .magical-icon-svg {
+  color: #6B728E;
+}
+
+.options .option:nth-child(5) .option-front .option-icon {
+  background-color: rgba(154, 134, 164, 0.15);
+  background-image: none;
+}
+
+.options .option:nth-child(5) .option-front .magical-icon-svg {
+  color: #9A86A4;
+}
+
+.options .option:nth-child(6) .option-front .option-icon {
+  background-color: rgba(127, 132, 135, 0.15);
+  background-image: none;
+}
+
+.options .option:nth-child(6) .option-front .magical-icon-svg {
+  color: #7F8487;
+}
+
+.options .option:nth-child(-n+6) .option-front .magical-icon-svg [fill]:not([fill="none"]) {
+  fill: currentColor;
+}
+
+.options .option:nth-child(-n+6) .option-front .magical-icon-svg [stroke] {
+  stroke: currentColor;
+}
+
 .inline-picked-icon {
   display: inline-flex;
   vertical-align: middle;
