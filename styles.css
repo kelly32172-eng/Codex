@@ -514,70 +514,71 @@ button:hover {
 .magical-icon-svg {
   width: 50px;
   height: 50px;
+  color: #a793d6;
   filter: drop-shadow(0 2px 6px rgba(178, 159, 226, 0.35));
 }
 
+.magical-icon-svg .magical-icon-glyph [fill]:not([fill="none"]) {
+  fill: currentColor !important;
+}
+
+.magical-icon-svg .magical-icon-glyph [stroke] {
+  stroke: currentColor !important;
+}
+
 /* Round 1: Morandi palette for six prop cards (icon + circular frame). */
-.options .option:nth-child(1) .option-front .option-icon {
+.option-icon.icon-book {
   background-color: rgba(141, 123, 104, 0.15);
   background-image: none;
 }
 
-.options .option:nth-child(1) .option-front .magical-icon-svg {
-  color: #8D7B68;
+.option-icon.icon-book .magical-icon-svg {
+  color: #8d7b68;
 }
 
-.options .option:nth-child(2) .option-front .option-icon {
+.option-icon.icon-plane {
   background-color: rgba(120, 149, 178, 0.15);
   background-image: none;
 }
 
-.options .option:nth-child(2) .option-front .magical-icon-svg {
-  color: #7895B2;
+.option-icon.icon-plane .magical-icon-svg {
+  color: #7895b2;
 }
 
-.options .option:nth-child(3) .option-front .option-icon {
+.option-icon.icon-ball {
   background-color: rgba(201, 139, 112, 0.15);
   background-image: none;
 }
 
-.options .option:nth-child(3) .option-front .magical-icon-svg {
-  color: #C98B70;
+.option-icon.icon-ball .magical-icon-svg {
+  color: #c98b70;
 }
 
-.options .option:nth-child(4) .option-front .option-icon {
+.option-icon.icon-piano {
   background-color: rgba(107, 114, 142, 0.15);
   background-image: none;
 }
 
-.options .option:nth-child(4) .option-front .magical-icon-svg {
-  color: #6B728E;
+.option-icon.icon-piano .magical-icon-svg {
+  color: #6b728e;
 }
 
-.options .option:nth-child(5) .option-front .option-icon {
+.option-icon.icon-palette {
   background-color: rgba(154, 134, 164, 0.15);
   background-image: none;
 }
 
-.options .option:nth-child(5) .option-front .magical-icon-svg {
-  color: #9A86A4;
+.option-icon.icon-palette .magical-icon-svg {
+  color: #9a86a4;
 }
 
-.options .option:nth-child(6) .option-front .option-icon {
+.option-icon.icon-camera {
   background-color: rgba(127, 132, 135, 0.15);
   background-image: none;
 }
 
-.options .option:nth-child(6) .option-front .magical-icon-svg {
-  color: #7F8487;
-}
-
-.options .option:nth-child(-n+6) .option-front .magical-icon-svg [fill]:not([fill="none"]) {
-  fill: currentColor;
-}
-
-.options .option:nth-child(-n+6) .option-front .magical-icon-svg [stroke] {
-  stroke: currentColor;
+.option-icon.icon-camera .magical-icon-svg {
+  color: #7f8487;
 }
 
 .inline-picked-icon {
