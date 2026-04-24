@@ -85,44 +85,31 @@ const zodiacOptions = [
 
 const magicalIconPaths = {
   book: `
-    <rect x="8" y="10" width="20" height="20" rx="4.5" fill="#fffaf2"/>
-    <path d="M18 10v20" stroke="#b7a7df" stroke-width="1.8"/>
-    <path d="M12 15h4M12 19h4M12 23h4" stroke="#d0c1ee" stroke-width="1.4" stroke-linecap="round"/>
-    <path d="M20 15l2 2 3-4" stroke="#9cc9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="25.5" cy="12.5" r="1.4" fill="#fff2b7"/>
+    <path d="M10 10.4h16c1.1 0 2 .9 2 2v13.2c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V12.4c0-1.1.9-2 2-2z" fill="currentColor"/>
+    <rect x="17" y="10.4" width="1.8" height="17.2" fill="currentColor"/>
   `,
   plane: `
-    <path d="M8 21l20-8-6.5 11.2-2.8-3.5-4.5 3.6 1.2-4.9-7.4 1.6z" fill="#fffaf2"/>
-    <path d="M21.5 20.5c2.2.8 3.8 2.2 4.8 4" stroke="#cdb9f3" stroke-width="1.6" stroke-linecap="round"/>
-    <path d="M25 18.5l2-1.2M26.6 21l2.2.3" stroke="#fff2b7" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M8.2 20.8L28 12l-6.8 12.1-3.1-3.4-4.9 3.8 1.5-5.3-6.5 1.6z" fill="currentColor"/>
   `,
   ball: `
-    <circle cx="18" cy="20" r="9.5" fill="#fffaf2"/>
-    <path d="M11.4 23.5c3.8 1.9 8.9 1.5 12.4-1.3" stroke="#bca8e4" stroke-width="1.6" stroke-linecap="round"/>
-    <path d="M14.8 12.3c2.8 2.1 6 3 8.9 2.6" stroke="#9ecfff" stroke-width="1.5" stroke-linecap="round"/>
-    <circle cx="25.5" cy="11.5" r="1.5" fill="#fff2b7"/>
+    <circle cx="18" cy="20" r="9.5" fill="currentColor"/>
   `,
   piano: `
-    <rect x="8" y="11" width="20" height="18" rx="5" fill="#fffaf2"/>
-    <path d="M11.5 15.5h13" stroke="#c2b1e8" stroke-width="1.5" stroke-linecap="round"/>
-    <rect x="11" y="18" width="3" height="8" rx="1.2" fill="#d6c9f4"/>
-    <rect x="15" y="18" width="3" height="8" rx="1.2" fill="#b6d4ff"/>
-    <rect x="19" y="18" width="3" height="8" rx="1.2" fill="#d6c9f4"/>
-    <rect x="23" y="18" width="3" height="8" rx="1.2" fill="#b6d4ff"/>
+    <rect x="8.2" y="11" width="19.6" height="17.8" rx="4.6" fill="currentColor"/>
+    <rect x="11" y="16.5" width="13.8" height="1.9" fill="currentColor"/>
+    <rect x="11.2" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
+    <rect x="15.1" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
+    <rect x="19" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
+    <rect x="22.9" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
   `,
   palette: `
-    <path d="M18 10c-5.8 0-10 4.3-10 9.3 0 4.8 3.7 8.7 8.2 8.7h1.3c1.3 0 2.2-1 2.2-2.1 0-1-.7-1.8-.7-2.8 0-1.6 1.2-2.8 3-2.8h1.6c2.6 0 4.4-1.6 4.4-4.4C28 12.6 23.8 10 18 10z" fill="#fffaf2"/>
-    <circle cx="13" cy="16" r="1.6" fill="#ffcfdf"/>
-    <circle cx="16.4" cy="13.4" r="1.5" fill="#c4dcff"/>
-    <circle cx="20.3" cy="13.8" r="1.4" fill="#fff2b7"/>
-    <circle cx="23.2" cy="16.6" r="1.4" fill="#d5c4f3"/>
+    <path d="M18 10c-5.8 0-10 4.3-10 9.3 0 4.8 3.7 8.7 8.2 8.7h1.3c1.3 0 2.2-1 2.2-2.1 0-1-.7-1.8-.7-2.8 0-1.6 1.2-2.8 3-2.8h1.6c2.6 0 4.4-1.6 4.4-4.4C28 12.6 23.8 10 18 10z" fill="currentColor"/>
   `,
   camera: `
-    <rect x="8" y="13" width="20" height="14" rx="4.2" fill="#fffaf2"/>
-    <rect x="12" y="10" width="7" height="4" rx="1.7" fill="#d8c8f5"/>
-    <circle cx="19" cy="20" r="4.2" fill="none" stroke="#af9cdd" stroke-width="1.8"/>
-    <circle cx="19" cy="20" r="1.8" fill="#9ecfff"/>
-    <circle cx="25" cy="16.5" r="1.2" fill="#fff2b7"/>
+    <rect x="8" y="13" width="20" height="14" rx="4.2" fill="currentColor"/>
+    <rect x="12" y="10" width="7" height="4" rx="1.7" fill="currentColor"/>
+    <circle cx="19" cy="20" r="4.2" fill="currentColor"/>
+    <circle cx="25" cy="16.5" r="1.2" fill="currentColor"/>
   `,
   abacus: `
     <circle cx="18" cy="20" r="9.5" fill="#fffaf2"/>
@@ -213,44 +200,41 @@ const iconKeyByName = {
 const frontFaceIconSvgs = {
   book: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="書" xmlns="http://www.w3.org/2000/svg">
-      <rect x="9" y="10" width="18" height="18" rx="3.5" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M18 10v18M12.5 15h3.2M12.5 19h3.2M12.5 23h3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M10 10.4h16c1.1 0 2 .9 2 2v13.2c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V12.4c0-1.1.9-2 2-2z" fill="currentColor" stroke="none"/>
+      <rect x="17" y="10.4" width="1.8" height="17.2" fill="currentColor" stroke="none"/>
     </svg>
   `,
   plane: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="紙飛機" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.5 20.8L27.5 12l-7 12.2-3.1-3.5-4.8 3.7 1.4-5.3-5.5 1.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M21 20.6c2 .8 3.5 2.1 4.5 3.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <path d="M8.2 20.8L28 12l-6.8 12.1-3.1-3.4-4.9 3.8 1.5-5.3-6.5 1.6z" fill="currentColor" stroke="none"/>
     </svg>
   `,
   ball: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="球" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="19" r="9.2" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M11.5 22.8c3.4 1.8 8.5 1.3 12-1.1M14.5 12.3c2.5 2.1 5.7 3.1 9 2.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <circle cx="18" cy="19" r="9.2" fill="currentColor" stroke="none"/>
     </svg>
   `,
   piano: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="鋼琴" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8.5" y="11" width="19" height="16.5" rx="3.7" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M11.5 15h13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      <path d="M13 17.6v7M17 17.6v7M21 17.6v7M25 17.6v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <rect x="8.2" y="11" width="19.6" height="17.8" rx="4.6" fill="currentColor" stroke="none"/>
+      <rect x="11" y="16.5" width="13.8" height="1.9" fill="currentColor" stroke="none"/>
+      <rect x="11.2" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
+      <rect x="15.1" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
+      <rect x="19" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
+      <rect x="22.9" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
     </svg>
   `,
   palette: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="調色盤" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 10.2c-5.8 0-10 4.2-10 9.1 0 4.7 3.6 8.5 8 8.5h1.2c1.3 0 2.2-1 2.2-2.1 0-.9-.7-1.7-.7-2.7 0-1.5 1.2-2.7 2.9-2.7h1.6c2.6 0 4.3-1.6 4.3-4.3 0-3.3-4.2-5.8-9.5-5.8z" fill="none" stroke="currentColor" stroke-width="1.8"/>
-      <circle cx="13.2" cy="16" r="1.2" fill="currentColor"/>
-      <circle cx="16.4" cy="13.5" r="1.2" fill="currentColor"/>
-      <circle cx="20.2" cy="13.8" r="1.2" fill="currentColor"/>
-      <circle cx="23.2" cy="16.7" r="1.2" fill="currentColor"/>
+      <path d="M18 10.2c-5.8 0-10 4.2-10 9.1 0 4.7 3.6 8.5 8 8.5h1.2c1.3 0 2.2-1 2.2-2.1 0-.9-.7-1.7-.7-2.7 0-1.5 1.2-2.7 2.9-2.7h1.6c2.6 0 4.3-1.6 4.3-4.3 0-3.3-4.2-5.8-9.5-5.8z" fill="currentColor" stroke="none"/>
     </svg>
   `,
   camera: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="相機" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8.5" y="13" width="19" height="13.5" rx="3.2" fill="none" stroke="currentColor" stroke-width="2"/>
-      <rect x="12" y="10.3" width="6.6" height="3.2" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
-      <circle cx="18.3" cy="19.7" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
-      <circle cx="24.2" cy="16.3" r="1.1" fill="currentColor"/>
+      <rect x="8.5" y="13" width="19" height="13.5" rx="3.2" fill="currentColor" stroke="none"/>
+      <rect x="12" y="10.3" width="6.6" height="3.2" rx="1.2" fill="currentColor" stroke="none"/>
+      <circle cx="18.3" cy="19.7" r="3.8" fill="currentColor" stroke="none"/>
+      <circle cx="24.2" cy="16.3" r="1.1" fill="currentColor" stroke="none"/>
     </svg>
   `
 };
