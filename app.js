@@ -346,7 +346,6 @@ const careerText = document.getElementById('career-text');
 const parentingText = document.getElementById('parenting-text');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
-const dimensionGrid = document.getElementById('dimension-grid');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
   INTJ: { nickname: '小小策略家', category: '分析家寶寶', colorClass: 'mbti-purple' },
@@ -375,12 +374,6 @@ function getLocalizedItemName(item) {
   const profile = item?.id ? itemsDatabase[item.id] : null;
   if (!profile) return item.name;
   return (profile[currentLang]?.name || profile.zh?.name || item.name);
-}
-
-function getLocalizedDimensions(item) {
-  const profile = item?.id ? itemsDatabase[item.id] : null;
-  if (!profile) return item.explain;
-  return profile[currentLang]?.dimensions?.length ? profile[currentLang].dimensions : profile.zh?.dimensions || item.explain;
 }
 
 function getItemIconKey(item) {
@@ -750,39 +743,6 @@ function escapeHtmlText(str) {
     .replace(/"/g, '&quot;');
 }
 
-/** 六字標籤：前 4 字 + <br> + 後 2 字；其餘維持單行（內容經 escape）。 */
-function formatDimensionLabelHtml(tip) {
-  const label = String(tip);
-  if (label.length === 6) {
-    return `${escapeHtmlText(label.slice(0, 4))}<br>${escapeHtmlText(label.slice(4))}`;
-  }
-  return escapeHtmlText(label);
-}
-
-function renderDimensionCards(chosen) {
-  dimensionGrid.innerHTML = '';
-  chosen.forEach((item) => {
-    const card = document.createElement('article');
-    card.className = 'dimension-card';
-
-    const title = document.createElement('h4');
-    title.innerHTML = `<span class="inline-picked-icon">${getItemIconMarkup(item)}</span> ${getLocalizedItemName(item)}`;
-
-    const grid = document.createElement('div');
-    grid.className = 'dimension-2x2';
-    getLocalizedDimensions(item).forEach((tip) => {
-      const cell = document.createElement('span');
-      cell.className = 'pulse-dot';
-      cell.innerHTML = formatDimensionLabelHtml(tip);
-      grid.appendChild(cell);
-    });
-
-    card.appendChild(title);
-    card.appendChild(grid);
-    dimensionGrid.appendChild(card);
-  });
-}
-
 function showResult() {
   const chosen = [picks.interest, picks.ability, picks.personality];
   const mbti = computeMbti(chosen);
@@ -822,8 +782,6 @@ function showResult() {
     tag.innerHTML = `<img class="stamp-prop-image" src="${imageSrc}" alt="${imageAlt}" /><strong>${getLocalizedItemName(item)}</strong>`;
     pickedTags.appendChild(tag);
   });
-
-  renderDimensionCards(chosen);
 
   quizScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
