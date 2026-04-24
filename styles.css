@@ -833,11 +833,11 @@ button:hover {
   grid-template-columns: 1fr 1fr;
 }
 
-.result-top-title {
-  font-size: 0.9rem;
-  color: #55555f;
-  margin-top: -10px;
-  margin-bottom: 15px;
+.result-main-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3f3f46;
+  margin-bottom: 10px;
 }
 
 .mbti-badge {
@@ -847,8 +847,9 @@ button:hover {
   padding: 8px 18px;
   border-radius: 20px;
   font-weight: 700;
+  font-size: 0.9rem;
   letter-spacing: 0.01em;
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 }
 
 .mbti-purple {
@@ -881,13 +882,6 @@ button:hover {
   box-shadow: 0 16px 32px rgba(123, 84, 163, 0.25);
   display: grid;
   place-items: center;
-}
-
-.mbti-nickname {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #3f3f46;
 }
 
 .mbti-avatar {
