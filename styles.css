@@ -902,28 +902,14 @@ button:hover {
 }
 
 .stamp-title {
-  margin-top: -8px;
-  margin-bottom: 10px;
-  display: inline-flex;
+  margin: 0 0 10px 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-}
-
-.lucky-seal {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 7px;
-  border: 2px solid #c11d2a;
-  background: #d62a36;
-  color: #fff;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 700;
-  font-family: "Kiwi Maru", "Noto Serif TC", serif;
+  text-align: center;
+  gap: 0;
 }
 
 .seal-list {
