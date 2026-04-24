@@ -211,7 +211,7 @@ const frontFaceIconSvgs = {
   medkit: '<img class="option-front-icon-img" src="./assets/level2_medical.png" alt="醫藥箱" />',
   heart: '<img class="option-front-icon-img" src="./assets/level3_heart.png" alt="愛心" />',
   crown: '<img class="option-front-icon-img" src="./assets/level3_crown.png" alt="皇冠" />',
-  sun: '<img class="option-front-icon-img" src="./assets/level3_sun.png" alt="太陽" />',
+  sun: '<img class="option-front-icon-img sun-icon" src="./assets/level3_sun.png" alt="太陽" />',
   moon: '<img class="option-front-icon-img" src="./assets/level3_moon.png" alt="月亮" />',
   gear: '<img class="option-front-icon-img" src="./assets/level3_gear.png" alt="齒輪" />',
   cloud: '<img class="option-front-icon-img" src="./assets/level3_cloud.png" alt="雲朵" />'

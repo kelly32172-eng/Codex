@@ -542,11 +542,17 @@ button:hover {
   display: block;
   margin: auto;
   object-fit: contain;
+  --icon-scale: 1.5;
+  transform: scale(var(--icon-scale)) !important;
+  transform-origin: center center;
+}
+
+.option-front .sun-icon,
+.option-front img[src*="level3_sun"] {
+  --icon-scale: 1.75;
 }
 
 .option-front img[src*="level3_"] {
-  transform: scale(1.5) !important;
-  transform-origin: center center;
   justify-self: center;
   align-self: center;
   mix-blend-mode: multiply;
@@ -1125,9 +1131,15 @@ button:hover {
     width: 50%;
     height: 50%;
     margin: auto;
+    --icon-scale: 1.5;
+    transform: scale(var(--icon-scale)) !important;
+    transform-origin: center center;
+  }
+  .option-front .sun-icon,
+  .option-front img[src*="level3_sun"] {
+    --icon-scale: 1.75;
   }
   .option-front img[src*="level3_"] {
-    transform: scale(1.5) !important;
     mix-blend-mode: multiply;
     -webkit-mask-image: none !important;
     mask-image: none !important;
