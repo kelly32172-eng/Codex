@@ -529,6 +529,18 @@ button:hover {
   visibility: visible;
 }
 
+.option-front .option-front-icon-img {
+  width: 60%;
+  max-width: 76px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
 .magical-icon-svg .magical-icon-glyph [fill]:not([fill="none"]) {
   fill: currentColor !important;
 }
@@ -1094,6 +1106,9 @@ button:hover {
   .option-front .option-front-icon-svg {
     width: 56px;
     height: 56px;
+  }
+  .option-front .option-front-icon-img {
+    max-width: 62px;
   }
   .badge-wrap {
     display: grid;

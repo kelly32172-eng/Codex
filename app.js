@@ -197,57 +197,14 @@ const iconKeyByName = {
 };
 
 const frontFaceIconSvgs = {
-  book: `
-    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="書" xmlns="http://www.w3.org/2000/svg">
-      <g class="magical-icon-glyph">
-        <path d="M7.8 9.2h9.6c2.1 0 3.3.8 4 1.7.7-.9 1.9-1.7 4-1.7H28c.9 0 1.6.7 1.6 1.6v15.8c0 .9-.7 1.6-1.6 1.6h-2.6c-2.1 0-3.3.9-4 1.8-.3.4-.8.6-1.2.6s-.9-.2-1.2-.6c-.7-.9-1.9-1.8-4-1.8H7.8c-.9 0-1.6-.7-1.6-1.6V10.8c0-.9.7-1.6 1.6-1.6z" fill="currentColor" />
-      </g>
-    </svg>
-  `,
-  plane: `
-    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="紙飛機" xmlns="http://www.w3.org/2000/svg">
-      <g class="magical-icon-glyph">
-        <path d="M5.7 17.8l24.7-8.5c.9-.3 1.7.6 1.3 1.4l-8.8 20.1c-.4.9-1.6 1-2.1.2l-3.7-6-6.1-3.7c-.8-.5-.7-1.7.2-2.1l14.4-6.5-15.9 4.1-3.2 1.1c-.4.1-.7 0-.8-.2z" fill="currentColor" />
-      </g>
-    </svg>
-  `,
-  ball: `
-    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="球" xmlns="http://www.w3.org/2000/svg">
-      <g class="magical-icon-glyph">
-        <path d="M18 8.8c-6.2 0-11.2 5-11.2 11.2s5 11.2 11.2 11.2 11.2-5 11.2-11.2S24.2 8.8 18 8.8zm0 3.2a8 8 0 0 1 6.4 3.2 12.7 12.7 0 0 1-5.3 1.2 12.4 12.4 0 0 1-7-2.1A8 8 0 0 1 18 12zm-7.9 9.1c1.5.8 4.2 1.8 8 1.8 2.8 0 5.5-.6 7.5-1.7a8 8 0 0 1-15.5-.1z" fill="currentColor" />
-      </g>
-    </svg>
-  `,
-  piano: `
-    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="鋼琴" xmlns="http://www.w3.org/2000/svg">
-      <g class="magical-icon-glyph">
-        <path d="M7.5 10.5h21c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2h-21c-1.1 0-2-.9-2-2v-14c0-1.1.9-2 2-2zM9.8 15.2h16.4v10.6H9.8z" fill="currentColor" />
-        <path d="M12.3 15.2h1.8v7.2h-1.8zm3.8 0h1.8v7.2h-1.8zm3.8 0h1.8v7.2h-1.8zm3.8 0h1.8v7.2h-1.8z" fill="#ffffff" />
-      </g>
-    </svg>
-  `,
-  palette: `
-    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="調色盤" xmlns="http://www.w3.org/2000/svg">
-      <g class="magical-icon-glyph">
-        <path d="M18.2 8.8c-6.4 0-11.6 4.8-11.6 10.7 0 5.3 4 9.7 9.2 9.7h1.5c1.5 0 2.8-1.2 2.8-2.7 0-1.2-.8-2.1-.8-3.1 0-1.6 1.2-2.8 3.1-2.8h1.9c3 0 5-2.1 5-5C29.2 11.8 24.5 8.8 18.2 8.8z" fill="currentColor" />
-        <circle cx="12.8" cy="16.3" r="1.5" fill="#ffffff" />
-        <circle cx="16.5" cy="13.5" r="1.4" fill="#ffffff" />
-        <circle cx="20.6" cy="13.9" r="1.3" fill="#ffffff" />
-        <circle cx="23.7" cy="16.8" r="1.3" fill="#ffffff" />
-      </g>
-    </svg>
-  `,
-  camera: `
-    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="相機" xmlns="http://www.w3.org/2000/svg">
-      <g class="magical-icon-glyph">
-        <path d="M8.2 12.2h4.1l1.5-2.1c.4-.6 1.1-.9 1.8-.9h4.8c.7 0 1.4.3 1.8.9l1.5 2.1h4.1c1.3 0 2.3 1 2.3 2.3v11c0 1.3-1 2.3-2.3 2.3H8.2c-1.3 0-2.3-1-2.3-2.3v-11c0-1.3 1-2.3 2.3-2.3z" fill="currentColor" />
-        <circle cx="18" cy="20" r="4.4" fill="#ffffff" />
-        <circle cx="18" cy="20" r="2.3" fill="currentColor" />
-        <circle cx="24.9" cy="15.7" r="1.2" fill="#ffffff" />
-      </g>
-    </svg>
-  `
+  book: '<img class="option-front-icon-img" src="./assets/book.png" alt="書" />',
+  plane: '<img class="option-front-icon-img" src="./assets/plane.png" alt="紙飛機" />',
+  ball: '<img class="option-front-icon-img" src="./assets/ball.png" alt="球" />',
+  piano: '<img class="option-front-icon-img" src="./assets/piano.png" alt="鋼琴" />',
+  palette: '<img class="option-front-icon-img" src="./assets/palette.png" alt="調色盤" />',
+  camera: '<img class="option-front-icon-img" src="./assets/camera.png" alt="相機" />'
 };
+
 
 const rounds = [
   {
