@@ -535,7 +535,8 @@ button:hover {
 }
 
 .option-front .option-front-icon-img,
-.option-front img[src*="level2_"] {
+.option-front img[src*="level2_"],
+.option-front img[src*="level3_"] {
   width: 50%;
   height: 50%;
   display: block;
@@ -1106,7 +1107,8 @@ button:hover {
     height: 46px;
   }
   .option-front .option-front-icon-img,
-  .option-front img[src*="level2_"] {
+  .option-front img[src*="level2_"],
+  .option-front img[src*="level3_"] {
     width: 50%;
     height: 50%;
     margin: auto;

@@ -208,7 +208,13 @@ const frontFaceIconSvgs = {
   blocks: '<img class="option-front-icon-img" src="./assets/level2_blocks.png" alt="積木" />',
   compass: '<img class="option-front-icon-img" src="./assets/level2_compass.png" alt="指南針" />',
   microphone: '<img class="option-front-icon-img" src="./assets/level2_mic.png" alt="麥克風" />',
-  medkit: '<img src="./assets/level2_medical.png" alt="醫藥箱">'
+  medkit: '<img class="option-front-icon-img" src="./assets/level2_medical.png" alt="醫藥箱" />',
+  heart: '<img class="option-front-icon-img" src="./assets/level3_heart.png" alt="愛心" />',
+  crown: '<img class="option-front-icon-img" src="./assets/level3_crown.png" alt="皇冠" />',
+  sun: '<img class="option-front-icon-img" src="./assets/level3_sun.png" alt="太陽" />',
+  moon: '<img class="option-front-icon-img" src="./assets/level3_moon.png" alt="月亮" />',
+  gear: '<img class="option-front-icon-img" src="./assets/level3_gear.png" alt="齒輪" />',
+  cloud: '<img class="option-front-icon-img" src="./assets/level3_cloud.png" alt="雲朵" />'
 };
 
 
