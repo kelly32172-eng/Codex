@@ -837,6 +837,7 @@ button:hover {
   font-size: 1.4rem;
   font-weight: 700;
   color: #3f3f46;
+  margin-top: -15px;
   margin-bottom: 10px;
 }
 
@@ -892,6 +893,10 @@ button:hover {
   display: block;
   filter: none;
   mix-blend-mode: normal;
+}
+
+.result-image-placeholder img {
+  transform: translateY(8%);
 }
 
 .result-side {
