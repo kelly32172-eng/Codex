@@ -376,11 +376,13 @@ function getItemIconMarkup(item) {
   return getMagicalIconSvg(getItemIconKey(item), getLocalizedItemName(item));
 }
 
+function hasFrontFaceImage(item) {
+  return Boolean(frontFaceIconSvgs[getItemIconKey(item)]);
+}
+
 function getFrontFaceIconMarkup(item) {
   const iconKey = getItemIconKey(item);
-  if (frontFaceIconSvgs[iconKey]) {
-    return frontFaceIconSvgs[iconKey];
-  }
+  if (frontFaceIconSvgs[iconKey]) return frontFaceIconSvgs[iconKey];
   return getItemIconMarkup(item);
 }
 
@@ -638,7 +640,7 @@ function renderRound() {
     btn.innerHTML = `
       <span class="option-card-inner" aria-hidden="true">
         <span class="option-face option-front">
-          <span class="option-icon icon-${getItemIconKey(item)}">${getFrontFaceIconMarkup(item)}</span>
+          <span class="option-icon icon-${getItemIconKey(item)} ${hasFrontFaceImage(item) ? 'has-front-image' : ''}">${getFrontFaceIconMarkup(item)}</span>
         </span>
         <span class="option-face option-back">
           <span class="option-back-head">
