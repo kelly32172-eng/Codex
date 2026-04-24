@@ -348,6 +348,7 @@ const parentingText = document.getElementById('parenting-text');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
 const dimensionGrid = document.getElementById('dimension-grid');
+const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 
 function t(key) {
   return uiTranslations[currentLang][key] || uiTranslations.zh[key] || key;
@@ -413,6 +414,38 @@ function renderZodiacOptions() {
 function getZodiacLabel() {
   const target = zodiacOptions.find((option) => option.key === babyZodiacInput.value);
   return target ? target[currentLang] : '';
+}
+
+function getMbtiBadgeMeta(mbti) {
+  const axis = {
+    n: mbti.includes('N'),
+    t: mbti.includes('T'),
+    f: mbti.includes('F'),
+    s: mbti.includes('S')
+  };
+
+  if (axis.n && axis.t) {
+    return {
+      className: 'mbti-purple',
+      text: currentLang === 'en' ? `Analyst Baby ${mbti}` : `分析家寶寶 ${mbti}`
+    };
+  }
+  if (axis.n && axis.f) {
+    return {
+      className: 'mbti-green',
+      text: currentLang === 'en' ? `Diplomat Baby ${mbti}` : `外交家寶寶 ${mbti}`
+    };
+  }
+  if (axis.s && (mbti.includes('J'))) {
+    return {
+      className: 'mbti-blue',
+      text: currentLang === 'en' ? `Guardian Baby ${mbti}` : `守護者寶寶 ${mbti}`
+    };
+  }
+  return {
+    className: 'mbti-yellow',
+    text: currentLang === 'en' ? `Explorer Baby ${mbti}` : `探險家寶寶 ${mbti}`
+  };
 }
 
 function updateLanguageUI() {
@@ -756,9 +789,12 @@ function showResult() {
   const fallbackZh = reportPack.zh;
   const report = currentLang === 'en' && reportPack.en?.title ? reportPack.en : fallbackZh;
   const cuteTitle = report.title.replace(/^[A-Z]{4}\s*/, '');
+  const badgeMeta = getMbtiBadgeMeta(mbti);
 
   reportName.textContent = t('reportName').replace('{{name}}', babyName);
-  reportMbti.textContent = '';
+  reportMbti.classList.remove(...mbtiBadgeColorClasses);
+  reportMbti.classList.add(badgeMeta.className);
+  reportMbti.textContent = badgeMeta.text;
   reportTitle.textContent = cuteTitle;
   analysisText.textContent = report.analysis;
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);

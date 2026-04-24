@@ -821,56 +821,73 @@ button:hover {
 }
 
 .baby-visual-wrap {
-  display: grid;
-  align-content: start;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0;
 }
 
 .report-grid.two-columns {
   grid-template-columns: 1fr 1fr;
 }
 
-#report-mbti {
-  margin: 0;
-  font-size: clamp(42px, 7vw, 76px);
-  line-height: 1.05;
-}
-
-.report-name,
-.report-title {
-  margin: 0;
-  font-size: clamp(22px, 2.8vw, 30px);
-}
-
-.report-badge {
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(5px);
-  padding: 6px 16px;
-  border-radius: 20px;
+.result-top-title {
   font-size: 0.9rem;
-  color: #666;
-  display: inline-block;
-  margin: 0 auto 15px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #55555f;
+  margin-top: -10px;
+  margin-bottom: 15px;
 }
 
-.result-card-title {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0 auto 20px;
+.mbti-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 14px;
 }
 
-.baby-avatar {
+.mbti-purple {
+  color: #6f54a8;
+  background: #f2ebff;
+}
+
+.mbti-green {
+  color: #2f7f61;
+  background: #eaf9f1;
+}
+
+.mbti-blue {
+  color: #2f63a9;
+  background: #ebf4ff;
+}
+
+.mbti-yellow {
+  color: #a96918;
+  background: #fff6dd;
+}
+
+.result-image-placeholder {
   width: min(380px, 86%);
   aspect-ratio: 1;
-  margin: 12px auto 0;
+  margin: 0 auto;
   border-radius: 999px;
   background: radial-gradient(circle at top, #fff, rgba(255, 255, 255, 0.7));
   border: 2px solid rgba(255, 255, 255, 0.88);
   box-shadow: 0 16px 32px rgba(123, 84, 163, 0.25);
   display: grid;
   place-items: center;
+}
+
+.mbti-nickname {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3f3f46;
 }
 
 .mbti-avatar {
