@@ -511,6 +511,10 @@ button:hover {
     0 0 18px rgba(198, 231, 255, 0.45);
 }
 
+.icon-source-bank {
+  display: none;
+}
+
 .magical-icon-svg {
   width: 50px;
   height: 50px;
@@ -528,57 +532,72 @@ button:hover {
 
 /* Round 1: Morandi palette for six prop cards (icon + circular frame). */
 .option-icon.icon-book {
-  background-color: rgba(141, 123, 104, 0.15);
+  background-color: rgba(195, 172, 147, 0.15);
   background-image: none;
 }
 
 .option-icon.icon-book .magical-icon-svg {
-  color: #8d7b68;
+  color: #C3AC93;
 }
 
 .option-icon.icon-plane {
-  background-color: rgba(120, 149, 178, 0.15);
+  background-color: rgba(143, 190, 209, 0.15);
   background-image: none;
 }
 
 .option-icon.icon-plane .magical-icon-svg {
-  color: #7895b2;
+  color: #8FBED1;
 }
 
 .option-icon.icon-ball {
-  background-color: rgba(201, 139, 112, 0.15);
+  background-color: rgba(212, 157, 140, 0.15);
   background-image: none;
 }
 
 .option-icon.icon-ball .magical-icon-svg {
-  color: #c98b70;
+  color: #D49D8C;
 }
 
 .option-icon.icon-piano {
-  background-color: rgba(107, 114, 142, 0.15);
+  background-color: rgba(140, 149, 181, 0.15);
   background-image: none;
 }
 
 .option-icon.icon-piano .magical-icon-svg {
-  color: #6b728e;
+  color: #8C95B5;
 }
 
 .option-icon.icon-palette {
-  background-color: rgba(154, 134, 164, 0.15);
+  background-color: rgba(181, 165, 192, 0.15);
   background-image: none;
 }
 
 .option-icon.icon-palette .magical-icon-svg {
-  color: #9a86a4;
+  color: #B5A5C0;
 }
 
 .option-icon.icon-camera {
-  background-color: rgba(127, 132, 135, 0.15);
+  background-color: rgba(142, 148, 149, 0.15);
   background-image: none;
 }
 
 .option-icon.icon-camera .magical-icon-svg {
-  color: #7f8487;
+  color: #8E9495;
+}
+
+.option-icon.icon-book .magical-icon-base,
+.option-icon.icon-plane .magical-icon-base,
+.option-icon.icon-ball .magical-icon-base,
+.option-icon.icon-piano .magical-icon-base,
+.option-icon.icon-palette .magical-icon-base,
+.option-icon.icon-camera .magical-icon-base,
+.option-icon.icon-book .magical-icon-base-ring,
+.option-icon.icon-plane .magical-icon-base-ring,
+.option-icon.icon-ball .magical-icon-base-ring,
+.option-icon.icon-piano .magical-icon-base-ring,
+.option-icon.icon-palette .magical-icon-base-ring,
+.option-icon.icon-camera .magical-icon-base-ring {
+  display: none;
 }
 
 .inline-picked-icon {
