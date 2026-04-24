@@ -515,15 +515,15 @@ button:hover {
 }
 
 .magical-icon-svg {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   color: #a793d6;
-  filter: drop-shadow(0 2px 6px rgba(178, 159, 226, 0.35));
+  filter: none;
 }
 
 .option-front .option-front-icon-svg {
-  width: 58px;
-  height: 58px;
+  width: 70px;
+  height: 70px;
   display: block;
   opacity: 1;
   visibility: visible;
@@ -537,70 +537,59 @@ button:hover {
   stroke: currentColor !important;
 }
 
-/* Round 1: Morandi palette for six prop cards (icon + circular frame). */
+/* Round 1: high-contrast solid colors for six key props. */
 .option-icon.icon-book {
-  background-color: transparent;
-  background-image: none;
+  background: transparent;
+  border: none;
 }
 
 .option-icon.icon-book .magical-icon-svg {
-  color: #C3AC93;
+  color: #8B4513;
 }
 
 .option-icon.icon-plane {
-  background-color: transparent;
-  background-image: none;
+  background: transparent;
+  border: none;
 }
 
 .option-icon.icon-plane .magical-icon-svg {
-  color: #8FBED1;
+  color: #2196F3;
 }
 
 .option-icon.icon-ball {
-  background-color: transparent;
-  background-image: none;
+  background: transparent;
+  border: none;
 }
 
 .option-icon.icon-ball .magical-icon-svg {
-  color: #D49D8C;
+  color: #FF9800;
 }
 
 .option-icon.icon-piano {
-  background-color: transparent;
-  background-image: none;
+  background: transparent;
+  border: none;
 }
 
 .option-icon.icon-piano .magical-icon-svg {
-  color: #8C95B5;
+  color: #333333;
 }
 
 .option-icon.icon-palette {
-  background-color: transparent;
-  background-image: none;
+  background: transparent;
+  border: none;
 }
 
 .option-icon.icon-palette .magical-icon-svg {
-  color: #B5A5C0;
+  color: #9C27B0;
 }
 
 .option-icon.icon-camera {
-  background-color: transparent;
-  background-image: none;
+  background: transparent;
+  border: none;
 }
 
 .option-icon.icon-camera .magical-icon-svg {
-  color: #8E9495;
-}
-
-.option-icon.icon-book .magical-icon-glyph *,
-.option-icon.icon-plane .magical-icon-glyph *,
-.option-icon.icon-ball .magical-icon-glyph *,
-.option-icon.icon-piano .magical-icon-glyph *,
-.option-icon.icon-palette .magical-icon-glyph *,
-.option-icon.icon-camera .magical-icon-glyph * {
-  fill: none !important;
-  stroke: currentColor !important;
-  stroke-width: 2.5 !important;
+  color: #455A64;
 }
 
 .option-icon.icon-book .magical-icon-base,
@@ -1103,8 +1092,8 @@ button:hover {
     height: 46px;
   }
   .option-front .option-front-icon-svg {
-    width: 42px;
-    height: 42px;
+    width: 56px;
+    height: 56px;
   }
   .badge-wrap {
     display: grid;
