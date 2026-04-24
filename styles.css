@@ -497,8 +497,8 @@ button:hover {
 }
 
 .option-icon {
-  width: 90px;
-  height: 90px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   background: radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.96), rgba(239, 235, 255, 0.95) 58%, rgba(224, 241, 255, 0.9) 100%);
   border: 1px solid rgba(199, 177, 234, 0.55);
@@ -523,8 +523,8 @@ button:hover {
 }
 
 .option-front .option-front-icon-svg {
-  width: 32px;
-  height: 32px;
+  width: 58px;
+  height: 58px;
   display: block;
   opacity: 1;
   visibility: visible;
@@ -1079,13 +1079,17 @@ button:hover {
     min-height: 240px;
   }
   .option-icon {
-    width: 66px;
-    height: 66px;
+    width: 96px;
+    height: 96px;
     margin: 0 auto;
   }
   .magical-icon-svg {
-    width: 38px;
-    height: 38px;
+    width: 46px;
+    height: 46px;
+  }
+  .option-front .option-front-icon-svg {
+    width: 42px;
+    height: 42px;
   }
   .badge-wrap {
     display: grid;
