@@ -210,6 +210,51 @@ const iconKeyByName = {
   雲朵: 'cloud'
 };
 
+const frontFaceIconSvgs = {
+  book: `
+    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="書" xmlns="http://www.w3.org/2000/svg">
+      <rect x="9" y="10" width="18" height="18" rx="3.5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M18 10v18M12.5 15h3.2M12.5 19h3.2M12.5 23h3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  `,
+  plane: `
+    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="紙飛機" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.5 20.8L27.5 12l-7 12.2-3.1-3.5-4.8 3.7 1.4-5.3-5.5 1.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M21 20.6c2 .8 3.5 2.1 4.5 3.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </svg>
+  `,
+  ball: `
+    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="球" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="19" r="9.2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M11.5 22.8c3.4 1.8 8.5 1.3 12-1.1M14.5 12.3c2.5 2.1 5.7 3.1 9 2.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </svg>
+  `,
+  piano: `
+    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="鋼琴" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8.5" y="11" width="19" height="16.5" rx="3.7" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M11.5 15h13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M13 17.6v7M17 17.6v7M21 17.6v7M25 17.6v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+  `,
+  palette: `
+    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="調色盤" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 10.2c-5.8 0-10 4.2-10 9.1 0 4.7 3.6 8.5 8 8.5h1.2c1.3 0 2.2-1 2.2-2.1 0-.9-.7-1.7-.7-2.7 0-1.5 1.2-2.7 2.9-2.7h1.6c2.6 0 4.3-1.6 4.3-4.3 0-3.3-4.2-5.8-9.5-5.8z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="13.2" cy="16" r="1.2" fill="currentColor"/>
+      <circle cx="16.4" cy="13.5" r="1.2" fill="currentColor"/>
+      <circle cx="20.2" cy="13.8" r="1.2" fill="currentColor"/>
+      <circle cx="23.2" cy="16.7" r="1.2" fill="currentColor"/>
+    </svg>
+  `,
+  camera: `
+    <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="相機" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8.5" y="13" width="19" height="13.5" rx="3.2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <rect x="12" y="10.3" width="6.6" height="3.2" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="18.3" cy="19.7" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="24.2" cy="16.3" r="1.1" fill="currentColor"/>
+    </svg>
+  `
+};
+
 const rounds = [
   {
     key: 'interest',
@@ -378,6 +423,14 @@ function getMagicalIconSvg(iconKey, label = '') {
 
 function getItemIconMarkup(item) {
   return getMagicalIconSvg(getItemIconKey(item), getLocalizedItemName(item));
+}
+
+function getFrontFaceIconMarkup(item) {
+  const iconKey = getItemIconKey(item);
+  if (frontFaceIconSvgs[iconKey]) {
+    return frontFaceIconSvgs[iconKey];
+  }
+  return getItemIconMarkup(item);
 }
 
 function renderZodiacOptions() {
@@ -634,7 +687,7 @@ function renderRound() {
     btn.innerHTML = `
       <span class="option-card-inner" aria-hidden="true">
         <span class="option-face option-front">
-          <span class="option-icon icon-${getItemIconKey(item)}">${getItemIconMarkup(item)}</span>
+          <span class="option-icon icon-${getItemIconKey(item)}">${getFrontFaceIconMarkup(item)}</span>
         </span>
         <span class="option-face option-back">
           <span class="option-back-head">
