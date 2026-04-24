@@ -499,6 +499,8 @@ button:hover {
 .option-icon {
   width: 128px;
   height: 128px;
+  transform: scale(1.6) !important;
+  transform-origin: center center;
   border-radius: 50%;
   background: radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.96), rgba(239, 235, 255, 0.95) 58%, rgba(224, 241, 255, 0.9) 100%);
   border: 1px solid rgba(199, 177, 234, 0.55);
