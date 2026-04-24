@@ -202,7 +202,13 @@ const frontFaceIconSvgs = {
   ball: '<img class="option-front-icon-img" src="./assets/ball.png" alt="球" />',
   piano: '<img class="option-front-icon-img" src="./assets/piano.png" alt="鋼琴" />',
   palette: '<img class="option-front-icon-img" src="./assets/palette.png" alt="調色盤" />',
-  camera: '<img class="option-front-icon-img" src="./assets/camera.png" alt="相機" />'
+  camera: '<img class="option-front-icon-img" src="./assets/camera.png" alt="相機" />',
+  abacus: '<img class="option-front-icon-img" src="./assets/level2_calculator.png" alt="計算機" />',
+  pen: '<img class="option-front-icon-img" src="./assets/level2_pen.png" alt="筆" />',
+  blocks: '<img class="option-front-icon-img" src="./assets/level2_blocks.png" alt="積木" />',
+  compass: '<img class="option-front-icon-img" src="./assets/level2_compass.png" alt="指南針" />',
+  microphone: '<img class="option-front-icon-img" src="./assets/level2_mic.png" alt="麥克風" />',
+  medkit: '<img class="option-front-icon-img" src="./assets/level2_medical.png" alt="醫藥箱" />'
 };
 
 
