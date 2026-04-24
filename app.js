@@ -26,7 +26,7 @@ const uiTranslations = {
     alertProfileRequired: '請先輸入寶寶小名與星座',
     alertPickRequired: '本關請先選 1 個道具',
     reportName: '{{name}} 的專屬結果圖卡',
-    resultSealTitle: '抓周印記 💮',
+    resultSealTitle: '抓周印記',
     resultDimensionTitle: '2x2 四向度解析',
     resultAnalysisTitle: 'MBTI 深度分析',
     resultZodiacTitle: '星座加成效應',
@@ -58,7 +58,7 @@ const uiTranslations = {
     alertProfileRequired: 'Please enter nickname and zodiac sign first.',
     alertPickRequired: 'Please select one item in this round first.',
     reportName: "{{name}}'s Personality Report",
-    resultSealTitle: 'Picked Seals 💮',
+    resultSealTitle: 'Picked Seals',
     resultDimensionTitle: '2x2 Dimension Map',
     resultAnalysisTitle: 'MBTI Deep Analysis',
     resultZodiacTitle: 'Zodiac Synergy',
@@ -196,25 +196,25 @@ const iconKeyByName = {
   雲朵: 'cloud'
 };
 
-const frontFaceIconSvgs = {
-  book: '<img class="option-front-icon-img" src="./assets/book.png" alt="書" />',
-  plane: '<img class="option-front-icon-img" src="./assets/plane.png" alt="紙飛機" />',
-  ball: '<img class="option-front-icon-img" src="./assets/ball.png" alt="球" />',
-  piano: '<img class="option-front-icon-img" src="./assets/piano.png" alt="鋼琴" />',
-  palette: '<img class="option-front-icon-img" src="./assets/palette.png" alt="調色盤" />',
-  camera: '<img class="option-front-icon-img" src="./assets/camera.png" alt="相機" />',
-  abacus: '<img class="option-front-icon-img" src="./assets/level2_calculator.png" alt="計算機" />',
-  pen: '<img class="option-front-icon-img" src="./assets/level2_pen.png" alt="筆" />',
-  blocks: '<img class="option-front-icon-img" src="./assets/level2_blocks.png" alt="積木" />',
-  compass: '<img class="option-front-icon-img" src="./assets/level2_compass.png" alt="指南針" />',
-  microphone: '<img class="option-front-icon-img" src="./assets/level2_mic.png" alt="麥克風" />',
-  medkit: '<img class="option-front-icon-img" src="./assets/level2_medical.png" alt="醫藥箱" />',
-  heart: '<img class="option-front-icon-img" src="./assets/level3_heart.png" alt="愛心" />',
-  crown: '<img class="option-front-icon-img" src="./assets/level3_crown.png" alt="皇冠" />',
-  sun: '<img class="option-front-icon-img sun-icon" src="./assets/level3_sun.png" alt="太陽" />',
-  moon: '<img class="option-front-icon-img" src="./assets/level3_moon.png" alt="月亮" />',
-  gear: '<img class="option-front-icon-img" src="./assets/level3_gear.png" alt="齒輪" />',
-  cloud: '<img class="option-front-icon-img" src="./assets/level3_cloud.png" alt="雲朵" />'
+const itemImageAssets = {
+  book: { src: './assets/book.png', alt: '書' },
+  plane: { src: './assets/plane.png', alt: '紙飛機' },
+  ball: { src: './assets/ball.png', alt: '球' },
+  piano: { src: './assets/piano.png', alt: '鋼琴' },
+  palette: { src: './assets/palette.png', alt: '調色盤' },
+  camera: { src: './assets/camera.png', alt: '相機' },
+  abacus: { src: './assets/level2_calculator.png', alt: '計算機' },
+  pen: { src: './assets/level2_pen.png', alt: '筆' },
+  blocks: { src: './assets/level2_blocks.png', alt: '積木' },
+  compass: { src: './assets/level2_compass.png', alt: '指南針' },
+  microphone: { src: './assets/level2_mic.png', alt: '麥克風' },
+  medkit: { src: './assets/level2_medical.png', alt: '醫藥箱' },
+  heart: { src: './assets/level3_heart.png', alt: '愛心' },
+  crown: { src: './assets/level3_crown.png', alt: '皇冠' },
+  sun: { src: './assets/level3_sun.png', alt: '太陽' },
+  moon: { src: './assets/level3_moon.png', alt: '月亮' },
+  gear: { src: './assets/level3_gear.png', alt: '齒輪' },
+  cloud: { src: './assets/level3_cloud.png', alt: '雲朵' }
 };
 
 
@@ -407,12 +407,16 @@ function getItemIconMarkup(item) {
 }
 
 function hasFrontFaceImage(item) {
-  return Boolean(frontFaceIconSvgs[getItemIconKey(item)]);
+  return Boolean(itemImageAssets[getItemIconKey(item)]);
 }
 
 function getFrontFaceIconMarkup(item) {
   const iconKey = getItemIconKey(item);
-  if (frontFaceIconSvgs[iconKey]) return frontFaceIconSvgs[iconKey];
+  const imageAsset = itemImageAssets[iconKey];
+  if (imageAsset) {
+    const sunClass = iconKey === 'sun' ? ' sun-icon' : '';
+    return `<img class="option-front-icon-img${sunClass}" src="${imageAsset.src}" alt="${imageAsset.alt}" />`;
+  }
   return getItemIconMarkup(item);
 }
 
@@ -811,7 +815,11 @@ function showResult() {
   chosen.forEach((item) => {
     const tag = document.createElement('div');
     tag.className = 'seal-item picked-item';
-    tag.innerHTML = `<span class="seal-icon">${getItemIconMarkup(item)}</span><strong>${getLocalizedItemName(item)}</strong>`;
+    const iconKey = getItemIconKey(item);
+    const imageAsset = itemImageAssets[iconKey];
+    const imageAlt = imageAsset?.alt || getLocalizedItemName(item);
+    const imageSrc = imageAsset?.src || '';
+    tag.innerHTML = `<img class="stamp-prop-image" src="${imageSrc}" alt="${imageAlt}" /><strong>${getLocalizedItemName(item)}</strong>`;
     pickedTags.appendChild(tag);
   });
 
