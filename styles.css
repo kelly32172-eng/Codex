@@ -541,6 +541,7 @@ button:hover {
   height: auto;
   display: block;
   object-fit: contain;
+  mix-blend-mode: multiply;
   background: transparent;
   border: 0;
   box-shadow: none;
