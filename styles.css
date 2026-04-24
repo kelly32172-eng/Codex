@@ -791,6 +791,20 @@ button:hover {
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
+#result-screen .report-card,
+#result-screen .baby-visual-wrap,
+#result-screen .result-side section,
+#result-screen .seal-item,
+#result-screen .picked-item,
+#result-screen .report-block,
+#result-screen .report-badge,
+#result-screen .dimension-card,
+#result-screen .dimension-2x2 {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 .result-top {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -838,6 +852,13 @@ button:hover {
   display: inline-block;
   margin: 0 auto 15px;
   border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.result-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto 20px;
 }
 
 .baby-avatar {
