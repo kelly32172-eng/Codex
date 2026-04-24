@@ -340,7 +340,6 @@ const musicToggleBtn = document.getElementById('musicToggle');
 const langToggleBtn = document.getElementById('langToggle');
 const reportName = document.getElementById('report-name');
 const reportMbti = document.getElementById('report-mbti');
-const reportTitle = document.getElementById('report-title');
 const analysisText = document.getElementById('analysis-text');
 const zodiacText = document.getElementById('zodiac-text');
 const careerText = document.getElementById('career-text');
@@ -349,6 +348,24 @@ const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
 const dimensionGrid = document.getElementById('dimension-grid');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
+const mbtiMetaMap = {
+  INTJ: { nickname: '小小策略家', category: '分析家寶寶', colorClass: 'mbti-purple' },
+  INTP: { nickname: '小小發明家', category: '分析家寶寶', colorClass: 'mbti-purple' },
+  ENTJ: { nickname: '小小霸總', category: '分析家寶寶', colorClass: 'mbti-purple' },
+  ENTP: { nickname: '小小智多星', category: '分析家寶寶', colorClass: 'mbti-purple' },
+  INFJ: { nickname: '小小讀心者', category: '外交家寶寶', colorClass: 'mbti-green' },
+  INFP: { nickname: '小小夢想家', category: '外交家寶寶', colorClass: 'mbti-green' },
+  ENFJ: { nickname: '小小太陽', category: '外交家寶寶', colorClass: 'mbti-green' },
+  ENFP: { nickname: '小小開心果', category: '外交家寶寶', colorClass: 'mbti-green' },
+  ISTJ: { nickname: '小小巡邏員', category: '守護者寶寶', colorClass: 'mbti-blue' },
+  ISFJ: { nickname: '小小棉襖', category: '守護者寶寶', colorClass: 'mbti-blue' },
+  ESTJ: { nickname: '小小總指揮', category: '守護者寶寶', colorClass: 'mbti-blue' },
+  ESFJ: { nickname: '小小公關', category: '守護者寶寶', colorClass: 'mbti-blue' },
+  ISTP: { nickname: '小小工匠', category: '探險家寶寶', colorClass: 'mbti-yellow' },
+  ISFP: { nickname: '小小藝術家', category: '探險家寶寶', colorClass: 'mbti-yellow' },
+  ESTP: { nickname: '小小冒險王', category: '探險家寶寶', colorClass: 'mbti-yellow' },
+  ESFP: { nickname: '小小大明星', category: '探險家寶寶', colorClass: 'mbti-yellow' }
+};
 
 function t(key) {
   return uiTranslations[currentLang][key] || uiTranslations.zh[key] || key;
@@ -417,34 +434,12 @@ function getZodiacLabel() {
 }
 
 function getMbtiBadgeMeta(mbti) {
-  const axis = {
-    n: mbti.includes('N'),
-    t: mbti.includes('T'),
-    f: mbti.includes('F'),
-    s: mbti.includes('S')
-  };
-
-  if (axis.n && axis.t) {
-    return {
-      className: 'mbti-purple',
-      text: currentLang === 'en' ? `Analyst Baby ${mbti}` : `分析家寶寶 ${mbti}`
-    };
-  }
-  if (axis.n && axis.f) {
-    return {
-      className: 'mbti-green',
-      text: currentLang === 'en' ? `Diplomat Baby ${mbti}` : `外交家寶寶 ${mbti}`
-    };
-  }
-  if (axis.s && (mbti.includes('J'))) {
-    return {
-      className: 'mbti-blue',
-      text: currentLang === 'en' ? `Guardian Baby ${mbti}` : `守護者寶寶 ${mbti}`
-    };
-  }
+  const meta = mbtiMetaMap[mbti] || mbtiMetaMap.ENFP;
   return {
-    className: 'mbti-yellow',
-    text: currentLang === 'en' ? `Explorer Baby ${mbti}` : `探險家寶寶 ${mbti}`
+    className: meta.colorClass,
+    category: meta.category,
+    nickname: meta.nickname,
+    badgeText: `${meta.category} ${mbti}`
   };
 }
 
@@ -788,14 +783,12 @@ function showResult() {
   const reportPack = reportDatabase[mbti] || reportDatabase.ENFP;
   const fallbackZh = reportPack.zh;
   const report = currentLang === 'en' && reportPack.en?.title ? reportPack.en : fallbackZh;
-  const cuteTitle = report.title.replace(/^[A-Z]{4}\s*/, '');
   const badgeMeta = getMbtiBadgeMeta(mbti);
 
-  reportName.textContent = t('reportName').replace('{{name}}', babyName);
+  reportName.textContent = `${babyName} 是 ${badgeMeta.nickname}`;
   reportMbti.classList.remove(...mbtiBadgeColorClasses);
   reportMbti.classList.add(badgeMeta.className);
-  reportMbti.textContent = badgeMeta.text;
-  reportTitle.textContent = cuteTitle;
+  reportMbti.textContent = badgeMeta.badgeText;
   analysisText.textContent = report.analysis;
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;
