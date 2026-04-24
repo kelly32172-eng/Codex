@@ -901,6 +901,31 @@ button:hover {
   gap: 14px;
 }
 
+.stamp-title {
+  margin-top: -8px;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lucky-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  border: 2px solid #c11d2a;
+  background: #d62a36;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  font-family: "Kiwi Maru", "Noto Serif TC", serif;
+}
+
 .seal-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -934,15 +959,18 @@ button:hover {
   font-size: 28px;
 }
 
-.seal-icon {
-  display: inline-flex;
-  width: 38px;
-  height: 38px;
-}
-
-.seal-icon .magical-icon-svg {
-  width: 100%;
-  height: 100%;
+.stamp-prop-image {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply;
+  filter: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background-color: transparent !important;
 }
 
 .dimension-grid {
