@@ -85,31 +85,44 @@ const zodiacOptions = [
 
 const magicalIconPaths = {
   book: `
-    <path d="M10 10.4h16c1.1 0 2 .9 2 2v13.2c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V12.4c0-1.1.9-2 2-2z" fill="currentColor"/>
-    <rect x="17" y="10.4" width="1.8" height="17.2" fill="currentColor"/>
+    <rect x="8" y="10" width="20" height="20" rx="4.5" />
+    <path d="M18 10v20" />
+    <path d="M12 15h4M12 19h4M12 23h4" />
+    <path d="M20 15l2 2 3-4" />
+    <circle cx="25.5" cy="12.5" r="1.4" />
   `,
   plane: `
-    <path d="M8.2 20.8L28 12l-6.8 12.1-3.1-3.4-4.9 3.8 1.5-5.3-6.5 1.6z" fill="currentColor"/>
+    <path d="M8 21l20-8-6.5 11.2-2.8-3.5-4.5 3.6 1.2-4.9-7.4 1.6z" />
+    <path d="M21.5 20.5c2.2.8 3.8 2.2 4.8 4" />
+    <path d="M25 18.5l2-1.2M26.6 21l2.2.3" />
   `,
   ball: `
-    <circle cx="18" cy="20" r="9.5" fill="currentColor"/>
+    <circle cx="18" cy="20" r="9.5" />
+    <path d="M11.4 23.5c3.8 1.9 8.9 1.5 12.4-1.3" />
+    <path d="M14.8 12.3c2.8 2.1 6 3 8.9 2.6" />
+    <circle cx="25.5" cy="11.5" r="1.5" />
   `,
   piano: `
-    <rect x="8.2" y="11" width="19.6" height="17.8" rx="4.6" fill="currentColor"/>
-    <rect x="11" y="16.5" width="13.8" height="1.9" fill="currentColor"/>
-    <rect x="11.2" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
-    <rect x="15.1" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
-    <rect x="19" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
-    <rect x="22.9" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor"/>
+    <rect x="8" y="11" width="20" height="18" rx="5" />
+    <path d="M11.5 15.5h13" />
+    <rect x="11" y="18" width="3" height="8" rx="1.2" />
+    <rect x="15" y="18" width="3" height="8" rx="1.2" />
+    <rect x="19" y="18" width="3" height="8" rx="1.2" />
+    <rect x="23" y="18" width="3" height="8" rx="1.2" />
   `,
   palette: `
-    <path d="M18 10c-5.8 0-10 4.3-10 9.3 0 4.8 3.7 8.7 8.2 8.7h1.3c1.3 0 2.2-1 2.2-2.1 0-1-.7-1.8-.7-2.8 0-1.6 1.2-2.8 3-2.8h1.6c2.6 0 4.4-1.6 4.4-4.4C28 12.6 23.8 10 18 10z" fill="currentColor"/>
+    <path d="M18 10c-5.8 0-10 4.3-10 9.3 0 4.8 3.7 8.7 8.2 8.7h1.3c1.3 0 2.2-1 2.2-2.1 0-1-.7-1.8-.7-2.8 0-1.6 1.2-2.8 3-2.8h1.6c2.6 0 4.4-1.6 4.4-4.4C28 12.6 23.8 10 18 10z" />
+    <circle cx="13" cy="16" r="1.6" />
+    <circle cx="16.4" cy="13.4" r="1.5" />
+    <circle cx="20.3" cy="13.8" r="1.4" />
+    <circle cx="23.2" cy="16.6" r="1.4" />
   `,
   camera: `
-    <rect x="8" y="13" width="20" height="14" rx="4.2" fill="currentColor"/>
-    <rect x="12" y="10" width="7" height="4" rx="1.7" fill="currentColor"/>
-    <circle cx="19" cy="20" r="4.2" fill="currentColor"/>
-    <circle cx="25" cy="16.5" r="1.2" fill="currentColor"/>
+    <rect x="8" y="13" width="20" height="14" rx="4.2" />
+    <rect x="12" y="10" width="7" height="4" rx="1.7" />
+    <circle cx="19" cy="20" r="4.2" />
+    <circle cx="19" cy="20" r="1.8" />
+    <circle cx="25" cy="16.5" r="1.2" />
   `,
   abacus: `
     <circle cx="18" cy="20" r="9.5" fill="#fffaf2"/>
@@ -200,41 +213,66 @@ const iconKeyByName = {
 const frontFaceIconSvgs = {
   book: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="書" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 10.4h16c1.1 0 2 .9 2 2v13.2c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V12.4c0-1.1.9-2 2-2z" fill="currentColor" stroke="none"/>
-      <rect x="17" y="10.4" width="1.8" height="17.2" fill="currentColor" stroke="none"/>
+      <g class="magical-icon-glyph" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="10" width="20" height="20" rx="4.5" />
+        <path d="M18 10v20" />
+        <path d="M12 15h4M12 19h4M12 23h4" />
+        <path d="M20 15l2 2 3-4" />
+        <circle cx="25.5" cy="12.5" r="1.4" />
+      </g>
     </svg>
   `,
   plane: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="紙飛機" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.2 20.8L28 12l-6.8 12.1-3.1-3.4-4.9 3.8 1.5-5.3-6.5 1.6z" fill="currentColor" stroke="none"/>
+      <g class="magical-icon-glyph" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 21l20-8-6.5 11.2-2.8-3.5-4.5 3.6 1.2-4.9-7.4 1.6z" />
+        <path d="M21.5 20.5c2.2.8 3.8 2.2 4.8 4" />
+        <path d="M25 18.5l2-1.2M26.6 21l2.2.3" />
+      </g>
     </svg>
   `,
   ball: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="球" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="19" r="9.2" fill="currentColor" stroke="none"/>
+      <g class="magical-icon-glyph" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="20" r="9.5" />
+        <path d="M11.4 23.5c3.8 1.9 8.9 1.5 12.4-1.3" />
+        <path d="M14.8 12.3c2.8 2.1 6 3 8.9 2.6" />
+        <circle cx="25.5" cy="11.5" r="1.5" />
+      </g>
     </svg>
   `,
   piano: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="鋼琴" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8.2" y="11" width="19.6" height="17.8" rx="4.6" fill="currentColor" stroke="none"/>
-      <rect x="11" y="16.5" width="13.8" height="1.9" fill="currentColor" stroke="none"/>
-      <rect x="11.2" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
-      <rect x="15.1" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
-      <rect x="19" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
-      <rect x="22.9" y="19.3" width="2.5" height="7" rx="0.9" fill="currentColor" stroke="none"/>
+      <g class="magical-icon-glyph" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="11" width="20" height="18" rx="5" />
+        <path d="M11.5 15.5h13" />
+        <rect x="11" y="18" width="3" height="8" rx="1.2" />
+        <rect x="15" y="18" width="3" height="8" rx="1.2" />
+        <rect x="19" y="18" width="3" height="8" rx="1.2" />
+        <rect x="23" y="18" width="3" height="8" rx="1.2" />
+      </g>
     </svg>
   `,
   palette: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="調色盤" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 10.2c-5.8 0-10 4.2-10 9.1 0 4.7 3.6 8.5 8 8.5h1.2c1.3 0 2.2-1 2.2-2.1 0-.9-.7-1.7-.7-2.7 0-1.5 1.2-2.7 2.9-2.7h1.6c2.6 0 4.3-1.6 4.3-4.3 0-3.3-4.2-5.8-9.5-5.8z" fill="currentColor" stroke="none"/>
+      <g class="magical-icon-glyph" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 10c-5.8 0-10 4.3-10 9.3 0 4.8 3.7 8.7 8.2 8.7h1.3c1.3 0 2.2-1 2.2-2.1 0-1-.7-1.8-.7-2.8 0-1.6 1.2-2.8 3-2.8h1.6c2.6 0 4.4-1.6 4.4-4.4C28 12.6 23.8 10 18 10z" />
+        <circle cx="13" cy="16" r="1.6" />
+        <circle cx="16.4" cy="13.4" r="1.5" />
+        <circle cx="20.3" cy="13.8" r="1.4" />
+        <circle cx="23.2" cy="16.6" r="1.4" />
+      </g>
     </svg>
   `,
   camera: `
     <svg class="magical-icon-svg option-front-icon-svg" viewBox="0 0 36 36" role="img" aria-label="相機" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8.5" y="13" width="19" height="13.5" rx="3.2" fill="currentColor" stroke="none"/>
-      <rect x="12" y="10.3" width="6.6" height="3.2" rx="1.2" fill="currentColor" stroke="none"/>
-      <circle cx="18.3" cy="19.7" r="3.8" fill="currentColor" stroke="none"/>
-      <circle cx="24.2" cy="16.3" r="1.1" fill="currentColor" stroke="none"/>
+      <g class="magical-icon-glyph" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="13" width="20" height="14" rx="4.2" />
+        <rect x="12" y="10" width="7" height="4" rx="1.7" />
+        <circle cx="19" cy="20" r="4.2" />
+        <circle cx="19" cy="20" r="1.8" />
+        <circle cx="25" cy="16.5" r="1.2" />
+      </g>
     </svg>
   `
 };

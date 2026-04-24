@@ -592,6 +592,17 @@ button:hover {
   color: #8E9495;
 }
 
+.option-icon.icon-book .magical-icon-glyph *,
+.option-icon.icon-plane .magical-icon-glyph *,
+.option-icon.icon-ball .magical-icon-glyph *,
+.option-icon.icon-piano .magical-icon-glyph *,
+.option-icon.icon-palette .magical-icon-glyph *,
+.option-icon.icon-camera .magical-icon-glyph * {
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2.5 !important;
+}
+
 .option-icon.icon-book .magical-icon-base,
 .option-icon.icon-plane .magical-icon-base,
 .option-icon.icon-ball .magical-icon-base,
