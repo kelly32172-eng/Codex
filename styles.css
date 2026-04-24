@@ -521,20 +521,25 @@ button:hover {
   filter: none;
 }
 
-.option-front .option-front-icon-svg {
-  width: 70px;
-  height: 70px;
-  display: block;
-  opacity: 1;
-  visibility: visible;
+.option-icon.has-front-image {
+  width: 100%;
+  height: 100%;
+  transform: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .option-front .option-front-icon-img {
   width: 60%;
-  max-width: 76px;
+  max-width: none;
+  max-height: 60%;
   height: auto;
   display: block;
-  margin: 0 auto;
   object-fit: contain;
   background: transparent;
   border: 0;
@@ -1103,12 +1108,9 @@ button:hover {
     width: 46px;
     height: 46px;
   }
-  .option-front .option-front-icon-svg {
-    width: 56px;
-    height: 56px;
-  }
   .option-front .option-front-icon-img {
-    max-width: 62px;
+    width: 60%;
+    max-height: 60%;
   }
   .badge-wrap {
     display: grid;
