@@ -649,10 +649,14 @@ function renderRound() {
     btn.className = `option ${isSelected ? 'selected' : ''}`;
     btn.type = 'button';
     btn.setAttribute('aria-pressed', String(isSelected));
+    const iconMarkup = getFrontFaceIconMarkup(item);
+    const frontFaceHtml = round.key === 'personality'
+      ? iconMarkup
+      : `<span class="option-icon icon-${getItemIconKey(item)} ${hasFrontFaceImage(item) ? 'has-front-image' : ''}">${iconMarkup}</span>`;
     btn.innerHTML = `
       <span class="option-card-inner" aria-hidden="true">
         <span class="option-face option-front">
-          <span class="option-icon icon-${getItemIconKey(item)} ${hasFrontFaceImage(item) ? 'has-front-image' : ''}">${getFrontFaceIconMarkup(item)}</span>
+          ${frontFaceHtml}
         </span>
         <span class="option-face option-back">
           <span class="option-back-head">

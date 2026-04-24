@@ -544,6 +544,19 @@ button:hover {
   object-fit: contain;
 }
 
+.option-front img[src*="level3_"] {
+  transform: scale(1.5) !important;
+  transform-origin: center center;
+  justify-self: center;
+  align-self: center;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  background-color: transparent !important;
+}
+
 .magical-icon-svg .magical-icon-glyph [fill]:not([fill="none"]) {
   fill: currentColor !important;
 }
@@ -1112,6 +1125,15 @@ button:hover {
     width: 50%;
     height: 50%;
     margin: auto;
+  }
+  .option-front img[src*="level3_"] {
+    transform: scale(1.5) !important;
+    mix-blend-mode: multiply;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    -webkit-mask: none !important;
+    mask: none !important;
+    background-color: transparent !important;
   }
   .badge-wrap {
     display: grid;
