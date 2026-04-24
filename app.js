@@ -443,6 +443,10 @@ function getMbtiBadgeMeta(mbti) {
   };
 }
 
+function getMbtiImagePath(mbti) {
+  return `./assets/mbti_${String(mbti).toLowerCase()}.png`;
+}
+
 function updateLanguageUI() {
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     el.textContent = t(el.dataset.i18n);
@@ -793,7 +797,8 @@ function showResult() {
   zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
   parentingText.textContent = report.parenting;
 
-  babyAvatar.innerHTML = `<div class="mbti-avatar avatar-${mbti.toLowerCase()}"></div>`;
+  const mbtiImagePath = getMbtiImagePath(mbti);
+  babyAvatar.innerHTML = `<img class="result-image" src="${mbtiImagePath}" alt="${badgeMeta.nickname} ${mbti} 結果圖" />`;
 
   careerText.innerHTML = '';
   report.careers.forEach((career) => {
