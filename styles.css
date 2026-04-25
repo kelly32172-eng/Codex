@@ -929,6 +929,10 @@ button:hover {
   color: #33455f;
 }
 
+.report-text {
+  white-space: pre-line;
+}
+
 .report-list {
   list-style-type: disc;
   padding-left: 24px;
