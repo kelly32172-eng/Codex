@@ -557,7 +557,7 @@ const careerList = reportSections.querySelector('.career-list');
 const parentingContent = reportSections.querySelector('.parenting-content');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
-const downloadBtn = document.getElementById('download-btn');
+const shareBtn = document.getElementById('share-btn');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
   INTJ: { nickname: '小小策略家', category: '分析家寶寶', colorClass: 'mbti-purple' },
@@ -891,19 +891,21 @@ document.getElementById('next-btn').addEventListener('click', () => {
 });
 
 document.getElementById('restart-btn').addEventListener('click', resetAll);
-downloadBtn.addEventListener('click', handleDownloadReportImage);
+if (shareBtn) {
+  shareBtn.addEventListener('click', handleShareReportImage);
+}
 
-async function handleDownloadReportImage() {
+async function handleShareReportImage() {
   const targetContainer = document.querySelector('#result-screen .report-card');
   if (!targetContainer || typeof html2canvas !== 'function') return;
 
-  const originalText = downloadBtn.textContent;
-  const originalDisplay = downloadBtn.style.display;
-  const hadHiddenClass = downloadBtn.classList.contains('hidden');
-  downloadBtn.disabled = true;
-  downloadBtn.textContent = '圖片生成中... ⏳';
-  downloadBtn.classList.add('hidden');
-  downloadBtn.style.display = 'none';
+  const originalText = shareBtn.textContent;
+  const originalDisplay = shareBtn.style.display;
+  const hadHiddenClass = shareBtn.classList.contains('hidden');
+  shareBtn.disabled = true;
+  shareBtn.textContent = '圖片生成中... ⏳';
+  shareBtn.classList.add('hidden');
+  shareBtn.style.display = 'none';
 
   try {
     const canvas = await html2canvas(targetContainer, {
@@ -923,11 +925,11 @@ async function handleDownloadReportImage() {
   } catch (error) {
     console.error('下載報告圖片失敗：', error);
   } finally {
-    downloadBtn.disabled = false;
-    downloadBtn.textContent = originalText;
-    downloadBtn.style.display = originalDisplay;
+    shareBtn.disabled = false;
+    shareBtn.textContent = originalText;
+    shareBtn.style.display = originalDisplay;
     if (!hadHiddenClass) {
-      downloadBtn.classList.remove('hidden');
+      shareBtn.classList.remove('hidden');
     }
   }
 }
