@@ -322,6 +322,99 @@ reportDatabase.INTJ.en = {
 
 // TODO: expand en content for the other 14 MBTI report types.
 
+const mbtiDatabase = Object.fromEntries(
+  Object.entries(reportDatabase).map(([mbti, pack]) => [
+    mbti,
+    {
+      deepAnalysis: pack.zh.analysis,
+      careers: [...pack.zh.careers],
+      parentingAdvice: pack.zh.parenting
+    }
+  ])
+);
+
+const mbtiGalaxyMap = {
+  INTJ: 'NT', INTP: 'NT', ENTJ: 'NT', ENTP: 'NT',
+  INFJ: 'NF', INFP: 'NF', ENFJ: 'NF', ENFP: 'NF',
+  ISTJ: 'SJ', ISFJ: 'SJ', ESTJ: 'SJ', ESFJ: 'SJ',
+  ISTP: 'SP', ISFP: 'SP', ESTP: 'SP', ESFP: 'SP'
+};
+
+const zodiacSynergyDatabase = {
+  aries: {
+    NT: '牡羊座的主動與衝勁，會放大 NT 型寶寶的開創與決策速度，讓想法更快走向行動。',
+    NF: '牡羊座的熱情能量，會讓 NF 型寶寶在關係中更勇敢表達理想，溫柔之外更有推進力。',
+    SJ: '牡羊座為 SJ 型寶寶注入突破框架的勇氣，讓穩健規劃中多一點果斷嘗試。',
+    SP: '牡羊座與 SP 型寶寶非常合拍，讓行動力、冒險心與臨場反應更加亮眼。'
+  },
+  taurus: {
+    NT: '金牛座的穩定節奏，讓 NT 型寶寶在高標準思考之外，更能耐心打磨長期成果。',
+    NF: '金牛座提供 NF 型寶寶情感安定感，讓理想與感受更容易落地成具體日常。',
+    SJ: '金牛座放大 SJ 型寶寶的責任感與持續力，形成可靠、踏實且可被信任的特質。',
+    SP: '金牛座讓 SP 型寶寶在即興之外多了耐心與韌性，能把天賦穩定累積成專長。'
+  },
+  gemini: {
+    NT: '雙子座提升 NT 型寶寶的多角度思辨力，讓邏輯與創新碰撞出更多解法。',
+    NF: '雙子座讓 NF 型寶寶表達更靈活，能把細膩感受轉成清楚且有感染力的分享。',
+    SJ: '雙子座為 SJ 型寶寶帶來彈性與好奇心，讓結構化能力中加入探索新方法的空間。',
+    SP: '雙子座加乘 SP 型寶寶的反應速度與社交魅力，讓互動與學習都更有節奏感。'
+  },
+  cancer: {
+    NT: '巨蟹座賦予 NT 型寶寶更多同理觸角，讓理性規劃同時兼顧他人感受。',
+    NF: '巨蟹座放大 NF 型寶寶的照顧力與情感深度，形成溫暖且有凝聚力的人格魅力。',
+    SJ: '巨蟹座讓 SJ 型寶寶的守護本能更加突出，對家庭與承諾展現高度責任心。',
+    SP: '巨蟹座幫助 SP 型寶寶在行動冒險之外，建立更穩定的情緒安全基地。'
+  },
+  leo: {
+    NT: '獅子座讓 NT 型寶寶在策略能力外，增加舞台感與領導說服力。',
+    NF: '獅子座點亮 NF 型寶寶的自信光芒，讓理想與善意更勇敢被世界看見。',
+    SJ: '獅子座為 SJ 型寶寶帶來更強的號召力，讓秩序建立更具正向影響力。',
+    SP: '獅子座與 SP 型寶寶組合，會放大表現力與行動膽識，成為全場焦點。'
+  },
+  virgo: {
+    NT: '處女座強化 NT 型寶寶的精準分析力，讓思考深度轉為可執行的高品質成果。',
+    NF: '處女座幫 NF 型寶寶把敏感與理想整理成有方法的實踐步驟。',
+    SJ: '處女座與 SJ 型寶寶相互加成，細節管理與責任執行能力都會更成熟穩定。',
+    SP: '處女座讓 SP 型寶寶在自由行動中增加結構感，提升完成度與持久力。'
+  },
+  libra: {
+    NT: '天秤座讓 NT 型寶寶在判斷時更重視平衡與溝通，思辨更全面。',
+    NF: '天秤座加深 NF 型寶寶的人際敏銳度，讓共感力與協調力更出色。',
+    SJ: '天秤座為 SJ 型寶寶加入柔軟社交技巧，使規則感更容易被他人接受。',
+    SP: '天秤座讓 SP 型寶寶在即時反應之外，更懂團隊節奏與合作默契。'
+  },
+  scorpio: {
+    NT: '天蠍座加強 NT 型寶寶的洞察與專注，面對難題時更能深挖本質。',
+    NF: '天蠍座放大 NF 型寶寶的情感深度與忠誠度，內在力量更有韌性。',
+    SJ: '天蠍座讓 SJ 型寶寶的責任感更堅定，遇到挑戰時展現強大穩定力。',
+    SP: '天蠍座為 SP 型寶寶加入策略思維，讓行動不只快，也更有後勁。'
+  },
+  sagittarius: {
+    NT: '射手座帶給 NT 型寶寶更開闊的格局與探索慾，利於跨域學習與創新。',
+    NF: '射手座讓 NF 型寶寶的理想主義更具行動力，勇於嘗試新舞台。',
+    SJ: '射手座幫 SJ 型寶寶在秩序中注入冒險精神，兼顧穩定與成長。',
+    SP: '射手座與 SP 型寶寶共振，讓好奇心與行動力持續升級，活力滿點。'
+  },
+  capricorn: {
+    NT: '摩羯座讓 NT 型寶寶的策略力更具落地性，擅長把大目標拆成可執行計畫。',
+    NF: '摩羯座幫 NF 型寶寶建立穩定框架，讓感性理想也能長期實現。',
+    SJ: '摩羯座強化 SJ 型寶寶的紀律與耐力，是最能長線累積成果的組合之一。',
+    SP: '摩羯座為 SP 型寶寶補上持續力與責任感，讓天分更容易轉化為成就。'
+  },
+  aquarius: {
+    NT: '水瓶座與 NT 型寶寶高度契合，創新思維與系統觀點會被進一步放大。',
+    NF: '水瓶座讓 NF 型寶寶在人文關懷中加入前瞻視角，理想更具時代感。',
+    SJ: '水瓶座為 SJ 型寶寶注入變革彈性，讓傳統優勢與新方法取得平衡。',
+    SP: '水瓶座強化 SP 型寶寶的實驗精神，面對變動時更能快速找到新玩法。'
+  },
+  pisces: {
+    NT: '雙魚座讓 NT 型寶寶在邏輯之外增加感受力，決策更有溫度。',
+    NF: '雙魚座放大 NF 型寶寶的想像力與同理心，形成極具感染力的情感天賦。',
+    SJ: '雙魚座幫 SJ 型寶寶在規範中保有柔軟與包容，關係經營更細膩。',
+    SP: '雙魚座為 SP 型寶寶加入創作靈感與情緒細節，行動表現更具故事感。'
+  }
+};
+
 const picks = { interest: null, ability: null, personality: null };
 let roundIndex = 0;
 
@@ -340,10 +433,7 @@ const musicToggleBtn = document.getElementById('musicToggle');
 const langToggleBtn = document.getElementById('langToggle');
 const reportName = document.getElementById('report-name');
 const reportMbti = document.getElementById('report-mbti');
-const analysisText = document.getElementById('analysis-text');
-const zodiacText = document.getElementById('zodiac-text');
-const careerText = document.getElementById('career-text');
-const parentingText = document.getElementById('parenting-text');
+const reportSections = document.getElementById('report-sections');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
@@ -442,6 +532,50 @@ function getMbtiBadgeMeta(mbti) {
 
 function getMbtiImagePath(mbti) {
   return `./assets/mbti_${String(mbti).toLowerCase()}.png`;
+}
+
+function getZodiacSynergyText(mbti, zodiacKey) {
+  const galaxy = mbtiGalaxyMap[mbti] || 'NF';
+  const zodiacPack = zodiacSynergyDatabase[zodiacKey];
+  if (!zodiacPack) return '';
+  return zodiacPack[galaxy] || '';
+}
+
+function renderFinalReportSections({ deepAnalysis, zodiacSynergy, careers, parentingAdvice }) {
+  reportSections.innerHTML = '';
+  const sectionData = [
+    { title: t('resultAnalysisTitle'), type: 'text', content: deepAnalysis },
+    { title: t('resultZodiacTitle'), type: 'text', content: zodiacSynergy },
+    { title: t('resultCareerTitle'), type: 'list', content: careers },
+    { title: t('resultParentingTitle'), type: 'text', content: parentingAdvice }
+  ];
+
+  sectionData.forEach((entry) => {
+    const block = document.createElement('article');
+    block.className = 'report-section';
+
+    const heading = document.createElement('h3');
+    heading.textContent = entry.title;
+    block.appendChild(heading);
+
+    if (entry.type === 'list') {
+      const list = document.createElement('ul');
+      list.className = 'report-list';
+      entry.content.forEach((career) => {
+        const li = document.createElement('li');
+        li.textContent = career;
+        list.appendChild(li);
+      });
+      block.appendChild(list);
+    } else {
+      const paragraph = document.createElement('p');
+      paragraph.className = 'report-text';
+      paragraph.textContent = entry.content;
+      block.appendChild(paragraph);
+    }
+
+    reportSections.appendChild(block);
+  });
 }
 
 function updateLanguageUI() {
@@ -748,28 +882,23 @@ function showResult() {
   const mbti = computeMbti(chosen);
   const babyName = babyNameInput.value.trim();
   const babyZodiac = getZodiacLabel();
-  const reportPack = reportDatabase[mbti] || reportDatabase.ENFP;
-  const fallbackZh = reportPack.zh;
-  const report = currentLang === 'en' && reportPack.en?.title ? reportPack.en : fallbackZh;
+  const report = mbtiDatabase[mbti] || mbtiDatabase.ENFP;
   const badgeMeta = getMbtiBadgeMeta(mbti);
+  const zodiacSynergy = getZodiacSynergyText(mbti, babyZodiacInput.value) || `當 ${babyZodiac} 座與 ${mbti} 相遇，寶寶會展現更鮮明的獨特光芒。`;
 
   reportName.textContent = `${babyName} 是 ${badgeMeta.nickname}`;
   reportMbti.classList.remove(...mbtiBadgeColorClasses);
   reportMbti.classList.add(badgeMeta.className);
   reportMbti.textContent = badgeMeta.badgeText;
-  analysisText.textContent = report.analysis;
-  zodiacText.textContent = report.zodiacBonus.replaceAll('{{zodiac}}', babyZodiac);
-  parentingText.textContent = report.parenting;
+  renderFinalReportSections({
+    deepAnalysis: report.deepAnalysis,
+    zodiacSynergy: zodiacSynergy.replaceAll('{{zodiac}}', babyZodiac),
+    careers: report.careers,
+    parentingAdvice: report.parentingAdvice
+  });
 
   const mbtiImagePath = getMbtiImagePath(mbti);
   babyAvatar.innerHTML = `<img class="result-image" src="${mbtiImagePath}" alt="${badgeMeta.nickname} ${mbti} 結果圖" />`;
-
-  careerText.innerHTML = '';
-  report.careers.forEach((career) => {
-    const li = document.createElement('li');
-    li.textContent = career;
-    careerText.appendChild(li);
-  });
 
   pickedTags.innerHTML = '';
   chosen.forEach((item) => {
@@ -799,6 +928,7 @@ function resetAll() {
   resultScreen.classList.add('hidden');
   quizScreen.classList.add('hidden');
   startScreen.classList.remove('hidden');
+  reportSections.innerHTML = '';
 
   bgmAudio.pause();
   bgmAudio.currentTime = 0;
