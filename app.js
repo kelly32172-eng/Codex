@@ -898,8 +898,12 @@ async function handleDownloadReportImage() {
   if (!targetContainer || typeof html2canvas !== 'function') return;
 
   const originalText = downloadBtn.textContent;
+  const originalDisplay = downloadBtn.style.display;
+  const hadHiddenClass = downloadBtn.classList.contains('hidden');
   downloadBtn.disabled = true;
   downloadBtn.textContent = '圖片生成中... ⏳';
+  downloadBtn.classList.add('hidden');
+  downloadBtn.style.display = 'none';
 
   try {
     const canvas = await html2canvas(targetContainer, {
@@ -921,6 +925,10 @@ async function handleDownloadReportImage() {
   } finally {
     downloadBtn.disabled = false;
     downloadBtn.textContent = originalText;
+    downloadBtn.style.display = originalDisplay;
+    if (!hadHiddenClass) {
+      downloadBtn.classList.remove('hidden');
+    }
   }
 }
 
