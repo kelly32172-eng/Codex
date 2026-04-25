@@ -476,6 +476,10 @@ const langToggleBtn = document.getElementById('langToggle');
 const reportName = document.getElementById('report-name');
 const reportMbti = document.getElementById('report-mbti');
 const reportSections = document.getElementById('report-sections');
+const analysisContent = reportSections.querySelector('.analysis-content');
+const zodiacContent = reportSections.querySelector('.zodiac-content');
+const careerList = reportSections.querySelector('.career-list');
+const parentingContent = reportSections.querySelector('.parenting-content');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
@@ -584,39 +588,14 @@ function getZodiacSynergyText(mbti, zodiacKey) {
 }
 
 function renderFinalReportSections({ deepAnalysis, zodiacSynergy, careers, parentingAdvice }) {
-  reportSections.innerHTML = '';
-  const sectionData = [
-    { title: t('resultAnalysisTitle'), type: 'text', content: deepAnalysis },
-    { title: t('resultZodiacTitle'), type: 'text', content: zodiacSynergy },
-    { title: t('resultCareerTitle'), type: 'list', content: careers },
-    { title: t('resultParentingTitle'), type: 'text', content: parentingAdvice }
-  ];
-
-  sectionData.forEach((entry) => {
-    const block = document.createElement('article');
-    block.className = 'report-section';
-
-    const heading = document.createElement('h3');
-    heading.textContent = entry.title;
-    block.appendChild(heading);
-
-    if (entry.type === 'list') {
-      const list = document.createElement('ul');
-      list.className = 'report-list';
-      entry.content.forEach((career) => {
-        const li = document.createElement('li');
-        li.textContent = career;
-        list.appendChild(li);
-      });
-      block.appendChild(list);
-    } else {
-      const paragraph = document.createElement('p');
-      paragraph.className = 'report-text';
-      paragraph.textContent = entry.content;
-      block.appendChild(paragraph);
-    }
-
-    reportSections.appendChild(block);
+  analysisContent.textContent = deepAnalysis || '';
+  zodiacContent.textContent = zodiacSynergy || '';
+  parentingContent.textContent = parentingAdvice || '';
+  careerList.innerHTML = '';
+  (careers || []).forEach((career) => {
+    const li = document.createElement('li');
+    li.textContent = career;
+    careerList.appendChild(li);
   });
 }
 
@@ -924,7 +903,7 @@ function showResult() {
   const mbti = computeMbti(chosen);
   const babyName = babyNameInput.value.trim();
   const babyZodiac = getZodiacLabel();
-  const report = mbtiDatabase[mbti] || mbtiDatabase.ENFP;
+  const report = mbtiData[mbti] || { deepAnalysis: '', careers: [], parentingAdvice: '' };
   const badgeMeta = getMbtiBadgeMeta(mbti);
   const zodiacSynergy = getZodiacSynergyText(mbti, babyZodiacInput.value) || `當 ${babyZodiac} 座與 ${mbti} 相遇，寶寶會展現更鮮明的獨特光芒。`;
 
@@ -970,7 +949,10 @@ function resetAll() {
   resultScreen.classList.add('hidden');
   quizScreen.classList.add('hidden');
   startScreen.classList.remove('hidden');
-  reportSections.innerHTML = '';
+  analysisContent.textContent = '';
+  zodiacContent.textContent = '';
+  parentingContent.textContent = '';
+  careerList.innerHTML = '';
 
   bgmAudio.pause();
   bgmAudio.currentTime = 0;
