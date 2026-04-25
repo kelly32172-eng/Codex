@@ -557,6 +557,7 @@ const careerList = reportSections.querySelector('.career-list');
 const parentingContent = reportSections.querySelector('.parenting-content');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
+const downloadBtn = document.getElementById('download-btn');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
   INTJ: { nickname: '小小策略家', category: '分析家寶寶', colorClass: 'mbti-purple' },
@@ -890,6 +891,38 @@ document.getElementById('next-btn').addEventListener('click', () => {
 });
 
 document.getElementById('restart-btn').addEventListener('click', resetAll);
+downloadBtn.addEventListener('click', handleDownloadReportImage);
+
+async function handleDownloadReportImage() {
+  const targetContainer = document.querySelector('#result-screen .report-card');
+  if (!targetContainer || typeof html2canvas !== 'function') return;
+
+  const originalText = downloadBtn.textContent;
+  downloadBtn.disabled = true;
+  downloadBtn.textContent = '圖片生成中... ⏳';
+
+  try {
+    const canvas = await html2canvas(targetContainer, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: '#181633'
+    });
+
+    const imageUrl = canvas.toDataURL('image/png');
+    const anchor = document.createElement('a');
+    anchor.href = imageUrl;
+    anchor.download = '寶寶專屬抓周報告.png';
+    anchor.style.display = 'none';
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  } catch (error) {
+    console.error('下載報告圖片失敗：', error);
+  } finally {
+    downloadBtn.disabled = false;
+    downloadBtn.textContent = originalText;
+  }
+}
 
 function renderRound() {
   const round = rounds[roundIndex];
