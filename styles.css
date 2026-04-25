@@ -1043,6 +1043,36 @@ button:hover {
   50% { box-shadow: 0 0 0 10px rgba(173, 132, 228, 0); }
 }
 
+
+.download-btn {
+  width: auto;
+  margin: 22px auto 12px;
+  display: block;
+  padding: 15px 30px;
+  border-radius: 25px;
+  border: 2px solid #f6d77c;
+  color: #f6d77c;
+  background: linear-gradient(145deg, #1f275f, #382273 60%, #22133f);
+  box-shadow:
+    0 10px 24px rgba(30, 20, 72, 0.45),
+    0 0 22px rgba(123, 106, 221, 0.45),
+    inset 0 0 8px rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.03em;
+}
+
+.download-btn:hover {
+  filter: brightness(1.08);
+}
+
+.download-btn:active {
+  transform: scale(0.95);
+}
+
+.download-btn:disabled {
+  cursor: wait;
+  opacity: 0.85;
+}
+
 @media (max-width: 980px) {
   .result-top {
     grid-template-columns: 1fr;
