@@ -1050,7 +1050,8 @@ button:hover {
   display: block;
   padding: 0;
   border: none;
-  background: none;
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
   outline: none;
 }
@@ -1059,6 +1060,8 @@ button:hover {
   width: 220px;
   height: auto;
   display: block;
+  clip-path: circle(44% at 50% 50%);
+  border-radius: 50%;
 }
 
 .download-btn:hover {
