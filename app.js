@@ -196,25 +196,25 @@ const iconKeyByName = {
   雲朵: 'cloud'
 };
 
-const itemImageAssets = {
-  book: { src: './assets/book.png', alt: '書' },
-  plane: { src: './assets/plane.png', alt: '紙飛機' },
-  ball: { src: './assets/ball.png', alt: '球' },
-  piano: { src: './assets/piano.png', alt: '鋼琴' },
-  palette: { src: './assets/palette.png', alt: '調色盤' },
-  camera: { src: './assets/camera.png', alt: '相機' },
-  abacus: { src: './assets/level2_calculator.png', alt: '計算機' },
-  pen: { src: './assets/level2_pen.png', alt: '筆' },
-  blocks: { src: './assets/level2_blocks.png', alt: '積木' },
-  compass: { src: './assets/level2_compass.png', alt: '指南針' },
-  microphone: { src: './assets/level2_mic.png', alt: '麥克風' },
-  medkit: { src: './assets/level2_medical.png', alt: '醫藥箱' },
-  heart: { src: './assets/level3_heart.png', alt: '愛心' },
-  crown: { src: './assets/level3_crown.png', alt: '皇冠' },
-  sun: { src: './assets/level3_sun.png', alt: '太陽' },
-  moon: { src: './assets/level3_moon.png', alt: '月亮' },
-  gear: { src: './assets/level3_gear.png', alt: '齒輪' },
-  cloud: { src: './assets/level3_cloud.png', alt: '雲朵' }
+const itemImageassets = {
+  book: { src: 'assets/book.png', alt: '書' },
+  plane: { src: 'assets/plane.png', alt: '紙飛機' },
+  ball: { src: 'assets/ball.png', alt: '球' },
+  piano: { src: 'assets/piano.png', alt: '鋼琴' },
+  palette: { src: 'assets/palette.png', alt: '調色盤' },
+  camera: { src: 'assets/camera.png', alt: '相機' },
+  abacus: { src: 'assets/level2_calculator.png', alt: '計算機' },
+  pen: { src: 'assets/level2_pen.png', alt: '筆' },
+  blocks: { src: 'assets/level2_blocks.png', alt: '積木' },
+  compass: { src: 'assets/level2_compass.png', alt: '指南針' },
+  microphone: { src: 'assets/level2_mic.png', alt: '麥克風' },
+  medkit: { src: 'assets/level2_medical.png', alt: '醫藥箱' },
+  heart: { src: 'assets/level3_heart.png', alt: '愛心' },
+  crown: { src: 'assets/level3_crown.png', alt: '皇冠' },
+  sun: { src: 'assets/level3_sun.png', alt: '太陽' },
+  moon: { src: 'assets/level3_moon.png', alt: '月亮' },
+  gear: { src: 'assets/level3_gear.png', alt: '齒輪' },
+  cloud: { src: 'assets/level3_cloud.png', alt: '雲朵' }
 };
 
 
@@ -613,7 +613,7 @@ function getItemIconMarkup(item) {
 }
 
 function hasFrontFaceImage(item) {
-  return Boolean(itemImageAssets[getItemIconKey(item)]);
+  return Boolean(itemImage[getItemIconKey(item)]);
 }
 
 function getFrontFaceIconMarkup(item) {
