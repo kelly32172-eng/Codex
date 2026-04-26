@@ -1048,20 +1048,16 @@ button:hover {
   width: auto;
   margin: 22px auto 12px;
   display: block;
-  padding: 0;
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.download-btn img {
-  width: 220px;
-  height: auto;
-  display: block;
-  clip-path: circle(44% at 50% 50%);
-  border-radius: 50%;
+  padding: 15px 30px;
+  border-radius: 25px;
+  border: 2px solid #f6d77c;
+  color: #f6d77c;
+  background: linear-gradient(145deg, #1f275f, #382273 60%, #22133f);
+  box-shadow:
+    0 10px 24px rgba(30, 20, 72, 0.45),
+    0 0 22px rgba(123, 106, 221, 0.45),
+    inset 0 0 8px rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.03em;
 }
 
 .download-btn:hover {
@@ -1275,4 +1271,19 @@ button:hover {
     max-width: 100%;
     box-sizing: border-box;
   }
+}
+/* 確保右上角的分享按鈕及其圖片永遠顯示且不變形 */
+#share-btn {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  -webkit-appearance: none !important; /* 消除 iOS 預設按鈕外觀 */
+  pointer-events: auto !important; /* 確保點得到 */
+}
+
+#share-btn img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  opacity: 1 !important;
 }

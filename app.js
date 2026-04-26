@@ -333,6 +333,7 @@ const mbtiData = {
     deepAnalysis: "燈光、攝影機、Action！大家快看我！快看我今天新學會的吐舌頭兼單腳站立絕招！對我來說，沒有觀眾的舞台是完全沒有靈魂的。只要你們肯給我熱烈的掌聲跟尖叫，我就能無止盡地表演下去。我最喜歡過年過節熱鬧的場合了，越多人圍著我、哄我，我就越開心。我天生就是為了聚光燈和眾人的目光而生的巨星，千萬不要吝嗇你們的讚美！\n\n等我長大後，整個世界都是我的大型伸展台。我可能隨便拍一支 TikTok 舞蹈短片就能突破百萬觀看，因為我就是有一種能瞬間抓住眾人眼球的強大魅力。我很會穿搭、很懂流行，只要有我在的派對，絕對不可能冷場。我不喜歡嚴肅沉悶的工作環境，未來我絕對要進入演藝圈、時尚圈或是成為最頂尖的公關活動策劃人，每天都活在鎂光燈、音樂與喝采聲中，享受精彩人生。",
     careers: ["影視娛樂明星 / 歌手", "精品公關與品牌總監", "社群媒體意見領袖 (KOL)", "頂級派對與展覽策劃師"],
     parentingAdvice: "給予 ESFP 寶寶足夠的「關注」就是對他們最好的獎勵。當他們表現好時，請給予浮誇且熱烈的讚美；當他們搗蛋只是為了吸引注意時，最有效的處罰反而是「冷處理（暫時移開目光不理會）」。他們喜歡享受當下的快樂，缺乏長遠的耐心，因此學習時需要搭配好玩的遊戲、鮮豔的色彩或道具。大力鼓勵他們發展音樂、舞蹈等表演天賦，讓他們的表現慾有最棒的舞台可以揮灑。"
+  },
   ISTJ: {
     deepAnalysis: "咳咳，請注意，現在是下午兩點整，我的生理時鐘精準地告訴我該換尿布了，請你們照表操課好嗎？還有，那個藍色積木昨天明明是放在左邊的櫃子，為什麼今天跑到右邊了？這完全不符合我的空間管理原則。我不需要什麼驚喜派對，只要你們把日常作息固定好，不隨便改變計畫，我絕對是全天下最好帶、最穩定的模範寶寶。我的世界裡，秩序就是一切的真理。\n\n長大以後，這份對細節的掌控力將會是我的超能力。我的課本和筆記絕對會是用螢光筆畫得整整齊齊、堪比印刷廠印出來的範本。出國旅遊時，我就是那個會提早半年把所有航班、飯店和車票都排成完美 Excel 表格的神級旅伴。我不喜歡浮誇的承諾，但我答應的事情絕對會做到 100 分。未來不管是掌管企業財務還是負責龐大的數據分析，交給我絕對萬無一失，我是最可靠的基石。",
     careers: ["頂尖精算師或財務長", "數據分析與風險管控專家", "法官、律師或檢察官", "高階行政與營運管理"],
@@ -557,7 +558,7 @@ const careerList = reportSections.querySelector('.career-list');
 const parentingContent = reportSections.querySelector('.parenting-content');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
-const shareBtn = document.getElementById('share-btn');
+const downloadBtn = document.getElementById('download-btn');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
   INTJ: { nickname: '小小策略家', category: '分析家寶寶', colorClass: 'mbti-purple' },
@@ -891,21 +892,15 @@ document.getElementById('next-btn').addEventListener('click', () => {
 });
 
 document.getElementById('restart-btn').addEventListener('click', resetAll);
-if (shareBtn) {
-  shareBtn.addEventListener('click', handleShareReportImage);
-}
+downloadBtn.addEventListener('click', handleDownloadReportImage);
 
-async function handleShareReportImage() {
+async function handleDownloadReportImage() {
   const targetContainer = document.querySelector('#result-screen .report-card');
   if (!targetContainer || typeof html2canvas !== 'function') return;
 
-  const originalText = shareBtn.textContent;
-  const originalDisplay = shareBtn.style.display;
-  const hadHiddenClass = shareBtn.classList.contains('hidden');
-  shareBtn.disabled = true;
-  shareBtn.textContent = '圖片生成中... ⏳';
-  shareBtn.classList.add('hidden');
-  shareBtn.style.display = 'none';
+  //const originalText = downloadBtn.textContent;
+  downloadBtn.disabled = true;
+  //downloadBtn.textContent = '圖片生成中... ⏳';
 
   try {
     const canvas = await html2canvas(targetContainer, {
@@ -925,12 +920,8 @@ async function handleShareReportImage() {
   } catch (error) {
     console.error('下載報告圖片失敗：', error);
   } finally {
-    shareBtn.disabled = false;
-    shareBtn.textContent = originalText;
-    shareBtn.style.display = originalDisplay;
-    if (!hadHiddenClass) {
-      shareBtn.classList.remove('hidden');
-    }
+    downloadBtn.disabled = false;
+    //downloadBtn.textContent = originalText;
   }
 }
 
@@ -980,7 +971,7 @@ function renderRound() {
   });
 
   selectedText.innerHTML = picked
-    ? `${t('selectedPrefix')}<span class="inline-picked-icon">${getItemIconMarkup(picked)}</span> ${getLocalizedItemName(picked)}（${picked.mbti}）`
+    ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
     : t('notSelected');
 }
 
