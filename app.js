@@ -973,9 +973,8 @@ function renderRound() {
     optionsEl.appendChild(btn);
   });
 
-  selectedText.innerHTML = picked
-    ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
-    : t('notSelected'):
+  selectedText.innerHTML = picked ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}` : t('notSelected');
+}
 
 function renderOptionTraits(item) {
   const traits = Array.isArray(item.explain) ? item.explain.slice(0, 4) : [];
