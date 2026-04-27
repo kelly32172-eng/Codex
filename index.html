@@ -56,8 +56,27 @@
       </section>
 
       <section id="result-screen" class="card hidden">
-        <article class="report-card">
-          <section class="result-top">
+        <article class="report-card" id="capture-area" style="position: relative !important;">
+          <button id="share-btn" type="button" onclick="shareToSocial()" style="position: fixed !important; top: 15px !important; right: 5px !important; background: transparent !important; border: none !important; z-index: 9999999 !important; cursor: pointer; padding: 0 !important; width: 150px !important; height: auto !important;">
+            <img src="assets/share-btn.png" style="width: 100% !important; height: auto !important; display: block !important; opacity: 1 !important; visibility: visible !important;" alt="分享">
+        </button>
+        
+        <script>
+        // 這是讓手機彈出分享選單的核心腳本
+        function shareToSocial() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '寶寶 MBTI 測驗結果',
+                    text: '快來看看我家寶寶是什麼屬性！',
+                    url: window.location.href
+                }).catch((error) => console.log('分享失敗', error));
+            } else {
+                alert("請使用手機瀏覽器開啟，才能使用原生分享功能喔！");
+            }
+        }
+        </script>
+
+            <section id="result-top" class="result-top">
             <div class="baby-visual-wrap">
               <div id="report-name" class="result-main-title"></div>
               <div id="report-mbti" class="mbti-badge mbti-purple">分析家寶寶 INTJ</div>
@@ -93,7 +112,10 @@
           </section>
         </article>
 
-        <button id="download-btn" class="download-btn" type="button">儲存專屬報告圖卡 📥</button>
+        <button id="download-btn" class="download-btn" type="button" style="background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; outline: none !important; margin-top: -45px !important;">
+          <img src="assets/download-btn.png" style="width: 220px; height: auto;" alt="下載專屬報告">
+      </button>
+
         <button id="restart-btn" type="button" data-i18n="restartBtn">重新測驗</button>
       </section>
     </main>

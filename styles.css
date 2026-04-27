@@ -1272,3 +1272,18 @@ button:hover {
     box-sizing: border-box;
   }
 }
+/* 確保右上角的分享按鈕及其圖片永遠顯示且不變形 */
+#share-btn {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  -webkit-appearance: none !important; /* 消除 iOS 預設按鈕外觀 */
+  pointer-events: auto !important; /* 確保點得到 */
+}
+
+#share-btn img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  opacity: 1 !important;
+}
