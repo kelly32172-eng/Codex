@@ -1036,6 +1036,10 @@ function showResult() {
     tag.className = 'seal-item picked-item';
     const iconKey = getItemIconKey(item);
     const imageAsset = itemImageAssets[iconKey];
+
+// 👇 請加入這一行，讓瀏覽器告訴我們它到底抓到了什麼鬼東西
+console.log("測試道具:", item, " | 轉換的Key:", iconKey, " | 找到的圖片:", imageAsset);
+
     const imageAlt = imageAsset?.alt || getLocalizedItemName(item);
     const imageSrc = imageAsset?.src || '';
     tag.innerHTML = `<img class="stamp-prop-image" src="${imageSrc}" alt="${imageAlt}" /><strong>${getLocalizedItemName(item)}</strong>`;
