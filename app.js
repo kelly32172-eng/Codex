@@ -976,7 +976,7 @@ function renderRound() {
   selectedText.innerHTML = picked
     ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
     ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
-    : t('notSelected');
+    : t('notSelected'):
 }
 
 function renderOptionTraits(item) {
