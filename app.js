@@ -975,7 +975,6 @@ function renderRound() {
 
   selectedText.innerHTML = picked
     ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
-    ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
     : t('notSelected'):
 }
 
