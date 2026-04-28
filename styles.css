@@ -1277,18 +1277,22 @@ button:hover {
 /* 結果頁分享按鈕：抽離文流並固定在白色結果卡右上角 */
 #share-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  width: clamp(100px, 28vw, 116px);
+  top: 8px;
+  right: 8px;
+  width: clamp(60px, 16vw, 68px);
   z-index: 15;
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
+  line-height: 0;
+  overflow: hidden;
 }
 
 #share-btn img {
-  width: 100%;
+  width: 122%;
   height: auto;
+  max-width: none;
   display: block;
+  transform: translate(-11%, -4%);
 }
