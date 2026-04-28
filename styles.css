@@ -1274,11 +1274,20 @@ button:hover {
 }
 /* 確保右上角的分享按鈕及其圖片永遠顯示且不變形 */
 #share-btn {
+  /* 你原本保命用的設定 */
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  -webkit-appearance: none !important; /* 消除 iOS 預設按鈕外觀 */
-  pointer-events: auto !important; /* 確保點得到 */
+  -webkit-appearance: none !important;
+  pointer-events: auto !important;
+
+  /* 👇 讓按鈕變大、飛到右上的魔法屬性 👇 */
+  position: absolute !important; 
+  top: 15px !important;          /* 距離頂部 15px */
+  right: 15px !important;        /* 距離右邊 15px */
+  width: 80px !important;        /* 👑 這裡控制大小！覺得不夠大就改 100px */
+  z-index: 9999 !important;      /* 確保它絕對不會被擋住 */
+  cursor: pointer !important;
 }
 
 #share-btn img {
