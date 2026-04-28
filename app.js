@@ -915,15 +915,8 @@ async function handleDownloadReportImage() {
   if (!targetContainer || typeof html2canvas !== 'function') return;
 
   //const originalText = downloadBtn.textContent;
-<<<<<<< HEAD
   downloadBtn.disabled = true;
   //downloadBtn.textContent = '圖片生成中... ⏳';
-=======
-  //const originalText = downloadBtn.textContent;
-  downloadBtn.disabled = true;
-  //downloadBtn.textContent = '圖片生成中... ⏳';
-  //downloadBtn.textContent = '圖片生成中... ⏳';
->>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
 
   try {
     const canvas = await html2canvas(targetContainer, {
@@ -945,10 +938,6 @@ async function handleDownloadReportImage() {
   } finally {
     downloadBtn.disabled = false;
     //downloadBtn.textContent = originalText;
-<<<<<<< HEAD
-=======
-    //downloadBtn.textContent = originalText;
->>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
   }
 }
 
@@ -997,13 +986,9 @@ function renderRound() {
     optionsEl.appendChild(btn);
   });
 
-<<<<<<< HEAD
   selectedText.innerHTML = picked
     ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
     : t('notSelected');
-=======
-  selectedText.innerHTML = picked ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}` : t('notSelected');
->>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
 }
 
 function renderOptionTraits(item) {
