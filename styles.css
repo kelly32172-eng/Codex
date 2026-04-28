@@ -783,11 +783,13 @@ button:hover {
 }
 
 .report-card {
+  position: relative;
   max-width: 1020px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.58);
   border-radius: 30px;
   padding: 20px;
+  padding-top: 72px;
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
@@ -1272,6 +1274,7 @@ button:hover {
     box-sizing: border-box;
   }
 }
+<<<<<<< HEAD
 /* 確保右上角的分享按鈕及其圖片永遠顯示且不變形 */
 #share-btn {
   display: block !important;
@@ -1287,3 +1290,27 @@ button:hover {
   height: auto !important;
   opacity: 1 !important;
 }
+=======
+/* 結果頁分享按鈕：抽離文流並固定在白色結果卡右上角 */
+#share-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: clamp(60px, 16vw, 68px);
+  z-index: 15;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+  overflow: hidden;
+}
+
+#share-btn img {
+  width: 122%;
+  height: auto;
+  max-width: none;
+  display: block;
+  transform: translate(-11%, -4%);
+}
+>>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6

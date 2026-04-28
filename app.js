@@ -215,8 +215,12 @@ const itemImageAssets = {
   moon: { src: './assets/level3_moon.png', alt: '月亮' },
   gear: { src: './assets/level3_gear.png', alt: '齒輪' },
   cloud: { src: './assets/level3_cloud.png', alt: '雲朵' },
+<<<<<<< HEAD
 };
 
+=======
+}
+>>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
 
 const rounds = [
   {
@@ -559,6 +563,7 @@ const parentingContent = reportSections.querySelector('.parenting-content');
 const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
 const downloadBtn = document.getElementById('download-btn');
+const shareBtn = document.getElementById('share-btn');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
   INTJ: { nickname: '小小策略家', category: '分析家寶寶', colorClass: 'mbti-purple' },
@@ -893,14 +898,36 @@ document.getElementById('next-btn').addEventListener('click', () => {
 
 document.getElementById('restart-btn').addEventListener('click', resetAll);
 downloadBtn.addEventListener('click', handleDownloadReportImage);
+shareBtn.addEventListener('click', shareToSocial);
+
+function shareToSocial() {
+  if (navigator.share) {
+    navigator.share({
+      title: '寶寶 MBTI 測驗結果',
+      text: '快來看看我家寶寶是什麼屬性！',
+      url: window.location.href
+    }).catch((error) => {
+      console.log('分享失敗', error);
+    });
+    return;
+  }
+  alert('請使用手機瀏覽器開啟，才能使用原生分享功能喔！');
+}
 
 async function handleDownloadReportImage() {
   const targetContainer = document.querySelector('#result-screen .report-card');
   if (!targetContainer || typeof html2canvas !== 'function') return;
 
   //const originalText = downloadBtn.textContent;
+<<<<<<< HEAD
   downloadBtn.disabled = true;
   //downloadBtn.textContent = '圖片生成中... ⏳';
+=======
+  //const originalText = downloadBtn.textContent;
+  downloadBtn.disabled = true;
+  //downloadBtn.textContent = '圖片生成中... ⏳';
+  //downloadBtn.textContent = '圖片生成中... ⏳';
+>>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
 
   try {
     const canvas = await html2canvas(targetContainer, {
@@ -922,6 +949,10 @@ async function handleDownloadReportImage() {
   } finally {
     downloadBtn.disabled = false;
     //downloadBtn.textContent = originalText;
+<<<<<<< HEAD
+=======
+    //downloadBtn.textContent = originalText;
+>>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
   }
 }
 
@@ -970,9 +1001,13 @@ function renderRound() {
     optionsEl.appendChild(btn);
   });
 
+<<<<<<< HEAD
   selectedText.innerHTML = picked
     ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
     : t('notSelected');
+=======
+  selectedText.innerHTML = picked ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}` : t('notSelected');
+>>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
 }
 
 function renderOptionTraits(item) {
