@@ -613,13 +613,21 @@ function getItemIconMarkup(item) {
   return getMagicalIconSvg(getItemIconKey(item), getLocalizedItemName(item));
 }
 
+function getItemImageAsset(item) {
+  if (!item) return null;
+  const pickedItem = item.id ? Object.values(picks).find((picked) => picked?.id === item.id) : null;
+  const targetItem = pickedItem || item;
+  const iconKey = getItemIconKey(targetItem);
+  return itemImageAssets[iconKey] || null;
+}
+
 function hasFrontFaceImage(item) {
-  return Boolean(itemImageAssets[getItemIconKey(item)]);
+  return Boolean(getItemImageAsset(item));
 }
 
 function getFrontFaceIconMarkup(item) {
   const iconKey = getItemIconKey(item);
-  const imageAsset = itemImageAssets[iconKey];
+  const imageAsset = getItemImageAsset(item);
   if (imageAsset) {
     const sunClass = iconKey === 'sun' ? ' sun-icon' : '';
     return `<img class="option-front-icon-img${sunClass}" src="${imageAsset.src}" alt="${imageAsset.alt}" />`;
@@ -1051,11 +1059,13 @@ function showResult() {
     const tag = document.createElement('div');
     tag.className = 'seal-item picked-item';
     const iconKey = getItemIconKey(item);
-    const imageAsset = itemImageAssets[iconKey];
+    const imageAsset = getItemImageAsset(item);
 
     const imageAlt = imageAsset?.alt || getLocalizedItemName(item);
-    const imageSrc = imageAsset?.src || '';
-    tag.innerHTML = `<img class="stamp-prop-image" src="${imageSrc}" alt="${imageAlt}" /><strong>${getLocalizedItemName(item)}</strong>`;
+    const imageMarkup = imageAsset
+      ? `<img class="stamp-prop-image" src="${imageAsset.src}" alt="${imageAlt}" />`
+      : `<span class="stamp-prop-icon icon-${iconKey}">${getItemIconMarkup(item)}</span>`;
+    tag.innerHTML = `${imageMarkup}<strong>${getLocalizedItemName(item)}</strong>`;
     pickedTags.appendChild(tag);
   });
 
