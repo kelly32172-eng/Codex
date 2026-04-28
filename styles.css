@@ -1274,19 +1274,18 @@ button:hover {
 }
 /* 確保右上角的分享按鈕及其圖片永遠顯示且不變形 */
 #share-btn {
-  /* 你原本保命用的設定 */
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
   -webkit-appearance: none !important;
   pointer-events: auto !important;
 
-  /* 👇 讓按鈕變大、飛到右上的魔法屬性 👇 */
+  /* 👇 終極完美定位：鎖死在白色卡片右上角 👇 */
   position: absolute !important; 
-  top: 5px !important;          /* 距離頂部 15px */
-  right: 5px !important;        /* 距離右邊 15px */
-  width: 180px !important;        /* 👑 這裡控制大小！覺得不夠大就改 100px */
-  z-index: 9999 !important;      /* 確保它絕對不會被擋住 */
+  top: 20px !important;          /* 緊貼白色卡片上邊緣 */
+  right: 20px !important;        /* 緊貼白色卡片右邊緣 */
+  width: 100px !important;       /* 大小你之前設 120px，如果覺得太大可改回 100px */
+  z-index: 9999 !important;
   cursor: pointer !important;
 }
 
