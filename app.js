@@ -215,12 +215,8 @@ const itemImageAssets = {
   moon: { src: './assets/level3_moon.png', alt: '月亮' },
   gear: { src: './assets/level3_gear.png', alt: '齒輪' },
   cloud: { src: './assets/level3_cloud.png', alt: '雲朵' },
-<<<<<<< HEAD
 };
 
-=======
-}
->>>>>>> e948d79562a04391c8c775726af08ca745f4a3c6
 
 const rounds = [
   {
