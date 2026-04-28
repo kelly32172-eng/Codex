@@ -1283,9 +1283,9 @@ button:hover {
 
   /* 👇 讓按鈕變大、飛到右上的魔法屬性 👇 */
   position: absolute !important; 
-  top: 15px !important;          /* 距離頂部 15px */
+  top: 5px !important;          /* 距離頂部 15px */
   right: 5px !important;        /* 距離右邊 15px */
-  width: 120px !important;        /* 👑 這裡控制大小！覺得不夠大就改 100px */
+  width: 180px !important;        /* 👑 這裡控制大小！覺得不夠大就改 100px */
   z-index: 9999 !important;      /* 確保它絕對不會被擋住 */
   cursor: pointer !important;
 }
