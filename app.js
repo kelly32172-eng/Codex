@@ -612,8 +612,7 @@ function getItemIconMarkup(item) {
 }
 
 function hasFrontFaceImage(item) {
-  return Boolean(itemImage[getItemIconKey(item)]);
-  return Boolean(itemImage[getItemIconKey(item)]);
+  return Boolean(itemImageAssets[getItemIconKey(item)]);
 }
 
 function getFrontFaceIconMarkup(item) {
