@@ -1278,27 +1278,34 @@ button:hover {
 .share-image-button {
   position: absolute;
   top: 8px;
-  right: 8px;
-  width: 120px;
-  height: auto;
-  padding: 0;
+  right: -20px;
+  padding: 10px 18px;
   border: none;
-  background: transparent;
+  border-radius: 999px;
+  background: #8f7bf8;
+  color: #fff;
   cursor: pointer;
   z-index: 15;
-  line-height: 0;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 8px 20px rgba(72, 51, 176, 0.28);
+}
+
+.share-image-button::before {
+  content: '分享';
 }
 
 .share-image {
-  width: 100%;
-  height: auto;
-  display: block;
+  display: none;
 }
 
 @media (max-width: 480px) {
   .share-image-button {
-    width: 96px;
-    height: auto;
+    padding: 8px 14px;
+    font-size: 32px;
   }
 }
