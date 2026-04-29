@@ -1279,15 +1279,14 @@ button:hover {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 120px;
-  height: auto;
+  width: 180px;
+  transform: translateX(90px);
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
   z-index: 15;
   line-height: 0;
-  display: block;
 }
 
 .share-image {
@@ -1298,7 +1297,8 @@ button:hover {
 
 @media (max-width: 480px) {
   .share-image-button {
-    width: 96px;
-    height: auto;
+    right: 8px;
+    width: 140px;
+    transform: translateX(56px);
   }
 }
