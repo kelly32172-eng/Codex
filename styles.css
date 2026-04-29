@@ -1278,8 +1278,10 @@ button:hover {
 .share-image-button {
   position: absolute;
   top: 8px;
-  right: -20px;
-  padding: 10px 18px;
+  right: 8px;
+  width: 300px;
+  height: auto;
+  padding: 0;
   border: none;
   border-radius: 999px;
   background: #8f7bf8;
@@ -1305,7 +1307,7 @@ button:hover {
 
 @media (max-width: 480px) {
   .share-image-button {
-    padding: 8px 14px;
-    font-size: 32px;
+    width: 210px;
+    height: auto;
   }
 }
