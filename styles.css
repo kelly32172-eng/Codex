@@ -1298,3 +1298,8 @@ button:hover {
   display: block !important;
   transform: none;
 }
+
+#share-btn {
+    width: 100px !important;
+    max-width: none !important;
+}
