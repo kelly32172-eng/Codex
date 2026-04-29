@@ -1275,29 +1275,29 @@ button:hover {
   }
 }
 /* 結果頁分享按鈕：抽離文流並固定在白色結果卡右上角 */
-#share-btn {
+.share-image-button {
   position: absolute;
   top: 8px;
   right: 8px;
   width: 120px;
   height: auto;
-  z-index: 15;
-  background: transparent;
-  border: none;
   padding: 0;
+  border: none;
+  background: transparent;
   cursor: pointer;
+  z-index: 15;
   line-height: 0;
   display: block;
 }
 
-#share-btn img {
+.share-image {
   width: 100%;
   height: auto;
   display: block;
 }
 
-@media (max-width: 768px) {
-  #share-btn {
+@media (max-width: 480px) {
+  .share-image-button {
     width: 96px;
     height: auto;
   }
