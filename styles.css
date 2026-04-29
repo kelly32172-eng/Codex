@@ -94,7 +94,6 @@ html::after {
     filter: var(--star-glow) brightness(150%) blur(0px);
     transform: scale(1.1);
   }
-}
 
 /* 強光閃爍動畫 */
 @keyframes ultraTwinkle {
@@ -1301,4 +1300,5 @@ button:hover {
     width: 96px;
     height: auto;
   }
+}
 }
