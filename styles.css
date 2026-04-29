@@ -1279,27 +1279,26 @@ button:hover {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 100px !important;
-  height: auto !important;
-  max-width: none !important;
+  width: 120px;
+  height: auto;
   z-index: 15;
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
   line-height: 0;
-  overflow: hidden;
+  display: block;
 }
 
 #share-btn img {
-  width: 100px !important;
-  height: auto !important;
-  max-width: none !important;
-  display: block !important;
-  transform: none;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-#share-btn {
-    width: 100px !important;
-    max-width: none !important;
+@media (max-width: 768px) {
+  #share-btn {
+    width: 96px;
+    height: auto;
+  }
 }
