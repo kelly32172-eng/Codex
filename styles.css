@@ -1279,7 +1279,9 @@ button:hover {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: clamp(90px, 25vw, 120px);
+  width: 100px !important;
+  height: auto !important;
+  max-width: none !important;
   z-index: 15;
   background: transparent;
   border: none;
@@ -1290,9 +1292,9 @@ button:hover {
 }
 
 #share-btn img {
-  width: 100% !important;
-  height: auto;
-  max-width: none;
-  display: block;
+  width: 100px !important;
+  height: auto !important;
+  max-width: none !important;
+  display: block !important;
   transform: none;
 }
