@@ -419,15 +419,38 @@ reportDatabase.INTJ.en = {
   parenting: 'Use reason-based guidance and clear routines. Give autonomy within boundaries, and coach flexibility through comparing options and outcomes.'
 };
 
-// TODO: expand en content for the other 14 MBTI report types.
+reportDatabase.INFP.en = {
+  title: 'INFP Gentle Dream Poet',
+  analysis: 'An INFP baby observes quietly, feels deeply, and turns subtle emotions into imagination. They warm up best in safe, gentle environments where they are understood before being pushed.',
+  zodiacBonus: '{{zodiac}} adds direction to this INFP sensitivity, helping inner feelings become meaningful expression and action.',
+  careers: ['Storytelling & Illustration', 'Music & Sound Arts', 'Counseling & Therapy', 'Cultural Curation'],
+  parenting: 'Slow down, name feelings first, and provide calm creative routines. Respectful support builds confidence faster than pressure.'
+};
+reportDatabase.INFJ.en = { title: 'INFJ Insightful Little Guide', analysis: 'An INFJ baby is emotionally perceptive and context-aware. They often observe first, then engage with thoughtful care, fairness, and quiet purpose.', zodiacBonus: '{{zodiac}} gives INFJ extra endurance and goal focus, balancing empathy with direction.', careers: ['Education Design', 'Family Counseling', 'Social Advocacy', 'Research & Strategy'], parenting: 'Offer predictable routines and meaningful conversations. Teach boundaries so caring for others does not become over-responsibility.' };
+reportDatabase.ENFJ.en = { title: 'ENFJ Warm Little Captain', analysis: 'An ENFJ baby naturally connects people and energizes group harmony. They thrive on warm feedback and meaningful roles where care can turn into action.', zodiacBonus: '{{zodiac}} gives this ENFJ steadier judgment alongside social warmth.', careers: ['Teaching & Facilitation', 'Community Building', 'HR & Coaching', 'Event and Brand Leadership'], parenting: 'Use warm but consistent rules, assign helpful responsibilities, and coach self-boundaries when they over-focus on others\' approval.' };
+reportDatabase.ENTJ.en = { title: 'ENTJ Star Command Director', analysis: 'An ENTJ baby is goal-driven, decisive, and naturally inclined to organize people and process. They respond strongly to clarity, challenge, and measurable progress.', zodiacBonus: '{{zodiac}} adds emotional nuance to ENTJ ambition, improving teamwork and leadership trust.', careers: ['Business Strategy', 'Entrepreneurship', 'Law & Governance', 'Tech Program Leadership'], parenting: 'Channel leadership into responsibility, keep rules consistent, and teach collaborative pacing with turn-taking decisions.' };
+reportDatabase.ENTP.en = { title: 'ENTP Idea-Storm Inventor', analysis: 'An ENTP baby experiments constantly, questions everything, and loves testing new possibilities. Their attention jumps because their mind is scanning options at high speed.', zodiacBonus: '{{zodiac}} helps ENTP sustain rhythm, turning bold ideas into completed outcomes.', careers: ['Innovation & R&D', 'Startup Development', 'Media Hosting', 'Tech-Design Integration'], parenting: 'Validate ideas first, then add structure with short project cycles and clear non-negotiable safety boundaries.' };
+reportDatabase.ISTP.en = { title: 'ISTP Hands-On Mechanic', analysis: 'An ISTP baby learns through touch, assembly, and direct experimentation. They often speak less, do more, and build confidence through practical mastery.', zodiacBonus: '{{zodiac}} softens ISTP reserve while preserving technical precision and calm adaptability.', careers: ['Engineering Hardware', 'Surgery & Dentistry', 'Athletics & Motorsports', 'Systems Security'], parenting: 'Create safe exploration zones, explain rules with practical cause-and-effect, and help translate frustration into words.' };
+reportDatabase.ISFP.en = { title: 'ISFP Free-Heart Aesthetic Soul', analysis: 'An ISFP baby is sensory-sensitive, gentle, and deeply tuned to beauty, sound, and emotional atmosphere. They flourish when allowed to express quietly in their own rhythm.', zodiacBonus: '{{zodiac}} gives ISFP extra courage to explore while keeping natural warmth and sensitivity.', careers: ['Fashion & Product Design', 'Interior or Landscape Design', 'Arts & Music', 'Culinary Creativity'], parenting: 'Avoid harsh tones, offer rich sensory play, and protect their autonomy in small daily choices.' };
+reportDatabase.ESTP.en = { title: 'ESTP Action Explorer', analysis: 'An ESTP baby is physically bold, fast-reacting, and driven by real-time challenge. They understand best through movement, direct consequence, and immediate feedback.', zodiacBonus: '{{zodiac}} helps ESTP pair bravery with steadier judgment and follow-through.', careers: ['Crisis Negotiation', 'Competitive Sports', 'Business Development', 'Adventure Media'], parenting: 'Prioritize physical outlets, give concise immediate correction, and set clear safety boundaries without over-lecturing.' };
+reportDatabase.ESFP.en = { title: 'ESFP Spotlight Performer', analysis: 'An ESFP baby lights up around people, response, and joyful interaction. They are expressive, charismatic, and motivated by present-moment engagement.', zodiacBonus: '{{zodiac}} adds grounding so ESFP enthusiasm can sustain long-term growth.', careers: ['Performing Arts', 'Public Relations', 'Social Media Leadership', 'Experience Design'], parenting: 'Use attention as reinforcement, combine learning with play and color, and guide emotional resilience beyond applause.' };
+reportDatabase.ISTJ.en = { title: 'ISTJ Steady Little Scholar', analysis: 'An ISTJ baby values order, consistency, and dependable routines. They feel secure when expectations are clear and systems are stable.', zodiacBonus: '{{zodiac}} gives ISTJ more flexibility and emotional range while preserving reliability.', careers: ['Clinical & Technical Professions', 'Audit and Legal Operations', 'Quality and Project Execution', 'Education Administration'], parenting: 'Use clear schedules and concrete instructions. Prepare transitions early and praise reliability with specific recognition.' };
+reportDatabase.ISFJ.en = { title: 'ISFJ Caring Moon Guardian', analysis: 'An ISFJ baby shows love through thoughtful details, routine care, and quiet loyalty. They adapt best with emotional safety and advance preparation.', zodiacBonus: '{{zodiac}} brings ISFJ extra exploratory courage while keeping caring stability.', careers: ['Healthcare & Care Services', 'Early Childhood Support', 'Archives & Library Systems', 'Administrative Quality Roles'], parenting: 'Keep predictable rituals, acknowledge their helpful acts, and invite their own needs with low-pressure choices.' };
+reportDatabase.ESTJ.en = { title: 'ESTJ Order Vanguard', analysis: 'An ESTJ baby demonstrates early responsibility, structure-seeking behavior, and strong fairness logic. They do best with consistent rules and practical accountability.', zodiacBonus: '{{zodiac}} softens ESTJ rigidity with empathy and relational nuance.', careers: ['Operations Management', 'Public Administration', 'Finance & Risk Control', 'Organizational Leadership'], parenting: 'Define rules upfront, execute consistently, and coach flexibility and emotional awareness alongside efficiency.' };
+reportDatabase.ESFJ.en = { title: 'ESFJ Warm Support Star', analysis: 'An ESFJ baby is relationship-oriented, helpful, and emotionally responsive to group mood. They gain confidence through appreciation and meaningful contribution.', zodiacBonus: '{{zodiac}} strengthens ESFJ inner voice so caring includes self-expression.', careers: ['Nursing & Health Support', 'Education & Family Services', 'HR & Coordination', 'Community Operations'], parenting: 'Affirm their kindness, teach self-care boundaries, and model harmony based on mutual respect instead of people-pleasing.' };
+reportDatabase.INTP.en = { title: 'INTP Logic Nebula Scholar', analysis: 'An INTP baby seeks patterns and principles, often focusing deeply in quiet spaces. They collaborate better when rules are explained through reason.', zodiacBonus: '{{zodiac}} adds interpersonal warmth, helping INTP ideas become shared outcomes.', careers: ['Scientific Research', 'Software and Algorithms', 'Educational Content', 'Technical Architecture'], parenting: 'Provide thinking space, invite hypothesis testing, and support emotional vocabulary with simple scales and reflection.' };
 
 const mbtiDatabase = Object.fromEntries(
   Object.entries(reportDatabase).map(([mbti, pack]) => [
     mbti,
     {
       deepAnalysis: pack.zh.analysis,
+      deepAnalysis_en: pack.en.analysis || pack.zh.analysis,
       careers: [...pack.zh.careers],
-      parentingAdvice: pack.zh.parenting
+      careers_zh: [...pack.zh.careers],
+      careers_en: pack.en.careers?.length ? [...pack.en.careers] : [...pack.zh.careers],
+      parentingAdvice: pack.zh.parenting,
+      parentingAdvice_en: pack.en.parenting || pack.zh.parenting
     }
   ])
 );
@@ -686,10 +709,14 @@ function getZodiacSynergyText(mbti, zodiacKey) {
   return zodiacPack[galaxy] || '';
 }
 
-function renderFinalReportSections({ deepAnalysis, zodiacSynergy, careers, parentingAdvice }) {
-  analysisContent.textContent = deepAnalysis || '';
-  zodiacContent.textContent = zodiacSynergy || '';
-  parentingContent.textContent = parentingAdvice || '';
+function renderFinalReportSections(result) {
+  const deepAnalysis = currentLang === 'en' ? (result.deepAnalysis_en || result.deepAnalysis || '') : (result.deepAnalysis || '');
+  const careers = currentLang === 'en' ? (result.careers_en || result.careers || []) : (result.careers_zh || result.careers || []);
+  const parentingAdvice = currentLang === 'en' ? (result.parentingAdvice_en || result.parentingAdvice || '') : (result.parentingAdvice || '');
+  const zodiacSynergy = result.zodiacSynergy || '';
+  analysisContent.textContent = deepAnalysis;
+  zodiacContent.textContent = zodiacSynergy;
+  parentingContent.textContent = parentingAdvice;
   careerList.innerHTML = '';
   (careers || []).forEach((career) => {
     const li = document.createElement('li');
