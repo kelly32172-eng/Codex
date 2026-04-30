@@ -988,7 +988,7 @@ function renderRound() {
         </span>
         <span class="option-face option-back">
           <span class="option-back-head">
-            <span class="option-back-name">${getLocalizedItemName(item)}</span>
+            <span class="option-back-name">${currentLang === 'en' ? (item.name_en || item.name) : item.name}</span>
             <span class="option-back-mbti">${item.mbti}</span>
           </span>
           <span class="option-back-body">
