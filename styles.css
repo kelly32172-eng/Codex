@@ -95,6 +95,7 @@ html::after {
     transform: scale(1.1);
   }
 
+}
 /* 強光閃爍動畫 */
 @keyframes ultraTwinkle {
   0% {
