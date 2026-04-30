@@ -1302,6 +1302,12 @@ button:hover {
 
 
 @media (max-width: 480px) {
+  .option-face.option-back,
+  .option-back {
+    padding: 8px;
+    gap: 8px;
+  }
+
   .option-back-name,
   .option-back-mbti {
     font-size: 0.9rem;
@@ -1309,25 +1315,25 @@ button:hover {
   }
 
   .option-back-desc {
-    font-size: 0.75rem;
-    line-height: 1.35;
-    padding: 0 4px;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0 2px;
   }
 
   .option-back-traits {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px;
-    padding-top: 4px;
+    padding-top: 2px;
   }
 
   .option-trait-pill,
   .option-back-traits span {
-    font-size: 0.7rem;
-    line-height: 1.2;
-    padding: 2px 3px;
+    font-size: 0.6rem;
+    line-height: 1.1;
+    padding: 2px 4px;
     min-width: 0;
     white-space: normal;
     overflow-wrap: anywhere;
   }
-}
 }
