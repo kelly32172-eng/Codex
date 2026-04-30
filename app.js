@@ -445,12 +445,12 @@ const mbtiDatabase = Object.fromEntries(
     mbti,
     {
       deepAnalysis: pack.zh.analysis,
-      deepAnalysis_en: pack.en.analysis || pack.zh.analysis,
+      deepAnalysis_en: pack.zh.analysis,
       careers: [...pack.zh.careers],
       careers_zh: [...pack.zh.careers],
-      careers_en: pack.en.careers?.length ? [...pack.en.careers] : [...pack.zh.careers],
+      careers_en: [...pack.zh.careers],
       parentingAdvice: pack.zh.parenting,
-      parentingAdvice_en: pack.en.parenting || pack.zh.parenting
+      parentingAdvice_en: pack.zh.parenting
     }
   ])
 );
