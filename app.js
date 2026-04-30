@@ -505,77 +505,77 @@ const mbtiGalaxyMap = {
 
 const zodiacData = {
   牡羊座: {
-    NT: `Born with a "blitzkrieg" talent, executing tactics the moment they think of them. A cold, efficient, and highly aggressive little overlord.`,
-    NF: `A passionate idealist. If they see another baby being bullied, they are the first to charge in and block it. Bursting with a sense of justice.`,
-    SJ: `The enthusiastic little prefect of the house. Not only do they follow the rules, but they'll also loudly scold adults who don't.`,
-    SP: `A turbo-charged little wrecker who doesn't know the word "fear." The ultimate potential prospect for extreme sports.`
+    NT: { text: '牡羊座的 NT 寶寶是自帶「閃電戰略」天賦，想到什麼戰術立刻執行，是個極具侵略性與效率的冷酷小霸主。', text_en: `Born with a "blitzkrieg" talent, executing tactics the moment they think of them. A cold, efficient, and highly aggressive little overlord.` },
+    NF: { text: '牡羊座的 NF 寶寶是熱情如火的理想主義者，看到別的寶寶被欺負絕對第一個衝上去擋，正義感爆棚。', text_en: `A passionate idealist. If they see another baby being bullied, they are the first to charge in and block it. Bursting with a sense of justice.` },
+    SJ: { text: '牡羊座的 SJ 寶寶是家裡的熱血風紀股長，不僅自己守規矩，還會大聲喝斥旁邊不守規矩的大人。', text_en: `The enthusiastic little prefect of the house. Not only do they follow the rules, but they'll also loudly scold adults who don't.` },
+    SP: { text: '牡羊座的 SP 寶寶是裝了渦輪引擎的破壞王，完全沒有「害怕」這兩個字，極限運動員的最佳潛力股。', text_en: `A turbo-charged little wrecker who doesn't know the word "fear." The ultimate potential prospect for extreme sports.` },
   },
   金牛座: {
-    NT: `A stubborn truth-seeker. Once they decide a block goes here, they won't compromise even if the sky falls.`,
-    NF: `A romantic who deeply values the five senses. They have an unbreakable obsession with soothing music and soft security blankets.`,
-    SJ: `A 100% stable angel baby. Their routine is as precise as a biological clock; as long as they eat and sleep well, they are the most well-behaved child.`,
-    SP: `A zen hedonist. Usually laid-back, but upon seeing favorite foods or shiny toys, their agility instantly skyrockets.`
+    NT: { text: '金牛座的 NT 寶寶是固執的真理追求者。只要他認定這個積木該放這裡，就算天塌下來他也絕對不妥協。', text_en: `A stubborn truth-seeker. Once they decide a block goes here, they won't compromise even if the sky falls.` },
+    NF: { text: '金牛座的 NF 寶寶是極度重視五感體驗的浪漫派，對好聽的音樂、好摸的安撫巾有著難以割捨的執念。', text_en: `A romantic who deeply values the five senses. They have an unbreakable obsession with soothing music and soft security blankets.` },
+    SJ: { text: '金牛座的 SJ 寶寶是穩定度 100% 的天使寶寶。作息像生理時鐘一樣精準，只要吃飽睡好，就是全天下最乖的孩子。', text_en: `A 100% stable angel baby. Their routine is as precise as a biological clock; as long as they eat and sleep well, they are the most well-behaved child.` },
+    SP: { text: '金牛座的 SP 寶寶是佛系享樂主義者，平時懶洋洋，但看到喜歡的食物或閃亮的玩具，身手會瞬間變得極度靈活。', text_en: `A zen hedonist. Usually laid-back, but upon seeing favorite foods or shiny toys, their agility instantly skyrockets.` },
   },
   雙子座: {
-    NT: `A super-hacker with a hyper-fast processing brain. They use various babbles and fake-out moves to test the bottom line of adults' IQs.`,
-    NF: `Born with a public relations soul. Even from their stroller, they can rely on rich facial expressions to chat with passing strangers for ten minutes.`,
-    SJ: `A gossip hub that loves gathering intel. Though rule-abiding, their eyes are always observing everyone's movements in the house.`,
-    SP: `A curious baby with a three-second attention span. You need to hand them five different toys at once just to keep them quiet for a moment.`
+    NT: { text: '雙子座的 NT 寶寶是大腦運算速度極快的超級駭客，會用各種牙牙學語和假動作來測試大人的智商底線。', text_en: `A super-hacker with a hyper-fast processing brain. They use various babbles and fake-out moves to test the bottom line of adults' IQs.` },
+    NF: { text: '雙子座的 NF 寶寶是天生自帶公關魂，在嬰兒車裡就能靠著豐富的表情跟路過的陌生人聊上十分鐘。', text_en: `Born with a public relations soul. Even from their stroller, they can rely on rich facial expressions to chat with passing strangers for ten minutes.` },
+    SJ: { text: '雙子座的 SJ 寶寶是喜歡收集情報的八卦小站。雖然守規矩，但眼睛總是在觀察家裡每個人的動靜。', text_en: `A gossip hub that loves gathering intel. Though rule-abiding, their eyes are always observing everyone's movements in the house.` },
+    SP: { text: '雙子座的 SP 寶寶是專注力只有三秒鐘的好奇寶寶。需要同時給他五種不同的玩具，才能勉強讓他安靜一會兒。', text_en: `A curious baby with a three-second attention span. You need to hand them five different toys at once just to keep them quiet for a moment.` },
   },
   巨蟹座: {
-    NT: `Protects an extremely brilliant brain with a hard shell. They won't start conflicts, but secretly, they've already controlled all the resources.`,
-    NF: `The ultimate sweetie with maxed-out empathy. If mom pretends to cry, they will absolutely crawl over immediately to give a huge hug.`,
-    SJ: `The ultimate homebody guardian deity. As long as they are in familiar surroundings with familiar scents, they are the most reliable, comforting little jacket.`,
-    SP: `A little artist with big emotional swings. Playing happily with water one second, and tearing up over a popped bubble the next.`
+    NT: { text: '巨蟹座的 NT 寶寶是用堅硬的外殼保護著極度聰明的大腦。他不會主動挑起爭端，但在暗中早已掌控了一切資源。', text_en: `Protects an extremely brilliant brain with a hard shell. They won't start conflicts, but secretly, they've already controlled all the resources.` },
+    NF: { text: '巨蟹座的 NF 寶寶是共情能力點滿的終極暖寶，只要媽媽假裝哭泣，他絕對會立刻爬過來給你一個大大的擁抱。', text_en: `The ultimate sweetie with maxed-out empathy. If mom pretends to cry, they will absolutely crawl over immediately to give a huge hug.` },
+    SJ: { text: '巨蟹座的 SJ 寶寶是極度戀家的終極守護神。只要在熟悉的環境、熟悉的味道裡，他就是最可靠的貼心小棉襖。', text_en: `The ultimate homebody guardian deity. As long as they are in familiar surroundings with familiar scents, they are the most reliable, comforting little jacket.` },
+    SP: { text: '巨蟹座的 SP 寶寶是情緒起伏較大的小藝術家。上一秒還在開心地玩水，下一秒可能因為泡泡破掉而感傷落淚。', text_en: `A little artist with big emotional swings. Playing happily with water one second, and tearing up over a popped bubble the next.` },
   },
   獅子座: {
-    NT: `An imposing little monarch. No crying needed; with just one look, adults will obediently offer up bottles and toys.`,
-    NF: `A sun god with a built-in spotlight. They love taking care of others center stage, basking in the adoring and grateful gazes of everyone.`,
-    SJ: `An extremely proud model student. As long as you heavily praise them for following the rules, they will behave even more perfectly just to save face.`,
-    SP: `A natural-born stage superstar. The bigger the crowd, the higher the energy. Give them applause, and they might even do a backflip for you (though currently they can only roll over).`
+    NT: { text: '獅子座的 NT 寶寶是不怒自威的小國王。不需要哭鬧，只要一個眼神，大人就會乖乖把奶瓶跟玩具奉上。', text_en: `An imposing little monarch. No crying needed; with just one look, adults will obediently offer up bottles and toys.` },
+    NF: { text: '獅子座的 NF 寶寶是自帶鎂光燈的太陽神。最喜歡在聚光燈下照顧別人，享受大家崇拜與感激的目光。', text_en: `A sun god with a built-in spotlight. They love taking care of others center stage, basking in the adoring and grateful gazes of everyone.` },
+    SJ: { text: '獅子座的 SJ 寶寶是極度傲嬌的模範生。只要你用力誇獎他守規矩，他就會為了維持面子而表現得更加完美。', text_en: `An extremely proud model student. As long as you heavily praise them for following the rules, they will behave even more perfectly just to save face.` },
+    SP: { text: '獅子座的 SP 寶寶是天生的舞台巨星。人越多越嗨，只要有掌聲，他甚至能為你表演後空翻。', text_en: `A natural-born stage superstar. The bigger the crowd, the higher the energy. Give them applause, and they might even do a backflip for you (though currently they can only roll over).` },
   },
   處女座: {
-    NT: `A perfectionist data actuary. They have an almost pathological, logical demand for the angle of their pacifier and the folds of their clothes.`,
-    NF: `An incredibly delicate and devoted soul. They silently memorize what their parents like and express their love in the most understated way.`,
-    SJ: `The household's Quality Control master. If anything is out of place or slightly dirty, they will absolutely have a meltdown for you to see.`,
-    SP: `A master crafter with an artisan spirit. Just give them some blocks, and they can sit there without eating or drinking, building perfectly symmetrical geometric shapes.`
+    NT: { text: '處女座的 NT 寶寶是完美主義的數據精算師。對奶嘴的角度、衣服的摺痕有著近乎病態的邏輯要求。', text_en: `A perfectionist data actuary. They have an almost pathological, logical demand for the angle of their pacifier and the folds of their clothes.` },
+    NF: { text: '處女座的 NF 寶寶是心思極度細膩的奉獻者。會默默記住爸媽喜歡什麼，用最不張揚的方式表達他的愛。', text_en: `An incredibly delicate and devoted soul. They silently memorize what their parents like and express their love in the most understated way.` },
+    SJ: { text: '處女座的 SJ 寶寶是家裡的品管大師。任何東西只要不在原位，或是稍微有點髒污，他絕對會崩潰給你看。', text_en: `The household's Quality Control master. If anything is out of place or slightly dirty, they will absolutely have a meltdown for you to see.` },
+    SP: { text: '處女座的 SP 寶寶是擁有工匠精神的手作大師。只要給他積木，他能不吃不喝坐在那裡，排出對稱且完美的幾何圖形。', text_en: `A master crafter with an artisan spirit. Just give them some blocks, and they can sit there without eating or drinking, building perfectly symmetrical geometric shapes.` },
   },
   天秤座: {
-    NT: `An absolutely objective little judge. They favor no one, only speak to the evidence, and display intimidating negotiation skills from a young age.`,
-    NF: `A peace-loving atmosphere maker. They absolutely hate conflict; if someone at home speaks loudly, they will try to smooth things over with laughter.`,
-    SJ: `An order-maintainer who values fairness. "Half each, friends forever" is their motto. Splitting a cookie must be precisely 50/50.`,
-    SP: `The president of the aesthetics club. They show obvious disgust toward ugly clothes or toys, possessing an innately exquisite sense of taste.`
+    NT: { text: '天秤座的 NT 寶寶是絕對客觀的小法官。不偏袒任何人，只看證據說話，從小就展現出令人畏懼的談判技巧。', text_en: `An absolutely objective little judge. They favor no one, only speak to the evidence, and display intimidating negotiation skills from a young age.` },
+    NF: { text: '天秤座的 NF 寶寶是愛好和平的氣氛製造機。極度討厭衝突，只要家裡有人大聲說話，他就會試圖用笑聲來打圓場。', text_en: `A peace-loving atmosphere maker. They absolutely hate conflict; if someone at home speaks loudly, they will try to smooth things over with laughter.` },
+    SJ: { text: '天秤座的 SJ 寶寶是重視公平的秩序維護者。「一人一半，感情不散」是他的座右銘，分餅乾絕對要精準對半。', text_en: `An order-maintainer who values fairness. "Half each, friends forever" is their motto. Splitting a cookie must be precisely 50/50.` },
+    SP: { text: '天秤座的 SP 寶寶是極具美感的外貌協會會長。對醜的衣服或玩具會展現出明顯的嫌棄，天生擁有絕佳的審美品味。', text_en: `The president of the aesthetics club. They show obvious disgust toward ugly clothes or toys, possessing an innately exquisite sense of taste.` },
   },
   天蠍座: {
-    NT: `The mastermind who sees through it all. You think you're teasing them? They are actually calmly analyzing your behavioral patterns.`,
-    NF: `A soulmate with clear loves and hates. Their love for you is absolute and exclusive, but if you lie to them, they will hold a grudge until elementary school.`,
-    SJ: `A guard dog with off-the-charts loyalty. They seem aloof and unapproachable on the outside, but once they accept you as one of their own, they will protect you with their life.`,
-    SP: `A mysterious and dangerous adventurer. The more you forbid them from going somewhere, the more they will sneak in the moment you turn your back, seeking thrills.`
+    NT: { text: '天蠍座的 NT 寶寶是看透一切的幕後黑手。你以為你在逗他玩？其實是他正在冷靜地分析你的行為模式。', text_en: `The mastermind who sees through it all. You think you're teasing them? They are actually calmly analyzing your behavioral patterns.` },
+    NF: { text: '天蠍座的 NF 寶寶是愛恨分明的靈魂伴侶。他給你的愛是極致且獨佔的，但如果你騙了他，他會記仇到上小學。', text_en: `A soulmate with clear loves and hates. Their love for you is absolute and exclusive, but if you lie to them, they will hold a grudge until elementary school.` },
+    SJ: { text: '天蠍座的 SJ 寶寶是忠誠度破表的護衛犬。外表高冷難以接近，但一旦認定你是自己人，他會用生命去守護你。', text_en: `A guard dog with off-the-charts loyalty. They seem aloof and unapproachable on the outside, but once they accept you as one of their own, they will protect you with their life.` },
+    SP: { text: '天蠍座的 SP 寶寶是神祕又危險的冒險王。越是禁止他去的地方，他越要趁你轉身時悄悄潛入，尋找刺激。', text_en: `A mysterious and dangerous adventurer. The more you forbid them from going somewhere, the more they will sneak in the moment you turn your back, seeking thrills.` },
   },
   射手座: {
-    NT: `A philosopher whose brain never stops. They love exploring abstract rules; a crib simply cannot contain their free soul thirsting for truth.`,
-    NF: `An incurable optimist. Even if they fall, they will laugh loudly and climb back up. Their happiness has the magic to infect the whole family.`,
-    SJ: `A rare, lively good baby. Although they still follow house rules, they always find the most humorous and joyful ways to execute their tasks.`,
-    SP: `A true runaway wild horse. If the door isn't closed tight, they've absolutely crawled into the yard to wrestle with stray cats. Their stamina is bottomless.`
+    NT: { text: '射手座的 NT 寶寶是大腦停不下來的哲學家。喜歡探索抽象的規律，嬰兒床根本關不住他那渴望真理的自由靈魂。', text_en: `A philosopher whose brain never stops. They love exploring abstract rules; a crib simply cannot contain their free soul thirsting for truth.` },
+    NF: { text: '射手座的 NF 寶寶是無可救藥的樂天派。就算跌倒了也會大笑著爬起來，他的快樂具備著感染全家人的魔法。', text_en: `An incurable optimist. Even if they fall, they will laugh loudly and climb back up. Their happiness has the magic to infect the whole family.` },
+    SJ: { text: '射手座的 SJ 寶寶是難得活潑的乖寶寶。雖然還是會遵守家規，但他總能用最幽默、最歡樂的方式去執行任務。', text_en: `A rare, lively good baby. Although they still follow house rules, they always find the most humorous and joyful ways to execute their tasks.` },
+    SP: { text: '射手座的 SP 寶寶是真正的脫韁野馬。只要門沒關緊，他絕對已經爬到院子裡去跟野貓打架了，體力深不見底。', text_en: `A true runaway wild horse. If the door isn't closed tight, they've absolutely crawled into the yard to wrestle with stray cats. Their stamina is bottomless.` },
   },
   摩羯座: {
-    NT: `An ambitious entrepreneur baby. Mapping out their life blueprint from age one, every single movement has a clear, long-term goal.`,
-    NF: `The most grounded idealist. Though full of love, their love is very practical (like picking up the cookie you dropped and stuffing it back to you).`,
-    SJ: `An old soul who acts more adult than the adults. You don't need to worry about their schedule; they might turn around and remind you it's bedtime.`,
-    SP: `An action-taker wrapped in a well-behaved disguise. Usually quiet and composed, but once locked onto a target, they show shocking perseverance and execution.`
+    NT: { text: '摩羯座的 NT 寶寶是野心勃勃的企業家寶寶。從一歲就開始規劃人生藍圖，每一個動作都有著明確的長期目標。', text_en: `An ambitious entrepreneur baby. Mapping out their life blueprint from age one, every single movement has a clear, long-term goal.` },
+    NF: { text: '摩羯座的 NF 寶寶是最接地氣的理想主義者。雖然充滿愛，但他的愛非常實際（例如把你掉在地上的餅乾撿起來塞給你）。', text_en: `The most grounded idealist. Though full of love, their love is very practical (like picking up the cookie you dropped and stuffing it back to you).` },
+    SJ: { text: '摩羯座的 SJ 寶寶是比大人還像大人的老靈魂。你不需要操心他的作息，他可能會反過來提醒你到了該睡覺的時間。', text_en: `An old soul who acts more adult than the adults. You don't need to worry about their schedule; they might turn around and remind you it's bedtime.` },
+    SP: { text: '摩羯座的 SP 寶寶是披著乖巧外皮的行動派。平時不露聲色，但只要鎖定目標，他會展現出驚人的毅力和執行力。', text_en: `An action-taker wrapped in a well-behaved disguise. Usually quiet and composed, but once locked onto a target, they show shocking perseverance and execution.` },
   },
   水瓶座: {
-    NT: `An alien genius descended to Earth. Completely unpredictable. You can never use human logic to guess what they will do next.`,
-    NF: `An advocate for universal love. To them, the family dog, the bird outside, and mom and dad are equally important. All beings are equal.`,
-    SJ: `A weirdo guarding a set of strange rules. They don't follow adult rules, but they have their own absolute, bizarre sense of ritual that cannot be broken.`,
-    SP: `A reformer with maxed-out rebellious spirit. The more you tell them to go east, they will absolutely go west, perhaps even inventing a brand-new vehicle to get there.`
+    NT: { text: '水瓶座的 NT 寶寶是降臨地球的外星天才。完全不按牌理出牌，你永遠無法用地球人的邏輯去預測他下一步要幹嘛。', text_en: `An alien genius descended to Earth. Completely unpredictable. You can never use human logic to guess what they will do next.` },
+    NF: { text: '水瓶座的 NF 寶寶是博愛精神的倡議者。對他來說，家裡的狗、窗外的鳥和爸爸媽媽都一樣重要，眾生皆平等。', text_en: `An advocate for universal love. To them, the family dog, the bird outside, and mom and dad are equally important. All beings are equal.` },
+    SJ: { text: '水瓶座的 SJ 寶寶是守著一套奇怪規矩的怪咖。他不遵守大人的規矩，但他有自己一套絕對不能被打破的奇葩儀式感。', text_en: `A weirdo guarding a set of strange rules. They don't follow adult rules, but they have their own absolute, bizarre sense of ritual that cannot be broken.` },
+    SP: { text: '水瓶座的 SP 寶寶是反叛精神點滿的改革者。你越叫他往東，他絕對往西，甚至還會發明一種全新往西的交通工具。', text_en: `A reformer with maxed-out rebellious spirit. The more you tell them to go east, they will absolutely go west, perhaps even inventing a brand-new vehicle to get there.` },
   },
   雙魚座: {
-    NT: `A prophet with powerful intuition. Though full of logic, they occasionally blurt out chillingly accurate sixth senses.`,
-    NF: `A dreamy fairy with a built-in soft-focus filter. Living in a fairytale, highly sensitive to emotions, they can stare at a falling leaf in a daze for half a day.`,
-    SJ: `The gentlest follower. Extremely non-aggressive; as long as you guide them with a soft tone, they will obediently cooperate with all commands.`,
-    SP: `A dancer as free as water. Their body is extremely flexible and supple. No framework can trap them; they are full of captivating artistic aura`
-  }
+    NT: { text: '雙魚座的 NT 寶寶是具備強大直覺的預言家。雖然滿腦子邏輯，但偶爾會冒出令人毛骨悚然、卻又極度精準的第六感。', text_en: `A prophet with powerful intuition. Though full of logic, they occasionally blurt out chillingly accurate sixth senses.` },
+    NF: { text: '雙魚座的 NF 寶寶是自帶柔焦濾鏡的夢幻精靈。活在童話故事裡，對情緒極度敏感，看著一片落葉都能發呆半天。', text_en: `A dreamy fairy with a built-in soft-focus filter. Living in a fairytale, highly sensitive to emotions, they can stare at a falling leaf in a daze for half a day.` },
+    SJ: { text: '雙魚座的 SJ 寶寶是最溫柔的順從者。極度沒有攻擊性，只要你語氣溫和地引導，他就會乖乖配合所有的指令。', text_en: `The gentlest follower. Extremely non-aggressive; as long as you guide them with a soft tone, they will obediently cooperate with all commands.` },
+    SP: { text: '雙魚座的 SP 寶寶是如水一般自由的舞者。身體極度柔軟靈活，沒有任何框架能困住他，充滿了令人著迷的藝術氣息。', text_en: `A dancer as free as water. Their body is extremely flexible and supple. No framework can trap them; they are full of captivating artistic aura` },
+  },
 };
 
 const zodiacKeyMap = {
@@ -747,7 +747,9 @@ function getZodiacSynergyText(mbti, zodiacKey) {
   const galaxy = mbtiGalaxyMap[mbti] || 'NF';
   const zodiacPack = zodiacSynergyDatabase[zodiacKey];
   if (!zodiacPack) return '';
-  return zodiacPack[galaxy] || '';
+  const synergy = zodiacPack[galaxy];
+  if (!synergy) return '';
+  return currentLang === 'en' ? (synergy.text_en || synergy.text || '') : (synergy.text || '');
 }
 
 function renderFinalReportSections(result) {
