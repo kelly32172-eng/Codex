@@ -223,36 +223,36 @@ const rounds = [
     key: 'interest',
     label: '第一關：興趣分類',
     options: [
-      { id: 'book', name: '書', iconKey: 'book', mbti: 'ISTJ', title: '閱讀與知識', desc: '被故事與知識內容吸引，喜歡透過閱讀探索世界。', explain: ['專注書中世界', '重視文字記載', '吸收邏輯與事實', '按部就班地學習'] },
-      { id: 'plane', name: '飛機', iconKey: 'plane', mbti: 'ENTP', title: '旅遊與探索', desc: '被未知與新環境吸引，喜歡旅遊並探索世界。', explain: ['學習向外探索', '嚮往未知遠方', '理解異國文化', '享受隨性的自由'] },
-      { id: 'ball', name: '球', iconKey: 'ball', mbti: 'ESTP', title: '運動與競技', desc: '被動態活動吸引，喜歡透過肢體與環境互動。', explain: ['與他人交流', '重視具體體驗', '分析競爭優劣勢', '在場上靈活互動'] },
-      { id: 'piano', name: '鋼琴', iconKey: 'piano', mbti: 'ISFP', title: '音樂與節奏', desc: '被聲音與節奏吸引，喜歡用音樂感受與表達。', explain: ['探索內在情感', '實際彈奏樂器', '隨心情演奏樂曲', '擅長即興發揮'] },
-      { id: 'palette', name: '調色盤', iconKey: 'palette', mbti: 'ENFP', title: '色彩與創作', desc: '被色彩與創作吸引，喜歡用畫面表達想法。', explain: ['展現藝術', '表達色彩抽象', '用顏色代表情感', '自由揮灑創作'] },
-      { id: 'camera', name: '相機', iconKey: 'camera', mbti: 'INFJ', title: '影像與紀錄', desc: '被畫面與細節吸引，喜歡用觀察理解世界。', explain: ['擅長觀察周遭', '用畫面象徵故事', '帶有溫度影像', '有計劃地構圖'] }
+      { id: 'book', name: '書', name_en: 'Book', iconKey: 'book', mbti: 'ISTJ', title: '閱讀與知識', desc: '被故事與知識內容吸引，喜歡透過閱讀探索世界。', desc_en: 'Attracted by stories and knowledge, this baby loves exploring the world through reading.', explain: ['專注書中世界', '重視文字記載', '吸收邏輯與事實', '按部就班地學習'], explain_en: ['Focused on story worlds', 'Values written records', 'Absorbs logic and facts', 'Learns step by step'] },
+      { id: 'plane', name: '飛機', name_en: 'Plane', iconKey: 'plane', mbti: 'ENTP', title: '旅遊與探索', desc: '被未知與新環境吸引，喜歡旅遊並探索世界。', desc_en: 'Attracted by the unknown and new environments, this baby enjoys exploring beyond familiar boundaries.', explain: ['學習向外探索', '嚮往未知遠方', '理解異國文化', '享受隨性的自由'], explain_en: ['Explores outward with curiosity', 'Dreams of distant unknowns', 'Understands different cultures', 'Enjoys spontaneous freedom'] },
+      { id: 'ball', name: '球', name_en: 'Ball', iconKey: 'ball', mbti: 'ESTP', title: '運動與競技', desc: '被動態活動吸引，喜歡透過肢體與環境互動。', desc_en: 'Drawn to movement and action, this baby connects with the world through hands-on play.', explain: ['與他人交流', '重視具體體驗', '分析競爭優劣勢', '在場上靈活互動'], explain_en: ['Connects easily with others', 'Values real experiences', 'Reads competitive dynamics', 'Adapts quickly in action'] },
+      { id: 'piano', name: '鋼琴', name_en: 'Piano', iconKey: 'piano', mbti: 'ISFP', title: '音樂與節奏', desc: '被聲音與節奏吸引，喜歡用音樂感受與表達。', desc_en: 'Captivated by sound and rhythm, this baby feels and expresses emotions through music.', explain: ['探索內在情感', '實際彈奏樂器', '隨心情演奏樂曲', '擅長即興發揮'], explain_en: ['Explores inner feelings', 'Learns through playing instruments', 'Performs with changing moods', 'Naturally improvises'] },
+      { id: 'palette', name: '調色盤', name_en: 'Palette', iconKey: 'palette', mbti: 'ENFP', title: '色彩與創作', desc: '被色彩與創作吸引，喜歡用畫面表達想法。', desc_en: 'Inspired by color and creativity, this baby loves turning ideas into vivid visual expression.', explain: ['展現藝術', '表達色彩抽象', '用顏色代表情感', '自由揮灑創作'], explain_en: ['Shows artistic flair', 'Expresses abstract color ideas', 'Uses color to show emotion', 'Creates with free spirit'] },
+      { id: 'camera', name: '相機', name_en: 'Camera', iconKey: 'camera', mbti: 'INFJ', title: '影像與紀錄', desc: '被畫面與細節吸引，喜歡用觀察理解世界。', desc_en: 'Fascinated by images and details, this baby understands the world through thoughtful observation.', explain: ['擅長觀察周遭', '用畫面象徵故事', '帶有溫度影像', '有計劃地構圖'], explain_en: ['Notices subtle surroundings', 'Frames stories through images', 'Captures warmth in moments', 'Composes with intention'] }
     ]
   },
   {
     key: 'ability',
     label: '第二關：能力取向',
     options: [
-      { id: 'abacus', name: '計算機', iconKey: 'abacus', mbti: 'INTP', title: '數理邏輯力', desc: '具備強大的邏輯運算與數據分析天賦。', explain: ['獨立解決問題', '思考抽象邏輯', '理性數據分析', '善於嘗試解法'] },
-      { id: 'pen', name: '筆', iconKey: 'pen', mbti: 'INTJ', title: '計劃組織力', desc: '具備統整思維與結構化表達的天賦。', explain: ['沉澱獨立思考', '規劃書寫架構', '文體結構分明', '系統地撰寫'] },
-      { id: 'blocks', name: '積木', iconKey: 'blocks', mbti: 'ISTP', title: '空間實作力', desc: '具備動手操作與空間結構的建構天賦。', explain: ['專注零件操作', '擅長實際手作', '分析構造定律', '重組各種可能'] },
-      { id: 'compass', name: '指南針', iconKey: 'compass', mbti: 'ENTJ', title: '方向決策力', desc: '具備判斷趨勢與決定前進目標的天賦。', explain: ['指引團隊前行', '想像未來目的', '理性規劃路線', '有計劃地執行'] },
-      { id: 'microphone', name: '麥克風', iconKey: 'microphone', mbti: 'ESFP', title: '口語表達力', desc: '具備感染人群與大方自信的表演天賦。', explain: ['熱衷向外發聲', '強調現場張力', '擅長感性表達', '享受即興演說'] },
-      { id: 'medkit', name: '醫藥箱', iconKey: 'medkit', mbti: 'ESFJ', title: '協調關懷力', desc: '具備細心照顧與組織人群福利的天賦。', explain: ['建立溫暖互動', '提供實務支援', '能以同理關懷', '遵循安全規範'] }
+      { id: 'abacus', name: '計算機', name_en: 'Abacus', iconKey: 'abacus', mbti: 'INTP', title: '數理邏輯力', desc: '具備強大的邏輯運算與數據分析天賦。', desc_en: 'Gifted in logic and data thinking, this baby enjoys solving puzzles with calm reasoning.', explain: ['獨立解決問題', '思考抽象邏輯', '理性數據分析', '善於嘗試解法'], explain_en: ['Solves problems independently', 'Thinks in abstract logic', 'Analyzes data rationally', 'Tests multiple solutions'] },
+      { id: 'pen', name: '筆', name_en: 'Pen', iconKey: 'pen', mbti: 'INTJ', title: '計劃組織力', desc: '具備統整思維與結構化表達的天賦。', desc_en: 'Strong in planning and structure, this baby organizes ideas with strategic clarity.', explain: ['沉澱獨立思考', '規劃書寫架構', '文體結構分明', '系統地撰寫'], explain_en: ['Reflects deeply and independently', 'Plans clear writing frameworks', 'Builds coherent structure', 'Expresses ideas systematically'] },
+      { id: 'blocks', name: '積木', name_en: 'Blocks', iconKey: 'blocks', mbti: 'ISTP', title: '空間實作力', desc: '具備動手操作與空間結構的建構天賦。', desc_en: 'Talented in hands-on building, this baby learns by testing shapes and structures directly.', explain: ['專注零件操作', '擅長實際手作', '分析構造定律', '重組各種可能'], explain_en: ['Focuses on component details', 'Excels at practical making', 'Understands structural rules', 'Recombines ideas creatively'] },
+      { id: 'compass', name: '指南針', name_en: 'Compass', iconKey: 'compass', mbti: 'ENTJ', title: '方向決策力', desc: '具備判斷趨勢與決定前進目標的天賦。', desc_en: 'Natural at setting direction, this baby senses trends and leads toward clear goals.', explain: ['指引團隊前行', '想像未來目的', '理性規劃路線', '有計劃地執行'], explain_en: ['Guides others forward', 'Envisions future goals', 'Plans routes rationally', 'Executes with discipline'] },
+      { id: 'microphone', name: '麥克風', name_en: 'Microphone', iconKey: 'microphone', mbti: 'ESFP', title: '口語表達力', desc: '具備感染人群與大方自信的表演天賦。', desc_en: 'Full of stage energy, this baby shines through expressive communication and joyful presence.', explain: ['熱衷向外發聲', '強調現場張力', '擅長感性表達', '享受即興演說'], explain_en: ['Loves speaking out', 'Builds lively atmosphere', 'Expresses with emotion', 'Enjoys spontaneous sharing'] },
+      { id: 'medkit', name: '醫藥箱', name_en: 'Medkit', iconKey: 'medkit', mbti: 'ESFJ', title: '協調關懷力', desc: '具備細心照顧與組織人群福利的天賦。', desc_en: 'Caring and dependable, this baby supports others with empathy and practical help.', explain: ['建立溫暖互動', '提供實務支援', '能以同理關懷', '遵循安全規範'], explain_en: ['Creates warm connections', 'Offers practical support', 'Cares with empathy', 'Follows safe routines'] }
     ]
   },
   {
     key: 'personality',
     label: '第三關：人格核心',
     options: [
-      { id: 'heart', name: '愛心', iconKey: 'heart', mbti: 'ISFJ', title: '守護者', desc: '溫柔穩定，重視情感交流與互動。', explain: ['內斂體貼', '給予實際關心', '充滿同理心', '守護長期安定'] },
-      { id: 'crown', name: '皇冠', iconKey: 'crown', mbti: 'ESTJ', title: '領導者', desc: '展現自信與領導風範，喜歡建立秩序。', explain: ['在群體發揮影響', '注重效率成果', '客觀準則導向', '善於掌控秩序'] },
-      { id: 'sun', name: '太陽', iconKey: 'sun', mbti: 'ENFP', title: '啟發者', desc: '熱情奔放，能照亮並鼓舞身邊的人。', explain: ['對外擴散能量', '有天馬行空靈感', '對人事物熱情', '不受框架限制'] },
-      { id: 'moon', name: '月亮', iconKey: 'moon', mbti: 'INTJ', title: '思考者', desc: '富有智慧，喜歡獨立鑽研事物本質。', explain: ['深沉冷靜', '具備洞察力', '善於冷靜決策', '有條不紊實踐'] },
-      { id: 'gear', name: '齒輪', iconKey: 'gear', mbti: 'ENTP', title: '革新者', desc: '擅長靈活變通，是推動系統進化原動力。', explain: ['帶動團隊運轉', '發想各種方案', '追求理性模式', '適應環境變動'] },
-      { id: 'cloud', name: '雲朵', iconKey: 'cloud', mbti: 'ISFP', title: '隨心者', desc: '懂得享受生活，擁有純真且不受拘束的靈魂。', explain: ['享受獨處自在', '對環境變化敏感', '對世界充滿包容', '展現生活彈性'] }
+      { id: 'heart', name: '愛心', name_en: 'Heart', iconKey: 'heart', mbti: 'ISFJ', title: '守護者', desc: '溫柔穩定，重視情感交流與互動。', desc_en: 'Gentle and steady, this baby values emotional bonds and quietly protects loved ones.', explain: ['內斂體貼', '給予實際關心', '充滿同理心', '守護長期安定'], explain_en: ['Quietly considerate', 'Shows care through actions', 'Deeply empathetic', 'Protects long-term harmony'] },
+      { id: 'crown', name: '皇冠', name_en: 'Crown', iconKey: 'crown', mbti: 'ESTJ', title: '領導者', desc: '展現自信與領導風範，喜歡建立秩序。', desc_en: 'Confident and decisive, this baby naturally leads and builds clear order.', explain: ['在群體發揮影響', '注重效率成果', '客觀準則導向', '善於掌控秩序'], explain_en: ['Influences group dynamics', 'Focuses on effective outcomes', 'Uses objective standards', 'Maintains clear structure'] },
+      { id: 'sun', name: '太陽', name_en: 'Sun', iconKey: 'sun', mbti: 'ENFP', title: '啟發者', desc: '熱情奔放，能照亮並鼓舞身邊的人。', desc_en: 'Bright and enthusiastic, this baby inspires everyone nearby with playful energy.', explain: ['對外擴散能量', '有天馬行空靈感', '對人事物熱情', '不受框架限制'], explain_en: ['Spreads uplifting energy', 'Imagines boldly', 'Shows passion for people and ideas', 'Thinks beyond limits'] },
+      { id: 'moon', name: '月亮', name_en: 'Moon', iconKey: 'moon', mbti: 'INTJ', title: '思考者', desc: '富有智慧，喜歡獨立鑽研事物本質。', desc_en: 'Wise and reflective, this baby enjoys exploring the deeper patterns behind things.', explain: ['深沉冷靜', '具備洞察力', '善於冷靜決策', '有條不紊實踐'], explain_en: ['Calm and thoughtful', 'Sees hidden patterns', 'Makes composed decisions', 'Acts with orderly focus'] },
+      { id: 'gear', name: '齒輪', name_en: 'Gear', iconKey: 'gear', mbti: 'ENTP', title: '革新者', desc: '擅長靈活變通，是推動系統進化原動力。', desc_en: 'Flexible and inventive, this baby keeps systems moving with fresh ideas and adaptability.', explain: ['帶動團隊運轉', '發想各種方案', '追求理性模式', '適應環境變動'], explain_en: ['Energizes group momentum', 'Generates many solutions', 'Seeks smart systems', 'Adapts to changing contexts'] },
+      { id: 'cloud', name: '雲朵', name_en: 'Cloud', iconKey: 'cloud', mbti: 'ISFP', title: '隨心者', desc: '懂得享受生活，擁有純真且不受拘束的靈魂。', desc_en: 'Free-spirited and gentle, this baby embraces life with sensitivity and ease.', explain: ['享受獨處自在', '對環境變化敏感', '對世界充滿包容', '展現生活彈性'], explain_en: ['Feels at ease alone', 'Sensitive to surroundings', 'Welcomes the world openly', 'Lives with flexible rhythm'] }
     ]
   }
 ];
@@ -587,7 +587,18 @@ function t(key) {
 function getLocalizedItemName(item) {
   const profile = item?.id ? itemsDatabase[item.id] : null;
   if (!profile) return item.name;
-  return (profile[currentLang]?.name || profile.zh?.name || item.name);
+  return (profile[currentLang]?.name || (currentLang === 'en' ? item.name_en : item.name) || profile.zh?.name || item.name);
+}
+
+function getLocalizedItemDesc(item) {
+  if (!item) return '';
+  return currentLang === 'en' ? (item.desc_en || item.desc || '') : (item.desc || '');
+}
+
+function getLocalizedItemTraits(item) {
+  if (!item) return [];
+  if (currentLang === 'en') return Array.isArray(item.explain_en) ? item.explain_en : (item.explain || []);
+  return Array.isArray(item.explain) ? item.explain : [];
 }
 
 function getItemIconKey(item) {
@@ -981,7 +992,7 @@ function renderRound() {
             <span class="option-back-mbti">${item.mbti}</span>
           </span>
           <span class="option-back-body">
-            <span class="option-back-desc">${item.desc}</span>
+            <span class="option-back-desc">${getLocalizedItemDesc(item)}</span>
           </span>
           <span class="option-back-traits">${renderOptionTraits(item)}</span>
         </span>
@@ -1000,7 +1011,7 @@ function renderRound() {
 }
 
 function renderOptionTraits(item) {
-  const traits = Array.isArray(item.explain) ? item.explain.slice(0, 4) : [];
+  const traits = getLocalizedItemTraits(item).slice(0, 4);
   return traits
     .map((trait) => `<span class="option-trait-pill">${escapeHtmlText(trait)}</span>`)
     .join('');
