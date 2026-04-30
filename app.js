@@ -455,6 +455,18 @@ const mbtiDatabase = Object.fromEntries(
   ])
 );
 
+
+function assertLocalizationCompleteness() {
+  const allItems = quizData.flatMap((round) => round.options || []);
+  const missingItemNameEn = allItems.filter((item) => !item?.name_en).map((item) => item?.id || item?.name);
+  const mbtiTypes = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
+  const missingMbtiAnalysisEn = mbtiTypes.filter((type) => !(mbtiDatabase[type] && mbtiDatabase[type].deepAnalysis_en));
+  if (missingItemNameEn.length || missingMbtiAnalysisEn.length) {
+    console.warn('Localization data incomplete', { missingItemNameEn, missingMbtiAnalysisEn });
+  }
+}
+
+assertLocalizationCompleteness();
 const mbtiGalaxyMap = {
   INTJ: 'NT', INTP: 'NT', ENTJ: 'NT', ENTP: 'NT',
   INFJ: 'NF', INFP: 'NF', ENFJ: 'NF', ENFP: 'NF',
@@ -1076,7 +1088,7 @@ function showResult() {
   const mbti = computeMbti(chosen);
   const babyName = babyNameInput.value.trim();
   const babyZodiac = getZodiacLabel();
-  const report = mbtiData[mbti] || { deepAnalysis: '', careers: [], parentingAdvice: '' };
+  const report = mbtiDatabase[mbti] || { deepAnalysis: '', deepAnalysis_en: '', careers: [], careers_zh: [], careers_en: [], parentingAdvice: '', parentingAdvice_en: '' };
   const badgeMeta = getMbtiBadgeMeta(mbti);
   const zodiacSynergy = getZodiacSynergyText(mbti, babyZodiacInput.value) || `當 ${babyZodiac} 座與 ${mbti} 相遇，寶寶會展現更鮮明的獨特光芒。`;
 
@@ -1088,9 +1100,13 @@ function showResult() {
   reportMbti.textContent = badgeMeta.badgeText;
   renderFinalReportSections({
     deepAnalysis: report.deepAnalysis,
+    deepAnalysis_en: report.deepAnalysis_en,
     zodiacSynergy: zodiacSynergy.replaceAll('{{zodiac}}', babyZodiac),
     careers: report.careers,
-    parentingAdvice: report.parentingAdvice
+    careers_zh: report.careers_zh,
+    careers_en: report.careers_en,
+    parentingAdvice: report.parentingAdvice,
+    parentingAdvice_en: report.parentingAdvice_en
   });
 
   const mbtiImagePath = getMbtiImagePath(mbti);
@@ -1107,7 +1123,7 @@ function showResult() {
     const imageMarkup = imageAsset
       ? `<img class="stamp-prop-image" src="${imageAsset.src}" alt="${imageAlt}" />`
       : `<span class="stamp-prop-icon icon-${iconKey}">${getItemIconMarkup(item)}</span>`;
-    tag.innerHTML = `${imageMarkup}<strong>${getLocalizedItemName(item)}</strong>`;
+    tag.innerHTML = `${imageMarkup}<strong>${currentLang === 'en' ? (item.name_en || item.name) : item.name}</strong>`;
     pickedTags.appendChild(tag);
   });
 
