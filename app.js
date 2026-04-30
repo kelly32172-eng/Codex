@@ -562,22 +562,22 @@ const downloadBtn = document.getElementById('download-btn');
 const shareBtn = document.getElementById('share-btn');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
-  INTJ: { nickname: '小小策略家', category: '分析家寶寶', colorClass: 'mbti-purple' },
-  INTP: { nickname: '小小發明家', category: '分析家寶寶', colorClass: 'mbti-purple' },
-  ENTJ: { nickname: '小小霸總', category: '分析家寶寶', colorClass: 'mbti-purple' },
-  ENTP: { nickname: '小小智多星', category: '分析家寶寶', colorClass: 'mbti-purple' },
-  INFJ: { nickname: '小小讀心者', category: '外交家寶寶', colorClass: 'mbti-green' },
-  INFP: { nickname: '小小夢想家', category: '外交家寶寶', colorClass: 'mbti-green' },
-  ENFJ: { nickname: '小小太陽', category: '外交家寶寶', colorClass: 'mbti-green' },
-  ENFP: { nickname: '小小開心果', category: '外交家寶寶', colorClass: 'mbti-green' },
-  ISTJ: { nickname: '小小巡邏員', category: '守護者寶寶', colorClass: 'mbti-blue' },
-  ISFJ: { nickname: '小小棉襖', category: '守護者寶寶', colorClass: 'mbti-blue' },
-  ESTJ: { nickname: '小小總指揮', category: '守護者寶寶', colorClass: 'mbti-blue' },
-  ESFJ: { nickname: '小小公關', category: '守護者寶寶', colorClass: 'mbti-blue' },
-  ISTP: { nickname: '小小工匠', category: '探險家寶寶', colorClass: 'mbti-yellow' },
-  ISFP: { nickname: '小小藝術家', category: '探險家寶寶', colorClass: 'mbti-yellow' },
-  ESTP: { nickname: '小小冒險王', category: '探險家寶寶', colorClass: 'mbti-yellow' },
-  ESFP: { nickname: '小小大明星', category: '探險家寶寶', colorClass: 'mbti-yellow' }
+  INTJ: { title: '小小策略家', title_en: 'Little Strategist', subtitle: '分析家寶寶', subtitle_en: 'Analyst Baby', colorClass: 'mbti-purple' },
+  INTP: { title: '小小發明家', title_en: 'Little Inventor', subtitle: '分析家寶寶', subtitle_en: 'Analyst Baby', colorClass: 'mbti-purple' },
+  ENTJ: { title: '小小霸總', title_en: 'Little Commander', subtitle: '分析家寶寶', subtitle_en: 'Analyst Baby', colorClass: 'mbti-purple' },
+  ENTP: { title: '小小智多星', title_en: 'Little Idea Spark', subtitle: '分析家寶寶', subtitle_en: 'Analyst Baby', colorClass: 'mbti-purple' },
+  INFJ: { title: '小小讀心者', title_en: 'Little Mind Reader', subtitle: '外交家寶寶', subtitle_en: 'Diplomat Baby', colorClass: 'mbti-green' },
+  INFP: { title: '小小夢想家', title_en: 'Little Dreamer', subtitle: '外交家寶寶', subtitle_en: 'Diplomat Baby', colorClass: 'mbti-green' },
+  ENFJ: { title: '小小太陽', title_en: 'Little Sunshine', subtitle: '外交家寶寶', subtitle_en: 'Diplomat Baby', colorClass: 'mbti-green' },
+  ENFP: { title: '小小開心果', title_en: 'Little Joy Spark', subtitle: '外交家寶寶', subtitle_en: 'Diplomat Baby', colorClass: 'mbti-green' },
+  ISTJ: { title: '小小巡邏員', title_en: 'Little Patrol Guard', subtitle: '守護者寶寶', subtitle_en: 'Sentinel Baby', colorClass: 'mbti-blue' },
+  ISFJ: { title: '小小棉襖', title_en: 'Little Warm Guardian', subtitle: '守護者寶寶', subtitle_en: 'Sentinel Baby', colorClass: 'mbti-blue' },
+  ESTJ: { title: '小小總指揮', title_en: 'Little Chief Commander', subtitle: '守護者寶寶', subtitle_en: 'Sentinel Baby', colorClass: 'mbti-blue' },
+  ESFJ: { title: '小小公關', title_en: 'Little Connector', subtitle: '守護者寶寶', subtitle_en: 'Sentinel Baby', colorClass: 'mbti-blue' },
+  ISTP: { title: '小小工匠', title_en: 'Little Craftsman', subtitle: '探險家寶寶', subtitle_en: 'Explorer Baby', colorClass: 'mbti-yellow' },
+  ISFP: { title: '小小藝術家', title_en: 'Little Artist', subtitle: '探險家寶寶', subtitle_en: 'Explorer Baby', colorClass: 'mbti-yellow' },
+  ESTP: { title: '小小冒險王', title_en: 'Little Adventure Ace', subtitle: '探險家寶寶', subtitle_en: 'Explorer Baby', colorClass: 'mbti-yellow' },
+  ESFP: { title: '小小大明星', title_en: 'Little Superstar', subtitle: '探險家寶寶', subtitle_en: 'Explorer Baby', colorClass: 'mbti-yellow' }
 };
 
 function t(key) {
@@ -665,11 +665,13 @@ function getZodiacLabel() {
 
 function getMbtiBadgeMeta(mbti) {
   const meta = mbtiMetaMap[mbti] || mbtiMetaMap.ENFP;
+  const title = currentLang === 'en' ? (meta.title_en || meta.title) : meta.title;
+  const subtitle = currentLang === 'en' ? (meta.subtitle_en || meta.subtitle) : meta.subtitle;
   return {
     className: meta.colorClass,
-    category: meta.category,
-    nickname: meta.nickname,
-    badgeText: `${meta.category} ${mbti}`
+    subtitle,
+    title,
+    badgeText: `${subtitle} ${mbti}`
   };
 }
 
@@ -1051,7 +1053,9 @@ function showResult() {
   const badgeMeta = getMbtiBadgeMeta(mbti);
   const zodiacSynergy = getZodiacSynergyText(mbti, babyZodiacInput.value) || `當 ${babyZodiac} 座與 ${mbti} 相遇，寶寶會展現更鮮明的獨特光芒。`;
 
-  reportName.textContent = `${babyName} 是 ${badgeMeta.nickname}`;
+  reportName.textContent = currentLang === 'en'
+    ? `${babyName} is a ${badgeMeta.title}`
+    : `${babyName} 是 ${badgeMeta.title}`;
   reportMbti.classList.remove(...mbtiBadgeColorClasses);
   reportMbti.classList.add(badgeMeta.className);
   reportMbti.textContent = badgeMeta.badgeText;
@@ -1063,7 +1067,7 @@ function showResult() {
   });
 
   const mbtiImagePath = getMbtiImagePath(mbti);
-  babyAvatar.innerHTML = `<img class="result-image" src="${mbtiImagePath}" alt="${badgeMeta.nickname} ${mbti} 結果圖" />`;
+  babyAvatar.innerHTML = `<img class="result-image" src="${mbtiImagePath}" alt="${badgeMeta.title} ${mbti} ${currentLang === 'en' ? 'result image' : '結果圖'}" />`;
 
   pickedTags.innerHTML = '';
   chosen.forEach((item) => {
