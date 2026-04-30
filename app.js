@@ -456,17 +456,6 @@ const mbtiDatabase = Object.fromEntries(
 );
 
 
-function assertLocalizationCompleteness() {
-  const allItems = quizData.flatMap((round) => round.options || []);
-  const missingItemNameEn = allItems.filter((item) => !item?.name_en).map((item) => item?.id || item?.name);
-  const mbtiTypes = ['INTJ','INTP','ENTJ','ENTP','INFJ','INFP','ENFJ','ENFP','ISTJ','ISFJ','ESTJ','ESFJ','ISTP','ISFP','ESTP','ESFP'];
-  const missingMbtiAnalysisEn = mbtiTypes.filter((type) => !(mbtiDatabase[type] && mbtiDatabase[type].deepAnalysis_en));
-  if (missingItemNameEn.length || missingMbtiAnalysisEn.length) {
-    console.warn('Localization data incomplete', { missingItemNameEn, missingMbtiAnalysisEn });
-  }
-}
-
-assertLocalizationCompleteness();
 const mbtiGalaxyMap = {
   INTJ: 'NT', INTP: 'NT', ENTJ: 'NT', ENTP: 'NT',
   INFJ: 'NF', INFP: 'NF', ENFJ: 'NF', ENFP: 'NF',
