@@ -1279,7 +1279,7 @@ button:hover {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 90px !important;
+  width: 150px !important;
   max-width: none !important;
   height: auto !important;
   background: transparent !important;
@@ -1288,6 +1288,11 @@ button:hover {
   padding: 0;
   cursor: pointer;
   z-index: 15;
+}
+
+#share-btn img {
+  width: 100% !important;
+  display: block;
 }
 
 .share-image {
