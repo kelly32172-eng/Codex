@@ -1305,7 +1305,9 @@ button:hover {
   .option-face.option-back,
   .option-back {
     padding: 8px;
+    padding-bottom: 12px !important;
     gap: 8px;
+    box-sizing: border-box !important;
   }
 
   .option-back-name,
@@ -1323,15 +1325,15 @@ button:hover {
 
   .option-back-traits {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px;
+    gap: 2px !important;
     padding-top: 2px;
   }
 
   .option-trait-pill,
   .option-back-traits span {
-    font-size: 0.6rem;
-    line-height: 1.2;
-    padding: 6px 8px !important;
+    font-size: 8.5px !important;
+    line-height: 1.1 !important;
+    padding: 3px 4px !important;
     box-sizing: border-box !important;
     text-align: center;
     display: flex;
