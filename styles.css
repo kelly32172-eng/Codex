@@ -1330,8 +1330,13 @@ button:hover {
   .option-trait-pill,
   .option-back-traits span {
     font-size: 0.6rem;
-    line-height: 1.1;
-    padding: 2px 4px;
+    line-height: 1.2;
+    padding: 6px 8px !important;
+    box-sizing: border-box !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 0;
     white-space: normal;
     overflow-wrap: anywhere;
