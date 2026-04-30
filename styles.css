@@ -1278,8 +1278,8 @@ button:hover {
 .share-image-button {
   position: absolute;
   top: 8px;
-  right: 8px;
-  width: 150px !important;
+  right: 4px;
+  width: clamp(200px, 30vw, 300px) !important;
   max-width: none !important;
   height: auto !important;
   background: transparent !important;
