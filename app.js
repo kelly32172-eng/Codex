@@ -444,13 +444,13 @@ const mbtiDatabase = Object.fromEntries(
   Object.entries(reportDatabase).map(([mbti, pack]) => [
     mbti,
     {
-      deepAnalysis: pack.zh.analysis,
-      deepAnalysis_en: pack.zh.analysis,
-      careers: [...pack.zh.careers],
-      careers_zh: [...pack.zh.careers],
-      careers_en: [...pack.zh.careers],
-      parentingAdvice: pack.zh.parenting,
-      parentingAdvice_en: pack.zh.parenting
+      deepAnalysis: pack.zh.analysis || pack.zh.deepAnalysis || '',
+      deepAnalysis_en: pack.en.analysis || '',
+      careers: [...(pack.zh.careers || [])],
+      careers_zh: [...(pack.zh.careers || [])],
+      careers_en: [...(pack.en.careers || [])],
+      parentingAdvice: pack.zh.parenting || pack.zh.parentingAdvice || '',
+      parentingAdvice_en: pack.en.parenting || ''
     }
   ])
 );
