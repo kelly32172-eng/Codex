@@ -758,6 +758,7 @@ function renderFinalReportSections(result) {
   const parentingAdvice = currentLang === 'en' ? (result.parentingAdvice_en || result.parentingAdvice || '') : (result.parentingAdvice || '');
   const zodiacSynergy = result.zodiacSynergy || '';
   analysisContent.textContent = deepAnalysis;
+  analysisContent.style.whiteSpace = 'pre-line';
   zodiacContent.textContent = zodiacSynergy;
   parentingContent.textContent = parentingAdvice;
   careerList.innerHTML = '';
