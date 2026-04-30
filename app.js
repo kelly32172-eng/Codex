@@ -1006,7 +1006,7 @@ function renderRound() {
   });
 
   selectedText.innerHTML = picked
-    ? `${t('selectedPrefix')} ${getLocalizedItemName(picked)}`
+    ? `${t('selectedPrefix')} ${currentLang === 'en' ? (picked.name_en || picked.name) : picked.name}`
     : t('notSelected');
 }
 
