@@ -493,76 +493,76 @@ const mbtiGalaxyMap = {
 
 const zodiacData = {
   牡羊座: {
-    NT: 'Born with a "blitzkrieg" talent, executing tactics the moment they think of them. A cold, efficient, and highly aggressive little overlord.',
-    NF: 'A passionate idealist. If they see another baby being bullied, they are the first to charge in and block it. Bursting with a sense of justice.',
-    SJ: 'The enthusiastic little prefect of the house. Not only do they follow the rules, but they'll also loudly scold adults who don't.',
-    SP: 'A turbo-charged little wrecker who doesn't know the word "fear." The ultimate potential prospect for extreme sports.'
+    NT: `Born with a "blitzkrieg" talent, executing tactics the moment they think of them. A cold, efficient, and highly aggressive little overlord.`,
+    NF: `A passionate idealist. If they see another baby being bullied, they are the first to charge in and block it. Bursting with a sense of justice.`,
+    SJ: `The enthusiastic little prefect of the house. Not only do they follow the rules, but they'll also loudly scold adults who don't.`,
+    SP: `A turbo-charged little wrecker who doesn't know the word "fear." The ultimate potential prospect for extreme sports.`
   },
   金牛座: {
-    NT: 'A stubborn truth-seeker. Once they decide a block goes here, they won't compromise even if the sky falls.',
-    NF: 'A romantic who deeply values the five senses. They have an unbreakable obsession with soothing music and soft security blankets.',
-    SJ: 'A 100% stable angel baby. Their routine is as precise as a biological clock; as long as they eat and sleep well, they are the most well-behaved child.',
-    SP: 'A zen hedonist. Usually laid-back, but upon seeing favorite foods or shiny toys, their agility instantly skyrockets.'
+    NT: `A stubborn truth-seeker. Once they decide a block goes here, they won't compromise even if the sky falls.`,
+    NF: `A romantic who deeply values the five senses. They have an unbreakable obsession with soothing music and soft security blankets.`,
+    SJ: `A 100% stable angel baby. Their routine is as precise as a biological clock; as long as they eat and sleep well, they are the most well-behaved child.`,
+    SP: `A zen hedonist. Usually laid-back, but upon seeing favorite foods or shiny toys, their agility instantly skyrockets.`
   },
   雙子座: {
-    NT: 'A super-hacker with a hyper-fast processing brain. They use various babbles and fake-out moves to test the bottom line of adults' IQs.',
-    NF: 'Born with a public relations soul. Even from their stroller, they can rely on rich facial expressions to chat with passing strangers for ten minutes.',
-    SJ: 'A gossip hub that loves gathering intel. Though rule-abiding, their eyes are always observing everyone's movements in the house.',
-    SP: 'A curious baby with a three-second attention span. You need to hand them five different toys at once just to keep them quiet for a moment.'
+    NT: `A super-hacker with a hyper-fast processing brain. They use various babbles and fake-out moves to test the bottom line of adults' IQs.`,
+    NF: `Born with a public relations soul. Even from their stroller, they can rely on rich facial expressions to chat with passing strangers for ten minutes.`,
+    SJ: `A gossip hub that loves gathering intel. Though rule-abiding, their eyes are always observing everyone's movements in the house.`,
+    SP: `A curious baby with a three-second attention span. You need to hand them five different toys at once just to keep them quiet for a moment.`
   },
   巨蟹座: {
-    NT: 'Protects an extremely brilliant brain with a hard shell. They won't start conflicts, but secretly, they've already controlled all the resources.',
-    NF: 'The ultimate sweetie with maxed-out empathy. If mom pretends to cry, they will absolutely crawl over immediately to give a huge hug.',
-    SJ: 'The ultimate homebody guardian deity. As long as they are in familiar surroundings with familiar scents, they are the most reliable, comforting little jacket.',
-    SP: 'A little artist with big emotional swings. Playing happily with water one second, and tearing up over a popped bubble the next.'
+    NT: `Protects an extremely brilliant brain with a hard shell. They won't start conflicts, but secretly, they've already controlled all the resources.`,
+    NF: `The ultimate sweetie with maxed-out empathy. If mom pretends to cry, they will absolutely crawl over immediately to give a huge hug.`,
+    SJ: `The ultimate homebody guardian deity. As long as they are in familiar surroundings with familiar scents, they are the most reliable, comforting little jacket.`,
+    SP: `A little artist with big emotional swings. Playing happily with water one second, and tearing up over a popped bubble the next.`
   },
   獅子座: {
-    NT: 'An imposing little monarch. No crying needed; with just one look, adults will obediently offer up bottles and toys.',
-    NF: 'A sun god with a built-in spotlight. They love taking care of others center stage, basking in the adoring and grateful gazes of everyone.',
-    SJ: 'An extremely proud model student. As long as you heavily praise them for following the rules, they will behave even more perfectly just to save face.',
-    SP: 'A natural-born stage superstar. The bigger the crowd, the higher the energy. Give them applause, and they might even do a backflip for you (though currently they can only roll over).'
+    NT: `An imposing little monarch. No crying needed; with just one look, adults will obediently offer up bottles and toys.`,
+    NF: `A sun god with a built-in spotlight. They love taking care of others center stage, basking in the adoring and grateful gazes of everyone.`,
+    SJ: `An extremely proud model student. As long as you heavily praise them for following the rules, they will behave even more perfectly just to save face.`,
+    SP: `A natural-born stage superstar. The bigger the crowd, the higher the energy. Give them applause, and they might even do a backflip for you (though currently they can only roll over).`
   },
   處女座: {
-    NT: 'A perfectionist data actuary. They have an almost pathological, logical demand for the angle of their pacifier and the folds of their clothes.',
-    NF: 'An incredibly delicate and devoted soul. They silently memorize what their parents like and express their love in the most understated way.',
-    SJ: 'The household's Quality Control master. If anything is out of place or slightly dirty, they will absolutely have a meltdown for you to see.',
-    SP: 'A master crafter with an artisan spirit. Just give them some blocks, and they can sit there without eating or drinking, building perfectly symmetrical geometric shapes.'
+    NT: `A perfectionist data actuary. They have an almost pathological, logical demand for the angle of their pacifier and the folds of their clothes.`,
+    NF: `An incredibly delicate and devoted soul. They silently memorize what their parents like and express their love in the most understated way.`,
+    SJ: `The household's Quality Control master. If anything is out of place or slightly dirty, they will absolutely have a meltdown for you to see.`,
+    SP: `A master crafter with an artisan spirit. Just give them some blocks, and they can sit there without eating or drinking, building perfectly symmetrical geometric shapes.`
   },
   天秤座: {
-    NT: 'An absolutely objective little judge. They favor no one, only speak to the evidence, and display intimidating negotiation skills from a young age.',
-    NF: 'A peace-loving atmosphere maker. They absolutely hate conflict; if someone at home speaks loudly, they will try to smooth things over with laughter.',
-    SJ: 'An order-maintainer who values fairness. "Half each, friends forever" is their motto. Splitting a cookie must be precisely 50/50.',
-    SP: 'The president of the aesthetics club. They show obvious disgust toward ugly clothes or toys, possessing an innately exquisite sense of taste.'
+    NT: `An absolutely objective little judge. They favor no one, only speak to the evidence, and display intimidating negotiation skills from a young age.`,
+    NF: `A peace-loving atmosphere maker. They absolutely hate conflict; if someone at home speaks loudly, they will try to smooth things over with laughter.`,
+    SJ: `An order-maintainer who values fairness. "Half each, friends forever" is their motto. Splitting a cookie must be precisely 50/50.`,
+    SP: `The president of the aesthetics club. They show obvious disgust toward ugly clothes or toys, possessing an innately exquisite sense of taste.`
   },
   天蠍座: {
-    NT: 'The mastermind who sees through it all. You think you're teasing them? They are actually calmly analyzing your behavioral patterns.',
-    NF: 'A soulmate with clear loves and hates. Their love for you is absolute and exclusive, but if you lie to them, they will hold a grudge until elementary school.',
-    SJ: 'A guard dog with off-the-charts loyalty. They seem aloof and unapproachable on the outside, but once they accept you as one of their own, they will protect you with their life.',
-    SP: 'A mysterious and dangerous adventurer. The more you forbid them from going somewhere, the more they will sneak in the moment you turn your back, seeking thrills.'
+    NT: `The mastermind who sees through it all. You think you're teasing them? They are actually calmly analyzing your behavioral patterns.`,
+    NF: `A soulmate with clear loves and hates. Their love for you is absolute and exclusive, but if you lie to them, they will hold a grudge until elementary school.`,
+    SJ: `A guard dog with off-the-charts loyalty. They seem aloof and unapproachable on the outside, but once they accept you as one of their own, they will protect you with their life.`,
+    SP: `A mysterious and dangerous adventurer. The more you forbid them from going somewhere, the more they will sneak in the moment you turn your back, seeking thrills.`
   },
   射手座: {
-    NT: 'A philosopher whose brain never stops. They love exploring abstract rules; a crib simply cannot contain their free soul thirsting for truth.',
-    NF: 'An incurable optimist. Even if they fall, they will laugh loudly and climb back up. Their happiness has the magic to infect the whole family.',
-    SJ: 'A rare, lively good baby. Although they still follow house rules, they always find the most humorous and joyful ways to execute their tasks.',
-    SP: 'A true runaway wild horse. If the door isn't closed tight, they've absolutely crawled into the yard to wrestle with stray cats. Their stamina is bottomless.'
+    NT: `A philosopher whose brain never stops. They love exploring abstract rules; a crib simply cannot contain their free soul thirsting for truth.`,
+    NF: `An incurable optimist. Even if they fall, they will laugh loudly and climb back up. Their happiness has the magic to infect the whole family.`,
+    SJ: `A rare, lively good baby. Although they still follow house rules, they always find the most humorous and joyful ways to execute their tasks.`,
+    SP: `A true runaway wild horse. If the door isn't closed tight, they've absolutely crawled into the yard to wrestle with stray cats. Their stamina is bottomless.`
   },
   摩羯座: {
-    NT: 'An ambitious entrepreneur baby. Mapping out their life blueprint from age one, every single movement has a clear, long-term goal.',
-    NF: 'The most grounded idealist. Though full of love, their love is very practical (like picking up the cookie you dropped and stuffing it back to you).',
-    SJ: 'An old soul who acts more adult than the adults. You don't need to worry about their schedule; they might turn around and remind you it's bedtime.',
-    SP: 'An action-taker wrapped in a well-behaved disguise. Usually quiet and composed, but once locked onto a target, they show shocking perseverance and execution.'
+    NT: `An ambitious entrepreneur baby. Mapping out their life blueprint from age one, every single movement has a clear, long-term goal.`,
+    NF: `The most grounded idealist. Though full of love, their love is very practical (like picking up the cookie you dropped and stuffing it back to you).`,
+    SJ: `An old soul who acts more adult than the adults. You don't need to worry about their schedule; they might turn around and remind you it's bedtime.`,
+    SP: `An action-taker wrapped in a well-behaved disguise. Usually quiet and composed, but once locked onto a target, they show shocking perseverance and execution.`
   },
   水瓶座: {
-    NT: 'An alien genius descended to Earth. Completely unpredictable. You can never use human logic to guess what they will do next.',
-    NF: 'An advocate for universal love. To them, the family dog, the bird outside, and mom and dad are equally important. All beings are equal.',
-    SJ: 'A weirdo guarding a set of strange rules. They don't follow adult rules, but they have their own absolute, bizarre sense of ritual that cannot be broken.',
-    SP: 'A reformer with maxed-out rebellious spirit. The more you tell them to go east, they will absolutely go west, perhaps even inventing a brand-new vehicle to get there.'
+    NT: `An alien genius descended to Earth. Completely unpredictable. You can never use human logic to guess what they will do next.`,
+    NF: `An advocate for universal love. To them, the family dog, the bird outside, and mom and dad are equally important. All beings are equal.`,
+    SJ: `A weirdo guarding a set of strange rules. They don't follow adult rules, but they have their own absolute, bizarre sense of ritual that cannot be broken.`,
+    SP: `A reformer with maxed-out rebellious spirit. The more you tell them to go east, they will absolutely go west, perhaps even inventing a brand-new vehicle to get there.`
   },
   雙魚座: {
-    NT: 'A prophet with powerful intuition. Though full of logic, they occasionally blurt out chillingly accurate sixth senses.',
-    NF: 'A dreamy fairy with a built-in soft-focus filter. Living in a fairytale, highly sensitive to emotions, they can stare at a falling leaf in a daze for half a day.',
-    SJ: 'The gentlest follower. Extremely non-aggressive; as long as you guide them with a soft tone, they will obediently cooperate with all commands.',
-    SP: 'A dancer as free as water. Their body is extremely flexible and supple. No framework can trap them; they are full of captivating artistic aura'
+    NT: `A prophet with powerful intuition. Though full of logic, they occasionally blurt out chillingly accurate sixth senses.`,
+    NF: `A dreamy fairy with a built-in soft-focus filter. Living in a fairytale, highly sensitive to emotions, they can stare at a falling leaf in a daze for half a day.`,
+    SJ: `The gentlest follower. Extremely non-aggressive; as long as you guide them with a soft tone, they will obediently cooperate with all commands.`,
+    SP: `A dancer as free as water. Their body is extremely flexible and supple. No framework can trap them; they are full of captivating artistic aura`
   }
 };
 
