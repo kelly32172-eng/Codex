@@ -644,6 +644,8 @@ const pickedTags = document.getElementById('picked-tags');
 const babyAvatar = document.getElementById('baby-avatar');
 const downloadBtn = document.getElementById('download-btn');
 const shareBtn = document.getElementById('share-btn');
+const shareBtnImage = document.getElementById('share-btn-image');
+const downloadBtnImage = document.getElementById('download-btn-image');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
   INTJ: { title: '小小策略家', title_en: 'Little Strategist', subtitle: '分析家寶寶', subtitle_en: 'Analyst Baby', colorClass: 'mbti-purple' },
@@ -797,6 +799,17 @@ function updateLanguageUI() {
     el.setAttribute('placeholder', t(el.dataset.i18nPlaceholder));
   });
   langToggleBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
+
+  if (downloadBtnImage) {
+    downloadBtnImage.src = currentLang === 'en' ? 'assets/1.png' : 'assets/download-btn.png';
+    downloadBtnImage.alt = currentLang === 'en' ? 'Save Card' : '下載專屬報告';
+  }
+
+  if (shareBtnImage) {
+    shareBtnImage.src = currentLang === 'en' ? 'assets/2.png' : 'assets/share-btn.png';
+    shareBtnImage.alt = currentLang === 'en' ? 'Share' : '分享';
+  }
+
   renderZodiacOptions();
 
   if (!quizScreen.classList.contains('hidden')) {
