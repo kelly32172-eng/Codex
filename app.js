@@ -1007,13 +1007,12 @@ document.getElementById('start-btn').addEventListener('click', () => {
     return;
   }
 
-  setInstructionsOverlayVisible(true);
+  startQuizFlow();
 });
 
 if (instructionsConfirmBtn && instructionsOverlay) {
   const handleInstructionsConfirm = () => {
     setInstructionsOverlayVisible(false);
-    startQuizFlow();
   };
   instructionsConfirmBtn.addEventListener('click', handleInstructionsConfirm);
   instructionsConfirmBtn.onclick = handleInstructionsConfirm;
