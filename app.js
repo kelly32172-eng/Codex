@@ -994,19 +994,29 @@ function startQuizFlow() {
   renderRound();
 }
 
+function setInstructionsOverlayVisible(isVisible) {
+  instructionsOverlay.classList.toggle('hidden', !isVisible);
+  document.body.style.overflow = isVisible ? 'hidden' : '';
+  document.querySelector('main.container').style.pointerEvents = isVisible ? 'none' : '';
+}
+
 document.getElementById('start-btn').addEventListener('click', () => {
   if (!babyNameInput.value.trim() || !babyZodiacInput.value.trim()) {
     alert(t('alertProfileRequired'));
     return;
   }
 
-  instructionsOverlay.classList.remove('hidden');
+  setInstructionsOverlayVisible(true);
 });
 
-instructionsConfirmBtn.addEventListener('click', () => {
-  instructionsOverlay.classList.add('hidden');
-  startQuizFlow();
-});
+if (instructionsConfirmBtn && instructionsOverlay) {
+  instructionsConfirmBtn.addEventListener('click', () => {
+    setInstructionsOverlayVisible(false);
+    startQuizFlow();
+  });
+}
+
+setInstructionsOverlayVisible(true);
 
 document.getElementById('prev-btn').addEventListener('click', () => {
   if (roundIndex > 0) {
