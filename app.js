@@ -25,6 +25,8 @@ const uiTranslations = {
     notSelected: '尚未選擇',
     alertProfileRequired: '請先輸入寶寶小名與星座',
     alertPickRequired: '本關請先選 1 個道具',
+    instructionsText: '請讓寶寶選擇喜歡的圖片，以第一個摸到的圖片為主喔！',
+    instructionsConfirmBtn: '準備好了，出發！',
     reportName: '{{name}} 的專屬結果圖卡',
     resultSealTitle: '抓周印記',
     resultDimensionTitle: '2x2 四向度解析',
@@ -57,6 +59,8 @@ const uiTranslations = {
     notSelected: 'No selection yet',
     alertProfileRequired: 'Please enter nickname and zodiac sign first.',
     alertPickRequired: 'Please select one item in this round first.',
+    instructionsText: 'Please let the baby choose their favorite picture. Go with the first one they touch!',
+    instructionsConfirmBtn: 'Ready, Go!',
     reportName: "{{name}}'s Personality Report",
     resultSealTitle: 'Picked Seals',
     resultDimensionTitle: '2x2 Dimension Map',
@@ -646,6 +650,8 @@ const downloadBtn = document.getElementById('download-btn');
 const shareBtn = document.getElementById('share-btn');
 const shareBtnImage = document.getElementById('share-btn-image');
 const downloadBtnImage = document.getElementById('download-btn-image');
+const instructionsOverlay = document.getElementById('instructions-overlay');
+const instructionsConfirmBtn = document.getElementById('instructions-confirm-btn');
 const mbtiBadgeColorClasses = ['mbti-purple', 'mbti-green', 'mbti-blue', 'mbti-yellow'];
 const mbtiMetaMap = {
   INTJ: { title: '小小策略家', title_en: 'Little Strategist', subtitle: '分析家寶寶', subtitle_en: 'Analyst Baby', colorClass: 'mbti-purple' },
@@ -980,18 +986,26 @@ langToggleBtn.addEventListener('click', () => {
 
 updateLanguageUI();
 
+function startQuizFlow() {
+  bgmAudio.currentTime = 0;
+  playBgmFromUserGesture();
+  startScreen.classList.add('hidden');
+  quizScreen.classList.remove('hidden');
+  renderRound();
+}
+
 document.getElementById('start-btn').addEventListener('click', () => {
   if (!babyNameInput.value.trim() || !babyZodiacInput.value.trim()) {
     alert(t('alertProfileRequired'));
     return;
   }
 
-  bgmAudio.currentTime = 0;
-  playBgmFromUserGesture();
+  instructionsOverlay.classList.remove('hidden');
+});
 
-  startScreen.classList.add('hidden');
-  quizScreen.classList.remove('hidden');
-  renderRound();
+instructionsConfirmBtn.addEventListener('click', () => {
+  instructionsOverlay.classList.add('hidden');
+  startQuizFlow();
 });
 
 document.getElementById('prev-btn').addEventListener('click', () => {

@@ -8,6 +8,46 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Kiwi+Maru:wght@400;500&family=Quicksand:wght@500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .instructions-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 11, 40, 0.72);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1500;
+        padding: 20px;
+      }
+
+      .instructions-modal {
+        width: min(560px, 100%);
+        background: linear-gradient(160deg, #ffffff 0%, #f7f2ff 100%);
+        border-radius: 20px;
+        padding: 28px 24px;
+        box-shadow: 0 24px 60px rgba(18, 10, 42, 0.35);
+        text-align: center;
+      }
+
+      .instructions-text {
+        margin: 0 0 18px;
+        color: #2f2a5e;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        font-weight: 600;
+      }
+
+      #instructions-confirm-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 12px 26px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, #8b6dff 0%, #5e4ad5 100%);
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <audio
@@ -104,6 +144,13 @@
         <button id="restart-btn" type="button" data-i18n="restartBtn">重新測驗</button>
       </section>
     </main>
+
+    <section id="instructions-overlay" class="instructions-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="instructions-text">
+      <div class="instructions-modal">
+        <p id="instructions-text" class="instructions-text" data-i18n="instructionsText">請讓寶寶選擇喜歡的圖片，以第一個摸到的圖片為主喔！</p>
+        <button id="instructions-confirm-btn" type="button" data-i18n="instructionsConfirmBtn">準備好了，出發！</button>
+      </div>
+    </section>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
