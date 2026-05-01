@@ -290,7 +290,7 @@ button:hover {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 20;
+  z-index: 1700;
   width: 58px;
   height: 58px;
   padding: 0;
@@ -338,7 +338,7 @@ button:hover {
   position: fixed;
   top: 20px;
   right: 88px;
-  z-index: 20;
+  z-index: 1700;
   width: 64px;
   height: 58px;
   padding: 0;

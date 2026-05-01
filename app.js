@@ -996,6 +996,7 @@ function startQuizFlow() {
 
 function setInstructionsOverlayVisible(isVisible) {
   instructionsOverlay.classList.toggle('hidden', !isVisible);
+  instructionsOverlay.style.display = isVisible ? 'flex' : 'none';
   document.body.style.overflow = isVisible ? 'hidden' : '';
   document.querySelector('main.container').style.pointerEvents = isVisible ? 'none' : '';
 }
@@ -1010,10 +1011,12 @@ document.getElementById('start-btn').addEventListener('click', () => {
 });
 
 if (instructionsConfirmBtn && instructionsOverlay) {
-  instructionsConfirmBtn.addEventListener('click', () => {
+  const handleInstructionsConfirm = () => {
     setInstructionsOverlayVisible(false);
     startQuizFlow();
-  });
+  };
+  instructionsConfirmBtn.addEventListener('click', handleInstructionsConfirm);
+  instructionsConfirmBtn.onclick = handleInstructionsConfirm;
 }
 
 setInstructionsOverlayVisible(true);
